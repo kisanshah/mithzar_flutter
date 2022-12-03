@@ -13,6 +13,7 @@ dependencies:
   flutter_gen: ^5.1.0+1
   flutter_svg: 1.1.6
   gap: 2.0.1
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
