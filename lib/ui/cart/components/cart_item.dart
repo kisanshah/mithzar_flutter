@@ -62,7 +62,6 @@ class CartItem extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(25, 25),
                     side: const BorderSide(
-                      color: Colors.green,
                       width: 1.5,
                     ),
                     shape: RoundedRectangleBorder(
@@ -86,10 +85,8 @@ class CartItem extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     padding: EdgeInsets.zero,
-                    backgroundColor: Colors.green,
                     minimumSize: const Size(25, 25),
                     side: const BorderSide(
-                      color: Colors.green,
                       width: 1.5,
                     ),
                     shape: RoundedRectangleBorder(

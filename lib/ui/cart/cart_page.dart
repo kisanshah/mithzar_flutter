@@ -68,7 +68,6 @@ class _CartPageState extends State<CartPage> {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   minimumSize: const Size.fromHeight(50),
-                  backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

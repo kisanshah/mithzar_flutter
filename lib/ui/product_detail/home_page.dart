@@ -116,7 +116,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           decoration: BoxDecoration(
                             color: AppColor.grey,
                             border: Border.all(
-                              color: Colors.green,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(10),
