@@ -52,7 +52,6 @@ class ProductDetailBottomBar extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   backgroundColor: Colors.green,
                   minimumSize: const Size(30, 30),
-                  //Border color
                   side: const BorderSide(
                     color: Colors.green,
                     width: 1.5,

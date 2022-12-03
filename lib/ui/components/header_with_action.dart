@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HeaderWithAction extends StatelessWidget {
-  const HeaderWithAction(
-      {super.key, required this.title, required this.action});
+  const HeaderWithAction({
+    super.key,
+    required this.title,
+    required this.action,
+  });
 
   final String title;
   final VoidCallback action;

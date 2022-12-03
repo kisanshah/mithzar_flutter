@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../components/custom_detail_app_bar.dart';
 import '../theme/app_color.dart';
-import 'components/product_detail_app_bar.dart';
 import 'components/product_detail_bottom_bar.dart';
 
 class ProductDetailPage extends StatefulWidget {
@@ -17,7 +17,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const ProductDetailBottomBar(),
-      appBar: const ProductDetailAppBar(),
+      appBar: const CustomAppBar(title: 'Product Detail'),
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

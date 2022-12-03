@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ProductDetailAppBar extends StatelessWidget with PreferredSizeWidget {
-  const ProductDetailAppBar({super.key});
-
+class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  const CustomAppBar({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: const Text(
-        'Product Detail',
-        style: TextStyle(
+      title: Text(
+        title,
+        style: const TextStyle(
           color: Colors.black,
           fontSize: 14,
           fontWeight: FontWeight.bold,

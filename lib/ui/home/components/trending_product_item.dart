@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../theme/app_color.dart';
+import '../../components/image_box.dart';
 
 class TrendingProductItem extends StatelessWidget {
   const TrendingProductItem({
@@ -16,21 +16,7 @@ class TrendingProductItem extends StatelessWidget {
         width: 150,
         child: Column(
           children: [
-            Container(
-              height: 140,
-              width: 150,
-              decoration: BoxDecoration(
-                color: AppColor.lightPink,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Image.network(
-                  'https://www.apple.com/v/macbook-air/o/images/overview/compare/compare_mba_m1__dsgh2hoxlkae_large_2x.png',
-                  height: 75,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
+            const ImageBox(),
             const SizedBox(height: 10),
             //Name & Price
             Row(
