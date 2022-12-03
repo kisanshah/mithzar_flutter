@@ -58,15 +58,8 @@ class CartItem extends StatelessWidget {
                 OutlinedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
-                    elevation: 0,
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(25, 25),
-                    side: const BorderSide(
-                      width: 1.5,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
                   ),
                   child: const Text(
                     '-',
@@ -83,15 +76,8 @@ class CartItem extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    elevation: 0,
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(25, 25),
-                    side: const BorderSide(
-                      width: 1.5,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
                   ),
                   onPressed: () {},
                   child: const Text(

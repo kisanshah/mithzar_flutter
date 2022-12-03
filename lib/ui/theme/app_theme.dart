@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color.dart';
 
+// ignore: avoid_classes_with_only_static_members
 class AppTheme {
   static final lightTheme = ThemeData(
     primarySwatch: AppColor.accentMaterialColor,
