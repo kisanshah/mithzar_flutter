@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ui/product_detail/home_page.dart';
+import 'ui/auth/sign_in.dart';
 import 'ui/theme/app_theme.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: const ProductDetailPage(),
+      home: const SignInPage(),
     );
   }
 }
