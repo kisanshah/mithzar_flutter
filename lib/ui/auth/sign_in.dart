@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
+import '../../main.dart';
+import '../routes/router/app_router.gr.dart';
 import '../theme/app_color.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends ConsumerStatefulWidget {
   const SignInPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  ConsumerState<SignInPage> createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPageState extends ConsumerState<SignInPage> {
   @override
   Widget build(BuildContext context) {
+    final router = ref.watch(routerProvider);
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: kBottomNavigationBarHeight,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("Don't have an account yet?"),
-            Gap(5),
-            Text(
-              'Sign Up',
-              style: TextStyle(
-                color: AppColor.accentColor,
-                decoration: TextDecoration.underline,
+          children: [
+            const Text("Don't have an account yet?"),
+            const Gap(5),
+            GestureDetector(
+              onTap: () => router.push(const SignUpRoute()),
+              child: const Text(
+                'Sign Up',
+                style: TextStyle(
+                  color: AppColor.accentColor,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
           ],
@@ -73,7 +80,9 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const Gap(30),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  //Add Sign In Logic
+                },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size.fromHeight(50),
                 ),
