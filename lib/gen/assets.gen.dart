@@ -14,11 +14,36 @@ import 'package:flutter/services.dart';
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/arrow_right.svg
+  SvgGenImage get arrowRight => const SvgGenImage('assets/svg/arrow_right.svg');
+
+  /// File path: assets/svg/cancel.svg
+  SvgGenImage get cancel => const SvgGenImage('assets/svg/cancel.svg');
+
+  /// File path: assets/svg/cart.svg
+  SvgGenImage get cart => const SvgGenImage('assets/svg/cart.svg');
+
+  /// File path: assets/svg/delete.svg
+  SvgGenImage get delete => const SvgGenImage('assets/svg/delete.svg');
+
   /// File path: assets/svg/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
 
+  /// File path: assets/svg/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/svg/home.svg');
+
+  /// File path: assets/svg/order.svg
+  SvgGenImage get order => const SvgGenImage('assets/svg/order.svg');
+
+  /// File path: assets/svg/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/svg/search.svg');
+
+  /// File path: assets/svg/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/svg/user.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [filter];
+  List<SvgGenImage> get values =>
+      [arrowRight, cancel, cart, delete, filter, home, order, search, user];
 }
 
 class Assets {

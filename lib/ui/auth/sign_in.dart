@@ -81,7 +81,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               const Gap(30),
               ElevatedButton(
                 onPressed: () {
-                  //Add Sign In Logic
+                  router.replace(const MainRoute());
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size.fromHeight(50),
