@@ -1,5 +1,6 @@
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../extensions/log.dart';
 import '../../extensions/nullable.dart';
@@ -8,7 +9,7 @@ import 'api_path.dart';
 import 'app_error.dart';
 
 class DioInstance with DioMixin implements Dio {
-  DioInstance() {
+  DioInstance(this._ref) {
     final options = BaseOptions(
       baseUrl: ApiPath.baseUrl,
       contentType: 'application/json',
@@ -17,6 +18,8 @@ class DioInstance with DioMixin implements Dio {
     httpClientAdapter = DefaultHttpClientAdapter();
     _setUpInterceptor();
   }
+
+  final Ref _ref;
 
   Future<void> _setUpInterceptor() async {
     final interceptor = InterceptorsWrapper(

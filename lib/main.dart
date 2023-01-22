@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:secure_shared_preferences/secure_shared_pref.dart';
 
-import 'ui/routes/router/app_router.gr.dart';
+import 'ui/shared/providers/router_provider.dart';
+import 'ui/shared/providers/shar_pref_provider.dart';
 import 'ui/theme/app_theme.dart';
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final pref = await SecureSharedPref.getInstance();
+  runApp(
+    ProviderScope(
+      overrides: [secureSharedPredProvider.overrideWithValue(pref)],
+      child: const MyApp(),
+    ),
+  );
 }
-
-final routerProvider = Provider<AppRouter>((ref) {
-  return AppRouter();
-});
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});

@@ -26,6 +26,8 @@ dependencies:
   json_annotation: 4.8.0
   retrofit: 3.3.1
   dartz: ^0.10.1
+  # Storage
+  secure_shared_preferences: ^0.0.4
   
   
 dev_dependencies:

@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/helper/app_error.dart';
+import '../../../data/local/shar_pref.dart';
 import '../../../data/model/sign_in_req.dart';
 import '../../../data/model/token_res.dart';
 import '../../../data/repository/auth_provider.dart';
@@ -26,6 +27,7 @@ class SignInNotifier extends _$SignInNotifier {
     state = state.copyWith(
       loading: false,
     );
+    ref.read(sharPrefProvider).saveToken(token);
   }
 
   Future<void> onError(AppError error) async {

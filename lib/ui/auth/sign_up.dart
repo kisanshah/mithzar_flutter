@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-import '../../main.dart';
 import '../routes/router/app_router.gr.dart';
+import '../shared/providers/router_provider.dart';
 import '../theme/app_color.dart';
 
 class SignUpPage extends ConsumerStatefulWidget {
