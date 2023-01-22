@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
 import '../../main.dart';
+import '../components/app_loader.dart';
 import '../routes/router/app_router.gr.dart';
 import '../theme/app_color.dart';
+import 'providers/sign_in_provider.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
   const SignInPage({super.key});
@@ -14,6 +16,9 @@ class SignInPage extends ConsumerStatefulWidget {
 }
 
 class _SignInPageState extends ConsumerState<SignInPage> {
+  final emailCtrl = TextEditingController();
+  final passwordCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
@@ -66,27 +71,48 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 fallbackHeight: 200,
               ),
               const Gap(20),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: emailCtrl,
+                decoration: const InputDecoration(
                   hintText: 'Email',
                 ),
               ),
               const Gap(10),
-              const TextField(
+              TextField(
+                controller: passwordCtrl,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Password',
                 ),
               ),
               const Gap(30),
-              ElevatedButton(
-                onPressed: () {
-                  router.replace(const MainRoute());
+              Consumer(
+                builder: (context, ref, child) {
+                  final state = ref.watch(signInNotifierProvider);
+                  final notifier = ref.watch(signInNotifierProvider.notifier);
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (state.loading) const AppLoader(),
+                      if (state.error.isNotEmpty)
+                        Text(
+                          state.error,
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      if (state.error.isNotEmpty) const Gap(10),
+                      if (!state.loading)
+                        ElevatedButton(
+                          onPressed: () async {
+                            notifier.signIn(emailCtrl.text, passwordCtrl.text);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size.fromHeight(50),
+                          ),
+                          child: const Text('Sign In'),
+                        ),
+                    ],
+                  );
                 },
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size.fromHeight(50),
-                ),
-                child: const Text('Sign In'),
               )
             ],
           ),
