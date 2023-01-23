@@ -7,6 +7,7 @@ import '../../extensions/string.dart';
 import '../routes/router/app_router.gr.dart';
 import '../shared/providers/router_provider.dart';
 import '../theme/app_color.dart';
+import 'components/otp_box.dart';
 
 class SignUpPage extends ConsumerStatefulWidget {
   const SignUpPage({super.key});
@@ -17,6 +18,19 @@ class SignUpPage extends ConsumerStatefulWidget {
 
 class _SignUpPageState extends ConsumerState<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  final _otpInput1 = FocusNode();
+  final _otpInput2 = FocusNode();
+  final _otpInput3 = FocusNode();
+  final _otpInput4 = FocusNode();
+
+  @override
+  void dispose() {
+    _otpInput1.dispose();
+    _otpInput2.dispose();
+    _otpInput3.dispose();
+    _otpInput4.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,82 +162,23 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   const Gap(30),
                   //OTP Input Cell of 4
                   Row(
-                    children: const [
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          maxLength: 1,
-                          decoration: InputDecoration(
-                            counterText: '',
-                            contentPadding: EdgeInsets.zero,
-                            hintText: '-',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
+                    children: [
+                      OtpBox(
+                        node: _otpInput1,
                       ),
-                      Gap(10),
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          maxLength: 1,
-                          decoration: InputDecoration(
-                            counterText: '',
-                            contentPadding: EdgeInsets.zero,
-                            hintText: '-',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
+                      const Gap(10),
+                      OtpBox(
+                        node: _otpInput2,
                       ),
-                      Gap(10),
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          maxLength: 1,
-                          decoration: InputDecoration(
-                            counterText: '',
-                            contentPadding: EdgeInsets.zero,
-                            hintText: '-',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
+                      const Gap(10),
+                      OtpBox(
+                        node: _otpInput3,
                       ),
-                      Gap(10),
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          maxLength: 1,
-                          decoration: InputDecoration(
-                            counterText: '',
-                            contentPadding: EdgeInsets.zero,
-                            hintText: '-',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
+                      const Gap(10),
+                      OtpBox(
+                        node: _otpInput4,
                       ),
+                      const Gap(10),
                     ],
                   ),
                   const Gap(30),
