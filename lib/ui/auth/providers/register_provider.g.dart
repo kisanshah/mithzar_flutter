@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_in_provider.dart';
+part of 'register_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,20 +29,20 @@ class _SystemHash {
   }
 }
 
-String _$SignInNotifierHash() => r'0c6637ab9191e195b30230bf52188061e6614c6b';
+String _$RegisterNotifierHash() => r'1eff9323cd65ddfd150d2936f5adc19678c1721f';
 
-/// See also [SignInNotifier].
-final signInNotifierProvider =
-    AutoDisposeNotifierProvider<SignInNotifier, SignInState>(
-  SignInNotifier.new,
-  name: r'signInNotifierProvider',
+/// See also [RegisterNotifier].
+final registerNotifierProvider =
+    AutoDisposeNotifierProvider<RegisterNotifier, RegisterState>(
+  RegisterNotifier.new,
+  name: r'registerNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$SignInNotifierHash,
+      : _$RegisterNotifierHash,
 );
-typedef SignInNotifierRef = AutoDisposeNotifierProviderRef<SignInState>;
+typedef RegisterNotifierRef = AutoDisposeNotifierProviderRef<RegisterState>;
 
-abstract class _$SignInNotifier extends AutoDisposeNotifier<SignInState> {
+abstract class _$RegisterNotifier extends AutoDisposeNotifier<RegisterState> {
   @override
-  SignInState build();
+  RegisterState build();
 }

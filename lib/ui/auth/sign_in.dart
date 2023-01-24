@@ -107,7 +107,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                         if (state.error.isNotEmpty)
                           Text(
                             state.error,
-                            style: const TextStyle(color: Colors.red),
+                            style: const TextStyle(color: AppColor.red),
                           ),
                         if (state.error.isNotEmpty) const Gap(10),
                         if (!state.loading)

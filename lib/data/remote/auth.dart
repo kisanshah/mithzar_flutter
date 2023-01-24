@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 
 import '../../ui/shared/providers/dio_provider.dart';
 import '../helper/api_path.dart';
+import '../model/register_req.dart';
 import '../model/sign_in_req.dart';
 import '../model/token_res.dart';
 
@@ -19,4 +20,7 @@ abstract class AuthSource {
 
   @POST(ApiPath.signIn)
   Future<TokenRes> signIn(@Body() SignInReq req);
+
+  @POST(ApiPath.register)
+  Future<TokenRes> register(@Body() RegisterReq req);
 }

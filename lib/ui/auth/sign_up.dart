@@ -3,11 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
+import '../../extensions/log.dart';
 import '../../extensions/string.dart';
+import '../components/app_loader.dart';
 import '../routes/router/app_router.gr.dart';
 import '../shared/providers/router_provider.dart';
 import '../theme/app_color.dart';
 import 'components/otp_box.dart';
+import 'providers/register_provider.dart';
 
 class SignUpPage extends ConsumerStatefulWidget {
   const SignUpPage({super.key});
@@ -35,6 +38,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
+    final notifier = ref.watch(registerNotifierProvider.notifier);
+    'Build'.logError();
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: kBottomNavigationBarHeight,
@@ -88,6 +93,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   ),
                   const Gap(20),
                   TextFormField(
+                    controller: notifier.nameCtrl,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -103,6 +109,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   ),
                   const Gap(10),
                   TextFormField(
+                    controller: notifier.emailCtrl,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -120,6 +127,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   ),
                   const Gap(10),
                   TextFormField(
+                    controller: notifier.phoneCtrl,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
@@ -142,6 +150,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   ),
                   const Gap(10),
                   TextFormField(
+                    controller: notifier.passCtrl,
                     obscureText: true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     textInputAction: TextInputAction.next,
@@ -159,41 +168,79 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                       hintText: 'Password',
                     ),
                   ),
-                  const Gap(30),
-                  //OTP Input Cell of 4
-                  Row(
-                    children: [
-                      OtpBox(
-                        node: _otpInput1,
-                      ),
-                      const Gap(10),
-                      OtpBox(
-                        node: _otpInput2,
-                      ),
-                      const Gap(10),
-                      OtpBox(
-                        node: _otpInput3,
-                      ),
-                      const Gap(10),
-                      OtpBox(
-                        node: _otpInput4,
-                      ),
-                      const Gap(10),
-                    ],
-                  ),
-                  const Gap(30),
-                  ElevatedButton(
-                    onPressed: () {
-                      final valid = _formKey.currentState?.validate() ?? false;
-                      if (valid) {
-                        // TODO(Kisan): Call API
-                      }
+                  const Gap(20),
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final notifier =
+                          ref.watch(registerNotifierProvider.notifier);
+                      final state = ref.watch(registerNotifierProvider);
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          if (state.otpSent)
+                            Text(
+                              'OTP has been sent to ${notifier.phoneCtrl.text}',
+                              style:
+                                  const TextStyle(color: AppColor.accentColor),
+                            ),
+                          if (state.otpSent)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  OtpBox(
+                                    node: _otpInput1,
+                                  ),
+                                  const Gap(10),
+                                  OtpBox(
+                                    node: _otpInput2,
+                                  ),
+                                  const Gap(10),
+                                  OtpBox(
+                                    node: _otpInput3,
+                                  ),
+                                  const Gap(10),
+                                  OtpBox(
+                                    node: _otpInput4,
+                                  ),
+                                  const Gap(10),
+                                ],
+                              ),
+                            ),
+                          if (state.error.isNotEmpty) const Gap(10),
+                          if (state.error.isNotEmpty)
+                            Text(
+                              state.error,
+                              style: const TextStyle(color: AppColor.red),
+                            ),
+                          const Gap(20),
+                          if (state.loading)
+                            const AppLoader()
+                          else
+                            ElevatedButton(
+                              onPressed: () {
+                                final valid =
+                                    _formKey.currentState?.validate() ?? false;
+                                if (!valid) {
+                                  return;
+                                }
+                                if (!state.otpSent) {
+                                  notifier.sendOtp();
+                                } else {
+                                  notifier.verifyOtp();
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: const Size.fromHeight(50),
+                              ),
+                              child: Text(
+                                state.otpSent ? 'Verify OTP' : 'Send OTP',
+                              ),
+                            )
+                        ],
+                      );
                     },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size.fromHeight(50),
-                    ),
-                    child: const Text('Send OTP'),
-                  )
+                  ),
                 ],
               ),
             ),

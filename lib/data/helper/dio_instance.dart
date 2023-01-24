@@ -42,7 +42,7 @@ class DioInstance with DioMixin implements Dio {
               requestOptions: res.requestOptions,
               error: AppError(
                 message:
-                    apiRes.errors?.map((elem) => elem.message).join() ?? '',
+                    apiRes.errors?.map((elem) => elem.message).join('\n') ?? '',
                 type: ErrorType.responseError,
               ),
             ),
