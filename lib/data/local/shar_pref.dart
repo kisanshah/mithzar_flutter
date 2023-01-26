@@ -16,8 +16,8 @@ class SharPref {
 
   final SecureSharedPref pref;
 
-  void saveToken(TokenRes token) {
-    pref.putString(PrefPath.token, jsonEncode(token));
+  Future<void> saveToken(TokenRes token) async {
+    await pref.putString(PrefPath.token, jsonEncode(token));
   }
 
   Future<TokenRes?> getToken() async {

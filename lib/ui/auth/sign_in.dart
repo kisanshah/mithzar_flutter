@@ -32,6 +32,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
+
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: kBottomNavigationBarHeight,
@@ -118,7 +119,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                                 emailCtrl.text,
                                 passwordCtrl.text,
                               );
-                              widget.onResult?.call(true);
+                              navigate();
                             },
                             style: ElevatedButton.styleFrom(
                               fixedSize: const Size.fromHeight(50),
@@ -135,5 +136,12 @@ class _SignInPageState extends ConsumerState<SignInPage> {
         ),
       ),
     );
+  }
+
+  void navigate() {
+    final res = ref.read(signInNotifierProvider).success;
+    if (res) {
+      widget.onResult?.call(res);
+    }
   }
 }
