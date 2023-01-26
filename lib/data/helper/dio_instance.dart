@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../extensions/log.dart';
 import '../../extensions/nullable.dart';
+import '../local/shar_pref.dart';
 import '../model/api_res.dart';
 import 'api_path.dart';
 import 'app_error.dart';
@@ -22,6 +23,8 @@ class DioInstance with DioMixin implements Dio {
   final Ref _ref;
 
   Future<void> _setUpInterceptor() async {
+    // TODO(Kisan): Add Refresh Token
+    _ref.read(sharPrefProvider);
     final interceptor = InterceptorsWrapper(
       onRequest: (options, handler) {
         '------------------------'.logInfo();
@@ -54,7 +57,16 @@ class DioInstance with DioMixin implements Dio {
       },
       onError: (e, handler) {
         'Api Error : ${e.message}'.logError();
-        handler.next(e);
+        final error = AppError(
+          type: ErrorType.network,
+          message: 'Please check your internet connection or try again later',
+        );
+        handler.next(
+          DioError(
+            requestOptions: e.requestOptions,
+            error: error,
+          ),
+        );
       },
     );
     interceptors.add(interceptor);

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-import '../../extensions/log.dart';
 import '../../extensions/string.dart';
 import '../components/app_loader.dart';
 import '../routes/router/app_router.gr.dart';
@@ -39,7 +38,6 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
     final notifier = ref.watch(registerNotifierProvider.notifier);
-    'Build'.logError();
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: kBottomNavigationBarHeight,

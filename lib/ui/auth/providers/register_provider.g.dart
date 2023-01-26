@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$RegisterNotifierHash() => r'1eff9323cd65ddfd150d2936f5adc19678c1721f';
+String _$RegisterNotifierHash() => r'8de65ddc187059115b19d347ce7cbd4faf9e3441';
 
 /// See also [RegisterNotifier].
 final registerNotifierProvider =

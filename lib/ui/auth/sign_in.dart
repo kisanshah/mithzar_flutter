@@ -113,10 +113,11 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                         if (!state.loading)
                           ElevatedButton(
                             onPressed: () async {
-                              notifier.signIn(
+                              await notifier.signIn(
                                 emailCtrl.text,
                                 passwordCtrl.text,
                               );
+                              router.push(const MainRoute());
                             },
                             style: ElevatedButton.styleFrom(
                               fixedSize: const Size.fromHeight(50),

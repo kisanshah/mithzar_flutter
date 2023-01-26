@@ -18,12 +18,17 @@ import 'package:e_commerce_front_end/ui/home/home_page.dart' as _i4;
 import 'package:e_commerce_front_end/ui/main/main_page.dart' as _i3;
 import 'package:e_commerce_front_end/ui/orders/order_page.dart' as _i6;
 import 'package:e_commerce_front_end/ui/profile/profile_page.dart' as _i7;
+import 'package:e_commerce_front_end/ui/routes/guards/auth.dart' as _i10;
 import 'package:e_commerce_front_end/ui/search/search_page.dart' as _i5;
 import 'package:flutter/material.dart' as _i9;
 
 class AppRouter extends _i8.RootStackRouter {
-  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AppRouter({
+    _i9.GlobalKey<_i9.NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final _i10.AuthGuard authGuard;
 
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
@@ -84,6 +89,7 @@ class AppRouter extends _i8.RootStackRouter {
         _i8.RouteConfig(
           MainRoute.name,
           path: '/main-page',
+          guards: [authGuard],
           children: [
             _i8.RouteConfig(
               HomeRoute.name,

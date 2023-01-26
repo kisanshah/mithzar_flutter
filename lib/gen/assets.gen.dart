@@ -17,6 +17,10 @@ class $AssetsSvgGen {
   /// File path: assets/svg/arrow_right.svg
   SvgGenImage get arrowRight => const SvgGenImage('assets/svg/arrow_right.svg');
 
+  /// File path: assets/svg/boy_shopping.svg
+  SvgGenImage get boyShopping =>
+      const SvgGenImage('assets/svg/boy_shopping.svg');
+
   /// File path: assets/svg/cancel.svg
   SvgGenImage get cancel => const SvgGenImage('assets/svg/cancel.svg');
 
@@ -28,6 +32,10 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
+
+  /// File path: assets/svg/girl_shopping.svg
+  SvgGenImage get girlShopping =>
+      const SvgGenImage('assets/svg/girl_shopping.svg');
 
   /// File path: assets/svg/home.svg
   SvgGenImage get home => const SvgGenImage('assets/svg/home.svg');
@@ -42,8 +50,19 @@ class $AssetsSvgGen {
   SvgGenImage get user => const SvgGenImage('assets/svg/user.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [arrowRight, cancel, cart, delete, filter, home, order, search, user];
+  List<SvgGenImage> get values => [
+        arrowRight,
+        boyShopping,
+        cancel,
+        cart,
+        delete,
+        filter,
+        girlShopping,
+        home,
+        order,
+        search,
+        user
+      ];
 }
 
 class Assets {

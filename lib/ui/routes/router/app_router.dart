@@ -7,6 +7,7 @@ import '../../main/main_page.dart';
 import '../../orders/order_page.dart';
 import '../../profile/profile_page.dart';
 import '../../search/search_page.dart';
+import '../guards/auth.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -15,6 +16,7 @@ import '../../search/search_page.dart';
     AutoRoute(page: SignUpPage),
     AutoRoute(
       page: MainPage,
+      guards: [AuthGuard],
       children: [
         AutoRoute(page: HomePage, initial: true),
         AutoRoute(page: SearchPage),
