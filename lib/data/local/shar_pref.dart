@@ -27,4 +27,8 @@ class SharPref {
     }
     return TokenRes.fromJson(jsonDecode(encoded));
   }
+
+  void clearAll() {
+    pref.clearAll();
+  }
 }

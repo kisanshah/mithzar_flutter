@@ -16,29 +16,32 @@ class _MainPageState extends ConsumerState<MainPage> {
   @override
   Widget build(BuildContext context) {
     final navItems = ref.watch(navItemProvider);
-    return AutoTabsScaffold(
-      routes: const [
-        HomeRoute(),
-        SearchRoute(),
-        OrderRoute(),
-        ProfileRoute(),
-      ],
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return SizedBox(
-          height: 90,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: List.generate(
-              navItems.length,
-              (index) => NavItem(
-                onTap: () => tabsRouter.setActiveIndex(index),
-                nav: navItems[index],
-                selected: tabsRouter.activeIndex == index,
+    return SafeArea(
+      top: false,
+      child: AutoTabsScaffold(
+        routes: const [
+          HomeRoute(),
+          SearchRoute(),
+          OrderRoute(),
+          ProfileRoute(),
+        ],
+        bottomNavigationBuilder: (_, tabsRouter) {
+          return SizedBox(
+            height: 65,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(
+                navItems.length,
+                (index) => NavItem(
+                  onTap: () => tabsRouter.setActiveIndex(index),
+                  nav: navItems[index],
+                  selected: tabsRouter.activeIndex == index,
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

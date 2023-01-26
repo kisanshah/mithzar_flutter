@@ -10,8 +10,9 @@ import '../theme/app_color.dart';
 import 'providers/sign_in_provider.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
-  const SignInPage({super.key});
+  const SignInPage({super.key, this.onResult});
 
+  final Function(bool success)? onResult;
   @override
   ConsumerState<SignInPage> createState() => _SignInPageState();
 }
@@ -117,7 +118,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                                 emailCtrl.text,
                                 passwordCtrl.text,
                               );
-                              router.push(const MainRoute());
+                              widget.onResult?.call(true);
                             },
                             style: ElevatedButton.styleFrom(
                               fixedSize: const Size.fromHeight(50),

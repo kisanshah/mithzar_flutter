@@ -7,12 +7,14 @@ import '../../main/main_page.dart';
 import '../../orders/order_page.dart';
 import '../../profile/profile_page.dart';
 import '../../search/search_page.dart';
+import '../../splash/splash_page.dart';
 import '../guards/auth.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SignInPage, initial: true),
+    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: SignInPage),
     AutoRoute(page: SignUpPage),
     AutoRoute(
       page: MainPage,

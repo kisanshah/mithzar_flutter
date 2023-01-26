@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/local/shar_pref.dart';
+import '../router/app_router.gr.dart';
 
 class AuthGuard extends AutoRouteGuard {
   AuthGuard(this._ref);
@@ -16,7 +17,11 @@ class AuthGuard extends AutoRouteGuard {
     if (token != null) {
       resolver.next();
     } else {
-      resolver.next(false);
+      router.replace(
+        SignInRoute(
+          onResult: resolver.next,
+        ),
+      );
     }
   }
 }

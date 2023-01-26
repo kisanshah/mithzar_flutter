@@ -20,6 +20,7 @@ mixin _$SignInState {
   String get password => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
+  bool get success => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignInStateCopyWith<SignInState> get copyWith =>
@@ -32,7 +33,12 @@ abstract class $SignInStateCopyWith<$Res> {
           SignInState value, $Res Function(SignInState) then) =
       _$SignInStateCopyWithImpl<$Res, SignInState>;
   @useResult
-  $Res call({String email, String password, String error, bool loading});
+  $Res call(
+      {String email,
+      String password,
+      String error,
+      bool loading,
+      bool success});
 }
 
 /// @nodoc
@@ -52,6 +58,7 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
     Object? password = null,
     Object? error = null,
     Object? loading = null,
+    Object? success = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -70,6 +77,10 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -82,7 +93,12 @@ abstract class _$$_SignInPageStateCopyWith<$Res>
       __$$_SignInPageStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String password, String error, bool loading});
+  $Res call(
+      {String email,
+      String password,
+      String error,
+      bool loading,
+      bool success});
 }
 
 /// @nodoc
@@ -100,6 +116,7 @@ class __$$_SignInPageStateCopyWithImpl<$Res>
     Object? password = null,
     Object? error = null,
     Object? loading = null,
+    Object? success = null,
   }) {
     return _then(_$_SignInPageState(
       email: null == email
@@ -118,6 +135,10 @@ class __$$_SignInPageStateCopyWithImpl<$Res>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -129,7 +150,8 @@ class _$_SignInPageState implements _SignInPageState {
       {this.email = '',
       this.password = '',
       this.error = '',
-      this.loading = false});
+      this.loading = false,
+      this.success = false});
 
   @override
   @JsonKey()
@@ -143,10 +165,13 @@ class _$_SignInPageState implements _SignInPageState {
   @override
   @JsonKey()
   final bool loading;
+  @override
+  @JsonKey()
+  final bool success;
 
   @override
   String toString() {
-    return 'SignInState(email: $email, password: $password, error: $error, loading: $loading)';
+    return 'SignInState(email: $email, password: $password, error: $error, loading: $loading, success: $success)';
   }
 
   @override
@@ -158,11 +183,13 @@ class _$_SignInPageState implements _SignInPageState {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.loading, loading) || other.loading == loading));
+            (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.success, success) || other.success == success));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password, error, loading);
+  int get hashCode =>
+      Object.hash(runtimeType, email, password, error, loading, success);
 
   @JsonKey(ignore: true)
   @override
@@ -176,7 +203,8 @@ abstract class _SignInPageState implements SignInState {
       {final String email,
       final String password,
       final String error,
-      final bool loading}) = _$_SignInPageState;
+      final bool loading,
+      final bool success}) = _$_SignInPageState;
 
   @override
   String get email;
@@ -186,6 +214,8 @@ abstract class _SignInPageState implements SignInState {
   String get error;
   @override
   bool get loading;
+  @override
+  bool get success;
   @override
   @JsonKey(ignore: true)
   _$$_SignInPageStateCopyWith<_$_SignInPageState> get copyWith =>

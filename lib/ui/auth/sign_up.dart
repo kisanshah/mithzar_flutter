@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 
 import '../../extensions/string.dart';
 import '../components/app_loader.dart';
-import '../routes/router/app_router.gr.dart';
 import '../shared/providers/router_provider.dart';
 import '../theme/app_color.dart';
 import 'components/otp_box.dart';
@@ -48,7 +47,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
             const Text('Already have an account?'),
             const Gap(5),
             GestureDetector(
-              onTap: () => router.navigate(const SignInRoute()),
+              onTap: router.pop,
               child: const Text(
                 'Sign In',
                 style: TextStyle(

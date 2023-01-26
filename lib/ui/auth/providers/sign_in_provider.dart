@@ -26,6 +26,7 @@ class SignInNotifier extends _$SignInNotifier {
   void onResult(TokenRes token) {
     state = state.copyWith(
       loading: false,
+      success: token.refreshToken.isNotEmpty,
     );
     ref.read(sharPrefProvider).saveToken(token);
   }

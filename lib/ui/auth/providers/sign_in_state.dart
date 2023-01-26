@@ -9,5 +9,6 @@ class SignInState with _$SignInState {
     @Default('') String password,
     @Default('') String error,
     @Default(false) bool loading,
+    @Default(false) bool success,
   }) = _SignInPageState;
 }
