@@ -11,7 +11,7 @@ import '../model/token_res.dart';
 part 'auth.g.dart';
 
 final authSourceProvider = Provider<AuthSource>((ref) {
-  return AuthSource(ref.read(dioProvider));
+  return AuthSource(ref.watch(dioProvider));
 });
 
 @RestApi()

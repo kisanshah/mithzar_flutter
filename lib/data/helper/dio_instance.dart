@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../extensions/log.dart';
 import '../../extensions/nullable.dart';
-import '../local/shar_pref.dart';
+import '../../ui/shared/providers/token_provider.dart';
 import '../model/api_res.dart';
 import 'api_path.dart';
 import 'app_error.dart';
@@ -23,13 +23,15 @@ class DioInstance with DioMixin implements Dio {
   final Ref _ref;
 
   Future<void> _setUpInterceptor() async {
-    // TODO(Kisan): Add Refresh Token
-    _ref.read(sharPrefProvider);
+    final token = _ref.read(tokenProvider);
+
+    options.headers['Authorization'] = 'Bearer ${token.accessToken}';
     final interceptor = InterceptorsWrapper(
       onRequest: (options, handler) {
         '------------------------'.logInfo();
         'Requesting ${options.path}'.logInfo();
         'Requesting ${options.data}'.logInfo();
+        'Requesting ${options.headers}'.logInfo();
         '------------------------'.logInfo();
         handler.next(options);
       },

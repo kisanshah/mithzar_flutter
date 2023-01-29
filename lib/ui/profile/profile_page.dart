@@ -15,7 +15,7 @@ class ProfilePage extends ConsumerStatefulWidget {
 class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(profileNotifierProvider);
+    // final state = ref.watch(profileNotifierProvider);
     final router = ref.watch(routerProvider);
     final notifier = ref.watch(profileNotifierProvider.notifier);
     return Scaffold(

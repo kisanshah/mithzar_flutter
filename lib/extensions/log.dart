@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-extension LogExtension on String? {
+extension LogExtension on Object? {
   void logInfo() {
     log('\x1b[35m$this\x1B[0m');
   }

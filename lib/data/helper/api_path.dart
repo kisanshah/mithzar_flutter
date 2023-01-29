@@ -6,4 +6,7 @@ class ApiPath {
   static const signIn = 'auth/signIn';
   static const signOut = 'auth/signOut';
   static const refreshToken = 'auth/refreshToken';
+
+  //Profile
+  static const profile = 'user/profile';
 }

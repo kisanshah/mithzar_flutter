@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../data/repository/profile_provider.dart';
 import '../routes/router/app_router.gr.dart';
 import 'components/bottom_nav_bar.dart';
 
@@ -13,6 +14,12 @@ class MainPage extends ConsumerStatefulWidget {
 }
 
 class _MainPageState extends ConsumerState<MainPage> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(profileRepositoryProvider).getCurrentUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     final navItems = ref.watch(navItemProvider);
