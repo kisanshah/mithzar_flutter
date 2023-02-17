@@ -26,7 +26,6 @@ class OtpBox extends StatelessWidget {
           }
         },
         child: TextFormField(
-          focusNode: node,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           textInputAction: TextInputAction.next,
           textAlign: TextAlign.center,
@@ -35,7 +34,7 @@ class OtpBox extends StatelessWidget {
           onChanged: (value) {
             if (value.isNotEmpty) {
               FocusScope.of(context).nextFocus();
-              // FocusScope.of(context).nextFocus();
+              count = 0;
             }
           },
           maxLength: 1,
