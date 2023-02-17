@@ -26,4 +26,6 @@ class AppColor {
 
   static const MaterialColor accentMaterialColor =
       MaterialColor(0xFF6c5ce7, accentColorMap);
+
+  static const black = Color(0xFF2d3436);
 }

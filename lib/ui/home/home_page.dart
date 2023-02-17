@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'components/home_app_bar.dart';
 import 'sections/filter.dart';
 import 'sections/trending_products.dart';
 
@@ -14,11 +15,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Amamzon',
-        ),
-      ),
+      appBar: const HomeAppBar(),
       backgroundColor: Colors.white,
       body: Column(
         children: const [

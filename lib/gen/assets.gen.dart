@@ -40,6 +40,13 @@ class $AssetsSvgGen {
   /// File path: assets/svg/home.svg
   SvgGenImage get home => const SvgGenImage('assets/svg/home.svg');
 
+  /// File path: assets/svg/menu.svg
+  SvgGenImage get menu => const SvgGenImage('assets/svg/menu.svg');
+
+  /// File path: assets/svg/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/svg/notification.svg');
+
   /// File path: assets/svg/order.svg
   SvgGenImage get order => const SvgGenImage('assets/svg/order.svg');
 
@@ -59,6 +66,8 @@ class $AssetsSvgGen {
         filter,
         girlShopping,
         home,
+        menu,
+        notification,
         order,
         search,
         user
