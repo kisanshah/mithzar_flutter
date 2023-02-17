@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_color.dart';
+
 class HeaderWithAction extends StatelessWidget {
   const HeaderWithAction({
     super.key,
@@ -19,8 +21,9 @@ class HeaderWithAction extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 14,
+              color: AppColor.black,
               fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
           ),
           const Spacer(),
@@ -31,7 +34,7 @@ class HeaderWithAction extends StatelessWidget {
               style: TextStyle(
                 color: Colors.blue,
                 fontWeight: FontWeight.w500,
-                fontSize: 12,
+                fontSize: 14,
               ),
             ),
           ),

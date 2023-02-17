@@ -30,6 +30,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/delete.svg
   SvgGenImage get delete => const SvgGenImage('assets/svg/delete.svg');
 
+  /// File path: assets/svg/favorite.svg
+  SvgGenImage get favorite => const SvgGenImage('assets/svg/favorite.svg');
+
   /// File path: assets/svg/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
 
@@ -63,6 +66,7 @@ class $AssetsSvgGen {
         cancel,
         cart,
         delete,
+        favorite,
         filter,
         girlShopping,
         home,

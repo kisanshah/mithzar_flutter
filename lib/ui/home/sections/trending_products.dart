@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../components/header_with_action.dart';
 import '../components/trending_product_item.dart';
@@ -16,7 +17,7 @@ class TrendingProducts extends StatelessWidget {
           title: 'Trending',
         ),
         SizedBox(
-          height: 300,
+          height: 250,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
@@ -25,6 +26,7 @@ class TrendingProducts extends StatelessWidget {
             itemCount: 10,
           ),
         ),
+        const Gap(30),
       ],
     );
   }
