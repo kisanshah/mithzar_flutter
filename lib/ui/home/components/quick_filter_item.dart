@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 import '../../theme/app_color.dart';
-import '../../utils/extension/widget.dart';
 
 class QuickFilterItem extends StatelessWidget {
-  const QuickFilterItem({super.key});
-
+  const QuickFilterItem({
+    super.key,
+    required this.name,
+    required this.selected,
+    required this.onTap,
+  });
+  final String name;
+  final bool selected;
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      padding: const EdgeInsets.only(left: 5, right: 10),
-      child: Row(
-        children: [
-          Container(
-            height: 30,
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            width: 30,
-            decoration: BoxDecoration(
-              color: AppColor.grey,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Image.network(
-              'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_3_f3ee5c27-4f14-4159-9fb2-dc60e7d6ec66_600x.png?v=1655536230',
-            ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 40,
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        decoration: BoxDecoration(
+          color: selected ? AppColor.black : null,
+          border: Border.all(color: const Color(0xFFdfe6e9)),
+          borderRadius: BorderRadius.circular(13),
+        ),
+        child: Text(
+          name,
+          style: TextStyle(
+            fontSize: 12,
+            color: selected ? AppColor.white : const Color(0xFF222f3e),
+            fontWeight: FontWeight.w600,
           ),
-          const Gap(5),
-          const Text(
-            'Headset',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
+        ),
       ),
-    ).toElevatedContainer();
+    );
   }
 }
