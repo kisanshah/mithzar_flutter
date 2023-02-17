@@ -19,7 +19,8 @@ class FilterList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final items = ref.watch(filterProvider);
     final selected = ref.watch(selectedFilterProvider);
-    return SizedBox(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 40,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,

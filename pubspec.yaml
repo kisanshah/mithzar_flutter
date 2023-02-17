@@ -13,7 +13,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter_gen: ^5.1.0+1
   flutter_svg: 1.1.6
-  gap: 2.0.1
+  gap: 
+    git: 
+      url: https://github.com/incima/gap.git
+      ref: 307be282e99e6f27c2899cd5c81d724b267f18f4   
   google_fonts: ^3.0.1
   # Routing
   auto_route: 5.0.4
@@ -28,6 +31,7 @@ dependencies:
   dartz: ^0.10.1
   # Storage
   secure_shared_preferences: ^0.0.4
+  cached_network_image: ^3.2.3
   
   
 dev_dependencies:
