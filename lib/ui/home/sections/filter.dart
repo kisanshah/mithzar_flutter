@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-import '../../../gen/assets.gen.dart';
-import '../../utils/extension/widget.dart';
 import '../components/quick_filter_item.dart';
 
-class FilterList extends StatelessWidget {
+final selectedFilterProvider = StateProvider<String>((ref) {
+  return 'All';
+});
+
+final filterProvider = StateProvider<List<String>>((ref) {
+  return ['All', 'Men', 'Women'];
+});
+
+class FilterList extends ConsumerWidget {
   const FilterList({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [
-          SizedBox(
-            height: 40,
-            width: 40,
-            child: Assets.svg.filter.svg(fit: BoxFit.scaleDown),
-          ).toElevatedContainer(),
-          const Gap(10),
-          const QuickFilterItem(),
-          const Gap(5),
-          const QuickFilterItem()
-        ],
+  Widget build(BuildContext context, WidgetRef ref) {
+    final items = ref.watch(filterProvider);
+    final selected = ref.watch(selectedFilterProvider);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      height: 40,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return QuickFilterItem(
+            name: items[index],
+            selected: selected == items[index],
+            onTap: () {
+              ref
+                  .read(selectedFilterProvider.notifier)
+                  .update((state) => items[index]);
+            },
+          );
+        },
+        itemCount: items.length,
+        separatorBuilder: (context, index) {
+          return const Gap(10);
+        },
       ),
     );
   }

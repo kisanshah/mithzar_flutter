@@ -30,6 +30,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/delete.svg
   SvgGenImage get delete => const SvgGenImage('assets/svg/delete.svg');
 
+  /// File path: assets/svg/favorite.svg
+  SvgGenImage get favorite => const SvgGenImage('assets/svg/favorite.svg');
+
   /// File path: assets/svg/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
 
@@ -39,6 +42,13 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/home.svg
   SvgGenImage get home => const SvgGenImage('assets/svg/home.svg');
+
+  /// File path: assets/svg/menu.svg
+  SvgGenImage get menu => const SvgGenImage('assets/svg/menu.svg');
+
+  /// File path: assets/svg/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/svg/notification.svg');
 
   /// File path: assets/svg/order.svg
   SvgGenImage get order => const SvgGenImage('assets/svg/order.svg');
@@ -56,9 +66,12 @@ class $AssetsSvgGen {
         cancel,
         cart,
         delete,
+        favorite,
         filter,
         girlShopping,
         home,
+        menu,
+        notification,
         order,
         search,
         user
