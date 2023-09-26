@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +11,7 @@ import '../theme/app_color.dart';
 import 'components/otp_box.dart';
 import 'providers/register_provider.dart';
 
+@RoutePage()
 class SignUpPage extends ConsumerStatefulWidget {
   const SignUpPage({super.key});
 
@@ -233,7 +235,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                               child: Text(
                                 state.otpSent ? 'Verify OTP' : 'Send OTP',
                               ),
-                            )
+                            ),
                         ],
                       );
                     },

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../routes/router/app_router.gr.dart';
 import 'components/bottom_nav_bar.dart';
 
+@RoutePage()
 class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
 

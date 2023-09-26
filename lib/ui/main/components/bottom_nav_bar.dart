@@ -60,7 +60,10 @@ class NavItem extends StatelessWidget {
             const Gap(10),
             SvgPicture.asset(
               nav.svg,
-              color: selected ? AppColor.accentColor : Colors.grey,
+              colorFilter: ColorFilter.mode(
+                selected ? AppColor.accentColor : Colors.grey,
+                BlendMode.srcIn,
+              ),
             ),
             const Gap(5),
             Text(

@@ -37,10 +37,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Flexible(
                       child: Text(
                         'Rockerz 450',
@@ -133,7 +133,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 const Divider(),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

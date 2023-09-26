@@ -19,10 +19,10 @@ class CartItem extends StatelessWidget {
             width: 80,
           ),
           const Gap(10),
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Macbook Air',
                   style: TextStyle(
@@ -89,7 +89,7 @@ class CartItem extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -34,8 +34,8 @@ class _CartPageState extends State<CartPage> {
                 },
                 itemCount: 4,
               ),
-              Column(
-                children: const [
+              const Column(
+                children: [
                   CartCalcItem(
                     title: 'Subtotal',
                     value: '80.00',

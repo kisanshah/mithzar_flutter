@@ -1,165 +1,175 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i9;
-import 'package:e_commerce_front_end/ui/auth/sign_in.dart' as _i2;
-import 'package:e_commerce_front_end/ui/auth/sign_up.dart' as _i3;
-import 'package:e_commerce_front_end/ui/home/home_page.dart' as _i5;
-import 'package:e_commerce_front_end/ui/main/main_page.dart' as _i4;
-import 'package:e_commerce_front_end/ui/orders/order_page.dart' as _i7;
-import 'package:e_commerce_front_end/ui/profile/profile_page.dart' as _i8;
-import 'package:e_commerce_front_end/ui/routes/guards/auth.dart' as _i11;
-import 'package:e_commerce_front_end/ui/search/search_page.dart' as _i6;
-import 'package:e_commerce_front_end/ui/splash/splash_page.dart' as _i1;
+import 'package:e_commerce_front_end/ui/auth/sign_in.dart' as _i6;
+import 'package:e_commerce_front_end/ui/auth/sign_up.dart' as _i7;
+import 'package:e_commerce_front_end/ui/home/home_page.dart' as _i1;
+import 'package:e_commerce_front_end/ui/main/main_page.dart' as _i2;
+import 'package:e_commerce_front_end/ui/orders/order_page.dart' as _i3;
+import 'package:e_commerce_front_end/ui/profile/profile_page.dart' as _i4;
+import 'package:e_commerce_front_end/ui/search/search_page.dart' as _i5;
+import 'package:e_commerce_front_end/ui/splash/splash_page.dart' as _i8;
 import 'package:flutter/material.dart' as _i10;
 
-class AppRouter extends _i9.RootStackRouter {
-  AppRouter({
-    _i10.GlobalKey<_i10.NavigatorState>? navigatorKey,
-    required this.authGuard,
-  }) : super(navigatorKey);
-
-  final _i11.AuthGuard authGuard;
+abstract class $AppRouter extends _i9.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i9.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+    HomeRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.SplashPage(),
+        child: const _i1.HomePage(),
+      );
+    },
+    MainRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.MainPage(),
+      );
+    },
+    OrderRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.OrderPage(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.ProfilePage(),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.SearchPage(),
       );
     },
     SignInRoute.name: (routeData) {
       final args = routeData.argsAs<SignInRouteArgs>(
           orElse: () => const SignInRouteArgs());
-      return _i9.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.SignInPage(
+        child: _i6.SignInPage(
           key: args.key,
           onResult: args.onResult,
         ),
       );
     },
     SignUpRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.SignUpPage(),
+        child: const _i7.SignUpPage(),
       );
     },
-    MainRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+    SplashRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.MainPage(),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i5.HomePage(),
-      );
-    },
-    SearchRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i6.SearchPage(),
-      );
-    },
-    OrderRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.OrderPage(),
-      );
-    },
-    ProfileRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i8.ProfilePage(),
+        child: const _i8.SplashPage(),
       );
     },
   };
-
-  @override
-  List<_i9.RouteConfig> get routes => [
-        _i9.RouteConfig(
-          SplashRoute.name,
-          path: '/',
-        ),
-        _i9.RouteConfig(
-          SignInRoute.name,
-          path: '/sign-in-page',
-        ),
-        _i9.RouteConfig(
-          SignUpRoute.name,
-          path: '/sign-up-page',
-        ),
-        _i9.RouteConfig(
-          MainRoute.name,
-          path: '/main-page',
-          guards: [authGuard],
-          children: [
-            _i9.RouteConfig(
-              HomeRoute.name,
-              path: '',
-              parent: MainRoute.name,
-            ),
-            _i9.RouteConfig(
-              SearchRoute.name,
-              path: 'search-page',
-              parent: MainRoute.name,
-            ),
-            _i9.RouteConfig(
-              OrderRoute.name,
-              path: 'order-page',
-              parent: MainRoute.name,
-            ),
-            _i9.RouteConfig(
-              ProfileRoute.name,
-              path: 'profile-page',
-              parent: MainRoute.name,
-            ),
-          ],
-        ),
-      ];
 }
 
 /// generated route for
-/// [_i1.SplashPage]
-class SplashRoute extends _i9.PageRouteInfo<void> {
-  const SplashRoute()
+/// [_i1.HomePage]
+class HomeRoute extends _i9.PageRouteInfo<void> {
+  const HomeRoute({List<_i9.PageRouteInfo>? children})
       : super(
-          SplashRoute.name,
-          path: '/',
+          HomeRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'SplashRoute';
+  static const String name = 'HomeRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.SignInPage]
+/// [_i2.MainPage]
+class MainRoute extends _i9.PageRouteInfo<void> {
+  const MainRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          MainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MainRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.OrderPage]
+class OrderRoute extends _i9.PageRouteInfo<void> {
+  const OrderRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          OrderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i4.ProfilePage]
+class ProfileRoute extends _i9.PageRouteInfo<void> {
+  const ProfileRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.SearchPage]
+class SearchRoute extends _i9.PageRouteInfo<void> {
+  const SearchRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.SignInPage]
 class SignInRoute extends _i9.PageRouteInfo<SignInRouteArgs> {
   SignInRoute({
     _i10.Key? key,
     dynamic Function(bool)? onResult,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
           SignInRoute.name,
-          path: '/sign-in-page',
           args: SignInRouteArgs(
             key: key,
             onResult: onResult,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'SignInRoute';
+
+  static const _i9.PageInfo<SignInRouteArgs> page =
+      _i9.PageInfo<SignInRouteArgs>(name);
 }
 
 class SignInRouteArgs {
@@ -179,74 +189,29 @@ class SignInRouteArgs {
 }
 
 /// generated route for
-/// [_i3.SignUpPage]
+/// [_i7.SignUpPage]
 class SignUpRoute extends _i9.PageRouteInfo<void> {
-  const SignUpRoute()
+  const SignUpRoute({List<_i9.PageRouteInfo>? children})
       : super(
           SignUpRoute.name,
-          path: '/sign-up-page',
-        );
-
-  static const String name = 'SignUpRoute';
-}
-
-/// generated route for
-/// [_i4.MainPage]
-class MainRoute extends _i9.PageRouteInfo<void> {
-  const MainRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          MainRoute.name,
-          path: '/main-page',
           initialChildren: children,
         );
 
-  static const String name = 'MainRoute';
+  static const String name = 'SignUpRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.HomePage]
-class HomeRoute extends _i9.PageRouteInfo<void> {
-  const HomeRoute()
+/// [_i8.SplashPage]
+class SplashRoute extends _i9.PageRouteInfo<void> {
+  const SplashRoute({List<_i9.PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
-          path: '',
+          SplashRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
-}
+  static const String name = 'SplashRoute';
 
-/// generated route for
-/// [_i6.SearchPage]
-class SearchRoute extends _i9.PageRouteInfo<void> {
-  const SearchRoute()
-      : super(
-          SearchRoute.name,
-          path: 'search-page',
-        );
-
-  static const String name = 'SearchRoute';
-}
-
-/// generated route for
-/// [_i7.OrderPage]
-class OrderRoute extends _i9.PageRouteInfo<void> {
-  const OrderRoute()
-      : super(
-          OrderRoute.name,
-          path: 'order-page',
-        );
-
-  static const String name = 'OrderRoute';
-}
-
-/// generated route for
-/// [_i8.ProfilePage]
-class ProfileRoute extends _i9.PageRouteInfo<void> {
-  const ProfileRoute()
-      : super(
-          ProfileRoute.name,
-          path: 'profile-page',
-        );
-
-  static const String name = 'ProfileRoute';
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }

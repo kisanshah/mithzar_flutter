@@ -12,7 +12,7 @@ extension ValidationExtensions on String? {
       '(?=.*[a-z])': 'Password should contain at least one lower case',
       '[*@!#%&()^~{}]':
           'Password should contain at least one special characters',
-      '.{8,32}': 'Password should contain at least 8 character'
+      '.{8,32}': 'Password should contain at least 8 character',
     };
 
     validators.removeWhere((key, value) => RegExp(key).hasMatch(this ?? ''));

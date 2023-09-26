@@ -1,4 +1,3 @@
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,7 +15,6 @@ class DioInstance with DioMixin implements Dio {
       contentType: 'application/json',
     );
     this.options = options;
-    httpClientAdapter = DefaultHttpClientAdapter();
     _setUpInterceptor();
   }
 
@@ -43,7 +41,7 @@ class DioInstance with DioMixin implements Dio {
         final apiRes = ApiRes.fromJson(res.data);
         if (!(apiRes.success ?? false) || apiRes.errors.isNotNullOrEmpty) {
           handler.reject(
-            DioError(
+            DioException(
               requestOptions: res.requestOptions,
               error: AppError(
                 message:
@@ -64,7 +62,7 @@ class DioInstance with DioMixin implements Dio {
           message: 'Please check your internet connection or try again later',
         );
         handler.next(
-          DioError(
+          DioException(
             requestOptions: e.requestOptions,
             error: error,
           ),
