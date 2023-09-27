@@ -53,6 +53,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/order.svg
   SvgGenImage get order => const SvgGenImage('assets/svg/order.svg');
 
+  /// File path: assets/svg/pin.svg
+  SvgGenImage get pin => const SvgGenImage('assets/svg/pin.svg');
+
   /// File path: assets/svg/search.svg
   SvgGenImage get search => const SvgGenImage('assets/svg/search.svg');
 
@@ -73,6 +76,7 @@ class $AssetsSvgGen {
         menu,
         notification,
         order,
+        pin,
         search,
         user
       ];

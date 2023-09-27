@@ -20,9 +20,9 @@ class AuthGuard extends AutoRouteGuard {
       resolver.next();
     } else {
       router.push(
-        SignInRoute(
-          onResult: resolver.next,
-        ),
+        const SignInRoute(
+            // onResult: resolver.next,
+            ),
       );
     }
   }

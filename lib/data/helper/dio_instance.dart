@@ -14,6 +14,7 @@ class DioInstance with DioMixin implements Dio {
       baseUrl: ApiPath.baseUrl,
       contentType: 'application/json',
     );
+    httpClientAdapter = HttpClientAdapter();
     this.options = options;
     _setUpInterceptor();
   }
@@ -56,7 +57,7 @@ class DioInstance with DioMixin implements Dio {
         handler.next(res);
       },
       onError: (e, handler) {
-        'Api Error : ${e.message}'.logError();
+        'Api Error : $e'.logError();
         final error = AppError(
           type: ErrorType.network,
           message: 'Please check your internet connection or try again later',

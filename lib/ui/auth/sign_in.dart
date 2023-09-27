@@ -12,17 +12,16 @@ import 'providers/sign_in_provider.dart';
 
 @RoutePage()
 class SignInPage extends ConsumerStatefulWidget {
-  const SignInPage({super.key, this.onResult});
+  const SignInPage({super.key});
 
-  final Function(bool success)? onResult;
   @override
   ConsumerState<SignInPage> createState() => _SignInPageState();
 }
 
 class _SignInPageState extends ConsumerState<SignInPage> {
   final emailCtrl =
-      TextEditingController(text: 'shahkisan64@gmail.com'.ifDebug);
-  final passwordCtrl = TextEditingController(text: '6CzehBq7_E6E4SG'.ifDebug);
+      TextEditingController(text: 'shahkisan21@gmail.com'.ifDebug);
+  final passwordCtrl = TextEditingController(text: 'Hello@1234'.ifDebug);
 
   @override
   void dispose() {
@@ -143,7 +142,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   void navigate() {
     final res = ref.read(signInNotifierProvider).success;
     if (res) {
-      widget.onResult?.call(res);
+      ref.read(routerProvider).replaceAll([const HomeRoute()]);
     }
   }
 }

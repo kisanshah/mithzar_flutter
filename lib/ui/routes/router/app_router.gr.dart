@@ -17,7 +17,6 @@ import 'package:e_commerce_front_end/ui/orders/order_page.dart' as _i3;
 import 'package:e_commerce_front_end/ui/profile/profile_page.dart' as _i4;
 import 'package:e_commerce_front_end/ui/search/search_page.dart' as _i5;
 import 'package:e_commerce_front_end/ui/splash/splash_page.dart' as _i8;
-import 'package:flutter/material.dart' as _i10;
 
 abstract class $AppRouter extends _i9.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -55,14 +54,9 @@ abstract class $AppRouter extends _i9.RootStackRouter {
       );
     },
     SignInRoute.name: (routeData) {
-      final args = routeData.argsAs<SignInRouteArgs>(
-          orElse: () => const SignInRouteArgs());
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.SignInPage(
-          key: args.key,
-          onResult: args.onResult,
-        ),
+        child: const _i6.SignInPage(),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -152,40 +146,16 @@ class SearchRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.SignInPage]
-class SignInRoute extends _i9.PageRouteInfo<SignInRouteArgs> {
-  SignInRoute({
-    _i10.Key? key,
-    dynamic Function(bool)? onResult,
-    List<_i9.PageRouteInfo>? children,
-  }) : super(
+class SignInRoute extends _i9.PageRouteInfo<void> {
+  const SignInRoute({List<_i9.PageRouteInfo>? children})
+      : super(
           SignInRoute.name,
-          args: SignInRouteArgs(
-            key: key,
-            onResult: onResult,
-          ),
           initialChildren: children,
         );
 
   static const String name = 'SignInRoute';
 
-  static const _i9.PageInfo<SignInRouteArgs> page =
-      _i9.PageInfo<SignInRouteArgs>(name);
-}
-
-class SignInRouteArgs {
-  const SignInRouteArgs({
-    this.key,
-    this.onResult,
-  });
-
-  final _i10.Key? key;
-
-  final dynamic Function(bool)? onResult;
-
-  @override
-  String toString() {
-    return 'SignInRouteArgs{key: $key, onResult: $onResult}';
-  }
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
