@@ -181,6 +181,10 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'Address':
+          return Address.fromJson(value);
+        case 'Success':
+          return Success.fromJson(value);
         case 'Tokens':
           return Tokens.fromJson(value);
         case 'User':

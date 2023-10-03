@@ -27,8 +27,8 @@ class _MainPageState extends ConsumerState<MainPage> {
       top: false,
       child: AutoTabsScaffold(
         routes: const [
-          // HomeRoute(),
-          SearchRoute(),
+          HomeRoute(),
+          // SearchRoute(),
           SearchRoute(),
           OrderRoute(),
           ProfileRoute(),

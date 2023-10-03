@@ -40,15 +40,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:flutterClient/api.dart';
 
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = AuthApi();
-final body = Object(); // Object | 
+final api_instance = AddressApi();
 
 try {
-    final result = api_instance.authRefreshTokenPost(body);
+    final result = api_instance.addressAllGet();
     print(result);
 } catch (e) {
-    print('Exception when calling AuthApi->authRefreshTokenPost: $e\n');
+    print('Exception when calling AddressApi->addressAllGet: $e\n');
 }
 
 ```
@@ -59,15 +64,23 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AddressApi* | [**addressAllGet**](doc//AddressApi.md#addressallget) | **GET** /address/all | Get all user addresses
+*AddressApi* | [**addressDefaultIdPatch**](doc//AddressApi.md#addressdefaultidpatch) | **PATCH** /address/default/{id} | Mark the address as default
+*AddressApi* | [**addressIdDelete**](doc//AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
+*AddressApi* | [**addressSavePost**](doc//AddressApi.md#addresssavepost) | **POST** /address/save | save new address for the user and return new address object
+*AddressApi* | [**addressUpdatePut**](doc//AddressApi.md#addressupdateput) | **PUT** /address/update | update the address with the new address
 *AuthApi* | [**authRefreshTokenPost**](doc//AuthApi.md#authrefreshtokenpost) | **POST** /auth/refreshToken | Generates access token using refresh token
 *AuthApi* | [**authRegisterPost**](doc//AuthApi.md#authregisterpost) | **POST** /auth/register | Register new user
 *AuthApi* | [**authSignInPost**](doc//AuthApi.md#authsigninpost) | **POST** /auth/signIn | Sign In
 *OrderApi* | [**orderCheckoutGet**](doc//OrderApi.md#ordercheckoutget) | **GET** /order/checkout | Returns a list of products.
+*OrderApi* | [**orderListGet**](doc//OrderApi.md#orderlistget) | **GET** /order/list | Returns a list of orders.
 *ProductApi* | [**productsAllGet**](doc//ProductApi.md#productsallget) | **GET** /products/all | Returns a list of products.
 
 
 ## Documentation For Models
 
+ - [Address](doc//Address.md)
+ - [Success](doc//Success.md)
  - [Tokens](doc//Tokens.md)
  - [User](doc//User.md)
 

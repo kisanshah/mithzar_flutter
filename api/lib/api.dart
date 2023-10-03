@@ -27,10 +27,13 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
+part 'api/address_api.dart';
 part 'api/auth_api.dart';
 part 'api/order_api.dart';
 part 'api/product_api.dart';
 
+part 'model/address.dart';
+part 'model/success.dart';
 part 'model/tokens.dart';
 part 'model/user.dart';
 

@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-import '../shared/providers/router_provider.dart';
 import '../theme/app_color.dart';
-import 'provider/profile_provider.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
@@ -19,8 +17,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     // final state = ref.watch(profileNotifierProvider);
-    final router = ref.watch(routerProvider);
-    final notifier = ref.watch(profileNotifierProvider.notifier);
+    // final router = ref.watch(routerProvider);
+    // final notifier = ref.watch(profileNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Account'),

@@ -48,11 +48,11 @@ class _TrendingCarouselState extends ConsumerState<TrendingCarousel> {
           return AnimatedBuilder(
             animation: pageCtrl,
             builder: (context, anim) {
-              double value = 0.0;
-              if (pageCtrl.position.haveDimensions) {
-                value = index - (pageCtrl.page ?? 0);
-                value = (value * -0.04).clamp(-1, 1);
-              }
+              const double value = 0.0;
+              // if (pageCtrl.position.haveDimensions) {
+              //   value = index - (pageCtrl.page ?? 0);
+              //   value = (value * -0.04).clamp(-1, 1);
+              // }
               return Transform.rotate(
                 angle: pi * value,
                 child: Padding(
