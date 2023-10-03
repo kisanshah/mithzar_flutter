@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
 import '../theme/app_color.dart';
+import 'provider/profile_provider.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
@@ -83,9 +84,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                 ),
-                const ListTile(
+                ListTile(
                   minLeadingWidth: 0,
-                  title: Text(
+                  onTap: () {
+                    ref.read(profileNotifierProvider.notifier).logout();
+                  },
+                  title: const Text(
                     'Logout',
                     style: TextStyle(color: Colors.red),
                   ),

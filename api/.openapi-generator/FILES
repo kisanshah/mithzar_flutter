@@ -7,6 +7,7 @@ doc/AddressApi.md
 doc/AuthApi.md
 doc/OrderApi.md
 doc/ProductApi.md
+doc/ProfileApi.md
 doc/Success.md
 doc/Tokens.md
 doc/User.md
@@ -16,6 +17,7 @@ lib/api/address_api.dart
 lib/api/auth_api.dart
 lib/api/order_api.dart
 lib/api/product_api.dart
+lib/api/profile_api.dart
 lib/api_client.dart
 lib/api_exception.dart
 lib/api_helper.dart
@@ -29,6 +31,3 @@ lib/model/success.dart
 lib/model/tokens.dart
 lib/model/user.dart
 pubspec.yaml
-test/address_api_test.dart
-test/address_test.dart
-test/success_test.dart

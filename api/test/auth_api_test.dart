@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 import 'package:test/test.dart';
 
 
@@ -19,22 +19,22 @@ void main() {
   group('tests for AuthApi', () {
     // Generates access token using refresh token
     //
-    //Future<Tokens> authRefreshTokenPost({ Object body }) async
-    test('test authRefreshTokenPost', () async {
+    //Future<Tokens> refreshToken({ Object body }) async
+    test('test refreshToken', () async {
       // TODO
     });
 
     // Register new user
     //
-    //Future<Tokens> authRegisterPost({ User user }) async
-    test('test authRegisterPost', () async {
+    //Future<Tokens> register({ User user }) async
+    test('test register', () async {
       // TODO
     });
 
     // Sign In
     //
-    //Future<Tokens> authSignInPost(User user) async
-    test('test authSignInPost', () async {
+    //Future<Tokens> signIn(User user) async
+    test('test signIn', () async {
       // TODO
     });
 

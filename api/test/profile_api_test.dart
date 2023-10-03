@@ -11,22 +11,18 @@
 import 'package:api/api.dart';
 import 'package:test/test.dart';
 
-// tests for Tokens
+
+/// tests for ProfileApi
 void main() {
-  // final instance = Tokens();
+  // final instance = ProfileApi();
 
-  group('test Tokens', () {
-    // String refreshToken
-    test('to test the property `refreshToken`', () async {
+  group('tests for ProfileApi', () {
+    // Get profile based on the token
+    //
+    //Future<User> userGet() async
+    test('test userGet', () async {
       // TODO
     });
-
-    // String accessToken
-    test('to test the property `accessToken`', () async {
-      // TODO
-    });
-
 
   });
-
 }

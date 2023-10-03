@@ -1,10 +1,9 @@
+import 'package:flutterClient/api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/helper/app_error.dart';
 import '../../../data/local/shar_pref.dart';
-import '../../../data/model/sign_in_req.dart';
-import '../../../data/model/token_res.dart';
-import '../../../data/repository/auth_provider.dart';
+import '../data/repository/auth_repo_impl.dart';
 import 'sign_in_state.dart';
 
 part 'sign_in_provider.g.dart';
@@ -18,15 +17,15 @@ class SignInNotifier extends _$SignInNotifier {
 
   Future<void> signIn(String email, String password) async {
     state = state.copyWith(loading: true);
-    final body = SignInReq(email: email, password: password);
-    final result = await ref.read(authRepositoryProvider).signIn(body);
+    final body = User(email: email, password: password);
+    final result = await ref.read(authRepoProvider).signIn(body);
     result.fold(onError, onResult);
   }
 
-  void onResult(TokenRes token) {
+  void onResult(Tokens token) {
     state = state.copyWith(
       loading: false,
-      success: token.refreshToken.isNotEmpty,
+      success: token.refreshToken != '',
     );
     ref.read(sharPrefProvider).saveToken(token);
   }

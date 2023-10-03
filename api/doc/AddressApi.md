@@ -1,8 +1,8 @@
-# flutterClient.api.AddressApi
+# api.api.AddressApi
 
 ## Load the API package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000/v1*
@@ -23,7 +23,7 @@ Get all user addresses
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -66,7 +66,7 @@ Mark the address as default
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -113,7 +113,7 @@ Get all user addresses
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -160,7 +160,7 @@ save new address for the user and return new address object
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -207,7 +207,7 @@ update the address with the new address
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

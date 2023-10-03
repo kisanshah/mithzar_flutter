@@ -31,6 +31,7 @@ part 'api/address_api.dart';
 part 'api/auth_api.dart';
 part 'api/order_api.dart';
 part 'api/product_api.dart';
+part 'api/profile_api.dart';
 
 part 'model/address.dart';
 part 'model/success.dart';

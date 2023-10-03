@@ -1,8 +1,8 @@
-# flutterClient.model.Address
+# api.model.Address
 
 ## Load the model package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 ## Properties

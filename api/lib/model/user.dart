@@ -13,11 +13,20 @@ part of openapi.api;
 class User {
   /// Returns a new [User] instance.
   User({
+    this.id,
     this.name,
     this.phone,
     this.email,
     this.password,
   });
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? id;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -53,6 +62,7 @@ class User {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is User &&
+     other.id == id &&
      other.name == name &&
      other.phone == phone &&
      other.email == email &&
@@ -61,16 +71,22 @@ class User {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (id == null ? 0 : id!.hashCode) +
     (name == null ? 0 : name!.hashCode) +
     (phone == null ? 0 : phone!.hashCode) +
     (email == null ? 0 : email!.hashCode) +
     (password == null ? 0 : password!.hashCode);
 
   @override
-  String toString() => 'User[name=$name, phone=$phone, email=$email, password=$password]';
+  String toString() => 'User[id=$id, name=$name, phone=$phone, email=$email, password=$password]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
+    } else {
+      json[r'id'] = null;
+    }
     if (this.name != null) {
       json[r'name'] = this.name;
     } else {
@@ -113,6 +129,9 @@ class User {
       }());
 
       return User(
+        id: json[r'id'] == null
+            ? null
+            : num.parse(json[r'id'].toString()),
         name: mapValueOfType<String>(json, r'name'),
         phone: mapValueOfType<String>(json, r'phone'),
         email: mapValueOfType<String>(json, r'email'),

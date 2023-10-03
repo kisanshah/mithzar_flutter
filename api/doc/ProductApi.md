@@ -1,8 +1,8 @@
-# flutterClient.api.ProductApi
+# api.api.ProductApi
 
 ## Load the API package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000/v1*
@@ -19,7 +19,7 @@ Returns a list of products.
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 
 final api_instance = ProductApi();
 

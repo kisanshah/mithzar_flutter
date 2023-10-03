@@ -1,8 +1,8 @@
-# flutterClient.model.Tokens
+# api.model.Tokens
 
 ## Load the model package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 ## Properties

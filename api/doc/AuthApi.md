@@ -1,36 +1,36 @@
-# flutterClient.api.AuthApi
+# api.api.AuthApi
 
 ## Load the API package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authRefreshTokenPost**](AuthApi.md#authrefreshtokenpost) | **POST** /auth/refreshToken | Generates access token using refresh token
-[**authRegisterPost**](AuthApi.md#authregisterpost) | **POST** /auth/register | Register new user
-[**authSignInPost**](AuthApi.md#authsigninpost) | **POST** /auth/signIn | Sign In
+[**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generates access token using refresh token
+[**register**](AuthApi.md#register) | **POST** /auth/register | Register new user
+[**signIn**](AuthApi.md#signin) | **POST** /auth/signIn | Sign In
 
 
-# **authRefreshTokenPost**
-> Tokens authRefreshTokenPost(body)
+# **refreshToken**
+> Tokens refreshToken(body)
 
 Generates access token using refresh token
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 
 final api_instance = AuthApi();
 final body = Object(); // Object | 
 
 try {
-    final result = api_instance.authRefreshTokenPost(body);
+    final result = api_instance.refreshToken(body);
     print(result);
 } catch (e) {
-    print('Exception when calling AuthApi->authRefreshTokenPost: $e\n');
+    print('Exception when calling AuthApi->refreshToken: $e\n');
 }
 ```
 
@@ -55,23 +55,23 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **authRegisterPost**
-> Tokens authRegisterPost(user)
+# **register**
+> Tokens register(user)
 
 Register new user
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 
 final api_instance = AuthApi();
 final user = User(); // User | 
 
 try {
-    final result = api_instance.authRegisterPost(user);
+    final result = api_instance.register(user);
     print(result);
 } catch (e) {
-    print('Exception when calling AuthApi->authRegisterPost: $e\n');
+    print('Exception when calling AuthApi->register: $e\n');
 }
 ```
 
@@ -79,7 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)|  | [optional] 
+ **user** | [**User**](User.md)|  | 
 
 ### Return type
 
@@ -96,23 +96,23 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **authSignInPost**
-> Tokens authSignInPost(user)
+# **signIn**
+> Tokens signIn(user)
 
 Sign In
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 
 final api_instance = AuthApi();
 final user = User(); // User | User credentials
 
 try {
-    final result = api_instance.authSignInPost(user);
+    final result = api_instance.signIn(user);
     print(result);
 } catch (e) {
-    print('Exception when calling AuthApi->authSignInPost: $e\n');
+    print('Exception when calling AuthApi->signIn: $e\n');
 }
 ```
 

@@ -1,8 +1,8 @@
-# flutterClient.api.OrderApi
+# api.api.OrderApi
 
 ## Load the API package
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000/v1*
@@ -20,7 +20,7 @@ Returns a list of products.
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -62,7 +62,7 @@ Returns a list of orders.
 
 ### Example
 ```dart
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');

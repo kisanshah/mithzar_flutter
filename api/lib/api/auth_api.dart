@@ -23,7 +23,7 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [Object] body:
-  Future<Response> authRefreshTokenPostWithHttpInfo({ Object? body, }) async {
+  Future<Response> refreshTokenWithHttpInfo({ Object? body, }) async {
     // ignore: prefer_const_declarations
     final path = r'/auth/refreshToken';
 
@@ -53,8 +53,8 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [Object] body:
-  Future<Tokens?> authRefreshTokenPost({ Object? body, }) async {
-    final response = await authRefreshTokenPostWithHttpInfo( body: body, );
+  Future<Tokens?> refreshToken({ Object? body, }) async {
+    final response = await refreshTokenWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -74,8 +74,8 @@ class AuthApi {
   ///
   /// Parameters:
   ///
-  /// * [User] user:
-  Future<Response> authRegisterPostWithHttpInfo({ User? user, }) async {
+  /// * [User] user (required):
+  Future<Response> registerWithHttpInfo(User user,) async {
     // ignore: prefer_const_declarations
     final path = r'/auth/register';
 
@@ -104,9 +104,9 @@ class AuthApi {
   ///
   /// Parameters:
   ///
-  /// * [User] user:
-  Future<Tokens?> authRegisterPost({ User? user, }) async {
-    final response = await authRegisterPostWithHttpInfo( user: user, );
+  /// * [User] user (required):
+  Future<Tokens?> register(User user,) async {
+    final response = await registerWithHttpInfo(user,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -128,7 +128,7 @@ class AuthApi {
   ///
   /// * [User] user (required):
   ///   User credentials
-  Future<Response> authSignInPostWithHttpInfo(User user,) async {
+  Future<Response> signInWithHttpInfo(User user,) async {
     // ignore: prefer_const_declarations
     final path = r'/auth/signIn';
 
@@ -159,8 +159,8 @@ class AuthApi {
   ///
   /// * [User] user (required):
   ///   User credentials
-  Future<Tokens?> authSignInPost(User user,) async {
-    final response = await authSignInPostWithHttpInfo(user,);
+  Future<Tokens?> signIn(User user,) async {
+    final response = await signInWithHttpInfo(user,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

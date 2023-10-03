@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 import 'package:test/test.dart';
 
 // tests for User
@@ -16,6 +16,11 @@ void main() {
   // final instance = User();
 
   group('test User', () {
+    // num id
+    test('to test the property `id`', () async {
+      // TODO
+    });
+
     // String name
     test('to test the property `name`', () async {
       // TODO
