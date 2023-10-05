@@ -1,6 +1,5 @@
+import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-
-import '../../../gen/assets.gen.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});

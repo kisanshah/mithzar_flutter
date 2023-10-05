@@ -1,6 +1,5 @@
+import 'package:e_commerce_front_end/ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
-
-import '../theme/app_color.dart';
 
 class HeaderWithAction extends StatelessWidget {
   const HeaderWithAction({

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/Address.md
@@ -32,12 +31,3 @@ lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/address_api_test.dart
-test/address_test.dart
-test/auth_api_test.dart
-test/order_api_test.dart
-test/product_api_test.dart
-test/profile_api_test.dart
-test/success_test.dart
-test/tokens_test.dart
-test/user_test.dart

@@ -1,6 +1,5 @@
+import 'package:e_commerce_front_end/ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
-
-import '../theme/app_color.dart';
 
 class ImageBox extends StatelessWidget {
   const ImageBox({super.key, this.height = 140, this.width = 150});

@@ -1,7 +1,6 @@
 import 'package:api/api.dart';
+import 'package:e_commerce_front_end/ui/shared/providers/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../ui/shared/providers/dio_provider.dart';
 
 part 'api_client_provider.g.dart';
 

@@ -1,8 +1,7 @@
+import 'package:e_commerce_front_end/ui/home/components/quick_filter_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-
-import '../components/quick_filter_item.dart';
 
 final selectedFilterProvider = StateProvider<String>((ref) {
   return 'All';

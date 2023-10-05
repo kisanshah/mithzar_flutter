@@ -4,11 +4,13 @@
 
 import 'dart:async';
 
-import 'package:api/src/model/user.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:api/src/model/user.dart';
+
 class ProfileApi {
+
   final Dio _dio;
 
   final Serializers _serializers;
@@ -16,7 +18,7 @@ class ProfileApi {
   const ProfileApi(this._dio, this._serializers);
 
   /// Get profile based on the token
-  ///
+  /// 
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -28,7 +30,7 @@ class ProfileApi {
   ///
   /// Returns a [Future] containing a [Response] with a [User] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<User>> userGet({
+  Future<Response<User>> getUserByToken({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -67,12 +69,11 @@ class ProfileApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null
-          ? null
-          : _serializers.deserialize(
-              rawResponse,
-              specifiedType: const FullType(User),
-            ) as User;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(User),
+      ) as User;
+
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -94,4 +95,5 @@ class ProfileApi {
       extra: _response.extra,
     );
   }
+
 }

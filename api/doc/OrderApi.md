@@ -9,12 +9,12 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**orderCheckoutGet**](OrderApi.md#ordercheckoutget) | **GET** /order/checkout | Returns a list of products.
-[**orderListGet**](OrderApi.md#orderlistget) | **GET** /order/list | Returns a list of orders.
+[**checkout**](OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
+[**getOrderList**](OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 
 
-# **orderCheckoutGet**
-> orderCheckoutGet()
+# **checkout**
+> checkout()
 
 Returns a list of products.
 
@@ -28,9 +28,9 @@ import 'package:api/api.dart';
 final api = Api().getOrderApi();
 
 try {
-    api.orderCheckoutGet();
+    api.checkout();
 } catch on DioError (e) {
-    print('Exception when calling OrderApi->orderCheckoutGet: $e\n');
+    print('Exception when calling OrderApi->checkout: $e\n');
 }
 ```
 
@@ -52,8 +52,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **orderListGet**
-> orderListGet()
+# **getOrderList**
+> getOrderList()
 
 Returns a list of orders.
 
@@ -67,9 +67,9 @@ import 'package:api/api.dart';
 final api = Api().getOrderApi();
 
 try {
-    api.orderListGet();
+    api.getOrderList();
 } catch on DioError (e) {
-    print('Exception when calling OrderApi->orderListGet: $e\n');
+    print('Exception when calling OrderApi->getOrderList: $e\n');
 }
 ```
 

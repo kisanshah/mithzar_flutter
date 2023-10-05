@@ -1,8 +1,7 @@
+import 'package:e_commerce_front_end/ui/components/header_with_action.dart';
+import 'package:e_commerce_front_end/ui/home/components/trending_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
-import '../../components/header_with_action.dart';
-import '../components/trending_product_item.dart';
 
 class TrendingProducts extends StatelessWidget {
   const TrendingProducts({super.key});

@@ -6,7 +6,7 @@ part of 'api_res.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiRes _$$_ApiResFromJson(Map<String, dynamic> json) => _$_ApiRes(
+_$ApiResImpl _$$ApiResImplFromJson(Map<String, dynamic> json) => _$ApiResImpl(
       success: json['success'] as bool?,
       message: json['message'] as String?,
       errors: (json['errors'] as List<dynamic>?)
@@ -15,7 +15,8 @@ _$_ApiRes _$$_ApiResFromJson(Map<String, dynamic> json) => _$_ApiRes(
       data: json['data'],
     );
 
-Map<String, dynamic> _$$_ApiResToJson(_$_ApiRes instance) => <String, dynamic>{
+Map<String, dynamic> _$$ApiResImplToJson(_$ApiResImpl instance) =>
+    <String, dynamic>{
       'success': instance.success,
       'message': instance.message,
       'errors': instance.errors,

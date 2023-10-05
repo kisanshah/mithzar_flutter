@@ -1,8 +1,7 @@
+import 'package:e_commerce_front_end/data/local/shar_pref.dart';
+import 'package:e_commerce_front_end/ui/routes/router/app_router.gr.dart';
+import 'package:e_commerce_front_end/ui/shared/providers/router_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../data/local/shar_pref.dart';
-import '../../routes/router/app_router.gr.dart';
-import '../../shared/providers/router_provider.dart';
 
 part 'profile_provider.g.dart';
 

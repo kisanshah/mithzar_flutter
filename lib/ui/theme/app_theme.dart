@@ -1,7 +1,6 @@
+import 'package:e_commerce_front_end/ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'app_color.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class AppTheme {

@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:api/api.dart';
+import 'package:e_commerce_front_end/data/helper/pref_path.dart';
+import 'package:e_commerce_front_end/ui/shared/providers/shar_pref_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:secure_shared_preferences/secure_shared_pref.dart';
-
-import '../../ui/shared/providers/shar_pref_provider.dart';
-import '../helper/pref_path.dart';
 
 final sharPrefProvider = Provider<SharPref>((ref) {
   return SharPref(ref.read(secureSharedPredProvider));
@@ -17,8 +16,10 @@ class SharPref {
   final SecureSharedPref pref;
 
   Future<void> saveToken(Tokens token) async {
-    await pref.putString(PrefPath.token,
-        jsonEncode(serializers.toJson(Tokens.serializer, token)));
+    await pref.putString(
+      PrefPath.token,
+      jsonEncode(serializers.toJson(Tokens.serializer, token)),
+    );
   }
 
   Future<Tokens?> getToken() async {

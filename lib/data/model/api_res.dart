@@ -1,6 +1,5 @@
+import 'package:e_commerce_front_end/data/model/api_err_msg.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'api_err_msg.dart';
 
 part 'api_res.freezed.dart';
 part 'api_res.g.dart';

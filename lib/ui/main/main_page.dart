@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:e_commerce_front_end/ui/main/components/bottom_nav_bar.dart';
+import 'package:e_commerce_front_end/ui/routes/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../routes/router/app_router.gr.dart';
-import 'components/bottom_nav_bar.dart';
 
 @RoutePage()
 class MainPage extends ConsumerStatefulWidget {

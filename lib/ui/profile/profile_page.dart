@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:e_commerce_front_end/ui/profile/provider/profile_provider.dart';
+import 'package:e_commerce_front_end/ui/shared/providers/user_provider.dart';
+import 'package:e_commerce_front_end/ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-
-import '../../core/instances/api_client_provider.dart';
-import '../theme/app_color.dart';
-import 'provider/profile_provider.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
@@ -18,12 +17,12 @@ class ProfilePage extends ConsumerStatefulWidget {
 class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    // final state = ref.watch(profileNotifierProvider);
+    final user = ref.watch(userNotifierProvider);
     // final router = ref.watch(routerProvider);
     // final notifier = ref.watch(profileNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Account'),
+        title: Text('Account ${user.name}'),
         // toolbarHeight: 0,
         elevation: 0,
       ),
@@ -46,9 +45,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             child: Column(
               children: [
                 ListTile(
-                  onTap: () {
-                    ref.read(apiClientProvider).getProfileApi().userGet();
-                  },
+                  onTap: () {},
                   minLeadingWidth: 0,
                   title: const Text(
                     'Profile',

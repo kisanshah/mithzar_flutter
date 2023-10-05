@@ -1,10 +1,9 @@
 import 'package:api/api.dart';
+import 'package:e_commerce_front_end/data/helper/app_error.dart';
+import 'package:e_commerce_front_end/data/local/shar_pref.dart';
+import 'package:e_commerce_front_end/ui/auth/data/repository/auth_repo_impl.dart';
+import 'package:e_commerce_front_end/ui/auth/providers/sign_in_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../data/helper/app_error.dart';
-import '../../../data/local/shar_pref.dart';
-import '../data/repository/auth_repo_impl.dart';
-import 'sign_in_state.dart';
 
 part 'sign_in_provider.g.dart';
 

@@ -82,9 +82,10 @@ class _$ApiResCopyWithImpl<$Res, $Val extends ApiRes>
 }
 
 /// @nodoc
-abstract class _$$_ApiResCopyWith<$Res> implements $ApiResCopyWith<$Res> {
-  factory _$$_ApiResCopyWith(_$_ApiRes value, $Res Function(_$_ApiRes) then) =
-      __$$_ApiResCopyWithImpl<$Res>;
+abstract class _$$ApiResImplCopyWith<$Res> implements $ApiResCopyWith<$Res> {
+  factory _$$ApiResImplCopyWith(
+          _$ApiResImpl value, $Res Function(_$ApiResImpl) then) =
+      __$$ApiResImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -95,10 +96,11 @@ abstract class _$$_ApiResCopyWith<$Res> implements $ApiResCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ApiResCopyWithImpl<$Res>
-    extends _$ApiResCopyWithImpl<$Res, _$_ApiRes>
-    implements _$$_ApiResCopyWith<$Res> {
-  __$$_ApiResCopyWithImpl(_$_ApiRes _value, $Res Function(_$_ApiRes) _then)
+class __$$ApiResImplCopyWithImpl<$Res>
+    extends _$ApiResCopyWithImpl<$Res, _$ApiResImpl>
+    implements _$$ApiResImplCopyWith<$Res> {
+  __$$ApiResImplCopyWithImpl(
+      _$ApiResImpl _value, $Res Function(_$ApiResImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +111,7 @@ class __$$_ApiResCopyWithImpl<$Res>
     Object? errors = freezed,
     Object? data = freezed,
   }) {
-    return _then(_$_ApiRes(
+    return _then(_$ApiResImpl(
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -132,16 +134,16 @@ class __$$_ApiResCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiRes implements _ApiRes {
-  _$_ApiRes(
+class _$ApiResImpl implements _ApiRes {
+  _$ApiResImpl(
       {this.success,
       this.message,
       final List<ApiErrorMessage>? errors,
       this.data})
       : _errors = errors;
 
-  factory _$_ApiRes.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiResFromJson(json);
+  factory _$ApiResImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiResImplFromJson(json);
 
   @override
   final bool? success;
@@ -169,7 +171,7 @@ class _$_ApiRes implements _ApiRes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiRes &&
+            other is _$ApiResImpl &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._errors, _errors) &&
@@ -188,12 +190,12 @@ class _$_ApiRes implements _ApiRes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiResCopyWith<_$_ApiRes> get copyWith =>
-      __$$_ApiResCopyWithImpl<_$_ApiRes>(this, _$identity);
+  _$$ApiResImplCopyWith<_$ApiResImpl> get copyWith =>
+      __$$ApiResImplCopyWithImpl<_$ApiResImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiResToJson(
+    return _$$ApiResImplToJson(
       this,
     );
   }
@@ -204,9 +206,9 @@ abstract class _ApiRes implements ApiRes {
       {final bool? success,
       final String? message,
       final List<ApiErrorMessage>? errors,
-      final dynamic data}) = _$_ApiRes;
+      final dynamic data}) = _$ApiResImpl;
 
-  factory _ApiRes.fromJson(Map<String, dynamic> json) = _$_ApiRes.fromJson;
+  factory _ApiRes.fromJson(Map<String, dynamic> json) = _$ApiResImpl.fromJson;
 
   @override
   bool? get success;
@@ -218,6 +220,6 @@ abstract class _ApiRes implements ApiRes {
   dynamic get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiResCopyWith<_$_ApiRes> get copyWith =>
+  _$$ApiResImplCopyWith<_$ApiResImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

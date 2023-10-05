@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-
-import '../../extensions/log.dart';
+import 'package:e_commerce_front_end/core/extensions/log.dart';
 
 class LoggingInterceptor implements InterceptorsWrapper {
   @override

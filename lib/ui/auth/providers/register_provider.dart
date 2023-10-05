@@ -1,11 +1,10 @@
 import 'package:api/api.dart';
+import 'package:e_commerce_front_end/core/extensions/debug.dart';
+import 'package:e_commerce_front_end/data/helper/app_error.dart';
+import 'package:e_commerce_front_end/data/local/shar_pref.dart';
+import 'package:e_commerce_front_end/ui/auth/providers/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../data/helper/app_error.dart';
-import '../../../data/local/shar_pref.dart';
-import '../../../extensions/debug.dart';
-import 'register_state.dart';
 
 part 'register_provider.g.dart';
 

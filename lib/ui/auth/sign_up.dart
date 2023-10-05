@@ -1,15 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:e_commerce_front_end/core/extensions/string.dart';
+import 'package:e_commerce_front_end/ui/auth/components/otp_box.dart';
+import 'package:e_commerce_front_end/ui/auth/providers/register_provider.dart';
+import 'package:e_commerce_front_end/ui/components/app_loader.dart';
+import 'package:e_commerce_front_end/ui/shared/providers/router_provider.dart';
+import 'package:e_commerce_front_end/ui/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-
-import '../../extensions/string.dart';
-import '../components/app_loader.dart';
-import '../shared/providers/router_provider.dart';
-import '../theme/app_color.dart';
-import 'components/otp_box.dart';
-import 'providers/register_provider.dart';
 
 @RoutePage()
 class SignUpPage extends ConsumerStatefulWidget {

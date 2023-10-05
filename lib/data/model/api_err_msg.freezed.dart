@@ -62,22 +62,22 @@ class _$ApiErrorMessageCopyWithImpl<$Res, $Val extends ApiErrorMessage>
 }
 
 /// @nodoc
-abstract class _$$_ApiErrorMessageCopyWith<$Res>
+abstract class _$$ApiErrorMessageImplCopyWith<$Res>
     implements $ApiErrorMessageCopyWith<$Res> {
-  factory _$$_ApiErrorMessageCopyWith(
-          _$_ApiErrorMessage value, $Res Function(_$_ApiErrorMessage) then) =
-      __$$_ApiErrorMessageCopyWithImpl<$Res>;
+  factory _$$ApiErrorMessageImplCopyWith(_$ApiErrorMessageImpl value,
+          $Res Function(_$ApiErrorMessageImpl) then) =
+      __$$ApiErrorMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ApiErrorMessageCopyWithImpl<$Res>
-    extends _$ApiErrorMessageCopyWithImpl<$Res, _$_ApiErrorMessage>
-    implements _$$_ApiErrorMessageCopyWith<$Res> {
-  __$$_ApiErrorMessageCopyWithImpl(
-      _$_ApiErrorMessage _value, $Res Function(_$_ApiErrorMessage) _then)
+class __$$ApiErrorMessageImplCopyWithImpl<$Res>
+    extends _$ApiErrorMessageCopyWithImpl<$Res, _$ApiErrorMessageImpl>
+    implements _$$ApiErrorMessageImplCopyWith<$Res> {
+  __$$ApiErrorMessageImplCopyWithImpl(
+      _$ApiErrorMessageImpl _value, $Res Function(_$ApiErrorMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_ApiErrorMessageCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_ApiErrorMessage(
+    return _then(_$ApiErrorMessageImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_ApiErrorMessageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiErrorMessage implements _ApiErrorMessage {
-  _$_ApiErrorMessage({this.message = ''});
+class _$ApiErrorMessageImpl implements _ApiErrorMessage {
+  _$ApiErrorMessageImpl({this.message = ''});
 
-  factory _$_ApiErrorMessage.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiErrorMessageFromJson(json);
+  factory _$ApiErrorMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiErrorMessageImplFromJson(json);
 
   @override
   @JsonKey()
@@ -115,7 +115,7 @@ class _$_ApiErrorMessage implements _ApiErrorMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiErrorMessage &&
+            other is _$ApiErrorMessageImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -126,27 +126,28 @@ class _$_ApiErrorMessage implements _ApiErrorMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiErrorMessageCopyWith<_$_ApiErrorMessage> get copyWith =>
-      __$$_ApiErrorMessageCopyWithImpl<_$_ApiErrorMessage>(this, _$identity);
+  _$$ApiErrorMessageImplCopyWith<_$ApiErrorMessageImpl> get copyWith =>
+      __$$ApiErrorMessageImplCopyWithImpl<_$ApiErrorMessageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiErrorMessageToJson(
+    return _$$ApiErrorMessageImplToJson(
       this,
     );
   }
 }
 
 abstract class _ApiErrorMessage implements ApiErrorMessage {
-  factory _ApiErrorMessage({final String message}) = _$_ApiErrorMessage;
+  factory _ApiErrorMessage({final String message}) = _$ApiErrorMessageImpl;
 
   factory _ApiErrorMessage.fromJson(Map<String, dynamic> json) =
-      _$_ApiErrorMessage.fromJson;
+      _$ApiErrorMessageImpl.fromJson;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiErrorMessageCopyWith<_$_ApiErrorMessage> get copyWith =>
+  _$$ApiErrorMessageImplCopyWith<_$ApiErrorMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

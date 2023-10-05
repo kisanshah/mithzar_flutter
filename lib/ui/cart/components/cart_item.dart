@@ -1,7 +1,6 @@
+import 'package:e_commerce_front_end/ui/components/image_box.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
-import '../../components/image_box.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({

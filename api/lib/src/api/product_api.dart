@@ -30,7 +30,7 @@ class ProductApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<String>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<String>>> productsAllGet({ 
+  Future<Response<BuiltList<String>>> getProducts({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

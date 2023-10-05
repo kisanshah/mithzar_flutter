@@ -1,11 +1,10 @@
 import 'package:api/api.dart';
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce_front_end/core/extensions/future.dart';
+import 'package:e_commerce_front_end/core/instances/api_client_provider.dart';
+import 'package:e_commerce_front_end/data/helper/app_error.dart';
+import 'package:e_commerce_front_end/ui/auth/domain/repository/auth_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../../core/instances/api_client_provider.dart';
-import '../../../../data/helper/app_error.dart';
-import '../../../../extensions/future.dart';
-import '../../domain/repository/auth_repo.dart';
 
 part 'auth_repo_impl.g.dart';
 

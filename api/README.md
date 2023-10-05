@@ -48,12 +48,13 @@ import 'package:api/api.dart';
 
 
 final api = Api().getAddressApi();
+final int id = 56; // int | Numeric ID of the address to delete
 
 try {
-    final response = await api.addressAllGet();
+    final response = await api.addressIdDelete(id);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling AddressApi->addressAllGet: $e\n");
+    print("Exception when calling AddressApi->addressIdDelete: $e\n");
 }
 
 ```
@@ -64,18 +65,18 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*AddressApi*](doc/AddressApi.md) | [**addressAllGet**](doc/AddressApi.md#addressallget) | **GET** /address/all | Get all user addresses
-[*AddressApi*](doc/AddressApi.md) | [**addressDefaultIdPatch**](doc/AddressApi.md#addressdefaultidpatch) | **PATCH** /address/default/{id} | Mark the address as default
 [*AddressApi*](doc/AddressApi.md) | [**addressIdDelete**](doc/AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
-[*AddressApi*](doc/AddressApi.md) | [**addressSavePost**](doc/AddressApi.md#addresssavepost) | **POST** /address/save | save new address for the user and return new address object
-[*AddressApi*](doc/AddressApi.md) | [**addressUpdatePut**](doc/AddressApi.md#addressupdateput) | **PUT** /address/update | update the address with the new address
+[*AddressApi*](doc/AddressApi.md) | [**getAddressList**](doc/AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
+[*AddressApi*](doc/AddressApi.md) | [**saveAddress**](doc/AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
+[*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
+[*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**register**](doc/AuthApi.md#register) | **POST** /auth/register | Register new user
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In
-[*OrderApi*](doc/OrderApi.md) | [**orderCheckoutGet**](doc/OrderApi.md#ordercheckoutget) | **GET** /order/checkout | Returns a list of products.
-[*OrderApi*](doc/OrderApi.md) | [**orderListGet**](doc/OrderApi.md#orderlistget) | **GET** /order/list | Returns a list of orders.
-[*ProductApi*](doc/ProductApi.md) | [**productsAllGet**](doc/ProductApi.md#productsallget) | **GET** /products/all | Returns a list of products.
-[*ProfileApi*](doc/ProfileApi.md) | [**userGet**](doc/ProfileApi.md#userget) | **GET** /user | Get profile based on the token
+[*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
+[*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
+[*ProductApi*](doc/ProductApi.md) | [**getProducts**](doc/ProductApi.md#getproducts) | **GET** /products/all | Returns a list of products.
+[*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
 
 
 ## Documentation For Models

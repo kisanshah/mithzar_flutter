@@ -1,8 +1,7 @@
+import 'package:e_commerce_front_end/ui/cart/components/cart_item.dart';
+import 'package:e_commerce_front_end/ui/components/custom_detail_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
-import '../components/custom_detail_app_bar.dart';
-import 'components/cart_item.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});

@@ -86,11 +86,11 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
 }
 
 /// @nodoc
-abstract class _$$_SignInPageStateCopyWith<$Res>
+abstract class _$$SignInPageStateImplCopyWith<$Res>
     implements $SignInStateCopyWith<$Res> {
-  factory _$$_SignInPageStateCopyWith(
-          _$_SignInPageState value, $Res Function(_$_SignInPageState) then) =
-      __$$_SignInPageStateCopyWithImpl<$Res>;
+  factory _$$SignInPageStateImplCopyWith(_$SignInPageStateImpl value,
+          $Res Function(_$SignInPageStateImpl) then) =
+      __$$SignInPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_SignInPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SignInPageStateCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res, _$_SignInPageState>
-    implements _$$_SignInPageStateCopyWith<$Res> {
-  __$$_SignInPageStateCopyWithImpl(
-      _$_SignInPageState _value, $Res Function(_$_SignInPageState) _then)
+class __$$SignInPageStateImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SignInPageStateImpl>
+    implements _$$SignInPageStateImplCopyWith<$Res> {
+  __$$SignInPageStateImplCopyWithImpl(
+      _$SignInPageStateImpl _value, $Res Function(_$SignInPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_SignInPageStateCopyWithImpl<$Res>
     Object? loading = null,
     Object? success = null,
   }) {
-    return _then(_$_SignInPageState(
+    return _then(_$SignInPageStateImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_SignInPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SignInPageState implements _SignInPageState {
-  _$_SignInPageState(
+class _$SignInPageStateImpl implements _SignInPageState {
+  _$SignInPageStateImpl(
       {this.email = '',
       this.password = '',
       this.error = '',
@@ -178,7 +178,7 @@ class _$_SignInPageState implements _SignInPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInPageState &&
+            other is _$SignInPageStateImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
@@ -194,8 +194,9 @@ class _$_SignInPageState implements _SignInPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignInPageStateCopyWith<_$_SignInPageState> get copyWith =>
-      __$$_SignInPageStateCopyWithImpl<_$_SignInPageState>(this, _$identity);
+  _$$SignInPageStateImplCopyWith<_$SignInPageStateImpl> get copyWith =>
+      __$$SignInPageStateImplCopyWithImpl<_$SignInPageStateImpl>(
+          this, _$identity);
 }
 
 abstract class _SignInPageState implements SignInState {
@@ -204,7 +205,7 @@ abstract class _SignInPageState implements SignInState {
       final String password,
       final String error,
       final bool loading,
-      final bool success}) = _$_SignInPageState;
+      final bool success}) = _$SignInPageStateImpl;
 
   @override
   String get email;
@@ -218,6 +219,6 @@ abstract class _SignInPageState implements SignInState {
   bool get success;
   @override
   @JsonKey(ignore: true)
-  _$$_SignInPageStateCopyWith<_$_SignInPageState> get copyWith =>
+  _$$SignInPageStateImplCopyWith<_$SignInPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

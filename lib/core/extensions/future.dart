@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-
-import '../data/helper/app_error.dart';
+import 'package:e_commerce_front_end/data/helper/app_error.dart';
 
 extension FutureExtension on Future {
   Future<Either<AppError, T>> guardFuture<T>() async {

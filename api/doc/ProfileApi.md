@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**userGet**](ProfileApi.md#userget) | **GET** /user | Get profile based on the token
+[**getUserByToken**](ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
 
 
-# **userGet**
-> User userGet()
+# **getUserByToken**
+> User getUserByToken()
 
 Get profile based on the token
 
@@ -27,10 +27,10 @@ import 'package:api/api.dart';
 final api = Api().getProfileApi();
 
 try {
-    final response = api.userGet();
+    final response = api.getUserByToken();
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling ProfileApi->userGet: $e\n');
+    print('Exception when calling ProfileApi->getUserByToken: $e\n');
 }
 ```
 

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-
-import '../../data/model/api_res.dart';
+import 'package:e_commerce_front_end/data/model/api_res.dart';
 
 class ErrorInterceptor implements InterceptorsWrapper {
   @override

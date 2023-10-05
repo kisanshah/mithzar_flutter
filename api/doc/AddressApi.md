@@ -9,96 +9,12 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addressAllGet**](AddressApi.md#addressallget) | **GET** /address/all | Get all user addresses
-[**addressDefaultIdPatch**](AddressApi.md#addressdefaultidpatch) | **PATCH** /address/default/{id} | Mark the address as default
 [**addressIdDelete**](AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
-[**addressSavePost**](AddressApi.md#addresssavepost) | **POST** /address/save | save new address for the user and return new address object
-[**addressUpdatePut**](AddressApi.md#addressupdateput) | **PUT** /address/update | update the address with the new address
+[**getAddressList**](AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
+[**saveAddress**](AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
+[**setDefaultAddress**](AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
+[**updateAddress**](AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
 
-
-# **addressAllGet**
-> BuiltList<Address> addressAllGet()
-
-Get all user addresses
-
-### Example
-```dart
-import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = Api().getAddressApi();
-
-try {
-    final response = api.addressAllGet();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling AddressApi->addressAllGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;Address&gt;**](Address.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addressDefaultIdPatch**
-> Success addressDefaultIdPatch(id)
-
-Mark the address as default
-
-### Example
-```dart
-import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = Api().getAddressApi();
-final int id = 56; // int | Numeric ID of the address to set default
-
-try {
-    final response = api.addressDefaultIdPatch(id);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling AddressApi->addressDefaultIdPatch: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Numeric ID of the address to set default | 
-
-### Return type
-
-[**Success**](Success.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addressIdDelete**
 > Success addressIdDelete(id)
@@ -144,8 +60,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addressSavePost**
-> Address addressSavePost(address)
+# **getAddressList**
+> BuiltList<Address> getAddressList()
+
+Get all user addresses
+
+### Example
+```dart
+import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = Api().getAddressApi();
+
+try {
+    final response = api.getAddressList();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AddressApi->getAddressList: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BuiltList&lt;Address&gt;**](Address.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **saveAddress**
+> Address saveAddress(address)
 
 save new address for the user and return new address object
 
@@ -160,10 +116,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.addressSavePost(address);
+    final response = api.saveAddress(address);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling AddressApi->addressSavePost: $e\n');
+    print('Exception when calling AddressApi->saveAddress: $e\n');
 }
 ```
 
@@ -188,8 +144,52 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addressUpdatePut**
-> Address addressUpdatePut(address)
+# **setDefaultAddress**
+> Success setDefaultAddress(id)
+
+Mark the address as default
+
+### Example
+```dart
+import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = Api().getAddressApi();
+final int id = 56; // int | Numeric ID of the address to set default
+
+try {
+    final response = api.setDefaultAddress(id);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AddressApi->setDefaultAddress: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Numeric ID of the address to set default | 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateAddress**
+> Address updateAddress(address)
 
 update the address with the new address
 
@@ -204,10 +204,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.addressUpdatePut(address);
+    final response = api.updateAddress(address);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling AddressApi->addressUpdatePut: $e\n');
+    print('Exception when calling AddressApi->updateAddress: $e\n');
 }
 ```
 

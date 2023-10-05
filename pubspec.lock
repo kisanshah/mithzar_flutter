@@ -265,10 +265,18 @@ packages:
     source: hosted
     version: "1.0.6"
   custom_lint:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: custom_lint
       sha256: "837821e4619c167fd5a547b03bb2fc6be7e65b800ec75528848429705c31ceba"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.3"
+  custom_lint_builder:
+    dependency: transitive
+    description:
+      name: custom_lint_builder
+      sha256: "3537d50202568994a6f42b1f2953aed6292fc5ecf83e45237af73f64aff2be72"
       url: "https://pub.dev"
     source: hosted
     version: "0.5.3"
@@ -393,10 +401,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_riverpod
-      sha256: "1bd39b04f1bcd217a969589777ca6bd642d116e3e5de65c3e6a8e8bdd8b178ec"
+      sha256: "890a872705cdbda11efd2bff2f672f1c8180b86b9509490822ee96a3e20cd4aa"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.2"
   flutter_secure_storage:
     dependency: transitive
     description:
@@ -467,10 +475,10 @@ packages:
     dependency: "direct dev"
     description:
       name: freezed
-      sha256: "83462cfc33dc9680533a7f3a4a6ab60aa94f287db5f4ee6511248c22833c497f"
+      sha256: be7826ed5d87e98c924a839542674fc14edbcb3e4fc0adbc058d680f2b241837
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.3"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -519,6 +527,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  hotreloader:
+    dependency: transitive
+    description:
+      name: hotreloader
+      sha256: "728c0613556c1d153f7e7f4a367cffacc3f5a677d7f6497a1c2b35add4e6dacf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.6"
   http:
     dependency: "direct overridden"
     description:
@@ -791,54 +807,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
-  retrofit:
-    dependency: "direct main"
-    description:
-      name: retrofit
-      sha256: "5eedbd8f73697f190dabc88520e0bcf2d3b2d9b9ad5c837f1dbb3ee6172d7709"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.1"
-  retrofit_generator:
-    dependency: "direct dev"
-    description:
-      name: retrofit_generator
-      sha256: "9499eb46b3657a62192ddbc208ff7e6c6b768b19e83c1ee6f6b119c864b99690"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.8"
   riverpod:
     dependency: transitive
     description:
       name: riverpod
-      sha256: a600120d6f213a9922860eea1abc32597436edd5b2c4e73b91410f8c2af67d22
+      sha256: ff676bd8a715c7085692fe4919564f78fb90d33b10a1c5c14e740581857cc914
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   riverpod_analyzer_utils:
     dependency: transitive
     description:
       name: riverpod_analyzer_utils
-      sha256: aa216069d72f5478126029fa555874b4b38119f17e3f0f6c93fd63365f74502d
+      sha256: c7de9f33884b2e333ee2f53d07c5ff83298c042a14058e65475093a9ef17d1ac
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.3"
+    version: "0.4.0"
   riverpod_annotation:
     dependency: "direct main"
     description:
       name: riverpod_annotation
-      sha256: "6294fe7e7d1875f32bdf04c8fce7620e718070273703097847df8f3bf16995ea"
+      sha256: aeeb1eb6ccf2d779f2ef730e6d96d560316b677662222316779a8cf0a94ee317
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
   riverpod_generator:
     dependency: "direct dev"
     description:
       name: riverpod_generator
-      sha256: d132b1ccb476e60f99989caa6ba9b1c4d88409806c93d880d1633c60c382454d
+      sha256: "6a788de84adf57b75608b2f5f83f003341c0a3ae62367acd4be80f7af474ab91"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.2"
+    version: "3.0.0-dev.2"
+  riverpod_lint:
+    dependency: "direct dev"
+    description:
+      name: riverpod_lint
+      sha256: "4961d22015542abdf71cb594d1a0ab2285412e1733c2f4cd9c0cc6349ab9679e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   rxdart:
     dependency: transitive
     description:
@@ -1052,14 +1060,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  tuple:
-    dependency: transitive
-    description:
-      name: tuple
-      sha256: a97ce2013f240b2f3807bcbaf218765b6f301c3eff91092bcfa23a039e7dd151
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
   typed_data:
     dependency: transitive
     description:
@@ -1108,6 +1108,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  vm_service:
+    dependency: transitive
+    description:
+      name: vm_service
+      sha256: c538be99af830f478718b51630ec1b6bee5e74e52c8a802d328d9e71d35d2583
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.10.0"
   watcher:
     dependency: transitive
     description:

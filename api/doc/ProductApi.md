@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**productsAllGet**](ProductApi.md#productsallget) | **GET** /products/all | Returns a list of products.
+[**getProducts**](ProductApi.md#getproducts) | **GET** /products/all | Returns a list of products.
 
 
-# **productsAllGet**
-> BuiltList<String> productsAllGet()
+# **getProducts**
+> BuiltList<String> getProducts()
 
 Returns a list of products.
 
@@ -24,10 +24,10 @@ import 'package:api/api.dart';
 final api = Api().getProductApi();
 
 try {
-    final response = api.productsAllGet();
+    final response = api.getProducts();
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling ProductApi->productsAllGet: $e\n');
+    print('Exception when calling ProductApi->getProducts: $e\n');
 }
 ```
 
