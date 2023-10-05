@@ -1,6 +1,6 @@
-import 'package:e_commerce_front_end/ui/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/ui/shared/providers/shar_pref_provider.dart';
-import 'package:e_commerce_front_end/ui/theme/app_theme.dart';
+import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
+import 'package:e_commerce_front_end/features/shared/providers/shar_pref_provider.dart';
+import 'package:e_commerce_front_end/features/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:secure_shared_preferences/secure_shared_pref.dart';
