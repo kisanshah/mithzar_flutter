@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:api/src/model/product.dart';
 import 'package:built_collection/built_collection.dart';
 
 class ProductApi {
@@ -28,9 +29,9 @@ class ProductApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<String>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<Product>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<String>>> getProducts({ 
+  Future<Response<BuiltList<Product>>> getProducts({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,14 +60,14 @@ class ProductApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<String>? _responseData;
+    BuiltList<Product>? _responseData;
 
     try {
       final rawResponse = _response.data;
       _responseData = rawResponse == null ? null : _serializers.deserialize(
         rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      ) as BuiltList<String>;
+        specifiedType: const FullType(BuiltList, [FullType(Product)]),
+      ) as BuiltList<Product>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -78,7 +79,7 @@ class ProductApi {
       );
     }
 
-    return Response<BuiltList<String>>(
+    return Response<BuiltList<Product>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

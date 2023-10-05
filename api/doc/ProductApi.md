@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getProducts**
-> BuiltList<String> getProducts()
+> BuiltList<Product> getProducts()
 
 Returns a list of products.
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**BuiltList&lt;String&gt;**
+[**BuiltList&lt;Product&gt;**](Product.md)
 
 ### Authorization
 

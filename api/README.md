@@ -73,6 +73,10 @@ Class | Method | HTTP request | Description
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**register**](doc/AuthApi.md#register) | **POST** /auth/register | Register new user
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In
+[*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart/add | add product to user&#39;s cart
+[*CartApi*](doc/CartApi.md) | [**getCartItems**](doc/CartApi.md#getcartitems) | **GET** /cart/list | returns list of cart items
+[*CartApi*](doc/CartApi.md) | [**removeAllItem**](doc/CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
+[*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 [*ProductApi*](doc/ProductApi.md) | [**getProducts**](doc/ProductApi.md#getproducts) | **GET** /products/all | Returns a list of products.
@@ -81,7 +85,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddCartReq](doc/AddCartReq.md)
  - [Address](doc/Address.md)
+ - [Cart](doc/Cart.md)
+ - [CartProduct](doc/CartProduct.md)
+ - [IdReq](doc/IdReq.md)
+ - [IdsReq](doc/IdsReq.md)
+ - [Product](doc/Product.md)
  - [Success](doc/Success.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)

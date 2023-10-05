@@ -11,6 +11,7 @@ import 'package:api/src/auth/bearer_auth.dart';
 import 'package:api/src/auth/oauth.dart';
 import 'package:api/src/api/address_api.dart';
 import 'package:api/src/api/auth_api.dart';
+import 'package:api/src/api/cart_api.dart';
 import 'package:api/src/api/order_api.dart';
 import 'package:api/src/api/product_api.dart';
 import 'package:api/src/api/profile_api.dart';
@@ -79,6 +80,12 @@ class Api {
   /// by doing that all interceptors will not be executed
   AuthApi getAuthApi() {
     return AuthApi(dio, serializers);
+  }
+
+  /// Get CartApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  CartApi getCartApi() {
+    return CartApi(dio, serializers);
   }
 
   /// Get OrderApi instance, base route and serializer can be overridden by a given but be careful,

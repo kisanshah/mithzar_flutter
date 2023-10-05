@@ -14,7 +14,13 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:api/src/date_serializer.dart';
 import 'package:api/src/model/date.dart';
 
+import 'package:api/src/model/add_cart_req.dart';
 import 'package:api/src/model/address.dart';
+import 'package:api/src/model/cart.dart';
+import 'package:api/src/model/cart_product.dart';
+import 'package:api/src/model/id_req.dart';
+import 'package:api/src/model/ids_req.dart';
+import 'package:api/src/model/product.dart';
 import 'package:api/src/model/success.dart';
 import 'package:api/src/model/tokens.dart';
 import 'package:api/src/model/user.dart';
@@ -22,7 +28,13 @@ import 'package:api/src/model/user.dart';
 part 'serializers.g.dart';
 
 @SerializersFor([
+  AddCartReq,
   Address,
+  Cart,
+  CartProduct,
+  IdReq,
+  IdsReq,
+  Product,$Product,
   Success,
   Tokens,
   User,
@@ -33,9 +45,18 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Address>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(String)]),
-        () => ListBuilder<String>(),
+        const FullType(BuiltList, [FullType(Cart)]),
+        () => ListBuilder<Cart>(),
       )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(int)]),
+        () => ListBuilder<int>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Product)]),
+        () => ListBuilder<Product>(),
+      )
+      ..add(Product.serializer)
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())
       ..add(const DateSerializer())
