@@ -53,7 +53,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getOrderList**
-> getOrderList()
+> BuiltList<Order> getOrderList()
 
 Returns a list of orders.
 
@@ -67,7 +67,8 @@ import 'package:api/api.dart';
 final api = Api().getOrderApi();
 
 try {
-    api.getOrderList();
+    final response = api.getOrderList();
+    print(response);
 } catch on DioError (e) {
     print('Exception when calling OrderApi->getOrderList: $e\n');
 }
@@ -78,7 +79,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**BuiltList&lt;Order&gt;**](Order.md)
 
 ### Authorization
 
@@ -87,7 +88,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

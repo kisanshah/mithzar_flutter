@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:api/api.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 class TrendingProductItem extends StatelessWidget {
   const TrendingProductItem({
     Key? key,
+    required this.product,
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +25,21 @@ class TrendingProductItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 150,
+          const SizedBox(
+            height: 122,
             width: double.infinity,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-              child: CachedNetworkImage(
-                imageUrl:
-                    'https://cdn.shopify.com/s/files/1/0014/9169/7721/products/IMG_9486_1024x1024@2x.jpg?v=1668169970',
-                fit: BoxFit.cover,
-              ),
-            ),
+            // child: ClipRRect(
+            //   borderRadius: const BorderRadius.only(
+            //     topLeft: Radius.circular(10),
+            //     topRight: Radius.circular(10),
+            //   ),
+            //   child: CachedNetworkImage(
+            //     imageUrl:
+            //         'https://cdn.shopify.com/s/files/1/0014/9169/7721/products/IMG_9486_1024x1024@2x.jpg?v=1668169970',
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
+            child: Placeholder(),
           ),
           Expanded(
             child: Padding(
@@ -50,24 +53,27 @@ class TrendingProductItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Traditional Rajasthani',
+                            product.name ?? '',
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
                             ),
                           ),
                           Text(
-                            'Rs. 1,099.00',
+                            'Rs. ${product.price ?? ''}',
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
                             ),
                           ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Add to cart'),
+                          ),
                         ],
                       ),
                     ),
                     const Gap(10),
-                    Assets.svg.favorite.svg(),
                   ],
                 ),
               ),

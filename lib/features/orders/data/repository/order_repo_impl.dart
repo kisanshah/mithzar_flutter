@@ -1,5 +1,5 @@
 import 'package:api/api.dart';
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Order;
 import 'package:e_commerce_front_end/core/extensions/future.dart';
 import 'package:e_commerce_front_end/core/instances/api_client_provider.dart';
 import 'package:e_commerce_front_end/data/helper/app_error.dart';

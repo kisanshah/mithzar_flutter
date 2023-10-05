@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:api/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,8 +11,6 @@ class OrderItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      child: Text('$order'),
-    );
+    return Text('$order');
   }
 }

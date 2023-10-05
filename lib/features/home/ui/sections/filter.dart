@@ -1,4 +1,4 @@
-import 'package:e_commerce_front_end/features/home/components/quick_filter_item.dart';
+import 'package:e_commerce_front_end/features/home/ui/components/quick_filter_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';

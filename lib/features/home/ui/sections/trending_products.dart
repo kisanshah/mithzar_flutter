@@ -1,11 +1,12 @@
+import 'package:api/api.dart';
 import 'package:e_commerce_front_end/features/components/header_with_action.dart';
-import 'package:e_commerce_front_end/features/home/components/trending_product_item.dart';
+import 'package:e_commerce_front_end/features/home/ui/components/trending_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class TrendingProducts extends StatelessWidget {
-  const TrendingProducts({super.key});
-
+  const TrendingProducts({super.key, required this.products});
+  final List<Product> products;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,10 +20,10 @@ class TrendingProducts extends StatelessWidget {
           height: 250,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return const TrendingProductItem();
+            itemBuilder: (context, index) {
+              return TrendingProductItem(product: products[index]);
             },
-            itemCount: 10,
+            itemCount: products.length,
           ),
         ),
         const Gap(30),

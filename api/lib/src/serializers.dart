@@ -19,7 +19,8 @@ import 'package:api/src/model/address.dart';
 import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/cart_product.dart';
 import 'package:api/src/model/id_req.dart';
-import 'package:api/src/model/ids_req.dart';
+import 'package:api/src/model/order.dart';
+import 'package:api/src/model/order_products_inner.dart';
 import 'package:api/src/model/product.dart';
 import 'package:api/src/model/success.dart';
 import 'package:api/src/model/tokens.dart';
@@ -33,7 +34,8 @@ part 'serializers.g.dart';
   Cart,
   CartProduct,
   IdReq,
-  IdsReq,
+  Order,
+  OrderProductsInner,
   Product,$Product,
   Success,
   Tokens,
@@ -55,6 +57,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),
         () => ListBuilder<Product>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Order)]),
+        () => ListBuilder<Order>(),
       )
       ..add(Product.serializer)
       ..add(const OneOfSerializer())
