@@ -21,6 +21,7 @@ ApiRes _$ApiResFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApiRes {
   bool? get success => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
   List<ApiErrorMessage>? get errors => throw _privateConstructorUsedError;
   dynamic get data => throw _privateConstructorUsedError;
 
@@ -34,7 +35,11 @@ abstract class $ApiResCopyWith<$Res> {
   factory $ApiResCopyWith(ApiRes value, $Res Function(ApiRes) then) =
       _$ApiResCopyWithImpl<$Res, ApiRes>;
   @useResult
-  $Res call({bool? success, List<ApiErrorMessage>? errors, dynamic data});
+  $Res call(
+      {bool? success,
+      String? message,
+      List<ApiErrorMessage>? errors,
+      dynamic data});
 }
 
 /// @nodoc
@@ -51,6 +56,7 @@ class _$ApiResCopyWithImpl<$Res, $Val extends ApiRes>
   @override
   $Res call({
     Object? success = freezed,
+    Object? message = freezed,
     Object? errors = freezed,
     Object? data = freezed,
   }) {
@@ -59,6 +65,10 @@ class _$ApiResCopyWithImpl<$Res, $Val extends ApiRes>
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       errors: freezed == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
@@ -77,7 +87,11 @@ abstract class _$$_ApiResCopyWith<$Res> implements $ApiResCopyWith<$Res> {
       __$$_ApiResCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? success, List<ApiErrorMessage>? errors, dynamic data});
+  $Res call(
+      {bool? success,
+      String? message,
+      List<ApiErrorMessage>? errors,
+      dynamic data});
 }
 
 /// @nodoc
@@ -91,6 +105,7 @@ class __$$_ApiResCopyWithImpl<$Res>
   @override
   $Res call({
     Object? success = freezed,
+    Object? message = freezed,
     Object? errors = freezed,
     Object? data = freezed,
   }) {
@@ -99,6 +114,10 @@ class __$$_ApiResCopyWithImpl<$Res>
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       errors: freezed == errors
           ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
@@ -114,7 +133,11 @@ class __$$_ApiResCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ApiRes implements _ApiRes {
-  _$_ApiRes({this.success, final List<ApiErrorMessage>? errors, this.data})
+  _$_ApiRes(
+      {this.success,
+      this.message,
+      final List<ApiErrorMessage>? errors,
+      this.data})
       : _errors = errors;
 
   factory _$_ApiRes.fromJson(Map<String, dynamic> json) =>
@@ -122,6 +145,8 @@ class _$_ApiRes implements _ApiRes {
 
   @override
   final bool? success;
+  @override
+  final String? message;
   final List<ApiErrorMessage>? _errors;
   @override
   List<ApiErrorMessage>? get errors {
@@ -137,7 +162,7 @@ class _$_ApiRes implements _ApiRes {
 
   @override
   String toString() {
-    return 'ApiRes(success: $success, errors: $errors, data: $data)';
+    return 'ApiRes(success: $success, message: $message, errors: $errors, data: $data)';
   }
 
   @override
@@ -146,6 +171,7 @@ class _$_ApiRes implements _ApiRes {
         (other.runtimeType == runtimeType &&
             other is _$_ApiRes &&
             (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._errors, _errors) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
@@ -155,6 +181,7 @@ class _$_ApiRes implements _ApiRes {
   int get hashCode => Object.hash(
       runtimeType,
       success,
+      message,
       const DeepCollectionEquality().hash(_errors),
       const DeepCollectionEquality().hash(data));
 
@@ -175,6 +202,7 @@ class _$_ApiRes implements _ApiRes {
 abstract class _ApiRes implements ApiRes {
   factory _ApiRes(
       {final bool? success,
+      final String? message,
       final List<ApiErrorMessage>? errors,
       final dynamic data}) = _$_ApiRes;
 
@@ -182,6 +210,8 @@ abstract class _ApiRes implements ApiRes {
 
   @override
   bool? get success;
+  @override
+  String? get message;
   @override
   List<ApiErrorMessage>? get errors;
   @override

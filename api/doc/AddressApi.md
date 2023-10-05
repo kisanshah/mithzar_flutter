@@ -17,26 +17,23 @@ Method | HTTP request | Description
 
 
 # **addressAllGet**
-> List<Address> addressAllGet()
+> BuiltList<Address> addressAllGet()
 
 Get all user addresses
 
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = AddressApi();
+final api = Api().getAddressApi();
 
 try {
-    final result = api_instance.addressAllGet();
-    print(result);
-} catch (e) {
+    final response = api.addressAllGet();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AddressApi->addressAllGet: $e\n');
 }
 ```
@@ -46,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<Address>**](Address.md)
+[**BuiltList&lt;Address&gt;**](Address.md)
 
 ### Authorization
 
@@ -67,20 +64,17 @@ Mark the address as default
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = AddressApi();
-final id = 56; // int | Numeric ID of the address to set default
+final api = Api().getAddressApi();
+final int id = 56; // int | Numeric ID of the address to set default
 
 try {
-    final result = api_instance.addressDefaultIdPatch(id);
-    print(result);
-} catch (e) {
+    final response = api.addressDefaultIdPatch(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AddressApi->addressDefaultIdPatch: $e\n');
 }
 ```
@@ -114,20 +108,17 @@ Get all user addresses
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = AddressApi();
-final id = 56; // int | Numeric ID of the address to delete
+final api = Api().getAddressApi();
+final int id = 56; // int | Numeric ID of the address to delete
 
 try {
-    final result = api_instance.addressIdDelete(id);
-    print(result);
-} catch (e) {
+    final response = api.addressIdDelete(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AddressApi->addressIdDelete: $e\n');
 }
 ```
@@ -161,20 +152,17 @@ save new address for the user and return new address object
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = AddressApi();
-final address = Address(); // Address | 
+final api = Api().getAddressApi();
+final Address address = ; // Address | 
 
 try {
-    final result = api_instance.addressSavePost(address);
-    print(result);
-} catch (e) {
+    final response = api.addressSavePost(address);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AddressApi->addressSavePost: $e\n');
 }
 ```
@@ -208,20 +196,17 @@ update the address with the new address
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = AddressApi();
-final address = Address(); // Address | 
+final api = Api().getAddressApi();
+final Address address = ; // Address | 
 
 try {
-    final result = api_instance.addressUpdatePut(address);
-    print(result);
-} catch (e) {
+    final response = api.addressUpdatePut(address);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AddressApi->addressUpdatePut: $e\n');
 }
 ```

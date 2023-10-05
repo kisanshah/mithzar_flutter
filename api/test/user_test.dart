@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:api/api.dart';
 import 'package:test/test.dart';
+import 'package:api/api.dart';
 
 // tests for User
 void main() {
-  // final instance = User();
+  final instance = UserBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test User', () {
+  group(User, () {
     // num id
     test('to test the property `id`', () async {
       // TODO
@@ -41,7 +32,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

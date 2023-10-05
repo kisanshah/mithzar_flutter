@@ -1,5 +1,5 @@
+import 'package:api/api.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutterClient/api.dart';
 
 import '../../extensions/future.dart';
 import '../helper/app_error.dart';
@@ -17,11 +17,11 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<AppError, TokenRes>> signIn(User req) async {
-    return authSource.signIn(req).guardFuture<TokenRes>();
+    return authSource.signIn(user: req).guardFuture<TokenRes>();
   }
 
   @override
   Future<Either<AppError, TokenRes>> register(User req) async {
-    return authSource.register(req).guardFuture<TokenRes>();
+    return authSource.register(user: req).guardFuture<TokenRes>();
   }
 }

@@ -29,7 +29,7 @@ dependencies:
   # Storage
   secure_shared_preferences: ^0.0.4
   cached_network_image: ^3.3.0
-  flutterClient:
+  api:
     path: ./api
   http_interceptor: ^1.0.2
 

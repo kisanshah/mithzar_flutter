@@ -1,8 +1,8 @@
+import 'package:api/api.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutterClient/api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../core/api_client_provider.dart';
+import '../../../../core/instances/api_client_provider.dart';
 import '../../../../data/helper/app_error.dart';
 import '../../../../extensions/future.dart';
 import '../../domain/repository/auth_repo.dart';
@@ -11,7 +11,7 @@ part 'auth_repo_impl.g.dart';
 
 @riverpod
 AuthRepo authRepo(AuthRepoRef ref) {
-  return AuthRepoImpl(source: AuthApi(ref.watch(apiClientProvider)));
+  return AuthRepoImpl(source: ref.read(apiClientProvider).getAuthApi());
 }
 
 class AuthRepoImpl extends AuthRepo {
@@ -21,11 +21,20 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<AppError, Tokens>> register(User user) {
-    return source.register(user).guardFuture();
+    return source.register(user: user).guardFuture();
   }
 
   @override
-  Future<Either<AppError, Tokens>> signIn(User user) {
-    return source.signIn(user).guardFuture();
+  Future<Either<AppError, Tokens>> signIn(User user) async {
+    return source.signIn(user: user).guardFuture();
+  }
+
+  @override
+  Future<Either<AppError, Tokens>> generateAccessToken(String? refreshToken) {
+    return source
+        .refreshToken(
+          tokens: Tokens((tokens) => tokens..refreshToken = refreshToken),
+        )
+        .guardFuture<Tokens>();
   }
 }

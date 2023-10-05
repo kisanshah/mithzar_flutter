@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
+import '../../core/instances/api_client_provider.dart';
 import '../theme/app_color.dart';
 import 'provider/profile_provider.dart';
 
@@ -44,12 +45,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             ),
             child: Column(
               children: [
-                const ListTile(
+                ListTile(
+                  onTap: () {
+                    ref.read(apiClientProvider).getProfileApi().userGet();
+                  },
                   minLeadingWidth: 0,
-                  title: Text(
+                  title: const Text(
                     'Profile',
                   ),
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     side: BorderSide(width: 0),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),

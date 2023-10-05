@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i9;
-import 'package:e_commerce_front_end/ui/auth/sign_in.dart' as _i6;
+import 'package:e_commerce_front_end/ui/auth/sign_in_page.dart' as _i6;
 import 'package:e_commerce_front_end/ui/auth/sign_up.dart' as _i7;
 import 'package:e_commerce_front_end/ui/home/home_page.dart' as _i1;
 import 'package:e_commerce_front_end/ui/main/main_page.dart' as _i2;

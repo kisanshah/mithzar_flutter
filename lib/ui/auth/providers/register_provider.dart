@@ -1,11 +1,10 @@
+import 'package:api/api.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterClient/api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/helper/app_error.dart';
 import '../../../data/local/shar_pref.dart';
 import '../../../extensions/debug.dart';
-import '../data/repository/auth_repo_impl.dart';
 import 'register_state.dart';
 
 part 'register_provider.g.dart';
@@ -50,15 +49,16 @@ class RegisterNotifier extends _$RegisterNotifier {
   }
 
   Future<void> register() async {
-    final result = await ref.read(authRepoProvider).register(
-          User(
-            name: nameCtrl.text,
-            email: emailCtrl.text,
-            password: passCtrl.text,
-            phone: phoneCtrl.text,
-          ),
-        );
-    result.fold(onError, onResult);
+    //   UserBuilder(
+    //         name: nameCtrl.text,
+    //         email: emailCtrl.text,
+    //         password: passCtrl.text,
+    //         phone: phoneCtrl.text,
+    //       );
+    // final result = await ref.read(authRepoProvider).register(
+    //     ,
+    //     );
+    // result.fold(onError, onResult);
   }
 
   void onResult(Tokens token) {

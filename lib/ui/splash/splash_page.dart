@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../core/instances/token_provider.dart';
 import '../routes/router/app_router.gr.dart';
 import '../shared/providers/router_provider.dart';
 
@@ -41,6 +42,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   Future<void> navigate() async {
     await Future.delayed(const Duration(seconds: 2));
+    ref.read(tokenNotifierProvider.notifier).init();
     final router = ref.watch(routerProvider);
     router.replace(const MainRoute());
   }

@@ -20,19 +20,16 @@ Get profile based on the token
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = ProfileApi();
+final api = Api().getProfileApi();
 
 try {
-    final result = api_instance.userGet();
-    print(result);
-} catch (e) {
+    final response = api.userGet();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ProfileApi->userGet: $e\n');
 }
 ```

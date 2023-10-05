@@ -9,6 +9,7 @@ part 'api_res.g.dart';
 class ApiRes with _$ApiRes {
   factory ApiRes({
     bool? success,
+    String? message,
     List<ApiErrorMessage>? errors,
     dynamic data,
   }) = _ApiRes;

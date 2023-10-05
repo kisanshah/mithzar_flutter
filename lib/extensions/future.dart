@@ -7,6 +7,9 @@ extension FutureExtension on Future {
   Future<Either<AppError, T>> guardFuture<T>() async {
     try {
       final res = await this;
+      if (res is Response<T>) {
+        return right(res.data as T);
+      }
       return right(res);
     } on Exception catch (e) {
       final error =

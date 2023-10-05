@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 
 import '../../extensions/future.dart';
-import '../../extensions/log.dart';
 import '../helper/app_error.dart';
 import '../model/user.dart';
 import '../remote/profile.dart';
@@ -17,7 +16,6 @@ class ProfileRepositoryImpl extends ProfileRepository {
   @override
   Future<Either<AppError, User>> getCurrentUser() async {
     final res = await _source.getCurrentUser().guardFuture<User>();
-    res.logError();
     return res;
   }
 }

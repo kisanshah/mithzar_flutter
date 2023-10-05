@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutterClient/api.dart';
+import 'package:api/api.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:secure_shared_preferences/secure_shared_pref.dart';
 
@@ -17,7 +17,8 @@ class SharPref {
   final SecureSharedPref pref;
 
   Future<void> saveToken(Tokens token) async {
-    await pref.putString(PrefPath.token, jsonEncode(token));
+    await pref.putString(PrefPath.token,
+        jsonEncode(serializers.toJson(Tokens.serializer, token)));
   }
 
   Future<Tokens?> getToken() async {
@@ -25,7 +26,7 @@ class SharPref {
     if (encoded.isEmpty) {
       return null;
     }
-    return Tokens.fromJson(jsonDecode(encoded));
+    return serializers.fromJson(Tokens.serializer, jsonDecode(encoded));
   }
 
   void clearAll() {

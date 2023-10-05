@@ -9,27 +9,27 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generates access token using refresh token
+[**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
 [**register**](AuthApi.md#register) | **POST** /auth/register | Register new user
 [**signIn**](AuthApi.md#signin) | **POST** /auth/signIn | Sign In
 
 
 # **refreshToken**
-> Tokens refreshToken(body)
+> Tokens refreshToken(tokens)
 
-Generates access token using refresh token
+Generate new access token
 
 ### Example
 ```dart
 import 'package:api/api.dart';
 
-final api_instance = AuthApi();
-final body = Object(); // Object | 
+final api = Api().getAuthApi();
+final Tokens tokens = ; // Tokens | User credentials
 
 try {
-    final result = api_instance.refreshToken(body);
-    print(result);
-} catch (e) {
+    final response = api.refreshToken(tokens);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AuthApi->refreshToken: $e\n');
 }
 ```
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | [optional] 
+ **tokens** | [**Tokens**](Tokens.md)| User credentials | 
 
 ### Return type
 
@@ -64,13 +64,13 @@ Register new user
 ```dart
 import 'package:api/api.dart';
 
-final api_instance = AuthApi();
-final user = User(); // User | 
+final api = Api().getAuthApi();
+final User user = ; // User | 
 
 try {
-    final result = api_instance.register(user);
-    print(result);
-} catch (e) {
+    final response = api.register(user);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AuthApi->register: $e\n');
 }
 ```
@@ -105,13 +105,13 @@ Sign In
 ```dart
 import 'package:api/api.dart';
 
-final api_instance = AuthApi();
-final user = User(); // User | User credentials
+final api = Api().getAuthApi();
+final User user = ; // User | User credentials
 
 try {
-    final result = api_instance.signIn(user);
-    print(result);
-} catch (e) {
+    final response = api.signIn(user);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AuthApi->signIn: $e\n');
 }
 ```

@@ -21,18 +21,15 @@ Returns a list of products.
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = OrderApi();
+final api = Api().getOrderApi();
 
 try {
-    api_instance.orderCheckoutGet();
-} catch (e) {
+    api.orderCheckoutGet();
+} catch on DioError (e) {
     print('Exception when calling OrderApi->orderCheckoutGet: $e\n');
 }
 ```
@@ -63,18 +60,15 @@ Returns a list of orders.
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api_instance = OrderApi();
+final api = Api().getOrderApi();
 
 try {
-    api_instance.orderListGet();
-} catch (e) {
+    api.orderListGet();
+} catch on DioError (e) {
     print('Exception when calling OrderApi->orderListGet: $e\n');
 }
 ```

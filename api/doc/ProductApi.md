@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **productsAllGet**
-> List<String> productsAllGet()
+> BuiltList<String> productsAllGet()
 
 Returns a list of products.
 
@@ -21,12 +21,12 @@ Returns a list of products.
 ```dart
 import 'package:api/api.dart';
 
-final api_instance = ProductApi();
+final api = Api().getProductApi();
 
 try {
-    final result = api_instance.productsAllGet();
-    print(result);
-} catch (e) {
+    final response = api.productsAllGet();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ProductApi->productsAllGet: $e\n');
 }
 ```
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**List<String>**
+**BuiltList&lt;String&gt;**
 
 ### Authorization
 
