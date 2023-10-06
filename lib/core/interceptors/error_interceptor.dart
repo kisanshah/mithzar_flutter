@@ -15,7 +15,9 @@ class ErrorInterceptor implements InterceptorsWrapper {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     final res = ApiRes.fromJson(response.data);
-    response.data = res.data;
+    if (res.data != null) {
+      response.data = res.data;
+    }
     return handler.next(response);
   }
 }

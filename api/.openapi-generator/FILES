@@ -47,5 +47,3 @@ lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/order_products_inner_test.dart
-test/order_test.dart

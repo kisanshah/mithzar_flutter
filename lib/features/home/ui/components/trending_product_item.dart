@@ -1,10 +1,12 @@
 import 'package:api/api.dart';
+import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TrendingProductItem extends StatelessWidget {
+class TrendingProductItem extends ConsumerWidget {
   const TrendingProductItem({
     Key? key,
     required this.product,
@@ -13,7 +15,7 @@ class TrendingProductItem extends StatelessWidget {
   final Product product;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       margin: const EdgeInsets.all(10),
       width: 220,
@@ -67,7 +69,11 @@ class TrendingProductItem extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (product.id != null) {
+                                ref.read(addToCartProvider(product.id!));
+                              }
+                            },
                             child: const Text('Add to cart'),
                           ),
                         ],
