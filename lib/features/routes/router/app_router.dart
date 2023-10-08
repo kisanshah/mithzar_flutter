@@ -14,13 +14,19 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: SignInRoute.page),
         AutoRoute(page: SignUpRoute.page),
         AutoRoute(
-          page: MainRoute.page,
+          page: GuardedRouteWrapper.page,
           guards: [AuthGuard(_ref)],
           children: [
-            AutoRoute(page: HomeRoute.page, initial: true),
-            AutoRoute(page: SearchRoute.page),
-            AutoRoute(page: OrderRoute.page),
-            AutoRoute(page: ProfileRoute.page),
+            AutoRoute(
+              page: MainRoute.page,
+              children: [
+                AutoRoute(page: HomeRoute.page, initial: true),
+                AutoRoute(page: SearchRoute.page),
+                AutoRoute(page: OrderRoute.page),
+                AutoRoute(page: ProfileRoute.page),
+              ],
+            ),
+            AutoRoute(page: CartRoute.page),
           ],
         ),
       ];
