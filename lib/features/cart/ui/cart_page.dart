@@ -1,71 +1,91 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/features/cart/ui/components/cart_item.dart';
+import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
 import 'package:e_commerce_front_end/features/components/custom_detail_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class CartPage extends StatefulWidget {
+class CartPage extends ConsumerStatefulWidget {
   const CartPage({super.key});
 
   @override
-  State<CartPage> createState() => _CartPageState();
+  ConsumerState<CartPage> createState() => _CartPageState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _CartPageState extends ConsumerState<CartPage> {
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(cartNotifierProvider);
+    final notifier = ref.watch(cartNotifierProvider.notifier);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'My Cart',
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return const CartItem();
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            sliver: SliverList.separated(
+              separatorBuilder: (context, index) => const Divider(),
+              itemBuilder: (context, index) {
+                return CartItem(item: state.data[index]);
+              },
+              itemCount: state.data.length,
+            ),
+          ),
+
+          // Padding(
+          //   padding: const EdgeInsets.all(20),
+          //   child: Column(
+          //     children: [
+          //       ListView.separated(
+          //         shrinkWrap: true,
+          //         physics: const NeverScrollableScrollPhysics(),
+          //         itemBuilder: (context, index) {
+          //           return const CartItem();
+          //         },
+          //         separatorBuilder: (context, index) {
+          //           return const Divider();
+          //         },
+          //         itemCount: 20,
+          //       ),
+          //       const Column(
+          //         children: [
+          //           CartCalcItem(
+          //             title: 'Subtotal',
+          //             value: '80.00',
+          //           ),
+          //           CartCalcItem(
+          //             title: 'Delivery Fee',
+          //             value: '5.00',
+          //           ),
+          //           CartCalcItem(
+          //             title: 'Discount',
+          //             value: '10.00',
+          //           ),
+          //         ],
+          //       ),
+          //       //Dotted Line
+          //       Container(
+          //         margin: const EdgeInsets.only(top: 20),
+          //         height: 5,
+          //         child: CustomPaint(
+          //           painter: DottedLinePainter(),
+          //         ),
+          //       ),
+          //       const CartCalcItem(
+          //         title: 'Total',
+          //         value: '75.00',
+          //       ),
+          //       const Gap(10),
+          SliverPadding(
+            padding: const EdgeInsets.all(20),
+            sliver: SliverToBoxAdapter(
+              child: ElevatedButton(
+                onPressed: () {
+                  notifier.checkout();
                 },
-                separatorBuilder: (context, index) {
-                  return const Divider();
-                },
-                itemCount: 4,
-              ),
-              const Column(
-                children: [
-                  CartCalcItem(
-                    title: 'Subtotal',
-                    value: '80.00',
-                  ),
-                  CartCalcItem(
-                    title: 'Delivery Fee',
-                    value: '5.00',
-                  ),
-                  CartCalcItem(
-                    title: 'Discount',
-                    value: '10.00',
-                  ),
-                ],
-              ),
-              //Dotted Line
-              Container(
-                margin: const EdgeInsets.only(top: 20),
-                height: 5,
-                child: CustomPaint(
-                  painter: DottedLinePainter(),
-                ),
-              ),
-              const CartCalcItem(
-                title: 'Total',
-                value: '75.00',
-              ),
-              const Gap(10),
-              ElevatedButton(
-                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   minimumSize: const Size.fromHeight(50),
@@ -75,10 +95,13 @@ class _CartPageState extends State<CartPage> {
                 ),
                 child: const Text('Continue'),
               ),
-              const Gap(10),
-            ],
+            ),
           ),
-        ),
+          //       const Gap(10),
+          //     ],
+          //   ),
+          // ),
+        ],
       ),
     );
   }
