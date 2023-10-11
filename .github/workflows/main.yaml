@@ -30,6 +30,7 @@ jobs:
     
     # Get flutter dependencies.
     - run: flutter pub get
+    - run: flutter packages pub run build_runner watch --delete-conflicting-outputs
     
     # Check for any formatting issues in the code.
     # - run: flutter format --set-exit-if-changed .
