@@ -11,7 +11,7 @@ class OrderDetailPage extends ConsumerStatefulWidget {
     super.key,
     required this.id,
   });
-  final int id;
+  final String id;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>

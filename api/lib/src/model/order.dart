@@ -20,7 +20,7 @@ part 'order.g.dart';
 @BuiltValue()
 abstract class Order implements Built<Order, OrderBuilder> {
   @BuiltValueField(wireName: r'id')
-  int? get id;
+  String? get id;
 
   @BuiltValueField(wireName: r'status')
   String? get status;
@@ -58,7 +58,7 @@ class _$OrderSerializer implements PrimitiveSerializer<Order> {
       yield r'id';
       yield serializers.serialize(
         object.id,
-        specifiedType: const FullType(int),
+        specifiedType: const FullType(String),
       );
     }
     if (object.status != null) {
@@ -108,8 +108,8 @@ class _$OrderSerializer implements PrimitiveSerializer<Order> {
         case r'id':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType(String),
+          ) as String;
           result.id = valueDes;
           break;
         case r'status':

@@ -8,7 +8,7 @@ import 'package:api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] 
+**id** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 **total** | **num** |  | [optional] 
 **products** | [**BuiltList&lt;OrderProductsInner&gt;**](OrderProductsInner.md) |  | [optional] 
