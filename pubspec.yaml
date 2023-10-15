@@ -16,10 +16,10 @@ dependencies:
   gap: 3.0.1
   google_fonts: ^6.1.0
   # Routing
-  auto_route: 7.8.3
+  auto_route: 7.8.4
   # State Management
-  flutter_riverpod: ^2.4.2
-  riverpod_annotation: 2.1.6
+  flutter_riverpod: ^2.4.3
+  riverpod_annotation: 2.2.0
   # Networking
   dio: ^5.3.3
   freezed_annotation: 2.4.1
@@ -30,7 +30,9 @@ dependencies:
   cached_network_image: ^3.3.0
   api:
     path: ./api
-  http_interceptor: ^1.0.2
+
+  # Utils
+  flutter_inappwebview: ^5.8.0
 
 dependency_overrides:
   http: 1.0.0

@@ -8,6 +8,7 @@ doc/AuthApi.md
 doc/Cart.md
 doc/CartApi.md
 doc/CartProduct.md
+doc/CheckoutUrl.md
 doc/IdReq.md
 doc/Order.md
 doc/OrderApi.md
@@ -16,6 +17,7 @@ doc/Product.md
 doc/ProductApi.md
 doc/ProfileApi.md
 doc/Success.md
+doc/TempApi.md
 doc/Tokens.md
 doc/User.md
 lib/api.dart
@@ -26,6 +28,7 @@ lib/src/api/cart_api.dart
 lib/src/api/order_api.dart
 lib/src/api/product_api.dart
 lib/src/api/profile_api.dart
+lib/src/api/temp_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
@@ -37,6 +40,7 @@ lib/src/model/add_cart_req.dart
 lib/src/model/address.dart
 lib/src/model/cart.dart
 lib/src/model/cart_product.dart
+lib/src/model/checkout_url.dart
 lib/src/model/date.dart
 lib/src/model/id_req.dart
 lib/src/model/order.dart

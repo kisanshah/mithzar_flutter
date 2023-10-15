@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **checkout**
-> checkout()
+> CheckoutUrl checkout()
 
 Returns a list of products.
 
@@ -28,7 +28,8 @@ import 'package:api/api.dart';
 final api = Api().getOrderApi();
 
 try {
-    api.checkout();
+    final response = api.checkout();
+    print(response);
 } catch on DioError (e) {
     print('Exception when calling OrderApi->checkout: $e\n');
 }
@@ -39,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**CheckoutUrl**](CheckoutUrl.md)
 
 ### Authorization
 
@@ -48,7 +49,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

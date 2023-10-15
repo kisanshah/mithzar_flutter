@@ -18,6 +18,7 @@ import 'package:api/src/model/add_cart_req.dart';
 import 'package:api/src/model/address.dart';
 import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/cart_product.dart';
+import 'package:api/src/model/checkout_url.dart';
 import 'package:api/src/model/id_req.dart';
 import 'package:api/src/model/order.dart';
 import 'package:api/src/model/order_products_inner.dart';
@@ -33,6 +34,7 @@ part 'serializers.g.dart';
   Address,
   Cart,
   CartProduct,
+  CheckoutUrl,
   IdReq,
   Order,
   OrderProductsInner,

@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 [*ProductApi*](doc/ProductApi.md) | [**getProducts**](doc/ProductApi.md#getproducts) | **GET** /products/all | Returns a list of products.
 [*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
+[*TempApi*](doc/TempApi.md) | [**checkoutPaymentResult**](doc/TempApi.md#checkoutpaymentresult) | **POST** /order/payment_result | Returns a list of products.
 
 
 ## Documentation For Models
@@ -89,6 +90,7 @@ Class | Method | HTTP request | Description
  - [Address](doc/Address.md)
  - [Cart](doc/Cart.md)
  - [CartProduct](doc/CartProduct.md)
+ - [CheckoutUrl](doc/CheckoutUrl.md)
  - [IdReq](doc/IdReq.md)
  - [Order](doc/Order.md)
  - [OrderProductsInner](doc/OrderProductsInner.md)

@@ -76,16 +76,48 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
               for (int i = 0; i < 4; i++) TrackingItem(i: i),
             ],
           ),
-          Row(
-            children: [
-              Assets.svg.invoice.svg(),
-              const Text(
-                'Download Invoice',
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ],
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              // color: Colors.red,
+              border: Border.all(),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+            ),
+            child: ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: [
+                    Assets.svg.invoice.svg(),
+                    const Gap(10),
+                    const Text(
+                      'Download Invoice',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                );
+              },
+              separatorBuilder: (context, index) => const Divider(),
+              itemCount: 5,
+              // children: [
+
+              //   const Gap(15),
+              //   Row(
+              //     children: [
+              //       Assets.svg.invoice.svg(),
+              //       const Gap(10),
+              //       const Text(
+              //         'Gift Wrap',
+              //         style: TextStyle(
+              //           fontSize: 16,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ],
+            ),
           ),
         ],
       ),
