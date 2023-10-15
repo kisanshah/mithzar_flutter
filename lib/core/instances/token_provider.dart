@@ -7,13 +7,16 @@ part 'token_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class TokenNotifier extends _$TokenNotifier {
+  late SharPref prefs;
+
   @override
   Tokens build() {
+    prefs = ref.watch(sharPrefProvider);
     return Tokens();
   }
 
   Future<void> init() async {
-    state = await ref.read(sharPrefProvider).getToken() ?? state;
+    state = await prefs.getToken() ?? state;
   }
 
   void update(Tokens? tokens) {
@@ -21,13 +24,14 @@ class TokenNotifier extends _$TokenNotifier {
   }
 
   Future<String?> refresh() async {
-    final token = await ref.read(sharPrefProvider).getToken();
+    final token = await prefs.getToken();
     final result = await ref
         .read(authRepoProvider)
         .generateAccessToken(token?.refreshToken);
-    return result.fold((l) => '', (r) {
-      state = state.rebuild((token) => token..accessToken = r.accessToken);
-      return r.accessToken;
+    return result.fold((l) => '', (res) async {
+      state = state.rebuild((token) => token..accessToken = res.accessToken);
+      await prefs.saveToken(res);
+      return res.accessToken;
     });
   }
 }
