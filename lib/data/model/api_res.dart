@@ -10,7 +10,6 @@ class ApiRes with _$ApiRes {
     bool? success,
     String? message,
     List<ApiErrorMessage>? errors,
-    dynamic data,
   }) = _ApiRes;
 
   factory ApiRes.fromJson(Map<String, dynamic> json) => _$ApiResFromJson(json);

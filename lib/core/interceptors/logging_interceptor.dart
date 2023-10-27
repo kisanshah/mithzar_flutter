@@ -23,6 +23,7 @@ class LoggingInterceptor implements InterceptorsWrapper {
     ResponseInterceptorHandler handler,
   ) async {
     'x------------------------------'.logSuccess();
+    'Response : ${response.extra}'.logSuccess();
     'Response : ${response.data}'.logSuccess();
     'Status : ${response.statusCode} - ${response.statusMessage}'.logSuccess();
     await Future.delayed(const Duration(milliseconds: 20));
