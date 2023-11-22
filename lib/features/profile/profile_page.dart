@@ -27,80 +27,53 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Column(
-              children: [
-                ListTile(
-                  onTap: () {},
-                  minLeadingWidth: 0,
-                  title: const Text(
-                    'Profile',
-                  ),
-                  shape: const RoundedRectangleBorder(
-                    side: BorderSide(width: 0),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
+          Column(
+            children: [
+              ListTile(
+                onTap: () {},
+                minLeadingWidth: 0,
+                title: const Text(
+                  'Profile',
                 ),
-                const ListTile(
-                  minLeadingWidth: 0,
-                  title: Text(
-                    'Orders',
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 0),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
+              ),
+              const ListTile(
+                minLeadingWidth: 0,
+                title: Text(
+                  'Orders',
                 ),
-                const ListTile(
+              ),
+              const ListTile(
+                minLeadingWidth: 0,
+                title: Text(
+                  'Address',
+                ),
+              ),
+              const ListTile(
+                minLeadingWidth: 0,
+                title: Text(
+                  'Support & Help',
+                ),
+              ),
+              ListTile(
+                minLeadingWidth: 0,
+                onTap: () {
+                  ref.read(profileNotifierProvider.notifier).logout();
+                },
+                title: const Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+              ...List.generate(
+                0,
+                (index) => const ListTile(
                   minLeadingWidth: 0,
                   title: Text(
                     'Address',
                   ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 0),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
                 ),
-                const ListTile(
-                  minLeadingWidth: 0,
-                  title: Text(
-                    'Support & Help',
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 0),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                ),
-                ListTile(
-                  minLeadingWidth: 0,
-                  onTap: () {
-                    ref.read(profileNotifierProvider.notifier).logout();
-                  },
-                  title: const Text(
-                    'Logout',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-                ...List.generate(
-                  0,
-                  (index) => const ListTile(
-                    minLeadingWidth: 0,
-                    title: Text(
-                      'Address',
-                    ),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 0),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           const Gap(20),
         ],

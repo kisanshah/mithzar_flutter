@@ -5,6 +5,7 @@ import 'package:e_commerce_front_end/features/orders/ui/providers/order_list_not
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
 class OrderPage extends ConsumerStatefulWidget {
@@ -33,60 +34,64 @@ class _OrderPageState extends ConsumerState<OrderPage> {
         appBar: const HomeAppBar(
           title: 'ORDERS',
         ),
-        // appBar: AppBar(
-        //   elevation: 0,
-        //   backgroundColor: Colors.white,
-        //   centerTitle: false,
-        //   title: const Text(
-        //     'Orders',
-        //     style: TextStyle(
-        //       color: AppColor.black,
-        //       fontWeight: FontWeight.bold,
-        //       fontSize: 25,
-        //     ),
-        //   ),
-        //   bottom: const TabBar(
-        //     overlayColor: MaterialStatePropertyAll(Colors.transparent),
-        //     padding: EdgeInsets.symmetric(horizontal: 20),
-        //     indicatorColor: Colors.black,
-        //     unselectedLabelColor: Colors.black,
-        //     labelColor: Colors.black,
-        //     tabs: [
-        //       Tab(
-        //         text: 'Upcoming Orders',
-        //       ),
-        //       Tab(
-        //         text: 'Past Orders',
-        //       ),
-        //     ],
-        //   ),
-        // ),
         body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
-          child: Column(
-            children: [
-              Expanded(
+          child: CustomScrollView(
+            slivers: [
+              const SliverGap(10),
+              SliverToBoxAdapter(
+                child: TabBar(
+                  padding: EdgeInsets.zero,
+                  tabAlignment: TabAlignment.fill,
+                  labelPadding: EdgeInsets.zero,
+                  overlayColor:
+                      const MaterialStatePropertyAll(Colors.transparent),
+                  indicatorColor: Colors.black,
+                  unselectedLabelColor: Colors.black,
+                  labelColor: Colors.black,
+                  tabs: [
+                    Tab(
+                      child: Text(
+                        'Upcoming Orders',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Past Orders',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SliverFillRemaining(
                 child: TabBarView(
                   children: [
                     ListView.separated(
-                      shrinkWrap: true,
+                      padding: const EdgeInsets.only(top: 20),
                       itemBuilder: (context, index) {
-                        return OrderItem(order: state.data[index]);
+                        return OrderItem(
+                          order: state.data[index % state.data.length],
+                        );
                       },
-                      separatorBuilder: (context, index) => const Gap(0),
-                      itemCount: state.data.length,
+                      separatorBuilder: (context, index) => const Gap(15),
+                      itemCount: 10,
                     ),
                     ListView.separated(
-                      shrinkWrap: true,
+                      padding: const EdgeInsets.only(top: 20),
                       itemBuilder: (context, index) {
                         return OrderItem(order: state.data[index]);
                       },
-                      separatorBuilder: (context, index) =>
-                          const Divider(thickness: 1),
+                      separatorBuilder: (context, index) => const Gap(15),
                       itemCount: state.data.length,
                     ),
                   ],
