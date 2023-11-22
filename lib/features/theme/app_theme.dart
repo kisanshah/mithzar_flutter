@@ -1,11 +1,18 @@
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class AppTheme {
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+      ),
+    ),
     primarySwatch: AppColor.accentMaterialColor,
     textTheme: GoogleFonts.poppinsTextTheme(),
     buttonTheme: const ButtonThemeData(
@@ -33,11 +40,10 @@ class AppTheme {
       style: OutlinedButton.styleFrom(
         elevation: 0,
         side: const BorderSide(
-          width: 1.5,
-          color: AppColor.accentColor,
+          color: AppColor.black,
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
     ),
