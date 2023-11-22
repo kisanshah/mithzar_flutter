@@ -16,10 +16,12 @@ extension FutureExtension on Future {
       }
       return right(res);
     } on Exception catch (e) {
-      final error =
+      var error =
           AppError(type: ErrorType.other, message: 'Something went wrong!');
       if (e is DioException) {
-        // error = e.error;
+        if (e.error is TypeError) {
+          error = AppError(type: ErrorType.other, message: e.error.toString());
+        }
       }
       return left(error);
     }
