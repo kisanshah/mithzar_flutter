@@ -3,10 +3,15 @@ import 'package:api/api.dart';
 
 // tests for Address
 void main() {
-  final instance = AddressBuilder();
-  // TODO add properties to the builder and call build()
+  final Address? instance = /* Address(...) */ null;
+  // TODO add properties to the entity
 
   group(Address, () {
+    // User user
+    test('to test the property `user`', () async {
+      // TODO
+    });
+
     // num id
     test('to test the property `id`', () async {
       // TODO
@@ -52,7 +57,7 @@ void main() {
       // TODO
     });
 
-    // int userId
+    // String userId
     test('to test the property `userId`', () async {
       // TODO
     });

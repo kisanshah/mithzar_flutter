@@ -21,16 +21,13 @@ Returns a list of products.
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 
 try {
     final response = api.checkout();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->checkout: $e\n');
 }
 ```
@@ -54,23 +51,20 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getOrderList**
-> BuiltList<Order> getOrderList()
+> List<Order> getOrderList()
 
 Returns a list of orders.
 
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 
 try {
     final response = api.getOrderList();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->getOrderList: $e\n');
 }
 ```
@@ -80,7 +74,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;Order&gt;**](Order.md)
+[**List&lt;Order&gt;**](Order.md)
 
 ### Authorization
 

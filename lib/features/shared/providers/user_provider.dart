@@ -10,7 +10,7 @@ class UserNotifier extends _$UserNotifier {
 
   @override
   User build() {
-    return User();
+    return const User();
   }
 
   Future<void> fetch() async {

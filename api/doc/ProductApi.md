@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getProducts**
-> BuiltList<Product> getProducts()
+> List<Product> getProducts()
 
 Returns a list of products.
 
@@ -26,7 +26,7 @@ final api = Api().getProductApi();
 try {
     final response = api.getProducts();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ProductApi->getProducts: $e\n');
 }
 ```
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;Product&gt;**](Product.md)
+[**List&lt;Product&gt;**](Product.md)
 
 ### Authorization
 

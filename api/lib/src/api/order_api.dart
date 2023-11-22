@@ -4,20 +4,19 @@
 
 import 'dart:async';
 
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/checkout_url.dart';
 import 'package:api/src/model/order.dart';
-import 'package:built_collection/built_collection.dart';
 
 class OrderApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const OrderApi(this._dio, this._serializers);
+  const OrderApi(this._dio);
 
   /// Returns a list of products.
   /// 
@@ -31,7 +30,7 @@ class OrderApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CheckoutUrl] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<CheckoutUrl>> checkout({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -70,17 +69,15 @@ class OrderApi {
     CheckoutUrl? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CheckoutUrl),
-      ) as CheckoutUrl;
+final data = _response.data;
+        _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -109,9 +106,9 @@ class OrderApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<Order>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<Order>>> getOrderList({ 
+  /// Returns a [Future] containing a [Response] with a [List<Order>] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<List<Order>>> getOrderList({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -146,26 +143,26 @@ class OrderApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Order>? _responseData;
+    List<Order>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(Order)]),
-      ) as BuiltList<Order>;
+final data = _response.data;
+    if(data is Iterable){
+        _responseData = data.map((e) =>  Order.fromJson(e as Map<String, Object?>)).toList();
+        }
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
     }
 
-    return Response<BuiltList<Order>>(
+    return Response<List<Order>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

@@ -9,7 +9,7 @@ void main() {
   group(TempApi, () {
     // Returns a list of products.
     //
-    //Future<CheckoutUrl> checkoutPaymentResult(JsonObject body, { String xRazorpaySignature }) async
+    //Future<CheckoutUrl> checkoutPaymentResult(Object body, { String xRazorpaySignature }) async
     test('test checkoutPaymentResult', () async {
       // TODO
     });

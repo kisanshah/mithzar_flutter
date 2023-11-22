@@ -4,19 +4,18 @@
 
 import 'dart:async';
 
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/checkout_url.dart';
-import 'package:built_value/json_object.dart';
 
 class TempApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const TempApi(this._dio, this._serializers);
+  const TempApi(this._dio);
 
   /// Returns a list of products.
   /// 
@@ -32,9 +31,9 @@ class TempApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CheckoutUrl] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<CheckoutUrl>> checkoutPaymentResult({ 
-    required JsonObject body,
+    required Object body,
     String? xRazorpaySignature,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -67,15 +66,14 @@ class TempApi {
     dynamic _bodyData;
 
     try {
-      _bodyData = body;
-
+_bodyData=jsonEncode(body);
     } catch(error, stackTrace) {
-      throw DioError(
+      throw DioException(
          requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -93,17 +91,15 @@ class TempApi {
     CheckoutUrl? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CheckoutUrl),
-      ) as CheckoutUrl;
+final data = _response.data;
+        _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

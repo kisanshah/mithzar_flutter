@@ -9,8 +9,8 @@ void main() {
   group(ProfileApi, () {
     // Get profile based on the token
     //
-    //Future<User> userGet() async
-    test('test userGet', () async {
+    //Future<User> getUserByToken() async
+    test('test getUserByToken', () async {
       // TODO
     });
 

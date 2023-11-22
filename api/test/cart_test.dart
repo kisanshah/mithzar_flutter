@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for Cart
 void main() {
-  final instance = CartBuilder();
-  // TODO add properties to the builder and call build()
+  final Cart? instance = /* Cart(...) */ null;
+  // TODO add properties to the entity
 
   group(Cart, () {
     // int id
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // CartProduct product
+    // Product product
     test('to test the property `product`', () async {
       // TODO
     });

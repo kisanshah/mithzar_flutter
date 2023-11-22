@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for CheckoutUrl
 void main() {
-  final instance = CheckoutUrlBuilder();
-  // TODO add properties to the builder and call build()
+  final CheckoutUrl? instance = /* CheckoutUrl(...) */ null;
+  // TODO add properties to the entity
 
   group(CheckoutUrl, () {
     // String url
@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // int orderId
+    // String orderId
     test('to test the property `orderId`', () async {
       // TODO
     });

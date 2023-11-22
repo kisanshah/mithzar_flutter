@@ -4,7 +4,9 @@
 
 import 'dart:async';
 
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/user.dart';
@@ -13,9 +15,7 @@ class ProfileApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const ProfileApi(this._dio, this._serializers);
+  const ProfileApi(this._dio);
 
   /// Get profile based on the token
   /// 
@@ -29,7 +29,7 @@ class ProfileApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [User] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<User>> getUserByToken({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -68,17 +68,15 @@ class ProfileApi {
     User? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(User),
-      ) as User;
+final data = _response.data;
+        _responseData = User.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

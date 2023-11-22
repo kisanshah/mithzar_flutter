@@ -9,8 +9,8 @@ void main() {
   group(ProductApi, () {
     // Returns a list of products.
     //
-    //Future<BuiltList<String>> productsAllGet() async
-    test('test productsAllGet', () async {
+    //Future<List<Product>> getProducts() async
+    test('test getProducts', () async {
       // TODO
     });
 

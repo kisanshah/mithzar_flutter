@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 **total** | **num** |  | [optional] 
-**products** | [**BuiltList&lt;OrderProductsInner&gt;**](OrderProductsInner.md) |  | [optional] 
+**products** | [**List&lt;Product&gt;**](Product.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

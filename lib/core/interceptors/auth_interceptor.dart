@@ -13,6 +13,10 @@ class AuthInterceptor implements InterceptorsWrapper {
 
   @override
   Future<void> onError(err, handler) async {
+    if (err.response?.data is! Map) {
+      handler.next(err);
+      return;
+    }
     //Check Authentication Errors
     final res = ApiRes.fromJson(err.response?.data);
     if (res.message == 'TOKEN_EXPIRED') {

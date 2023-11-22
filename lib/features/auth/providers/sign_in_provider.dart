@@ -17,9 +17,8 @@ class SignInNotifier extends _$SignInNotifier {
   Future<void> signIn(String email, String password) async {
     state = state.copyWith(loading: true);
     final body = User(
-      (user) => user
-        ..email = email
-        ..password = password,
+      email: email,
+      password: password,
     );
     final result = await ref.read(authRepoProvider).signIn(body);
     result.fold(onError, onResult);

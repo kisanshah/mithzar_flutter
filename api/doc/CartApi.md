@@ -23,9 +23,6 @@ add product to user's cart
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 final AddCartReq addCartReq = ; // AddCartReq | 
@@ -33,7 +30,7 @@ final AddCartReq addCartReq = ; // AddCartReq |
 try {
     final response = api.addToCart(addCartReq);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CartApi->addToCart: $e\n');
 }
 ```
@@ -60,23 +57,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCartItems**
-> BuiltList<Cart> getCartItems()
+> List<Cart> getCartItems()
 
 returns list of cart items
 
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 
 try {
     final response = api.getCartItems();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CartApi->getCartItems: $e\n');
 }
 ```
@@ -86,7 +80,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;Cart&gt;**](Cart.md)
+[**List&lt;Cart&gt;**](Cart.md)
 
 ### Authorization
 
@@ -107,17 +101,14 @@ removes the specified cart item
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
-final BuiltList<int> ids = ; // BuiltList<int> | 
+final List<int> ids = ; // List<int> | 
 
 try {
     final response = api.removeAllItem(ids);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CartApi->removeAllItem: $e\n');
 }
 ```
@@ -126,7 +117,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**BuiltList&lt;int&gt;**](int.md)|  | [optional] 
+ **ids** | [**List&lt;int&gt;**](int.md)|  | [optional] 
 
 ### Return type
 
@@ -151,9 +142,6 @@ removes the specified cart item
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 final IdReq id = ; // IdReq | 
@@ -161,7 +149,7 @@ final IdReq id = ; // IdReq |
 try {
     final response = api.removeItem(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CartApi->removeItem: $e\n');
 }
 ```

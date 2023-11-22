@@ -21,7 +21,7 @@ class CartRepoImpl implements CartRepository {
   @override
   Future<Either<AppError, Success>> addToCart(int id) {
     return _source
-        .addToCart(addCartReq: AddCartReq((value) => value.productId = id))
+        .addToCart(addCartReq: AddCartReq(productId: id))
         .guardFuture();
   }
 

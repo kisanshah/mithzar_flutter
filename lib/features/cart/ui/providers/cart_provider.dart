@@ -28,7 +28,7 @@ FutureOr<Success> addToCart(AddToCartRef ref, int id) async {
   final result = await ref.watch(cartRepoProvider).addToCart(id);
   ref.read(productRefreshProvider.notifier).refresh();
   return result.fold(
-    (l) => Success((value) => value..success = false),
+    (l) => const Success(success: false),
     (res) => res,
   );
 }

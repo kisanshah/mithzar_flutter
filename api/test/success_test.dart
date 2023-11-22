@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for Success
 void main() {
-  final instance = SuccessBuilder();
-  // TODO add properties to the builder and call build()
+  final Success? instance = /* Success(...) */ null;
+  // TODO add properties to the entity
 
   group(Success, () {
     // bool success

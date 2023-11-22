@@ -1,14 +1,19 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for IdReq
+// tests for Category
 void main() {
-  final IdReq? instance = /* IdReq(...) */ null;
+  final Category? instance = /* Category(...) */ null;
   // TODO add properties to the entity
 
-  group(IdReq, () {
+  group(Category, () {
     // int id
     test('to test the property `id`', () async {
+      // TODO
+    });
+
+    // String name
+    test('to test the property `name`', () async {
       // TODO
     });
 

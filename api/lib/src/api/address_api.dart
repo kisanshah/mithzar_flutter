@@ -4,20 +4,19 @@
 
 import 'dart:async';
 
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/address.dart';
 import 'package:api/src/model/success.dart';
-import 'package:built_collection/built_collection.dart';
 
 class AddressApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const AddressApi(this._dio, this._serializers);
+  const AddressApi(this._dio);
 
   /// Get all user addresses
   /// 
@@ -32,7 +31,7 @@ class AddressApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Success>> addressIdDelete({ 
     required int id,
     CancelToken? cancelToken,
@@ -72,17 +71,15 @@ class AddressApi {
     Success? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Success),
-      ) as Success;
+final data = _response.data;
+        _responseData = Success.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -111,9 +108,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<Address>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<Address>>> getAddressList({ 
+  /// Returns a [Future] containing a [Response] with a [List<Address>] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<List<Address>>> getAddressList({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -148,26 +145,26 @@ class AddressApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Address>? _responseData;
+    List<Address>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(Address)]),
-      ) as BuiltList<Address>;
+final data = _response.data;
+    if(data is Iterable){
+        _responseData = data.map((e) =>  Address.fromJson(e as Map<String, Object?>)).toList();
+        }
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
     }
 
-    return Response<BuiltList<Address>>(
+    return Response<List<Address>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -192,7 +189,7 @@ class AddressApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Address>> saveAddress({ 
     Address? address,
     CancelToken? cancelToken,
@@ -225,16 +222,14 @@ class AddressApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(Address);
-      _bodyData = address == null ? null : _serializers.serialize(address, specifiedType: _type);
-
+_bodyData=jsonEncode(address);
     } catch(error, stackTrace) {
-      throw DioError(
+      throw DioException(
          requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -252,17 +247,15 @@ class AddressApi {
     Address? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Address),
-      ) as Address;
+final data = _response.data;
+        _responseData = Address.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -293,7 +286,7 @@ class AddressApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Success>> setDefaultAddress({ 
     required int id,
     CancelToken? cancelToken,
@@ -333,17 +326,15 @@ class AddressApi {
     Success? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Success),
-      ) as Success;
+final data = _response.data;
+        _responseData = Success.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -374,7 +365,7 @@ class AddressApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Address>> updateAddress({ 
     Address? address,
     CancelToken? cancelToken,
@@ -407,16 +398,14 @@ class AddressApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(Address);
-      _bodyData = address == null ? null : _serializers.serialize(address, specifiedType: _type);
-
+_bodyData=jsonEncode(address);
     } catch(error, stackTrace) {
-      throw DioError(
+      throw DioException(
          requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -434,17 +423,15 @@ class AddressApi {
     Address? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Address),
-      ) as Address;
+final data = _response.data;
+        _responseData = Address.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

@@ -20,18 +20,15 @@ Returns a list of products.
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getTempApi();
-final JsonObject body = Object; // JsonObject | 
+final Object body = Object; // Object | 
 final String xRazorpaySignature = xRazorpaySignature_example; // String | 
 
 try {
     final response = api.checkoutPaymentResult(body, xRazorpaySignature);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TempApi->checkoutPaymentResult: $e\n');
 }
 ```
@@ -40,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **JsonObject**|  | 
+ **body** | **Object**|  | 
  **xRazorpaySignature** | **String**|  | [optional] 
 
 ### Return type

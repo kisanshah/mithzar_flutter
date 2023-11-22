@@ -1,4 +1,4 @@
-# api.model.Product
+# api.model.Customer
 
 ## Load the model package
 ```dart
@@ -9,10 +9,8 @@ import 'package:api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**name** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
-**price** | **double** |  | [optional] 
-**images** | **List&lt;String&gt;** |  | [optional] 
+**username** | **String** |  | [optional] 
+**address** | [**List&lt;Address&gt;**](Address.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

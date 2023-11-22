@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for Order
 void main() {
-  final instance = OrderBuilder();
-  // TODO add properties to the builder and call build()
+  final Order? instance = /* Order(...) */ null;
+  // TODO add properties to the entity
 
   group(Order, () {
     // int id
@@ -12,18 +12,29 @@ void main() {
       // TODO
     });
 
+    // int petId
+    test('to test the property `petId`', () async {
+      // TODO
+    });
+
+    // int quantity
+    test('to test the property `quantity`', () async {
+      // TODO
+    });
+
+    // DateTime shipDate
+    test('to test the property `shipDate`', () async {
+      // TODO
+    });
+
+    // Order Status
     // String status
     test('to test the property `status`', () async {
       // TODO
     });
 
-    // num total
-    test('to test the property `total`', () async {
-      // TODO
-    });
-
-    // BuiltList<OrderProductsInner> products
-    test('to test the property `products`', () async {
+    // bool complete
+    test('to test the property `complete`', () async {
       // TODO
     });
 

@@ -32,7 +32,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<AppError, Tokens>> generateAccessToken(String? refreshToken) {
     return source
         .refreshToken(
-          tokens: Tokens((tokens) => tokens..refreshToken = refreshToken),
+          tokens: Tokens(refreshToken: refreshToken),
         )
         .guardFuture<Tokens>();
   }

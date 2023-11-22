@@ -14,7 +14,7 @@ class AuthGuard extends AutoRouteGuard {
     StackRouter router,
   ) async {
     final token = await _ref.read(sharPrefProvider).getToken();
-    if (token != null) {
+    if (token != null && token.accessToken != null) {
       await _ref.read(userNotifierProvider.notifier).fetch();
       resolver.next();
     } else {

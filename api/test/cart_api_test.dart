@@ -16,14 +16,14 @@ void main() {
 
     // returns list of cart items
     //
-    //Future<BuiltList<Cart>> getCartItems() async
+    //Future<List<Cart>> getCartItems() async
     test('test getCartItems', () async {
       // TODO
     });
 
     // removes the specified cart item
     //
-    //Future<Success> removeAllItem({ BuiltList<int> ids }) async
+    //Future<Success> removeAllItem({ List<int> ids }) async
     test('test removeAllItem', () async {
       // TODO
     });

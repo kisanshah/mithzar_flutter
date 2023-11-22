@@ -12,7 +12,7 @@ class TokenNotifier extends _$TokenNotifier {
   @override
   Tokens build() {
     prefs = ref.watch(sharPrefProvider);
-    return Tokens();
+    return const Tokens();
   }
 
   Future<void> init() async {
@@ -29,7 +29,7 @@ class TokenNotifier extends _$TokenNotifier {
         .read(authRepoProvider)
         .generateAccessToken(token?.refreshToken);
     return result.fold((l) => '', (res) async {
-      state = state.rebuild((token) => token..accessToken = res.accessToken);
+      state = state.copyWith(accessToken: res.accessToken);
       await prefs.saveToken(res);
       return res.accessToken;
     });

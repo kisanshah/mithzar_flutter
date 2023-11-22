@@ -18,7 +18,7 @@ class SharPref {
   Future<void> saveToken(Tokens token) async {
     await pref.putString(
       PrefPath.token,
-      jsonEncode(serializers.toJson(Tokens.serializer, token)),
+      jsonEncode(token.toJson()),
     );
   }
 
@@ -27,7 +27,7 @@ class SharPref {
     if (encoded.isEmpty) {
       return null;
     }
-    return serializers.fromJson(Tokens.serializer, jsonDecode(encoded));
+    return Tokens.fromJson(jsonDecode(encoded));
   }
 
   void clearAll() {

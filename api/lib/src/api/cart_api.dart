@@ -4,23 +4,21 @@
 
 import 'dart:async';
 
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:api/src/api_util.dart';
 import 'package:api/src/model/add_cart_req.dart';
 import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/id_req.dart';
 import 'package:api/src/model/success.dart';
-import 'package:built_collection/built_collection.dart';
 
 class CartApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const CartApi(this._dio, this._serializers);
+  const CartApi(this._dio);
 
   /// add product to user&#39;s cart
   /// 
@@ -35,7 +33,7 @@ class CartApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Success>> addToCart({ 
     AddCartReq? addCartReq,
     CancelToken? cancelToken,
@@ -68,16 +66,14 @@ class CartApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AddCartReq);
-      _bodyData = addCartReq == null ? null : _serializers.serialize(addCartReq, specifiedType: _type);
-
+_bodyData=jsonEncode(addCartReq);
     } catch(error, stackTrace) {
-      throw DioError(
+      throw DioException(
          requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -95,17 +91,15 @@ class CartApi {
     Success? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Success),
-      ) as Success;
+final data = _response.data;
+        _responseData = Success.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -134,9 +128,9 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<Cart>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<Cart>>> getCartItems({ 
+  /// Returns a [Future] containing a [Response] with a [List<Cart>] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<List<Cart>>> getCartItems({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -171,26 +165,26 @@ class CartApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Cart>? _responseData;
+    List<Cart>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(Cart)]),
-      ) as BuiltList<Cart>;
+final data = _response.data;
+    if(data is Iterable){
+        _responseData = data.map((e) =>  Cart.fromJson(e as Map<String, Object?>)).toList();
+        }
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
     }
 
-    return Response<BuiltList<Cart>>(
+    return Response<List<Cart>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -215,9 +209,9 @@ class CartApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Success>> removeAllItem({ 
-    BuiltList<int>? ids,
+    List<int>? ids,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -245,7 +239,7 @@ class CartApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (ids != null) r'ids': encodeCollectionQueryParameter<int>(_serializers, ids, const FullType(BuiltList, [FullType(int)]), format: ListFormat.multi,),
+      if (ids != null) r'ids': ids,
     };
 
     final _response = await _dio.request<Object>(
@@ -260,17 +254,15 @@ class CartApi {
     Success? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Success),
-      ) as Success;
+final data = _response.data;
+        _responseData = Success.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -301,7 +293,7 @@ class CartApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Success>> removeItem({ 
     IdReq? id,
     CancelToken? cancelToken,
@@ -331,7 +323,7 @@ class CartApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (id != null) r'id': encodeQueryParameter(_serializers, id, const FullType(IdReq)),
+      if (id != null) r'id': id,
     };
 
     final _response = await _dio.request<Object>(
@@ -346,17 +338,15 @@ class CartApi {
     Success? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Success),
-      ) as Success;
+final data = _response.data;
+        _responseData = Success.fromJson(data as Map<String, Object?>);
+
 
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

@@ -3,32 +3,22 @@ import 'package:api/api.dart';
 
 // tests for User
 void main() {
-  final instance = UserBuilder();
-  // TODO add properties to the builder and call build()
+  final User? instance = /* User(...) */ null;
+  // TODO add properties to the entity
 
   group(User, () {
-    // num id
-    test('to test the property `id`', () async {
-      // TODO
-    });
-
-    // String name
+    // UserName name
     test('to test the property `name`', () async {
       // TODO
     });
 
-    // String phone
-    test('to test the property `phone`', () async {
+    // List<String> address
+    test('to test the property `address`', () async {
       // TODO
     });
 
-    // String email
-    test('to test the property `email`', () async {
-      // TODO
-    });
-
-    // String password
-    test('to test the property `password`', () async {
+    // String id
+    test('to test the property `id`', () async {
       // TODO
     });
 

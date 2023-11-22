@@ -29,7 +29,7 @@ final Tokens tokens = ; // Tokens | User credentials
 try {
     final response = api.refreshToken(tokens);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AuthApi->refreshToken: $e\n');
 }
 ```
@@ -70,7 +70,7 @@ final User user = ; // User |
 try {
     final response = api.register(user);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AuthApi->register: $e\n');
 }
 ```
@@ -111,7 +111,7 @@ final User user = ; // User | User credentials
 try {
     final response = api.signIn(user);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AuthApi->signIn: $e\n');
 }
 ```

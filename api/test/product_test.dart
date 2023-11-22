@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for Product
 void main() {
-  //final instance = ProductBuilder();
-  // TODO add properties to the builder and call build()
+  final Product? instance = /* Product(...) */ null;
+  // TODO add properties to the entity
 
   group(Product, () {
     // int id
@@ -27,7 +27,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<String> images
+    // List<String> images
     test('to test the property `images`', () async {
       // TODO
     });

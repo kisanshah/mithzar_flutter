@@ -3,8 +3,8 @@ import 'package:api/api.dart';
 
 // tests for Tokens
 void main() {
-  final instance = TokensBuilder();
-  // TODO add properties to the builder and call build()
+  final Tokens? instance = /* Tokens(...) */ null;
+  // TODO add properties to the entity
 
   group(Tokens, () {
     // String refreshToken

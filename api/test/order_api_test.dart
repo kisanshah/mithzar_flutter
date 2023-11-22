@@ -9,15 +9,15 @@ void main() {
   group(OrderApi, () {
     // Returns a list of products.
     //
-    //Future orderCheckoutGet() async
-    test('test orderCheckoutGet', () async {
+    //Future<CheckoutUrl> checkout() async
+    test('test checkout', () async {
       // TODO
     });
 
     // Returns a list of orders.
     //
-    //Future orderListGet() async
-    test('test orderListGet', () async {
+    //Future<List<Order>> getOrderList() async
+    test('test getOrderList', () async {
       // TODO
     });
 
