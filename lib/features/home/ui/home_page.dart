@@ -47,7 +47,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   'https://www.shutterstock.com/image-photo/indian-design-gold-bangles-decorative-600nw-2175114437.jpg',
             ),
           ),
-
           const SliverGap(20),
           SliverToBoxAdapter(
             child: Text(
@@ -144,10 +143,52 @@ class _HomePageState extends ConsumerState<HomePage> {
                     ),
                   ),
                   const Spacer(),
-                  Assets.svg.filter.svg(
-                    colorFilter: const ColorFilter.mode(
-                      AppColor.black,
-                      BlendMode.srcIn,
+                  InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        // showDragHandle: true,
+                        builder: (context) {
+                          return Container(
+                            color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Spacer(),
+                                      Expanded(
+                                        child: Text(
+                                          'Filter',
+                                          textAlign: TextAlign.center,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Assets.svg.cancel.svg(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Assets.svg.filter.svg(
+                      colorFilter: const ColorFilter.mode(
+                        AppColor.black,
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                   // const Icon(Icons.filter),
@@ -169,21 +210,6 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             ),
           ),
-
-          // Expanded(
-          //   child: GridView.builder(
-          //     padding: const EdgeInsets.all(20),
-          //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2,
-          //       mainAxisExtent: 220,
-          //       crossAxisSpacing: 10,
-          //       mainAxisSpacing: 10,
-          //     ),
-          //     itemBuilder: (context, index) {
-          //       return ProductItem(images: images);
-          //     },
-          //   ),
-          // ),
         ],
       ),
     );
