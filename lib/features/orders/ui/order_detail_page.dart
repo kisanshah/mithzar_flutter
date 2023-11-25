@@ -1,9 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
+import 'package:e_commerce_front_end/features/home/ui/home_page.dart';
 import 'package:e_commerce_front_end/features/orders/ui/components/tracking_item.dart';
+import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
+import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
 class OrderDetailPage extends ConsumerStatefulWidget {
@@ -21,104 +26,126 @@ class OrderDetailPage extends ConsumerStatefulWidget {
 class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
   @override
   Widget build(BuildContext context) {
+    final name =
+        ref.read(userNotifierProvider).name?.split(' ').firstOrNull ?? '';
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 0,
-        backgroundColor: Colors.white,
+      appBar: const CustomAppBar(
+        title: 'ORDER #12345677',
       ),
       body: ListView(
+        shrinkWrap: true,
         padding: const EdgeInsets.all(20),
         children: [
-          const Text(
-            'Hey, Ricky!',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+          Text(
+            'Hey, $name!',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
               fontSize: 22,
             ),
           ),
-          const Text(
+          const Gap(5),
+          Text(
             "Thank you for your order! We'll keep you updated on its arrival.",
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 15,
             ),
           ),
-          const Gap(20),
-          const Text(
-            'Order Details',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 18,
+          const Gap(30),
+          Text(
+            'Order Detail 📦',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
             ),
           ),
           const Gap(15),
           ...{
-            'Order ID': '#546789012',
-            'Order Placed': '25 July, 2023',
-            'Total': '¢1,79,998',
+            'ID': '#546789012',
+            'Placed': '25 July, 2023',
+            'Total': 'Rs.1,79,998',
           }.entries.map(
                 (e) => OrderDetailItem(item: e),
               ),
-          const Gap(20),
-          const Text(
+          const Gap(30),
+          Text(
             'Products',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 18,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
             ),
           ),
           const Gap(15),
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 2,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  width: 175,
+                  height: 250,
+                  child: const ProductItem(index: 0),
+                );
+              },
+            ),
+          ),
+          const Gap(30),
+          Text(
+            'Tracking 🚚',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
+            ),
+          ),
           Column(
             children: [
               for (int i = 0; i < 4; i++) TrackingItem(i: i),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              // color: Colors.red,
-              border: Border.all(),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Assets.svg.invoice.svg(),
-                    const Gap(10),
-                    const Text(
-                      'Download Invoice',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
+          const Gap(10),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(42),
+                    side: const BorderSide(
+                      color: AppColor.accentColor,
                     ),
-                  ],
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: 5,
-              // children: [
-
-              //   const Gap(15),
-              //   Row(
-              //     children: [
-              //       Assets.svg.invoice.svg(),
-              //       const Gap(10),
-              //       const Text(
-              //         'Gift Wrap',
-              //         style: TextStyle(
-              //           fontSize: 16,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ],
-            ),
+                  ),
+                  icon: const Icon(Icons.download),
+                  label: const Text(
+                    'Dowload Invoice',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+              ),
+              const Gap(10),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(42),
+                    side: const BorderSide(
+                      color: AppColor.red,
+                    ),
+                  ),
+                  icon: Assets.svg.cancel.svg(
+                    colorFilter:
+                        const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+                  ),
+                  label: const Text(
+                    'Cancel Order',
+                    style: TextStyle(color: AppColor.red, fontSize: 15),
+                  ),
+                ),
+              ),
+            ],
           ),
+          const Gap(20),
         ],
       ),
     );
@@ -135,12 +162,23 @@ class OrderDetailItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 5),
       child: Row(
         children: [
-          Text(item.key),
+          Text(
+            item.key,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+              fontSize: 15,
+            ),
+          ),
           const Spacer(),
-          Text(item.value),
+          Text(
+            item.value,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ],
       ),
     );

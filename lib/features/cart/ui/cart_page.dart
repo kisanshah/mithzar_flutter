@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/features/cart/ui/components/cart_item.dart';
 import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
-import 'package:e_commerce_front_end/features/components/custom_detail_app_bar.dart';
+import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

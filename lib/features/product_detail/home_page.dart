@@ -1,4 +1,4 @@
-import 'package:e_commerce_front_end/features/components/custom_detail_app_bar.dart';
+import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
 import 'package:e_commerce_front_end/features/product_detail/components/product_detail_bottom_bar.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';

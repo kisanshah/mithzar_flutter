@@ -23,13 +23,6 @@ class _HomePageState extends ConsumerState<HomePage> {
     const Color(0xffc0c0c0),
   ];
 
-  final images = [
-    'https://www.kushals.com/cdn/shop/products/zircon-bangle-white-2-4-rose-gold-zircon-bangle-151226-35657651519644.jpg?v=167570325900&width=686',
-    'https://www.kushals.com/cdn/shop/files/kundan-bangle-green-victorian-2-4-kundan-bangle-161563-36710721290396.jpg?v=169850889700&width=244',
-    'https://www.kushals.com/cdn/shop/files/temple-bangle-white-oxidised-gold-2-4-silver-temple-bangle-165556-36821343371420.jpg?v=170021384900&width=244',
-    'https://www.kushals.com/cdn/shop/files/antique-bangle-ruby-gold-2-4-antique-bangle-165536-36821333147804.jpg?v=170021422200&width=244',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(homeNotifierProvider);
@@ -68,7 +61,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   margin: const EdgeInsets.only(right: 10),
                   width: 175,
                   height: 250,
-                  child: ProductItem(images: images, index: index),
+                  child: ProductItem(index: index),
                 ),
                 itemCount: 6,
               ),
@@ -109,7 +102,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   margin: const EdgeInsets.only(right: 10),
                   width: 175,
                   height: 250,
-                  child: ProductItem(images: images, index: index),
+                  child: ProductItem(index: index),
                 ),
                 itemCount: 6,
               ),
@@ -200,7 +193,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.builder(
               itemBuilder: (context, index) {
-                return ProductItem(images: images, index: index);
+                return ProductItem(index: index);
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -219,15 +212,19 @@ class _HomePageState extends ConsumerState<HomePage> {
 class ProductItem extends StatelessWidget {
   const ProductItem({
     super.key,
-    required this.images,
     required this.index,
   });
 
-  final List<String> images;
   final int index;
 
   @override
   Widget build(BuildContext context) {
+    final images = [
+      'https://www.kushals.com/cdn/shop/products/zircon-bangle-white-2-4-rose-gold-zircon-bangle-151226-35657651519644.jpg?v=167570325900&width=686',
+      'https://www.kushals.com/cdn/shop/files/kundan-bangle-green-victorian-2-4-kundan-bangle-161563-36710721290396.jpg?v=169850889700&width=244',
+      'https://www.kushals.com/cdn/shop/files/temple-bangle-white-oxidised-gold-2-4-silver-temple-bangle-165556-36821343371420.jpg?v=170021384900&width=244',
+      'https://www.kushals.com/cdn/shop/files/antique-bangle-ruby-gold-2-4-antique-bangle-165536-36821333147804.jpg?v=170021422200&width=244',
+    ];
     return Container(
       decoration: BoxDecoration(
         color: AppColor.white,

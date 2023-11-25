@@ -116,7 +116,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.builder(
               itemBuilder: (context, index) {
-                return ProductItem(images: images, index: index);
+                return ProductItem(index: index);
               },
               itemCount: 3,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -147,7 +147,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                   margin: const EdgeInsets.only(right: 10),
                   width: 175,
                   height: 250,
-                  child: ProductItem(images: images, index: index),
+                  child: ProductItem(index: index),
                 ),
                 itemCount: 6,
               ),
