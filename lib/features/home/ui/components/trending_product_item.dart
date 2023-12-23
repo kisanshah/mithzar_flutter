@@ -8,9 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TrendingProductItem extends ConsumerWidget {
   const TrendingProductItem({
-    Key? key,
+    super.key,
     required this.product,
-  }) : super(key: key);
+  });
 
   final Product product;
 

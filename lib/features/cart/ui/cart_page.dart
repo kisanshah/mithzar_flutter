@@ -134,10 +134,10 @@ class DottedLinePainter extends CustomPainter {
 
 class CartCalcItem extends StatelessWidget {
   const CartCalcItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
-  }) : super(key: key);
+  });
 
   final String title;
   final String value;

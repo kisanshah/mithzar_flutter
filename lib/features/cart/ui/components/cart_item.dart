@@ -5,9 +5,9 @@ import 'package:gap/gap.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
-    Key? key,
+    super.key,
     required this.item,
-  }) : super(key: key);
+  });
   final Cart item;
 
   @override

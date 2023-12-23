@@ -2,7 +2,7 @@ analyzer:
   language:
     strict-inference: true
     strict-raw-types: true
-  strong-mode:
+  # strong-mode:
     # implicit-dynamic: true
     # implicit-casts: false
     # implicit_dynamic_parameter: true

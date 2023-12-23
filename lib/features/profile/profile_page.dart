@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
 import 'package:e_commerce_front_end/features/profile/provider/profile_provider.dart';
+import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
+import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
 import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,7 +20,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userNotifierProvider);
-    // final router = ref.watch(routerProvider);
+    final router = ref.watch(routerProvider);
     // final notifier = ref.watch(profileNotifierProvider.notifier);
     return Scaffold(
       appBar: const HomeAppBar(
@@ -42,9 +44,10 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   'Orders',
                 ),
               ),
-              const ListTile(
+              ListTile(
+                onTap: () => router.push(const AddressListRoute()),
                 minLeadingWidth: 0,
-                title: Text(
+                title: const Text(
                   'Address',
                 ),
               ),
@@ -62,15 +65,6 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 title: const Text(
                   'Logout',
                   style: TextStyle(color: Colors.red),
-                ),
-              ),
-              ...List.generate(
-                0,
-                (index) => const ListTile(
-                  minLeadingWidth: 0,
-                  title: Text(
-                    'Address',
-                  ),
                 ),
               ),
             ],
