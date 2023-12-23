@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/core/extensions/debug.dart';
-import 'package:e_commerce_front_end/features/auth/providers/sign_in_provider.dart';
+import 'package:e_commerce_front_end/features/auth/ui/providers/sign_in_provider.dart';
 import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
 import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';

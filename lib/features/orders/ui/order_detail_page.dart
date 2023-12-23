@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
-import 'package:e_commerce_front_end/features/home/ui/home_page.dart';
 import 'package:e_commerce_front_end/features/orders/ui/components/tracking_item.dart';
+import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
 import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:e_commerce_front_end/gen/assets.gen.dart';

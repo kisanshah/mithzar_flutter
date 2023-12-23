@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/core/extensions/string.dart';
-import 'package:e_commerce_front_end/features/auth/components/otp_box.dart';
-import 'package:e_commerce_front_end/features/auth/providers/register_provider.dart';
+import 'package:e_commerce_front_end/features/auth/ui/components/otp_box.dart';
+import 'package:e_commerce_front_end/features/auth/ui/providers/signup_provider.dart';
 import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
@@ -37,7 +37,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
-    final notifier = ref.watch(registerNotifierProvider.notifier);
+    final notifier = ref.watch(signUpNotifierProvider.notifier);
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: kBottomNavigationBarHeight,
@@ -167,11 +167,31 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                     ),
                   ),
                   const Gap(20),
+                  TextFormField(
+                    controller: notifier.passCtrl,
+                    obscureText: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    textInputAction: TextInputAction.next,
+                    validator: (value) {
+                      if (value.isNullOrEmpty) {
+                        return 'Password is required';
+                      }
+                      final valid = value.isStrongPasssword;
+                      if (valid.isNotEmpty) {
+                        return valid;
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                    ),
+                  ),
+                  const Gap(20),
                   Consumer(
                     builder: (context, ref, child) {
                       final notifier =
-                          ref.watch(registerNotifierProvider.notifier);
-                      final state = ref.watch(registerNotifierProvider);
+                          ref.watch(signUpNotifierProvider.notifier);
+                      final state = ref.watch(signUpNotifierProvider);
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
