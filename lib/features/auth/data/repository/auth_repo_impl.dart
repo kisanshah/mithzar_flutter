@@ -19,11 +19,6 @@ class AuthRepoImpl extends AuthRepo {
   final AuthApi source;
 
   @override
-  Future<Either<AppError, Tokens>> register(User user) {
-    return source.register(user: user).guardFuture();
-  }
-
-  @override
   Future<Either<AppError, Tokens>> signIn(User user) async {
     return source.signIn(user: user).guardFuture();
   }

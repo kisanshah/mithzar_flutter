@@ -38,11 +38,11 @@ class SignUpNotifier extends _$SignUpNotifier {
       phone: phoneCtrl.text,
       password: passCtrl.text,
     );
-    final result = await repo.register(user);
-    state = result.fold(
-      (l) => state.copyWith(loading: false, error: l.message),
-      (r) => state.copyWith(loading: false, otpSent: r.accessToken != null),
-    );
+    // final result = await repo.register(user);
+    // state = result.fold(
+    //   (l) => state.copyWith(loading: false, error: l.message),
+    //   (r) => state.copyWith(loading: false, otpSent: r.accessToken != null),
+    // );
   }
 
   Future<void> verifyOtp() async {

@@ -71,8 +71,9 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
 [*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
-[*AuthApi*](doc/AuthApi.md) | [**register**](doc/AuthApi.md#register) | **POST** /auth/register | Register new user
+[*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In
+[*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart/add | add product to user&#39;s cart
 [*CartApi*](doc/CartApi.md) | [**getCartItems**](doc/CartApi.md#getcartitems) | **GET** /cart/list | returns list of cart items
 [*CartApi*](doc/CartApi.md) | [**removeAllItem**](doc/CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
@@ -91,11 +92,13 @@ Class | Method | HTTP request | Description
  - [Cart](doc/Cart.md)
  - [CheckoutUrl](doc/CheckoutUrl.md)
  - [IdReq](doc/IdReq.md)
+ - [Message](doc/Message.md)
  - [Order](doc/Order.md)
  - [Product](doc/Product.md)
  - [Success](doc/Success.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)
+ - [VerifyOtpReq](doc/VerifyOtpReq.md)
 
 
 ## Documentation For Authorization

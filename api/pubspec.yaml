@@ -16,4 +16,3 @@ dev_dependencies:
   freezed: any
   build_runner: any
   json_serializable: any
-  dart_code_metrics: ^5.7.6

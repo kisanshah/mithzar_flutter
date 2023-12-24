@@ -8,16 +8,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'tokens.freezed.dart';
 part 'tokens.g.dart';
 
+
 @freezed
 class Tokens with _$Tokens {
-  const factory Tokens({
-    String? refreshToken,
 
+const factory Tokens({
+    String? refreshToken,
     ///  this.refreshToken,
     String? accessToken,
-
     ///  this.accessToken,
-  }) = _Tokens;
+}) = _Tokens;
 
-  factory Tokens.fromJson(Map<String, Object?> json) => _$TokensFromJson(json);
+factory Tokens.fromJson(Map<String, Object?> json)
+=> _$TokensFromJson(json);
 }
+
