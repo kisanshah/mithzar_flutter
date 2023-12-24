@@ -8,16 +8,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'success.freezed.dart';
 part 'success.g.dart';
 
-
 @freezed
 class Success with _$Success {
-
-const factory Success({
+  const factory Success({
     bool? success,
+
     ///  this.success,
-}) = _Success;
+  }) = _Success;
 
-factory Success.fromJson(Map<String, Object?> json)
-=> _$SuccessFromJson(json);
+  factory Success.fromJson(Map<String, Object?> json) =>
+      _$SuccessFromJson(json);
 }
-

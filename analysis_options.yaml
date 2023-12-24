@@ -204,6 +204,7 @@ analyzer:
   errors:
     invalid_annotation_target: ignore
   exclude:
+    - "**/api/**"
     - "**/generated_plugin_registrant.dart"
     - "**/build/**"
     - "**/generated_*.dart"

@@ -8,16 +8,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'id_req.freezed.dart';
 part 'id_req.g.dart';
 
-
 @freezed
 class IdReq with _$IdReq {
-
-const factory IdReq({
+  const factory IdReq({
     int? id,
+
     ///  this.id,
-}) = _IdReq;
+  }) = _IdReq;
 
-factory IdReq.fromJson(Map<String, Object?> json)
-=> _$IdReqFromJson(json);
+  factory IdReq.fromJson(Map<String, Object?> json) => _$IdReqFromJson(json);
 }
-

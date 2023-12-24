@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for ProfileApi
 void main() {
   final instance = Api().getProfileApi();
@@ -13,6 +12,5 @@ void main() {
     test('test getUserByToken', () async {
       // TODO
     });
-
   });
 }

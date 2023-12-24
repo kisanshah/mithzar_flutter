@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for PetApi
 void main() {
   final instance = Api().getPetApi();
@@ -63,7 +62,7 @@ void main() {
 
     // Updates a pet in the store with form data
     //
-    // 
+    //
     //
     //Future updatePetWithForm(int petId, { String name, String status }) async
     test('test updatePetWithForm', () async {
@@ -72,12 +71,11 @@ void main() {
 
     // uploads an image
     //
-    // 
+    //
     //
     //Future<ApiResponse> uploadFile(int petId, { String additionalMetadata, MultipartFile body }) async
     test('test uploadFile', () async {
       // TODO
     });
-
   });
 }

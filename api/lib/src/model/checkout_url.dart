@@ -8,18 +8,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'checkout_url.freezed.dart';
 part 'checkout_url.g.dart';
 
-
 @freezed
 class CheckoutUrl with _$CheckoutUrl {
-
-const factory CheckoutUrl({
+  const factory CheckoutUrl({
     String? url,
+
     ///  this.url,
     String? orderId,
+
     ///  this.orderId,
-}) = _CheckoutUrl;
+  }) = _CheckoutUrl;
 
-factory CheckoutUrl.fromJson(Map<String, Object?> json)
-=> _$CheckoutUrlFromJson(json);
+  factory CheckoutUrl.fromJson(Map<String, Object?> json) =>
+      _$CheckoutUrlFromJson(json);
 }
-

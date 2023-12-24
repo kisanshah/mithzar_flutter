@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for UserApi
 void main() {
   final instance = Api().getUserApi();
@@ -36,7 +35,7 @@ void main() {
 
     // Get user by user name
     //
-    // 
+    //
     //
     //Future<User> getUserByName(String username) async
     test('test getUserByName', () async {
@@ -45,7 +44,7 @@ void main() {
 
     // Logs user into the system
     //
-    // 
+    //
     //
     //Future<String> loginUser({ String username, String password }) async
     test('test loginUser', () async {
@@ -54,7 +53,7 @@ void main() {
 
     // Logs out current logged in user session
     //
-    // 
+    //
     //
     //Future logoutUser() async
     test('test logoutUser', () async {
@@ -69,6 +68,5 @@ void main() {
     test('test updateUser', () async {
       // TODO
     });
-
   });
 }

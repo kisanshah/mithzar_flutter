@@ -9,20 +9,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cart.freezed.dart';
 part 'cart.g.dart';
 
-
 @freezed
 class Cart with _$Cart {
-
-const factory Cart({
+  const factory Cart({
     int? id,
+
     ///  this.id,
     int? quantity,
+
     ///  this.quantity,
     Product? product,
+
     ///  this.product,
-}) = _Cart;
+  }) = _Cart;
 
-factory Cart.fromJson(Map<String, Object?> json)
-=> _$CartFromJson(json);
+  factory Cart.fromJson(Map<String, Object?> json) => _$CartFromJson(json);
 }
-

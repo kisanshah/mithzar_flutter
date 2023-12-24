@@ -15,13 +15,12 @@ import 'package:api/src/model/user.dart';
 import 'package:api/src/model/verify_otp_req.dart';
 
 class AuthApi {
-
   final Dio _dio;
 
   const AuthApi(this._dio);
 
   /// Generate new access token
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [tokens] - User credentials
@@ -34,7 +33,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Tokens] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> refreshToken({ 
+  Future<Response<Tokens>> refreshToken({
     required Tokens tokens,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -60,10 +59,10 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(tokens);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(tokens);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -85,10 +84,8 @@ _bodyData=jsonEncode(tokens);
     Tokens? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Tokens.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Tokens.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -112,10 +109,10 @@ final data = _response.data;
   }
 
   /// Register new user &amp; send otp
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [user] 
+  /// * [user]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -125,7 +122,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Message] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Message>> sendOtp({ 
+  Future<Response<Message>> sendOtp({
     required User user,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -151,10 +148,10 @@ final data = _response.data;
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(user);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(user);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -176,10 +173,8 @@ _bodyData=jsonEncode(user);
     Message? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Message.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Message.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -203,7 +198,7 @@ final data = _response.data;
   }
 
   /// Sign In
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [user] - User credentials
@@ -216,7 +211,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Tokens] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> signIn({ 
+  Future<Response<Tokens>> signIn({
     required User user,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -242,10 +237,10 @@ final data = _response.data;
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(user);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(user);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -267,10 +262,8 @@ _bodyData=jsonEncode(user);
     Tokens? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Tokens.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Tokens.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -294,10 +287,10 @@ final data = _response.data;
   }
 
   /// Verify OTP
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [verifyOtpReq] 
+  /// * [verifyOtpReq]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -307,7 +300,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Tokens] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> verifyOtp({ 
+  Future<Response<Tokens>> verifyOtp({
     required VerifyOtpReq verifyOtpReq,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -333,10 +326,10 @@ final data = _response.data;
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(verifyOtpReq);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(verifyOtpReq);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -358,10 +351,8 @@ _bodyData=jsonEncode(verifyOtpReq);
     Tokens? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Tokens.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Tokens.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -383,5 +374,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

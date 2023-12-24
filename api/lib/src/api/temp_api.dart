@@ -12,17 +12,16 @@ import 'package:dio/dio.dart';
 import 'package:api/src/model/checkout_url.dart';
 
 class TempApi {
-
   final Dio _dio;
 
   const TempApi(this._dio);
 
   /// Returns a list of products.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [body] 
-  /// * [xRazorpaySignature] 
+  /// * [body]
+  /// * [xRazorpaySignature]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -32,7 +31,7 @@ class TempApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CheckoutUrl] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CheckoutUrl>> checkoutPaymentResult({ 
+  Future<Response<CheckoutUrl>> checkoutPaymentResult({
     required Object body,
     String? xRazorpaySignature,
     CancelToken? cancelToken,
@@ -46,7 +45,8 @@ class TempApi {
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        if (xRazorpaySignature != null) r'x-razorpay-signature': xRazorpaySignature,
+        if (xRazorpaySignature != null)
+          r'x-razorpay-signature': xRazorpaySignature,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -66,10 +66,10 @@ class TempApi {
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(body);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(body);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -91,10 +91,8 @@ _bodyData=jsonEncode(body);
     CheckoutUrl? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -116,5 +114,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

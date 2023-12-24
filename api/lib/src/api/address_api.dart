@@ -13,13 +13,12 @@ import 'package:api/src/model/address.dart';
 import 'package:api/src/model/success.dart';
 
 class AddressApi {
-
   final Dio _dio;
 
   const AddressApi(this._dio);
 
   /// Get all user addresses
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric ID of the address to delete
@@ -32,7 +31,7 @@ class AddressApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> addressIdDelete({ 
+  Future<Response<Success>> addressIdDelete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -71,10 +70,8 @@ class AddressApi {
     Success? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Success.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Success.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -98,7 +95,7 @@ final data = _response.data;
   }
 
   /// Get all user addresses
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -110,7 +107,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [List<Address>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Address>>> getAddressList({ 
+  Future<Response<List<Address>>> getAddressList({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -148,12 +145,12 @@ final data = _response.data;
     List<Address>? _responseData;
 
     try {
-final data = _response.data;
-    if(data is Iterable){
-        _responseData = data.map((e) =>  Address.fromJson(e as Map<String, Object?>)).toList();
-        }
-
-
+      final data = _response.data;
+      if (data is Iterable) {
+        _responseData = data
+            .map((e) => Address.fromJson(e as Map<String, Object?>))
+            .toList();
+      }
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -177,10 +174,10 @@ final data = _response.data;
   }
 
   /// save new address for the user and return new address object
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [address] 
+  /// * [address]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -190,7 +187,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Address>> saveAddress({ 
+  Future<Response<Address>> saveAddress({
     Address? address,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -222,10 +219,10 @@ final data = _response.data;
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(address);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(address);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -247,10 +244,8 @@ _bodyData=jsonEncode(address);
     Address? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Address.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Address.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -274,7 +269,7 @@ final data = _response.data;
   }
 
   /// Mark the address as default
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric ID of the address to set default
@@ -287,7 +282,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> setDefaultAddress({ 
+  Future<Response<Success>> setDefaultAddress({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -296,7 +291,8 @@ final data = _response.data;
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/address/default/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path =
+        r'/address/default/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -326,10 +322,8 @@ final data = _response.data;
     Success? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Success.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Success.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -353,10 +347,10 @@ final data = _response.data;
   }
 
   /// update the address with the new address
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [address] 
+  /// * [address]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -366,7 +360,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Address>> updateAddress({ 
+  Future<Response<Address>> updateAddress({
     Address? address,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -398,10 +392,10 @@ final data = _response.data;
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(address);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(address);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -423,10 +417,8 @@ _bodyData=jsonEncode(address);
     Address? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Address.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Address.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -448,5 +440,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

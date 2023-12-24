@@ -12,13 +12,12 @@ import 'package:dio/dio.dart';
 import 'package:api/src/model/user.dart';
 
 class ProfileApi {
-
   final Dio _dio;
 
   const ProfileApi(this._dio);
 
   /// Get profile based on the token
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -30,7 +29,7 @@ class ProfileApi {
   ///
   /// Returns a [Future] containing a [Response] with a [User] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<User>> getUserByToken({ 
+  Future<Response<User>> getUserByToken({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -68,10 +67,8 @@ class ProfileApi {
     User? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = User.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = User.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -93,5 +90,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

@@ -8,16 +8,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'message.freezed.dart';
 part 'message.g.dart';
 
-
 @freezed
 class Message with _$Message {
-
-const factory Message({
+  const factory Message({
     String? message,
+
     ///  this.message,
-}) = _Message;
+  }) = _Message;
 
-factory Message.fromJson(Map<String, Object?> json)
-=> _$MessageFromJson(json);
+  factory Message.fromJson(Map<String, Object?> json) =>
+      _$MessageFromJson(json);
 }
-

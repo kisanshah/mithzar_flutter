@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for AddressApi
 void main() {
   final instance = Api().getAddressApi();
@@ -41,6 +40,5 @@ void main() {
     test('test updateAddress', () async {
       // TODO
     });
-
   });
 }

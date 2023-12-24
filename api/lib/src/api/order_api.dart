@@ -13,13 +13,12 @@ import 'package:api/src/model/checkout_url.dart';
 import 'package:api/src/model/order.dart';
 
 class OrderApi {
-
   final Dio _dio;
 
   const OrderApi(this._dio);
 
   /// Returns a list of products.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -31,7 +30,7 @@ class OrderApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CheckoutUrl] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CheckoutUrl>> checkout({ 
+  Future<Response<CheckoutUrl>> checkout({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,10 +68,8 @@ class OrderApi {
     CheckoutUrl? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -96,7 +93,7 @@ final data = _response.data;
   }
 
   /// Returns a list of orders.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -108,7 +105,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [List<Order>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Order>>> getOrderList({ 
+  Future<Response<List<Order>>> getOrderList({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -146,12 +143,11 @@ final data = _response.data;
     List<Order>? _responseData;
 
     try {
-final data = _response.data;
-    if(data is Iterable){
-        _responseData = data.map((e) =>  Order.fromJson(e as Map<String, Object?>)).toList();
-        }
-
-
+      final data = _response.data;
+      if (data is Iterable) {
+        _responseData =
+            data.map((e) => Order.fromJson(e as Map<String, Object?>)).toList();
+      }
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -173,5 +169,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

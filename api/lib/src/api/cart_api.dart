@@ -15,16 +15,15 @@ import 'package:api/src/model/id_req.dart';
 import 'package:api/src/model/success.dart';
 
 class CartApi {
-
   final Dio _dio;
 
   const CartApi(this._dio);
 
   /// add product to user&#39;s cart
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [addCartReq] 
+  /// * [addCartReq]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,7 +33,7 @@ class CartApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> addToCart({ 
+  Future<Response<Success>> addToCart({
     AddCartReq? addCartReq,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -66,10 +65,10 @@ class CartApi {
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(addCartReq);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(addCartReq);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -91,10 +90,8 @@ _bodyData=jsonEncode(addCartReq);
     Success? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Success.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Success.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -118,7 +115,7 @@ final data = _response.data;
   }
 
   /// returns list of cart items
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -130,7 +127,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [List<Cart>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Cart>>> getCartItems({ 
+  Future<Response<List<Cart>>> getCartItems({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -168,12 +165,11 @@ final data = _response.data;
     List<Cart>? _responseData;
 
     try {
-final data = _response.data;
-    if(data is Iterable){
-        _responseData = data.map((e) =>  Cart.fromJson(e as Map<String, Object?>)).toList();
-        }
-
-
+      final data = _response.data;
+      if (data is Iterable) {
+        _responseData =
+            data.map((e) => Cart.fromJson(e as Map<String, Object?>)).toList();
+      }
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -197,10 +193,10 @@ final data = _response.data;
   }
 
   /// removes the specified cart item
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [ids] 
+  /// * [ids]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -210,7 +206,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> removeAllItem({ 
+  Future<Response<Success>> removeAllItem({
     List<int>? ids,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -254,10 +250,8 @@ final data = _response.data;
     Success? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Success.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Success.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -281,10 +275,10 @@ final data = _response.data;
   }
 
   /// removes the specified cart item
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [id] 
+  /// * [id]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -294,7 +288,7 @@ final data = _response.data;
   ///
   /// Returns a [Future] containing a [Response] with a [Success] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> removeItem({ 
+  Future<Response<Success>> removeItem({
     IdReq? id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -338,10 +332,8 @@ final data = _response.data;
     Success? _responseData;
 
     try {
-final data = _response.data;
-        _responseData = Success.fromJson(data as Map<String, Object?>);
-
-
+      final data = _response.data;
+      _responseData = Success.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -363,5 +355,4 @@ final data = _response.data;
       extra: _response.extra,
     );
   }
-
 }

@@ -7,7 +7,6 @@ export 'package:api/src/auth/api_key_auth.dart';
 export 'package:api/src/auth/basic_auth.dart';
 export 'package:api/src/auth/oauth.dart';
 
-
 export 'package:api/src/api/address_api.dart';
 export 'package:api/src/api/auth_api.dart';
 export 'package:api/src/api/cart_api.dart';

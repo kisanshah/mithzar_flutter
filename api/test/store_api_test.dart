@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for StoreApi
 void main() {
   final instance = Api().getStoreApi();
@@ -42,6 +41,5 @@ void main() {
     test('test placeOrder', () async {
       // TODO
     });
-
   });
 }

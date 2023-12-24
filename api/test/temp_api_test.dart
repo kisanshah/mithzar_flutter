@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-
 /// tests for TempApi
 void main() {
   final instance = Api().getTempApi();
@@ -13,6 +12,5 @@ void main() {
     test('test checkoutPaymentResult', () async {
       // TODO
     });
-
   });
 }
