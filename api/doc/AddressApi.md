@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **addressIdDelete**
-> Success addressIdDelete(id)
+> ApiRes addressIdDelete(id)
 
 Get all user addresses
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setDefaultAddress**
-> Success setDefaultAddress(id)
+> ApiRes setDefaultAddress(id)
 
 Mark the address as default
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 

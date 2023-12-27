@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **addToCart**
-> Success addToCart(addCartReq)
+> ApiRes addToCart(addCartReq)
 
 add product to user's cart
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **removeAllItem**
-> Success removeAllItem(ids)
+> ApiRes removeAllItem(ids)
 
 removes the specified cart item
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **removeItem**
-> Success removeItem(id)
+> ApiRes removeItem(id)
 
 removes the specified cart item
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Success**](Success.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 

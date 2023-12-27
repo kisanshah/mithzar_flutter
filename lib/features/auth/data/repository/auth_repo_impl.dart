@@ -31,4 +31,14 @@ class AuthRepoImpl extends AuthRepo {
         )
         .guardFuture<Tokens>();
   }
+
+  @override
+  Future<Either<AppError, ApiRes>> sendOtp(User user) {
+    return source.sendOtp(user: user).guardFuture();
+  }
+
+  @override
+  Future<Either<AppError, Tokens>> verifyOtp(VerifyOtpReq body) {
+    return source.verifyOtp(verifyOtpReq: body).guardFuture();
+  }
 }

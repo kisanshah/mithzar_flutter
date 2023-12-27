@@ -10,9 +10,9 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/add_cart_req.dart';
+import 'package:api/src/model/api_res.dart';
 import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/id_req.dart';
-import 'package:api/src/model/success.dart';
 
 class CartApi {
   final Dio _dio;
@@ -31,9 +31,9 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Success] as data
+  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> addToCart({
+  Future<Response<ApiRes>> addToCart({
     AddCartReq? addCartReq,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -87,11 +87,11 @@ class CartApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Success? _responseData;
+    ApiRes? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Success.fromJson(data as Map<String, Object?>);
+      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -102,7 +102,7 @@ class CartApi {
       );
     }
 
-    return Response<Success>(
+    return Response<ApiRes>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -204,9 +204,9 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Success] as data
+  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> removeAllItem({
+  Future<Response<ApiRes>> removeAllItem({
     List<int>? ids,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -247,11 +247,11 @@ class CartApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Success? _responseData;
+    ApiRes? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Success.fromJson(data as Map<String, Object?>);
+      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -262,7 +262,7 @@ class CartApi {
       );
     }
 
-    return Response<Success>(
+    return Response<ApiRes>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -286,9 +286,9 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Success] as data
+  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> removeItem({
+  Future<Response<ApiRes>> removeItem({
     IdReq? id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -329,11 +329,11 @@ class CartApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Success? _responseData;
+    ApiRes? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Success.fromJson(data as Map<String, Object?>);
+      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -344,7 +344,7 @@ class CartApi {
       );
     }
 
-    return Response<Success>(
+    return Response<ApiRes>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

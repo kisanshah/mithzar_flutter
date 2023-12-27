@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendOtp**
-> Message sendOtp(user)
+> ApiRes sendOtp(user)
 
 Register new user & send otp
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Message**](Message.md)
+[**ApiRes**](ApiRes.md)
 
 ### Authorization
 

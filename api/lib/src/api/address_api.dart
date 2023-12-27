@@ -10,7 +10,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/address.dart';
-import 'package:api/src/model/success.dart';
+import 'package:api/src/model/api_res.dart';
 
 class AddressApi {
   final Dio _dio;
@@ -29,9 +29,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Success] as data
+  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> addressIdDelete({
+  Future<Response<ApiRes>> addressIdDelete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -67,11 +67,11 @@ class AddressApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Success? _responseData;
+    ApiRes? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Success.fromJson(data as Map<String, Object?>);
+      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -82,7 +82,7 @@ class AddressApi {
       );
     }
 
-    return Response<Success>(
+    return Response<ApiRes>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -280,9 +280,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Success] as data
+  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Success>> setDefaultAddress({
+  Future<Response<ApiRes>> setDefaultAddress({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -319,11 +319,11 @@ class AddressApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Success? _responseData;
+    ApiRes? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Success.fromJson(data as Map<String, Object?>);
+      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -334,7 +334,7 @@ class AddressApi {
       );
     }
 
-    return Response<Success>(
+    return Response<ApiRes>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

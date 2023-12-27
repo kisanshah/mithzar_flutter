@@ -19,7 +19,7 @@ class CartRepoImpl implements CartRepository {
   final CartApi _source;
 
   @override
-  Future<Either<AppError, Success>> addToCart(int id) {
+  Future<Either<AppError, ApiRes>> addToCart(int id) {
     return _source
         .addToCart(addCartReq: AddCartReq(productId: id))
         .guardFuture();
