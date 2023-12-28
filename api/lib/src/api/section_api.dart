@@ -27,9 +27,9 @@ class SectionApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Section] as data
+  /// Returns a [Future] containing a [Response] with a [List<Section>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Section>> getSections({
+  Future<Response<List<Section>>> getSections({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -64,11 +64,15 @@ class SectionApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Section? _responseData;
+    List<Section>? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Section.fromJson(data as Map<String, Object?>);
+      if (data is Iterable) {
+        _responseData = data
+            .map((e) => Section.fromJson(e as Map<String, Object?>))
+            .toList();
+      }
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -79,7 +83,7 @@ class SectionApi {
       );
     }
 
-    return Response<Section>(
+    return Response<List<Section>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

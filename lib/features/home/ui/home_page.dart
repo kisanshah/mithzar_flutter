@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
+import 'package:e_commerce_front_end/features/home/ui/providers/home_notifier.dart';
 import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:e_commerce_front_end/gen/assets.gen.dart';
@@ -18,14 +20,12 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  final colors = [
-    const Color(0xFFFFD700),
-    const Color(0xffc0c0c0),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    // final state = ref.watch(homeNotifierProvider);
+    final state = ref.watch(homeNotifierProvider);
+    if (state.loading) {
+      return const AppLoader();
+    }
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'MITHZAR',
@@ -41,74 +41,35 @@ class _HomePageState extends ConsumerState<HomePage> {
             ),
           ),
           const SliverGap(20),
-          SliverToBoxAdapter(
-            child: Text(
-              'Early Black Friday Price Drop\n⚡',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 250,
-              child: ListView.builder(
-                padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
-                scrollDirection: Axis.horizontal,
-                controller: PageController(),
-                itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  width: 175,
-                  height: 250,
-                  child: ProductItem(index: index),
+          for (final section in state.sections) ...[
+            SliverToBoxAdapter(
+              child: Text(
+                '${section.title}',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
                 ),
-                itemCount: 6,
               ),
             ),
-          ),
-          const SliverGap(15),
-          SliverToBoxAdapter(
-            child: Center(
-              child: OutlinedButton(
-                onPressed: () {},
-                child: const Text(
-                  'View All  →',
-                  style: TextStyle(
-                    color: AppColor.black,
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 250,
+                child: ListView.builder(
+                  padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
+                  scrollDirection: Axis.horizontal,
+                  controller: PageController(),
+                  itemBuilder: (context, index) => Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    width: 175,
+                    height: 250,
+                    child: ProductItem(index: index),
                   ),
+                  itemCount: section.products?.length,
                 ),
               ),
             ),
-          ),
-          const SliverGap(20),
-          SliverToBoxAdapter(
-            child: Text(
-              'Wedding Special ❤️',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 250,
-              child: ListView.builder(
-                padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
-                scrollDirection: Axis.horizontal,
-                controller: PageController(),
-                itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  width: 175,
-                  height: 250,
-                  child: ProductItem(index: index),
-                ),
-                itemCount: 6,
-              ),
-            ),
-          ),
-          const SliverGap(15),
+            const SliverGap(15),
+          ],
           SliverToBoxAdapter(
             child: Center(
               child: OutlinedButton(

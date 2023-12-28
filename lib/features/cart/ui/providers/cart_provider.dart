@@ -12,21 +12,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'cart_provider.g.dart';
 
 @riverpod
-class ProductRefresh extends _$ProductRefresh {
-  @override
-  int build() {
-    return 0;
-  }
-
-  void refresh() {
-    state = state + 1;
-  }
-}
-
-@riverpod
 FutureOr<ApiRes> addToCart(AddToCartRef ref, int id) async {
   final result = await ref.watch(cartRepoProvider).addToCart(id);
-  ref.read(productRefreshProvider.notifier).refresh();
   return result.fold(
     (l) => const ApiRes(success: false),
     (res) => res,

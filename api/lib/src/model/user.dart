@@ -11,7 +11,7 @@ part 'user.g.dart';
 @freezed
 class User with _$User {
   const factory User({
-    num? id,
+    String? id,
 
     ///  this.id,
     String? name,

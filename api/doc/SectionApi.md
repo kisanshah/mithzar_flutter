@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getSections**
-> Section getSections()
+> List<Section> getSections()
 
 Get section based on the device
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Section**](Section.md)
+[**List&lt;Section&gt;**](Section.md)
 
 ### Authorization
 
