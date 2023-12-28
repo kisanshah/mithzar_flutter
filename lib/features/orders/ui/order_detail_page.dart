@@ -86,7 +86,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                   margin: const EdgeInsets.only(right: 10),
                   width: 175,
                   height: 250,
-                  child: const ProductItem(index: 0),
+                  child: const ProductItem(),
                 );
               },
             ),

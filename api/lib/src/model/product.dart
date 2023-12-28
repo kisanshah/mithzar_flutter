@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:api/src/model/product_image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product.freezed.dart';
@@ -23,7 +24,10 @@ class Product with _$Product {
     double? price,
 
     ///  this.price,
-    List<String>? images,
+    ProductImage? thumbnail,
+
+    ///  this.thumbnail,
+    List<ProductImage>? images,
 
     ///  this.images,
   }) = _Product;

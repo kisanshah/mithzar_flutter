@@ -1,4 +1,4 @@
-# api.model.Product
+# api.model.ProductImage
 
 ## Load the model package
 ```dart
@@ -9,11 +9,8 @@ import 'package:api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**name** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
-**price** | **double** |  | [optional] 
-**thumbnail** | [**ProductImage**](.md) |  | [optional] 
-**images** | [**List&lt;ProductImage&gt;**](ProductImage.md) |  | [optional] 
+**url** | **String** |  | [optional] 
+**active** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
  - [IdReq](doc/IdReq.md)
  - [Order](doc/Order.md)
  - [Product](doc/Product.md)
+ - [ProductImage](doc/ProductImage.md)
  - [Section](doc/Section.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)

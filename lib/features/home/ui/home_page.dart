@@ -62,7 +62,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                     margin: const EdgeInsets.only(right: 10),
                     width: 175,
                     height: 250,
-                    child: ProductItem(index: index),
+                    child: ProductItem(
+                      product: section.products![index],
+                    ),
                   ),
                   itemCount: section.products?.length,
                 ),
@@ -148,8 +150,11 @@ class _HomePageState extends ConsumerState<HomePage> {
           SliverPadding(
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.builder(
+              itemCount: state.products.length,
               itemBuilder: (context, index) {
-                return ProductItem(index: index);
+                return ProductItem(
+                  product: state.products[index],
+                );
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

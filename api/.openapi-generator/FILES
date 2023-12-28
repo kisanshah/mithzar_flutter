@@ -14,6 +14,7 @@ doc/Order.md
 doc/OrderApi.md
 doc/Product.md
 doc/ProductApi.md
+doc/ProductImage.md
 doc/ProfileApi.md
 doc/Section.md
 doc/SectionApi.md
@@ -46,8 +47,10 @@ lib/src/model/date.dart
 lib/src/model/id_req.dart
 lib/src/model/order.dart
 lib/src/model/product.dart
+lib/src/model/product_image.dart
 lib/src/model/section.dart
 lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_req.dart
 pubspec.yaml
+test/product_image_test.dart
