@@ -27,11 +27,11 @@ class HomeNotifier extends _$HomeNotifier {
   }
 
   Future<void> fetch() async {
-    final result = await _repo.getProducts();
-    state = result.fold(
-      (err) => state.copyWith(loading: false, error: err.message),
-      (res) => state.copyWith(data: res),
-    );
+    // final result = await _repo.getProducts();
+    // state = result.fold(
+    //   (err) => state.copyWith(loading: false, error: err.message),
+    //   (res) => state.copyWith(data: res),
+    // );
   }
 
   Future<void> addToCart(int id) async {

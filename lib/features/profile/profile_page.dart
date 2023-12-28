@@ -3,7 +3,6 @@ import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.da
 import 'package:e_commerce_front_end/features/profile/provider/profile_provider.dart';
 import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
 import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
@@ -19,7 +18,7 @@ class ProfilePage extends ConsumerStatefulWidget {
 class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(userNotifierProvider);
+    // final user = ref.watch(userNotifierProvider);
     final router = ref.watch(routerProvider);
     // final notifier = ref.watch(profileNotifierProvider.notifier);
     return Scaffold(

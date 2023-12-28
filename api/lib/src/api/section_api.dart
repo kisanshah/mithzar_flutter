@@ -9,18 +9,17 @@ import 'dart:convert';
 // import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:api/src/model/product.dart';
+import 'package:api/src/model/section.dart';
 
-class ProductApi {
+class SectionApi {
   final Dio _dio;
 
-  const ProductApi(this._dio);
+  const SectionApi(this._dio);
 
-  /// Get product detail.
+  /// Get section based on the device
   ///
   ///
   /// Parameters:
-  /// * [id]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -28,10 +27,9 @@ class ProductApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Product] as data
+  /// Returns a [Future] containing a [Response] with a [Section] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Product>> getProductById({
-    required int id,
+  Future<Response<Section>> getSections({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -39,14 +37,20 @@ class ProductApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/product/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/section/all';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearerAuth',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -60,11 +64,11 @@ class ProductApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Product? _responseData;
+    Section? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = Product.fromJson(data as Map<String, Object?>);
+      _responseData = Section.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -75,7 +79,7 @@ class ProductApi {
       );
     }
 
-    return Response<Product>(
+    return Response<Section>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

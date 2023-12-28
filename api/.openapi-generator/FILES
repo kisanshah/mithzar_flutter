@@ -15,6 +15,8 @@ doc/OrderApi.md
 doc/Product.md
 doc/ProductApi.md
 doc/ProfileApi.md
+doc/Section.md
+doc/SectionApi.md
 doc/TempApi.md
 doc/Tokens.md
 doc/User.md
@@ -27,6 +29,7 @@ lib/src/api/cart_api.dart
 lib/src/api/order_api.dart
 lib/src/api/product_api.dart
 lib/src/api/profile_api.dart
+lib/src/api/section_api.dart
 lib/src/api/temp_api.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
@@ -43,8 +46,10 @@ lib/src/model/date.dart
 lib/src/model/id_req.dart
 lib/src/model/order.dart
 lib/src/model/product.dart
+lib/src/model/section.dart
 lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_req.dart
 pubspec.yaml
-test/api_res_test.dart
+test/section_api_test.dart
+test/section_test.dart

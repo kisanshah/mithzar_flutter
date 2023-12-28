@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/home/ui/providers/home_notifier.dart';
 import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:e_commerce_front_end/gen/assets.gen.dart';
@@ -26,7 +25,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(homeNotifierProvider);
+    // final state = ref.watch(homeNotifierProvider);
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'MITHZAR',

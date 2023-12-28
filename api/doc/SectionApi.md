@@ -1,4 +1,4 @@
-# api.api.ProductApi
+# api.api.SectionApi
 
 ## Load the API package
 ```dart
@@ -9,42 +9,38 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getProductById**](ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
+[**getSections**](SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
 
 
-# **getProductById**
-> Product getProductById(id)
+# **getSections**
+> Section getSections()
 
-Get product detail.
+Get section based on the device
 
 ### Example
 ```dart
 import 'package:api/api.dart';
 
-final api = Api().getProductApi();
-final int id = 56; // int | 
+final api = Api().getSectionApi();
 
 try {
-    final response = api.getProductById(id);
+    final response = api.getSections();
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling ProductApi->getProductById: $e\n');
+    print('Exception when calling SectionApi->getSections: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**Product**](Product.md)
+[**Section**](Section.md)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
