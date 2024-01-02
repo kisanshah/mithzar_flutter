@@ -16,12 +16,6 @@ class OrderItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final images = [
-      'https://www.kushals.com/cdn/shop/products/zircon-bangle-white-2-4-rose-gold-zircon-bangle-151226-35657651519644.jpg?v=167570325900&width=686',
-      'https://www.kushals.com/cdn/shop/files/kundan-bangle-green-victorian-2-4-kundan-bangle-161563-36710721290396.jpg?v=169850889700&width=244',
-      'https://www.kushals.com/cdn/shop/files/temple-bangle-white-oxidised-gold-2-4-silver-temple-bangle-165556-36821343371420.jpg?v=170021384900&width=244',
-      'https://www.kushals.com/cdn/shop/files/antique-bangle-ruby-gold-2-4-antique-bangle-165536-36821333147804.jpg?v=170021422200&width=244',
-    ];
     return GestureDetector(
       onTap: () {
         if (order.id != null) {
@@ -41,7 +35,7 @@ class OrderItem extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${order.products?.map((e) => e.name).join() ?? ''} + 1",
+                  order.products?.map((e) => e.name).join() ?? '',
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -56,12 +50,12 @@ class OrderItem extends ConsumerWidget {
             ),
             const Gap(5),
             Row(
-              children: images
+              children: (order.products ?? [])
                   .map(
                     (e) => Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: AppImage(
-                        url: e,
+                        url: e.thumbnail?.url ?? '',
                         height: 40,
                         width: 40,
                       ),

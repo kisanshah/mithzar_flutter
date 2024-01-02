@@ -85,7 +85,7 @@ class CartItem extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          '${item.quantity}'.padLeft(2, '0'),
+                          '${item.quantity}',
                           style: const TextStyle(
                             fontSize: 14,
                           ),

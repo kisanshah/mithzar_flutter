@@ -84,12 +84,10 @@ class _OrderPageState extends ConsumerState<OrderPage> {
                         ListView.separated(
                           padding: const EdgeInsets.only(top: 20),
                           itemBuilder: (context, index) {
-                            return OrderItem(
-                              order: orders[index % orders.length],
-                            );
+                            return OrderItem(order: orders[index]);
                           },
                           separatorBuilder: (context, index) => const Gap(15),
-                          itemCount: 10,
+                          itemCount: orders.length,
                         ),
                       if (orders.isEmpty)
                         const Center(child: Text('Empty!!!'))

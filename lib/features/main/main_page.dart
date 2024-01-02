@@ -15,12 +15,6 @@ class MainPage extends ConsumerStatefulWidget {
 
 class _MainPageState extends ConsumerState<MainPage> {
   @override
-  void initState() {
-    super.initState();
-    // ref.read(profileRepositoryProvider).getCurrentUser();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final navItems = ref.watch(navItemProvider);
     return SafeArea(
@@ -33,7 +27,6 @@ class _MainPageState extends ConsumerState<MainPage> {
         ),
         routes: const [
           HomeRoute(),
-          // SearchRoute(),
           SearchRoute(),
           OrderRoute(),
           ProfileRoute(),
