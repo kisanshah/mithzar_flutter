@@ -18,12 +18,17 @@ class CartRepoImpl implements CartRepository {
   final CartApi _source;
 
   @override
-  Future<(Cart?, AppError?)> addToCart(int id) {
+  Future<(Cart?, AppError?)> add(int id) {
     return _source.addToCart(addCartReq: AddCartReq(productId: id)).toRecord();
   }
 
   @override
   Future<(List<Cart>?, AppError?)> getCartItems() {
     return _source.getCartItems().toRecord();
+  }
+
+  @override
+  Future<(Cart?, AppError?)> remove(int id) {
+    return _source.removeItem(id: id).toRecord();
   }
 }

@@ -12,7 +12,6 @@ import 'package:dio/dio.dart';
 import 'package:api/src/model/add_cart_req.dart';
 import 'package:api/src/model/api_res.dart';
 import 'package:api/src/model/cart.dart';
-import 'package:api/src/model/id_req.dart';
 
 class CartApi {
   final Dio _dio;
@@ -286,10 +285,10 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
+  /// Returns a [Future] containing a [Response] with a [Cart] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRes>> removeItem({
-    IdReq? id,
+  Future<Response<Cart>> removeItem({
+    required num id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -297,7 +296,7 @@ class CartApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/cart/remove';
+    final _path = r'/cart/remove/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -316,24 +315,19 @@ class CartApi {
       validateStatus: validateStatus,
     );
 
-    final _queryParameters = <String, dynamic>{
-      if (id != null) r'id': id,
-    };
-
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
-      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApiRes? _responseData;
+    Cart? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
+      _responseData = Cart.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -344,7 +338,7 @@ class CartApi {
       );
     }
 
-    return Response<ApiRes>(
+    return Response<Cart>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

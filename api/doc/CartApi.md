@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**addToCart**](CartApi.md#addtocart) | **POST** /cart/add | add product to user&#39;s cart
 [**getCartItems**](CartApi.md#getcartitems) | **GET** /cart/list | returns list of cart items
 [**removeAllItem**](CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
-[**removeItem**](CartApi.md#removeitem) | **DELETE** /cart/remove | removes the specified cart item
+[**removeItem**](CartApi.md#removeitem) | **DELETE** /cart/remove/{id} | removes the specified cart item
 
 
 # **addToCart**
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **removeItem**
-> ApiRes removeItem(id)
+> Cart removeItem(id)
 
 removes the specified cart item
 
@@ -144,7 +144,7 @@ removes the specified cart item
 import 'package:api/api.dart';
 
 final api = Api().getCartApi();
-final IdReq id = ; // IdReq | 
+final num id = 8.14; // num | 
 
 try {
     final response = api.removeItem(id);
@@ -158,11 +158,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**IdReq**](.md)|  | [optional] 
+ **id** | **num**|  | 
 
 ### Return type
 
-[**ApiRes**](ApiRes.md)
+[**Cart**](Cart.md)
 
 ### Authorization
 

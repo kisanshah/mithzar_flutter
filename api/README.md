@@ -77,7 +77,7 @@ Class | Method | HTTP request | Description
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart/add | add product to user&#39;s cart
 [*CartApi*](doc/CartApi.md) | [**getCartItems**](doc/CartApi.md#getcartitems) | **GET** /cart/list | returns list of cart items
 [*CartApi*](doc/CartApi.md) | [**removeAllItem**](doc/CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
-[*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove | removes the specified cart item
+[*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove/{id} | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 [*ProductApi*](doc/ProductApi.md) | [**getFiltered**](doc/ProductApi.md#getfiltered) | **GET** /product/filtered | Get filtered list.

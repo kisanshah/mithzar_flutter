@@ -14,7 +14,7 @@ class ProductDetailBottomBar extends ConsumerWidget {
   final Product product;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(addToCartProvider);
+    final state = ref.watch(cartItemNotifierProvider);
     return SizedBox(
       height: 100,
       child: state.unfold(
@@ -23,7 +23,7 @@ class ProductDetailBottomBar extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ElevatedButton(
               onPressed: () {
-                ref.read(addToCartProvider.notifier).addToCart(product.id!);
+                ref.read(cartItemNotifierProvider.notifier).add(product.id!);
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(

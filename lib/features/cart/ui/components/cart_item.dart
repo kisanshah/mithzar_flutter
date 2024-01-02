@@ -1,10 +1,12 @@
 import 'package:api/api.dart';
 import 'package:e_commerce_front_end/core/extensions/num.dart';
+import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
 import 'package:e_commerce_front_end/features/components/app_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-class CartItem extends StatelessWidget {
+class CartItem extends ConsumerWidget {
   const CartItem({
     super.key,
     required this.item,
@@ -12,8 +14,9 @@ class CartItem extends StatelessWidget {
   final Cart item;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.read(cartItemNotifierProvider.notifier);
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: IntrinsicHeight(
         child: Row(
@@ -63,18 +66,12 @@ class CartItem extends StatelessWidget {
                       url: item.product?.thumbnail?.url ?? '',
                     ),
                   Container(
-                    decoration: const BoxDecoration(
-                        // border: Border.all(),
-                        ),
-                    padding: const EdgeInsets.symmetric(
-                      // horizontal: 5,
-                      vertical: 10,
-                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () => notifier.remove(item.id!),
                           style: OutlinedButton.styleFrom(
                             padding: EdgeInsets.zero,
                             minimumSize: const Size(25, 25),
@@ -99,7 +96,7 @@ class CartItem extends StatelessWidget {
                             minimumSize: const Size(25, 25),
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
-                          onPressed: () {},
+                          onPressed: () => notifier.add(item.product!.id!),
                           child: const Text(
                             '+',
                             style: TextStyle(

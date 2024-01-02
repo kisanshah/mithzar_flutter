@@ -55,4 +55,3 @@ lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_req.dart
 pubspec.yaml
-test/pagination_filter_test.dart

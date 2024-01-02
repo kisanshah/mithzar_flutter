@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:e_commerce_front_end/features/cart/ui/components/cart_item.dart';
-import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
+import 'package:e_commerce_front_end/features/cart/ui/providers/cart_list_provider.dart';
 import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
 import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +16,17 @@ class CartPage extends ConsumerStatefulWidget {
 
 class _CartPageState extends ConsumerState<CartPage> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      ref.watch(cartListNotifierProvider.notifier).fetch();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final state = ref.watch(cartNotifierProvider);
-    final notifier = ref.watch(cartNotifierProvider.notifier);
+    final state = ref.watch(cartListNotifierProvider);
+    final notifier = ref.watch(cartListNotifierProvider.notifier);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'My Cart',
