@@ -23,6 +23,7 @@ export 'package:api/src/model/cart.dart';
 export 'package:api/src/model/checkout_url.dart';
 export 'package:api/src/model/id_req.dart';
 export 'package:api/src/model/order.dart';
+export 'package:api/src/model/pagination_filter.dart';
 export 'package:api/src/model/product.dart';
 export 'package:api/src/model/product_image.dart';
 export 'package:api/src/model/section.dart';

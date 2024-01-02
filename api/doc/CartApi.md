@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **addToCart**
-> ApiRes addToCart(addCartReq)
+> Cart addToCart(addCartReq)
 
 add product to user's cart
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiRes**](ApiRes.md)
+[**Cart**](Cart.md)
 
 ### Authorization
 

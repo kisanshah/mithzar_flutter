@@ -10,6 +10,9 @@ class LoggingInterceptor implements InterceptorsWrapper {
     'x------------------------------'.logInfo();
     'Requesting : ${options.baseUrl}${options.path.replaceFirst("/", "")}'
         .logInfo();
+    if (options.queryParameters.isNotEmpty) {
+      options.queryParameters.logInfo();
+    }
     'Data : ${options.data}'.logInfo();
     await Future.delayed(const Duration(milliseconds: 20));
     '------------------------------x'.logInfo();

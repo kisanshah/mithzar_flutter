@@ -15,6 +15,7 @@ dependencies:
   flutter_svg: 2.0.9
   gap: 3.0.1
   google_fonts: ^6.1.0
+  sliver_tools: ^0.2.12
   # Routing
   auto_route: 7.8.4
   # State Management
@@ -24,12 +25,12 @@ dependencies:
   dio: ^5.4.0
   freezed_annotation: 2.4.1
   json_annotation: 4.8.1
-  dartz: ^0.10.1
   # Map
   google_maps_flutter: ^2.5.0
   # Storage
   secure_shared_preferences: ^0.0.4
   cached_network_image: ^3.3.0
+  # OpenAPI
   api:
     path: ./api
 

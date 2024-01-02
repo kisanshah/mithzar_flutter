@@ -1,5 +1,5 @@
 import 'package:api/api.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce_front_end/features/components/app_image.dart';
 import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
 import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
@@ -60,8 +60,8 @@ class OrderItem extends ConsumerWidget {
                   .map(
                     (e) => Padding(
                       padding: const EdgeInsets.only(right: 10),
-                      child: CachedNetworkImage(
-                        imageUrl: e,
+                      child: AppImage(
+                        url: e,
                         height: 40,
                         width: 40,
                       ),

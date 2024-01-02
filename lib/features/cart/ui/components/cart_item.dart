@@ -1,5 +1,6 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/components/image_box.dart';
+import 'package:e_commerce_front_end/core/extensions/num.dart';
+import 'package:e_commerce_front_end/features/components/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -12,53 +13,72 @@ class CartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Row(
-        children: [
-          const ImageBox(
-            height: 100,
-            width: 90,
-          ),
-          const Gap(10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  item.product?.name ?? '',
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Text(
-                  item.product?.description ?? '',
-                  maxLines: 2,
-                  style: const TextStyle(
-                    overflow: TextOverflow.ellipsis,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "₹ ${item.product?.price.toString() ?? ''}",
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              flex: 8,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.product?.name ?? '',
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
                     ),
-                    const Spacer(),
-                    Row(
+                  ),
+                  Text(
+                    item.product?.description ?? '',
+                    maxLines: 2,
+                    style: const TextStyle(
+                      overflow: TextOverflow.ellipsis,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const Gap(5),
+                  Text(
+                    item.product?.price?.toRupee() ?? '',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Gap(10),
+            Expanded(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  if (item.product?.thumbnail?.url != null)
+                    AppImage(
+                      url: item.product?.thumbnail?.url ?? '',
+                    ),
+                  Container(
+                    decoration: const BoxDecoration(
+                        // border: Border.all(),
+                        ),
+                    padding: const EdgeInsets.symmetric(
+                      // horizontal: 5,
+                      vertical: 10,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         OutlinedButton(
                           onPressed: () {},
                           style: OutlinedButton.styleFrom(
                             padding: EdgeInsets.zero,
                             minimumSize: const Size(25, 25),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
                           child: const Text(
                             '-',
@@ -67,9 +87,9 @@ class CartItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Text(
-                          '1',
-                          style: TextStyle(
+                        Text(
+                          '${item.quantity}'.padLeft(2, '0'),
+                          style: const TextStyle(
                             fontSize: 14,
                           ),
                         ),
@@ -77,6 +97,7 @@ class CartItem extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.zero,
                             minimumSize: const Size(25, 25),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
                           onPressed: () {},
                           child: const Text(
@@ -88,12 +109,12 @@ class CartItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

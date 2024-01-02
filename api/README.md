@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 [*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
+[*ProductApi*](doc/ProductApi.md) | [**getFiltered**](doc/ProductApi.md#getfiltered) | **GET** /product/filtered | Get filtered list.
 [*ProductApi*](doc/ProductApi.md) | [**getProductById**](doc/ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
 [*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
 [*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
@@ -95,6 +96,7 @@ Class | Method | HTTP request | Description
  - [CheckoutUrl](doc/CheckoutUrl.md)
  - [IdReq](doc/IdReq.md)
  - [Order](doc/Order.md)
+ - [PaginationFilter](doc/PaginationFilter.md)
  - [Product](doc/Product.md)
  - [ProductImage](doc/ProductImage.md)
  - [Section](doc/Section.md)

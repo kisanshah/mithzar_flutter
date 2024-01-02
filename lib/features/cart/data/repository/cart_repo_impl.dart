@@ -1,5 +1,4 @@
 import 'package:api/api.dart';
-import 'package:dartz/dartz.dart';
 import 'package:e_commerce_front_end/core/extensions/future.dart';
 import 'package:e_commerce_front_end/core/instances/api_client_provider.dart';
 import 'package:e_commerce_front_end/data/helper/app_error.dart';
@@ -19,14 +18,12 @@ class CartRepoImpl implements CartRepository {
   final CartApi _source;
 
   @override
-  Future<Either<AppError, ApiRes>> addToCart(int id) {
-    return _source
-        .addToCart(addCartReq: AddCartReq(productId: id))
-        .guardFuture();
+  Future<(Cart?, AppError?)> addToCart(int id) {
+    return _source.addToCart(addCartReq: AddCartReq(productId: id)).toRecord();
   }
 
   @override
-  Future<Either<AppError, List<Cart>>> getCartItems() {
-    return _source.getCartItems().guardFuture();
+  Future<(List<Cart>?, AppError?)> getCartItems() {
+    return _source.getCartItems().toRecord();
   }
 }

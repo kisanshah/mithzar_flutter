@@ -31,9 +31,9 @@ class CartApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
+  /// Returns a [Future] containing a [Response] with a [Cart] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRes>> addToCart({
+  Future<Response<Cart>> addToCart({
     AddCartReq? addCartReq,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -87,11 +87,11 @@ class CartApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApiRes? _responseData;
+    Cart? _responseData;
 
     try {
       final data = _response.data;
-      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
+      _responseData = Cart.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -102,7 +102,7 @@ class CartApi {
       );
     }
 
-    return Response<ApiRes>(
+    return Response<Cart>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

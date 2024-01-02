@@ -10,7 +10,7 @@ extension LogExtension on Object? {
   }
 
   void logError() {
-    log('\x1B[31m$this\x1B[0m');
+    log('\x1B[31m$this\x1B[0m', name: 'Error');
   }
 
   void logWarning() {

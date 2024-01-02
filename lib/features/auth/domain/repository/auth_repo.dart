@@ -1,10 +1,9 @@
 import 'package:api/api.dart';
-import 'package:dartz/dartz.dart';
 import 'package:e_commerce_front_end/data/helper/app_error.dart';
 
 abstract class AuthRepo {
-  Future<Either<AppError, Tokens>> signIn(User user);
-  Future<Either<AppError, ApiRes>> sendOtp(User user);
-  Future<Either<AppError, Tokens>> verifyOtp(VerifyOtpReq body);
-  Future<Either<AppError, Tokens>> generateAccessToken(String? refreshToken);
+  Future<(Tokens?, AppError?)> signIn(User user);
+  Future<(ApiRes?, AppError?)> sendOtp(User user);
+  Future<(Tokens?, AppError?)> verifyOtp(VerifyOtpReq body);
+  Future<(Tokens?, AppError?)> generateAccessToken(String? refreshToken);
 }

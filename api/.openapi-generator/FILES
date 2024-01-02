@@ -12,6 +12,7 @@ doc/CheckoutUrl.md
 doc/IdReq.md
 doc/Order.md
 doc/OrderApi.md
+doc/PaginationFilter.md
 doc/Product.md
 doc/ProductApi.md
 doc/ProductImage.md
@@ -46,6 +47,7 @@ lib/src/model/checkout_url.dart
 lib/src/model/date.dart
 lib/src/model/id_req.dart
 lib/src/model/order.dart
+lib/src/model/pagination_filter.dart
 lib/src/model/product.dart
 lib/src/model/product_image.dart
 lib/src/model/section.dart
@@ -53,4 +55,4 @@ lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_req.dart
 pubspec.yaml
-test/product_image_test.dart
+test/pagination_filter_test.dart

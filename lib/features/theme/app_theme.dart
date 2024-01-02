@@ -29,10 +29,10 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: AppColor.accentColor,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
+        foregroundColor: AppColor.white,
+        shape: LinearBorder.none,
+        textStyle: GoogleFonts.poppins(
+          fontWeight: FontWeight.w500,
         ),
       ),
     ),
@@ -42,9 +42,12 @@ class AppTheme {
         side: const BorderSide(
           color: AppColor.black,
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0),
+        foregroundColor: AppColor.black,
+        textStyle: GoogleFonts.poppins(
+          fontWeight: FontWeight.w500,
+          color: AppColor.black,
         ),
+        shape: const RoundedRectangleBorder(),
       ),
     ),
   );

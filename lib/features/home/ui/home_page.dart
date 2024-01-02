@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/home/ui/providers/home_notifier.dart';
-import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
+import 'package:e_commerce_front_end/features/home/ui/components/home_product_list.dart';
+import 'package:e_commerce_front_end/features/home/ui/components/home_product_section.dart';
+import 'package:e_commerce_front_end/features/home/ui/components/home_promo_image.dart';
+import 'package:e_commerce_front_end/features/home/ui/providers/home_provider.dart';
+import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
 class HomePage extends ConsumerStatefulWidget {
@@ -21,150 +19,31 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      ref.read(homeNotifierProvider.notifier).fetch();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final state = ref.watch(homeNotifierProvider);
-    if (state.loading) {
-      return const AppLoader();
-    }
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'MITHZAR',
       ),
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          SliverToBoxAdapter(
-            child: CachedNetworkImage(
-              imageUrl:
-                  'https://www.shutterstock.com/image-photo/indian-design-gold-bangles-decorative-600nw-2175114437.jpg',
-            ),
-          ),
-          const SliverGap(20),
-          for (final section in state.sections) ...[
-            SliverToBoxAdapter(
-              child: Text(
-                '${section.title}',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 250,
-                child: ListView.builder(
-                  padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
-                  scrollDirection: Axis.horizontal,
-                  controller: PageController(),
-                  itemBuilder: (context, index) => Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    width: 175,
-                    height: 250,
-                    child: ProductItem(
-                      product: section.products![index],
-                    ),
-                  ),
-                  itemCount: section.products?.length,
-                ),
-              ),
-            ),
-            const SliverGap(15),
+      body: state.unfold(
+        (sections) => const CustomScrollView(
+          physics: ClampingScrollPhysics(),
+          slivers: [
+            HomePromoImage(),
+            SliverGap(20),
+            HomeProductSection(),
+            HomeProductList(),
           ],
-          SliverToBoxAdapter(
-            child: Center(
-              child: OutlinedButton(
-                onPressed: () {},
-                child: const Text(
-                  'View All  →',
-                  style: TextStyle(
-                    color: AppColor.black,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SliverGap(30),
-          SliverAppBar(
-            pinned: true,
-            title: Text(
-              'Recently Added',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-              ),
-            ),
-            actions: [
-              InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                        color: Colors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  const Spacer(),
-                                  Expanded(
-                                    child: Text(
-                                      'Filter',
-                                      textAlign: TextAlign.center,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Align(
-                                      alignment: Alignment.centerRight,
-                                      child: Assets.svg.cancel.svg(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                child: Assets.svg.filter.svg(
-                  colorFilter: const ColorFilter.mode(
-                    AppColor.black,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
-              const Gap(20),
-            ],
-            centerTitle: false,
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.all(20),
-            sliver: SliverGrid.builder(
-              itemCount: state.products.length,
-              itemBuilder: (context, index) {
-                return ProductItem(
-                  product: state.products[index],
-                );
-              },
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisExtent: 220,
-                mainAxisSpacing: 15,
-                crossAxisSpacing: 15,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

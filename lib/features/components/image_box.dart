@@ -11,9 +11,9 @@ class ImageBox extends StatelessWidget {
       height: height,
       width: width,
       padding: EdgeInsets.all(height * 0.1),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColor.lightPink,
-        borderRadius: BorderRadius.circular(10),
+        // borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
         child: Image.network(

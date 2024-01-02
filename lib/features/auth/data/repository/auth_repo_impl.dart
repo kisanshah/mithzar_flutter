@@ -1,5 +1,4 @@
 import 'package:api/api.dart';
-import 'package:dartz/dartz.dart';
 import 'package:e_commerce_front_end/core/extensions/future.dart';
 import 'package:e_commerce_front_end/core/instances/api_client_provider.dart';
 import 'package:e_commerce_front_end/data/helper/app_error.dart';
@@ -19,26 +18,24 @@ class AuthRepoImpl extends AuthRepo {
   final AuthApi source;
 
   @override
-  Future<Either<AppError, Tokens>> signIn(User user) async {
-    return source.signIn(user: user).guardFuture();
+  Future<(Tokens?, AppError?)> signIn(User user) async {
+    return source.signIn(user: user).toRecord();
   }
 
   @override
-  Future<Either<AppError, Tokens>> generateAccessToken(String? refreshToken) {
+  Future<(Tokens?, AppError?)> generateAccessToken(String? refreshToken) {
     return source
-        .refreshToken(
-          tokens: Tokens(refreshToken: refreshToken),
-        )
-        .guardFuture<Tokens>();
+        .refreshToken(tokens: Tokens(refreshToken: refreshToken))
+        .toRecord();
   }
 
   @override
-  Future<Either<AppError, ApiRes>> sendOtp(User user) {
-    return source.sendOtp(user: user).guardFuture();
+  Future<(ApiRes?, AppError?)> sendOtp(User user) {
+    return source.sendOtp(user: user).toRecord();
   }
 
   @override
-  Future<Either<AppError, Tokens>> verifyOtp(VerifyOtpReq body) {
-    return source.verifyOtp(verifyOtpReq: body).guardFuture();
+  Future<(Tokens?, AppError?)> verifyOtp(VerifyOtpReq body) {
+    return source.verifyOtp(verifyOtpReq: body).toRecord();
   }
 }
