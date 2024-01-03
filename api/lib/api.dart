@@ -27,6 +27,7 @@ export 'package:api/src/model/pagination_filter.dart';
 export 'package:api/src/model/product.dart';
 export 'package:api/src/model/product_image.dart';
 export 'package:api/src/model/section.dart';
+export 'package:api/src/model/timestamps.dart';
 export 'package:api/src/model/tokens.dart';
 export 'package:api/src/model/user.dart';
 export 'package:api/src/model/verify_otp_req.dart';

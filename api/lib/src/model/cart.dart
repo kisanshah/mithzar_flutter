@@ -21,6 +21,9 @@ class Cart with _$Cart {
     Product? product,
 
     ///  this.product,
+    DateTime? createdAt,
+
+    ///  this.createdAt,
   }) = _Cart;
 
   factory Cart.fromJson(Map<String, Object?> json) => _$CartFromJson(json);

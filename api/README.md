@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
  - [Product](doc/Product.md)
  - [ProductImage](doc/ProductImage.md)
  - [Section](doc/Section.md)
+ - [Timestamps](doc/Timestamps.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)
  - [VerifyOtpReq](doc/VerifyOtpReq.md)

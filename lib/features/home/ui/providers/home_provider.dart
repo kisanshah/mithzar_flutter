@@ -17,6 +17,6 @@ class HomeNotifier extends _$HomeNotifier {
       ref.read(sectionNotifierProvider.notifier).fetch(),
       ref.read(productListProvider.notifier).fetch(),
     ]);
-    state = ResultState(data: null);
+    state = ResultState();
   }
 }

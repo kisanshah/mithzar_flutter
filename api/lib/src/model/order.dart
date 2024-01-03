@@ -24,6 +24,9 @@ class Order with _$Order {
     List<Product>? products,
 
     ///  this.products,
+    DateTime? created_at,
+
+    ///  this.createdAt,
   }) = _Order;
 
   factory Order.fromJson(Map<String, Object?> json) => _$OrderFromJson(json);

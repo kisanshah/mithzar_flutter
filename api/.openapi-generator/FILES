@@ -20,6 +20,7 @@ doc/ProfileApi.md
 doc/Section.md
 doc/SectionApi.md
 doc/TempApi.md
+doc/Timestamps.md
 doc/Tokens.md
 doc/User.md
 doc/VerifyOtpReq.md
@@ -51,7 +52,9 @@ lib/src/model/pagination_filter.dart
 lib/src/model/product.dart
 lib/src/model/product_image.dart
 lib/src/model/section.dart
+lib/src/model/timestamps.dart
 lib/src/model/tokens.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_req.dart
 pubspec.yaml
+test/timestamps_test.dart
