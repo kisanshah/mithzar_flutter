@@ -12,11 +12,7 @@ part 'verify_otp_req.g.dart';
 class VerifyOtpReq with _$VerifyOtpReq {
   const factory VerifyOtpReq({
     num? otp,
-
-    ///  this.otp,
     String? userId,
-
-    ///  this.userId,
   }) = _VerifyOtpReq;
 
   factory VerifyOtpReq.fromJson(Map<String, Object?> json) =>

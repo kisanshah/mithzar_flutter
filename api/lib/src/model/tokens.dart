@@ -12,11 +12,7 @@ part 'tokens.g.dart';
 class Tokens with _$Tokens {
   const factory Tokens({
     String? refreshToken,
-
-    ///  this.refreshToken,
     String? accessToken,
-
-    ///  this.accessToken,
   }) = _Tokens;
 
   factory Tokens.fromJson(Map<String, Object?> json) => _$TokensFromJson(json);

@@ -13,17 +13,8 @@ part 'cart.g.dart';
 class Cart with _$Cart {
   const factory Cart({
     int? id,
-
-    ///  this.id,
     int? quantity,
-
-    ///  this.quantity,
     Product? product,
-
-    ///  this.product,
-    DateTime? createdAt,
-
-    ///  this.createdAt,
   }) = _Cart;
 
   factory Cart.fromJson(Map<String, Object?> json) => _$CartFromJson(json);

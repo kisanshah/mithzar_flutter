@@ -13,17 +13,9 @@ part 'section.g.dart';
 class Section with _$Section {
   const factory Section({
     int? id,
-
-    ///  this.id,
     String? title,
-
-    ///  this.title,
     List<String>? platform,
-
-    ///  this.platform,
     List<Product>? products,
-
-    ///  this.products,
   }) = _Section;
 
   factory Section.fromJson(Map<String, Object?> json) =>

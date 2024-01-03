@@ -8,7 +8,7 @@ void main() {
   group(AddressApi, () {
     // Get all user addresses
     //
-    //Future<Success> addressIdDelete(int id) async
+    //Future<ApiRes> addressIdDelete(int id) async
     test('test addressIdDelete', () async {
       // TODO
     });
@@ -29,7 +29,7 @@ void main() {
 
     // Mark the address as default
     //
-    //Future<Success> setDefaultAddress(int id) async
+    //Future<ApiRes> setDefaultAddress(int id) async
     test('test setDefaultAddress', () async {
       // TODO
     });

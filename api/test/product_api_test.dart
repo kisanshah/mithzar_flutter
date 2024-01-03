@@ -6,10 +6,17 @@ void main() {
   final instance = Api().getProductApi();
 
   group(ProductApi, () {
-    // Returns a list of products.
+    // Get filtered list.
     //
-    //Future<List<Product>> getProducts() async
-    test('test getProducts', () async {
+    //Future<List<Product>> getFiltered({ PaginationFilter filter }) async
+    test('test getFiltered', () async {
+      // TODO
+    });
+
+    // Get product detail.
+    //
+    //Future<Product> getProductById(int id) async
+    test('test getProductById', () async {
       // TODO
     });
   });

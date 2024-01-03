@@ -27,7 +27,12 @@ void main() {
       // TODO
     });
 
-    // List<String> images
+    // ProductImage thumbnail
+    test('to test the property `thumbnail`', () async {
+      // TODO
+    });
+
+    // List<ProductImage> images
     test('to test the property `images`', () async {
       // TODO
     });

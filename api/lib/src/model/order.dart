@@ -13,20 +13,10 @@ part 'order.g.dart';
 class Order with _$Order {
   const factory Order({
     String? id,
-
-    ///  this.id,
     String? status,
-
-    ///  this.status,
     num? total,
-
-    ///  this.total,
     List<Product>? products,
-
-    ///  this.products,
-    DateTime? created_at,
-
-    ///  this.createdAt,
+    DateTime? createdAt,
   }) = _Order;
 
   factory Order.fromJson(Map<String, Object?> json) => _$OrderFromJson(json);

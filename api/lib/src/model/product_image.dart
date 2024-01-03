@@ -12,14 +12,8 @@ part 'product_image.g.dart';
 class ProductImage with _$ProductImage {
   const factory ProductImage({
     int? id,
-
-    ///  this.id,
     String? url,
-
-    ///  this.url,
     bool? active,
-
-    ///  this.active,
   }) = _ProductImage;
 
   factory ProductImage.fromJson(Map<String, Object?> json) =>

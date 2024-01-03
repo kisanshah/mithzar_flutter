@@ -12,11 +12,7 @@ part 'checkout_url.g.dart';
 class CheckoutUrl with _$CheckoutUrl {
   const factory CheckoutUrl({
     String? url,
-
-    ///  this.url,
     String? orderId,
-
-    ///  this.orderId,
   }) = _CheckoutUrl;
 
   factory CheckoutUrl.fromJson(Map<String, Object?> json) =>

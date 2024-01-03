@@ -14,7 +14,6 @@ import 'package:api/src/api/order_api.dart';
 import 'package:api/src/api/product_api.dart';
 import 'package:api/src/api/profile_api.dart';
 import 'package:api/src/api/section_api.dart';
-import 'package:api/src/api/temp_api.dart';
 
 class Api {
   static const String basePath = r'http://localhost:3000/v1';
@@ -117,11 +116,5 @@ class Api {
   /// by doing that all interceptors will not be executed
   SectionApi getSectionApi() {
     return SectionApi(dio);
-  }
-
-  /// Get TempApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  TempApi getTempApi() {
-    return TempApi(dio);
   }
 }

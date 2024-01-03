@@ -12,20 +12,10 @@ part 'pagination_filter.g.dart';
 class PaginationFilter with _$PaginationFilter {
   const factory PaginationFilter({
     String? search,
-
-    ///  this.search,
     String? orderBy,
-
-    ///  this.orderBy,
     String? order,
-
-    ///  this.order,
     int? page,
-
-    ///  this.page,
     int? size,
-
-    ///  this.size,
   }) = _PaginationFilter;
 
   factory PaginationFilter.fromJson(Map<String, Object?> json) =>

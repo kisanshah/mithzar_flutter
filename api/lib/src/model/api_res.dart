@@ -12,11 +12,7 @@ part 'api_res.g.dart';
 class ApiRes with _$ApiRes {
   const factory ApiRes({
     String? message,
-
-    ///  this.message,
     bool? success,
-
-    ///  this.success,
   }) = _ApiRes;
 
   factory ApiRes.fromJson(Map<String, Object?> json) => _$ApiResFromJson(json);

@@ -8,7 +8,7 @@ void main() {
   group(CartApi, () {
     // add product to user's cart
     //
-    //Future<Success> addToCart({ AddCartReq addCartReq }) async
+    //Future<Cart> addToCart({ AddCartReq addCartReq }) async
     test('test addToCart', () async {
       // TODO
     });
@@ -22,14 +22,14 @@ void main() {
 
     // removes the specified cart item
     //
-    //Future<Success> removeAllItem({ List<int> ids }) async
+    //Future<ApiRes> removeAllItem({ List<int> ids }) async
     test('test removeAllItem', () async {
       // TODO
     });
 
     // removes the specified cart item
     //
-    //Future<Success> removeItem({ IdReq id }) async
+    //Future<Cart> removeItem(num id) async
     test('test removeItem', () async {
       // TODO
     });

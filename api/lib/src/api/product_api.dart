@@ -3,13 +3,14 @@
 //
 
 import 'dart:async';
+
 // ignore: unused_import
 import 'dart:convert';
+// import 'package:api/src/deserialize.dart';
+import 'package:dio/dio.dart';
 
 import 'package:api/src/model/pagination_filter.dart';
 import 'package:api/src/model/product.dart';
-// import 'package:api/src/deserialize.dart';
-import 'package:dio/dio.dart';
 
 class ProductApi {
   final Dio _dio;

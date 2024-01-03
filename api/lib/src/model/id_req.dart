@@ -12,8 +12,6 @@ part 'id_req.g.dart';
 class IdReq with _$IdReq {
   const factory IdReq({
     int? id,
-
-    ///  this.id,
   }) = _IdReq;
 
   factory IdReq.fromJson(Map<String, Object?> json) => _$IdReqFromJson(json);

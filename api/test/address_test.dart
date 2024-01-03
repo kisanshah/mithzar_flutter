@@ -7,11 +7,6 @@ void main() {
   // TODO add properties to the entity
 
   group(Address, () {
-    // User user
-    test('to test the property `user`', () async {
-      // TODO
-    });
-
     // num id
     test('to test the property `id`', () async {
       // TODO
@@ -57,7 +52,7 @@ void main() {
       // TODO
     });
 
-    // String userId
+    // int userId
     test('to test the property `userId`', () async {
       // TODO
     });

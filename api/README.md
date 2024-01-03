@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 [*ProductApi*](doc/ProductApi.md) | [**getProductById**](doc/ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
 [*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
 [*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
-[*TempApi*](doc/TempApi.md) | [**checkoutPaymentResult**](doc/TempApi.md#checkoutpaymentresult) | **POST** /order/payment_result | Returns a list of products.
 
 
 ## Documentation For Models
@@ -100,7 +99,6 @@ Class | Method | HTTP request | Description
  - [Product](doc/Product.md)
  - [ProductImage](doc/ProductImage.md)
  - [Section](doc/Section.md)
- - [Timestamps](doc/Timestamps.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)
  - [VerifyOtpReq](doc/VerifyOtpReq.md)

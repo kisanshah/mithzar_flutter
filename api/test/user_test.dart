@@ -7,18 +7,28 @@ void main() {
   // TODO add properties to the entity
 
   group(User, () {
-    // UserName name
+    // String id
+    test('to test the property `id`', () async {
+      // TODO
+    });
+
+    // String name
     test('to test the property `name`', () async {
       // TODO
     });
 
-    // List<String> address
-    test('to test the property `address`', () async {
+    // String phone
+    test('to test the property `phone`', () async {
       // TODO
     });
 
-    // String id
-    test('to test the property `id`', () async {
+    // String email
+    test('to test the property `email`', () async {
+      // TODO
+    });
+
+    // String password
+    test('to test the property `password`', () async {
       // TODO
     });
   });

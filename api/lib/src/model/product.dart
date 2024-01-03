@@ -13,23 +13,11 @@ part 'product.g.dart';
 class Product with _$Product {
   const factory Product({
     int? id,
-
-    ///  this.id,
     String? name,
-
-    ///  this.name,
     String? description,
-
-    ///  this.description,
     double? price,
-
-    ///  this.price,
     ProductImage? thumbnail,
-
-    ///  this.thumbnail,
     List<ProductImage>? images,
-
-    ///  this.images,
   }) = _Product;
 
   factory Product.fromJson(Map<String, Object?> json) =>
