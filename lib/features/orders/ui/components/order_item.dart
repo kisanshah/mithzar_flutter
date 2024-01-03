@@ -28,8 +28,8 @@ class OrderItem extends ConsumerWidget {
       },
       child: Row(
         children: [
-          Expanded(
-            flex: 5,
+          Flexible(
+            flex: 3,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Column(
@@ -55,6 +55,27 @@ class OrderItem extends ConsumerWidget {
                   const Gap(10),
                   Row(
                     children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Status',
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              order.status?.toUpperCase() ?? '',
+                              style: GoogleFonts.poppins(
+                                color: AppColor.red,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +113,6 @@ class OrderItem extends ConsumerWidget {
             ),
           ),
           Expanded(
-            flex: 2,
             child: OrderImage(products: order.products ?? []),
           ),
         ],
