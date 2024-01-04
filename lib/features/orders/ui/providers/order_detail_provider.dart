@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:api/api.dart';
 import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/core/extensions/log.dart';
 import 'package:e_commerce_front_end/features/orders/data/repository/order_repo_impl.dart';
 import 'package:e_commerce_front_end/features/orders/domain/repository/order_repository.dart';
 import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:open_file_plus/open_file_plus.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'order_detail_provider.g.dart';
@@ -27,10 +28,12 @@ class OrderDetailNotifier extends _$OrderDetailNotifier {
 
   Future<void> downloadInvoice(String id) async {
     final invoice = await _repo.downloadInvoice(id);
-    invoice.fold((error) => null, (data) {
-      final file = File.fromRawPath(data);
-      file.create();
+    invoice.fold((error) => null, (data) async {
+      final dir = await getTemporaryDirectory();
+      final file = File('${dir.path}/invoice.pdf');
+      file.createSync();
+      file.writeAsBytesSync(data);
+      await OpenFile.open(file.path);
     });
-    invoice.logError();
   }
 }
