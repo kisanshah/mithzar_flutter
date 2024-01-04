@@ -17,6 +17,7 @@ class Product with _$Product {
     int? id,
     String? name,
     String? description,
+    num? quantity,
     double? price,
     ProductImage? thumbnail,
     List<ProductImage>? images,

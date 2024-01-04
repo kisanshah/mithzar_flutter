@@ -20,7 +20,9 @@ class OrderItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GestureDetector(
+    return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () {
         if (order.id != null) {
           ref.read(routerProvider).push(OrderDetailRoute(id: order.id!));

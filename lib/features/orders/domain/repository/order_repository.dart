@@ -6,5 +6,7 @@ abstract class OrderRepository {
     PaginationFilter? filter,
     List<String>? status,
   });
+
+  Future<(Order?, AppError?)> getOrderById(String id);
   Future<(CheckoutUrl?, AppError?)> checkout();
 }

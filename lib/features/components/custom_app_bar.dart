@@ -30,6 +30,31 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontSize: 20,
         ),
       ),
+      actions: [
+        PopupMenuButton(
+          color: Colors.white,
+          padding: EdgeInsets.zero,
+          position: PopupMenuPosition.under,
+          // icon: const Icon(Icons.more_vert),
+          itemBuilder: (context) {
+            return [
+              const PopupMenuItem(
+                padding: EdgeInsets.zero,
+                child: Text(
+                  'Invoice',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const PopupMenuItem(
+                child: Text(
+                  'Cancel',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ];
+          },
+        ),
+      ],
     );
   }
 

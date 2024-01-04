@@ -34,4 +34,9 @@ class OrderRepoImpl implements OrderRepository {
   Future<(CheckoutUrl?, AppError?)> checkout() async {
     return _source.checkout().toRecord<CheckoutUrl>();
   }
+
+  @override
+  Future<(Order?, AppError?)> getOrderById(String id) {
+    return _source.getOrderById(id: id).toRecord();
+  }
 }
