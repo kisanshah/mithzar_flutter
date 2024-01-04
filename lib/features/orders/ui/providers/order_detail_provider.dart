@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:api/api.dart';
 import 'package:e_commerce_front_end/core/extensions/future.dart';
+import 'package:e_commerce_front_end/core/extensions/log.dart';
 import 'package:e_commerce_front_end/features/orders/data/repository/order_repo_impl.dart';
 import 'package:e_commerce_front_end/features/orders/domain/repository/order_repository.dart';
 import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
@@ -20,5 +23,14 @@ class OrderDetailNotifier extends _$OrderDetailNotifier {
   Future<void> fetch(String id) async {
     final order = await _repo.getOrderById(id);
     state = order.state();
+  }
+
+  Future<void> downloadInvoice(String id) async {
+    final invoice = await _repo.downloadInvoice(id);
+    invoice.fold((error) => null, (data) {
+      final file = File.fromRawPath(data);
+      file.create();
+    });
+    invoice.logError();
   }
 }

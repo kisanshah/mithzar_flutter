@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:api/api.dart';
 import 'package:e_commerce_front_end/data/helper/app_error.dart';
 
@@ -9,4 +11,6 @@ abstract class OrderRepository {
 
   Future<(Order?, AppError?)> getOrderById(String id);
   Future<(CheckoutUrl?, AppError?)> checkout();
+
+  Future<(Uint8List?, AppError?)> downloadInvoice(String id);
 }

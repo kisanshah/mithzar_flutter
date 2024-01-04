@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost:3000/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checkout**](OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
+[**downloadInvoice**](OrderApi.md#downloadinvoice) | **GET** /order/invoice | 
 [**getOrderById**](OrderApi.md#getorderbyid) | **GET** /order/{id} | 
 [**getOrderList**](OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 
@@ -48,6 +49,43 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **downloadInvoice**
+> Uint8List downloadInvoice()
+
+
+
+### Example
+```dart
+import 'package:api/api.dart';
+
+final api = Api().getOrderApi();
+
+try {
+    final response = api.downloadInvoice();
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling OrderApi->downloadInvoice: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Uint8List**](Uint8List.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/pdf
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

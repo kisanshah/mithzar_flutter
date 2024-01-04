@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:api/api.dart';
 import 'package:e_commerce_front_end/core/extensions/future.dart';
 import 'package:e_commerce_front_end/core/instances/api_client_provider.dart';
@@ -38,5 +40,10 @@ class OrderRepoImpl implements OrderRepository {
   @override
   Future<(Order?, AppError?)> getOrderById(String id) {
     return _source.getOrderById(id: id).toRecord();
+  }
+
+  @override
+  Future<(Uint8List?, AppError?)> downloadInvoice(String id) {
+    return _source.downloadInvoice().toRecord();
   }
 }

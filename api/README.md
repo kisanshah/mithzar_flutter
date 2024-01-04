@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 [*CartApi*](doc/CartApi.md) | [**removeAllItem**](doc/CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
 [*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove/{id} | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
+[*OrderApi*](doc/OrderApi.md) | [**downloadInvoice**](doc/OrderApi.md#downloadinvoice) | **GET** /order/invoice | 
 [*OrderApi*](doc/OrderApi.md) | [**getOrderById**](doc/OrderApi.md#getorderbyid) | **GET** /order/{id} | 
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 [*ProductApi*](doc/ProductApi.md) | [**getFiltered**](doc/ProductApi.md#getfiltered) | **GET** /product/filtered | Get filtered list.

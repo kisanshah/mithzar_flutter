@@ -8,7 +8,6 @@ import 'package:e_commerce_front_end/features/shared/components/product_item.dar
 import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
 import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
@@ -39,6 +38,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(orderDetailNotifierProvider);
+    final notifier = ref.read(orderDetailNotifierProvider.notifier);
     final name =
         ref.read(userNotifierProvider).name?.split(' ').firstOrNull ?? '';
     return state.unfold(
@@ -126,29 +126,24 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
             Row(
               children: [
                 Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () {},
+                  child: OutlinedButton(
+                    onPressed: () => notifier.downloadInvoice(widget.id),
                     // style: OutlinedButton.styleFrom(
                     //   minimumSize: const Size.fromHeight(42),
                     //   side: const BorderSide(
                     //     color: AppColor.accentColor,
                     //   ),
                     // ),
-                    icon: RotatedBox(
-                      quarterTurns: 1,
-                      child: Assets.svg.arrowRight.svg(
-                        height: 17,
-                      ),
-                    ),
-                    label: const Text(
-                      'Dowload Invoice',
+
+                    child: const Text(
+                      'Download Invoice',
                       style: TextStyle(),
                     ),
                   ),
                 ),
                 const Gap(10),
                 Expanded(
-                  child: OutlinedButton.icon(
+                  child: OutlinedButton(
                     onPressed: () {},
                     // style: OutlinedButton.styleFrom(
                     //   minimumSize: const Size.fromHeight(42),
@@ -156,11 +151,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                     //     color: AppColor.red,
                     //   ),
                     // ),
-                    icon: Assets.svg.cancel.svg(
-                      colorFilter:
-                          const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
-                    ),
-                    label: const Text(
+                    child: const Text(
                       'Cancel Order',
                       style: TextStyle(color: AppColor.red),
                     ),
