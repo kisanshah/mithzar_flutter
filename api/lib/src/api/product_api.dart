@@ -32,7 +32,7 @@ class ProductApi {
   /// Returns a [Future] containing a [Response] with a [List<Product>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<List<Product>>> getFiltered({
-    PaginationFilter? filter,
+    required PaginationFilter filter,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -54,7 +54,7 @@ class ProductApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (filter != null) r'filter': jsonEncode(filter.toJson()),
+      r'filter': jsonEncode(filter.toJson()),
     };
 
     final _response = await _dio.request<Object>(

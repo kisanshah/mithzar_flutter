@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'order_repo_impl.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 OrderRepository orderRepo(OrderRepoRef ref) {
   return OrderRepoImpl(ref.watch(apiClientProvider).getOrderApi());
 }
@@ -18,8 +18,16 @@ class OrderRepoImpl implements OrderRepository {
   final OrderApi _source;
 
   @override
-  Future<(List<Order>?, AppError?)> getOrderList() {
-    return _source.getOrderList().toRecord();
+  Future<(List<Order>?, AppError?)> getOrderList({
+    PaginationFilter? filter,
+    List<String>? status,
+  }) {
+    return _source
+        .getOrderList(
+          filter: filter ?? const PaginationFilter(),
+          status: status ?? [],
+        )
+        .toRecord();
   }
 
   @override

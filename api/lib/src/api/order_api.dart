@@ -11,6 +11,7 @@ import 'package:dio/dio.dart';
 
 import 'package:api/src/model/checkout_url.dart';
 import 'package:api/src/model/order.dart';
+import 'package:api/src/model/pagination_filter.dart';
 
 class OrderApi {
   final Dio _dio;
@@ -96,6 +97,8 @@ class OrderApi {
   ///
   ///
   /// Parameters:
+  /// * [filter]
+  /// * [status]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -106,6 +109,8 @@ class OrderApi {
   /// Returns a [Future] containing a [Response] with a [List<Order>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<List<Order>>> getOrderList({
+    required PaginationFilter filter,
+    required List<String> status,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -132,9 +137,15 @@ class OrderApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      r'filter': jsonEncode(filter.toJson()),
+      r'status': status,
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,

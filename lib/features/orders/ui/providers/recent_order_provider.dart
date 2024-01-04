@@ -5,10 +5,10 @@ import 'package:e_commerce_front_end/features/orders/domain/repository/order_rep
 import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'order_list_notifier.g.dart';
+part 'recent_order_provider.g.dart';
 
-@Riverpod(dependencies: [orderRepo])
-class OrderListNotifier extends _$OrderListNotifier {
+@Riverpod(keepAlive: true)
+class RecentOrderNotifier extends _$RecentOrderNotifier {
   late OrderRepository _repo;
 
   @override
@@ -18,7 +18,9 @@ class OrderListNotifier extends _$OrderListNotifier {
   }
 
   Future<void> fetch() async {
-    final result = await _repo.getOrderList();
-    state = result.state();
+    final orders = await _repo.getOrderList(
+      status: ['pending', 'processing'],
+    );
+    state = orders.state();
   }
 }
