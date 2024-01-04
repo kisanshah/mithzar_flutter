@@ -10,6 +10,8 @@ part 'api_res.g.dart';
 
 @freezed
 class ApiRes with _$ApiRes {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory ApiRes({
     String? message,
     bool? success,

@@ -46,7 +46,7 @@ class OrderItem extends ConsumerWidget {
                   ),
                   const Gap(2),
                   Text(
-                    order.created_at.format(),
+                    order.createdAt.format(),
                     style: GoogleFonts.poppins(
                       color: AppColor.black,
                       fontSize: 14,

@@ -11,6 +11,8 @@ part 'section.g.dart';
 
 @freezed
 class Section with _$Section {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Section({
     int? id,
     String? title,

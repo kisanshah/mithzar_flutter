@@ -10,6 +10,8 @@ part 'pagination_filter.g.dart';
 
 @freezed
 class PaginationFilter with _$PaginationFilter {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PaginationFilter({
     String? search,
     String? orderBy,

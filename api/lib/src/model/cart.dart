@@ -11,6 +11,8 @@ part 'cart.g.dart';
 
 @freezed
 class Cart with _$Cart {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Cart({
     int? id,
     int? quantity,

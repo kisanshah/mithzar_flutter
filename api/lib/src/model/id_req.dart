@@ -10,6 +10,8 @@ part 'id_req.g.dart';
 
 @freezed
 class IdReq with _$IdReq {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory IdReq({
     int? id,
   }) = _IdReq;

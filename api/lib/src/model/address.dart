@@ -10,6 +10,8 @@ part 'address.g.dart';
 
 @freezed
 class Address with _$Address {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Address({
     num? id,
     String? streetAddress,

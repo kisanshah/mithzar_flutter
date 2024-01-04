@@ -10,6 +10,8 @@ part 'product_image.g.dart';
 
 @freezed
 class ProductImage with _$ProductImage {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory ProductImage({
     int? id,
     String? url,

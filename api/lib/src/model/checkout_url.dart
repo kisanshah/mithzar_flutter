@@ -10,6 +10,8 @@ part 'checkout_url.g.dart';
 
 @freezed
 class CheckoutUrl with _$CheckoutUrl {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory CheckoutUrl({
     String? url,
     String? orderId,

@@ -5,7 +5,6 @@ analyzer:
   strong-mode:
     implicit-dynamic: true
     implicit-casts: false
-    implicit_dynamic_parameter: true
 
   exclude:
     - test/*.dart

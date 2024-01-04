@@ -70,7 +70,7 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**saveAddress**](doc/AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
 [*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
-[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
+[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In
 [*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP

@@ -11,6 +11,8 @@ part 'order.g.dart';
 
 @freezed
 class Order with _$Order {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Order({
     String? id,
     String? status,

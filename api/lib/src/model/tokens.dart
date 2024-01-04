@@ -10,6 +10,8 @@ part 'tokens.g.dart';
 
 @freezed
 class Tokens with _$Tokens {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Tokens({
     String? refreshToken,
     String? accessToken,
