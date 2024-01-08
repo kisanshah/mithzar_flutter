@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/cart/ui/components/cart_item.dart';
-import 'package:e_commerce_front_end/features/cart/ui/providers/cart_list_provider.dart';
-import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/cart/ui/components/cart_item.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_list_provider.dart';
+import 'package:mithzar/features/components/custom_app_bar.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
 class CartPage extends ConsumerStatefulWidget {

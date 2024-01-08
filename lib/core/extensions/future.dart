@@ -1,9 +1,9 @@
 // ignore: depend_on_referenced_packages
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
-import 'package:e_commerce_front_end/data/helper/app_error.dart';
-import 'package:e_commerce_front_end/features/shared/state/pagination_state.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/data/helper/app_error.dart';
+import 'package:mithzar/features/shared/state/pagination_state.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 
 extension FutureExtension on Future {
   Future<(T?, AppError?)> toRecord<T>() async {

@@ -1,6 +1,6 @@
-import 'package:e_commerce_front_end/features/components/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/components/app_image.dart';
 
 class ImageCarousel extends ConsumerWidget {
   const ImageCarousel({

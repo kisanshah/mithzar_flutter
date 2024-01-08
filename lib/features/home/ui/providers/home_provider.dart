@@ -1,6 +1,6 @@
-import 'package:e_commerce_front_end/features/home/ui/providers/product_list_provider.dart';
-import 'package:e_commerce_front_end/features/home/ui/providers/section_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/features/home/ui/providers/product_list_provider.dart';
+import 'package:mithzar/features/home/ui/providers/section_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_provider.g.dart';

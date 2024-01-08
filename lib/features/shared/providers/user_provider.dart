@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/features/profile/data/repository/profile_repo_impl.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/features/profile/data/repository/profile_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_provider.g.dart';

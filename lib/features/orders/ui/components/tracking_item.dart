@@ -1,8 +1,8 @@
-import 'package:e_commerce_front_end/features/orders/ui/components/tracker_line_painter.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/orders/ui/components/tracker_line_painter.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 class TrackingItem extends StatelessWidget {
   const TrackingItem({

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/orders/ui/components/order_list.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/order_notifier.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/past_order_provider.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/recent_order_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/orders/ui/components/order_list.dart';
+import 'package:mithzar/features/orders/ui/providers/order_notifier.dart';
+import 'package:mithzar/features/orders/ui/providers/past_order_provider.dart';
+import 'package:mithzar/features/orders/ui/providers/recent_order_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
 class OrderPage extends ConsumerStatefulWidget {

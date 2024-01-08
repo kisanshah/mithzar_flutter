@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/core/extensions/debug.dart';
-import 'package:e_commerce_front_end/features/auth/ui/providers/sign_in_provider.dart';
-import 'package:e_commerce_front_end/features/components/app_loader.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/debug.dart';
+import 'package:mithzar/features/auth/ui/providers/sign_in_provider.dart';
+import 'package:mithzar/features/components/app_loader.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/router_provider.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 @RoutePage()
 class SignInPage extends ConsumerStatefulWidget {

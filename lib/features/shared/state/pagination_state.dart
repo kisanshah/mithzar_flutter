@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:mithzar/features/components/app_loader.dart';
 
 sealed class PaginationState<T extends List> {
   PaginationState({

@@ -1,17 +1,17 @@
 import 'package:api/api.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/core/extensions/datetime.dart';
-import 'package:e_commerce_front_end/core/extensions/num.dart';
-import 'package:e_commerce_front_end/features/components/custom_app_bar.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/order_detail_provider.dart';
-import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
-import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/core/extensions/datetime.dart';
+import 'package:mithzar/core/extensions/num.dart';
+import 'package:mithzar/features/components/custom_app_bar.dart';
+import 'package:mithzar/features/orders/ui/providers/order_detail_provider.dart';
+import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/providers/user_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 @RoutePage()
 class OrderDetailPage extends ConsumerStatefulWidget {

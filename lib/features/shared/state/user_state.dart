@@ -1,5 +1,5 @@
-import 'package:e_commerce_front_end/features/components/app_loader.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mithzar/features/components/app_loader.dart';
 
 sealed class State<T> {
   State({this.data});

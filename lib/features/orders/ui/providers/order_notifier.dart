@@ -1,6 +1,6 @@
-import 'package:e_commerce_front_end/features/orders/ui/providers/past_order_provider.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/recent_order_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/features/orders/ui/providers/past_order_provider.dart';
+import 'package:mithzar/features/orders/ui/providers/recent_order_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'order_notifier.g.dart';

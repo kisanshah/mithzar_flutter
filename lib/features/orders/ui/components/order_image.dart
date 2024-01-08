@@ -1,9 +1,9 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/components/app_image.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/components/app_image.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 class OrderImage extends ConsumerWidget {
   const OrderImage({

@@ -1,15 +1,15 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/datetime.dart';
-import 'package:e_commerce_front_end/core/extensions/num.dart';
-import 'package:e_commerce_front_end/core/extensions/product.dart';
-import 'package:e_commerce_front_end/features/orders/ui/components/order_image.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/core/extensions/datetime.dart';
+import 'package:mithzar/core/extensions/num.dart';
+import 'package:mithzar/core/extensions/product.dart';
+import 'package:mithzar/features/orders/ui/components/order_image.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/router_provider.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 class OrderItem extends ConsumerWidget {
   const OrderItem({

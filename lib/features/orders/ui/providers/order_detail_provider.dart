@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/features/orders/data/repository/order_repo_impl.dart';
-import 'package:e_commerce_front_end/features/orders/domain/repository/order_repository.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/features/orders/data/repository/order_repo_impl.dart';
+import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

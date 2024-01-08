@@ -1,11 +1,11 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/orders/ui/components/order_item.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart' hide State;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/orders/ui/components/order_item.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class OrderList extends ConsumerWidget {

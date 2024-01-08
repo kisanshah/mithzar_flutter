@@ -1,8 +1,8 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/features/product/data/repository/product_repo_impl.dart';
-import 'package:e_commerce_front_end/features/product/domain/repository/product_repo.dart';
-import 'package:e_commerce_front_end/features/shared/state/pagination_state.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/features/product/data/repository/product_repo_impl.dart';
+import 'package:mithzar/features/product/domain/repository/product_repo.dart';
+import 'package:mithzar/features/shared/state/pagination_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'product_list_provider.g.dart';

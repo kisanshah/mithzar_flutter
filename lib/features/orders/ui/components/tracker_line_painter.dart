@@ -1,5 +1,5 @@
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 class TrackerLinePainter extends CustomPainter {
   TrackerLinePainter({this.top = true, this.bottom = true});

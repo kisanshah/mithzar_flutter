@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/routes/guards/auth.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/routes/guards/auth.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends $AppRouter {

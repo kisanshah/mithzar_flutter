@@ -1,9 +1,9 @@
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/features/theme/app_color.dart';
+import 'package:mithzar/gen/assets.gen.dart';
 
 class NavData {
   NavData({

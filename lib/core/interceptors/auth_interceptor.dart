@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:e_commerce_front_end/core/instances/token_provider.dart';
-import 'package:e_commerce_front_end/core/interceptors/error_interceptor.dart';
-import 'package:e_commerce_front_end/core/interceptors/logging_interceptor.dart';
-import 'package:e_commerce_front_end/data/model/api_res.dart';
-import 'package:e_commerce_front_end/features/profile/provider/profile_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/core/instances/token_provider.dart';
+import 'package:mithzar/core/interceptors/error_interceptor.dart';
+import 'package:mithzar/core/interceptors/logging_interceptor.dart';
+import 'package:mithzar/data/model/api_res.dart';
+import 'package:mithzar/features/profile/provider/profile_provider.dart';
 
 class AuthInterceptor implements InterceptorsWrapper {
   AuthInterceptor(this._ref);
