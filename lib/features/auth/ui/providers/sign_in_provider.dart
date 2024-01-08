@@ -1,5 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/data/helper/app_error.dart';
 import 'package:mithzar/data/local/shar_pref.dart';
 import 'package:mithzar/features/auth/data/repository/auth_repo_impl.dart';
@@ -31,6 +32,7 @@ class SignInNotifier extends _$SignInNotifier {
       success: token.refreshToken != '',
     );
     ref.read(sharPrefProvider).saveToken(token);
+    ref.read(tokenNotifierProvider.notifier).update(token);
   }
 
   Future<void> onError(AppError error) async {
