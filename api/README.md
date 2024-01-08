@@ -51,10 +51,10 @@ final api = Api().getAddressApi();
 final int id = 56; // int | Numeric ID of the address to delete
 
 try {
-    final response = await api.addressIdDelete(id);
+    final response = await api.delete(id);
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling AddressApi->addressIdDelete: $e\n");
+    print("Exception when calling AddressApi->delete: $e\n");
 }
 
 ```
@@ -65,11 +65,11 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*AddressApi*](doc/AddressApi.md) | [**addressIdDelete**](doc/AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
+[*AddressApi*](doc/AddressApi.md) | [**delete**](doc/AddressApi.md#delete) | **DELETE** /address/{id} | Get all user addresses
 [*AddressApi*](doc/AddressApi.md) | [**getAddressList**](doc/AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
-[*AddressApi*](doc/AddressApi.md) | [**saveAddress**](doc/AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
+[*AddressApi*](doc/AddressApi.md) | [**save**](doc/AddressApi.md#save) | **POST** /address/save | save new address for the user and return new address object
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
-[*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
+[*AddressApi*](doc/AddressApi.md) | [**update**](doc/AddressApi.md#update) | **PUT** /address/update | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In

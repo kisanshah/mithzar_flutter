@@ -22,7 +22,7 @@ class Address with _$Address {
     num? lat,
     num? lng,
     bool? default_,
-    int? userId,
+    String? userId,
   }) = _Address;
 
   factory Address.fromJson(Map<String, Object?> json) =>

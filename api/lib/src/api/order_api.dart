@@ -146,7 +146,7 @@ class OrderApi {
 
     try {
       final data = _response.data;
-      _responseData = data == null ? null : data as Uint8List;
+      _responseData = data as Uint8List;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
