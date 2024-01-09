@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/search/ui/providers/search_provider.dart';
 import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/gen/assets.gen.dart';
 
@@ -17,19 +19,10 @@ class SearchPage extends ConsumerStatefulWidget {
 }
 
 class _SearchPageState extends ConsumerState<SearchPage> {
-  final colors = [
-    const Color(0xFFFFD700),
-    const Color(0xffc0c0c0),
-  ];
-
-  final images = [
-    'https://www.kushals.com/cdn/shop/products/zircon-bangle-white-2-4-rose-gold-zircon-bangle-151226-35657651519644.jpg?v=167570325900&width=686',
-    'https://www.kushals.com/cdn/shop/files/kundan-bangle-green-victorian-2-4-kundan-bangle-161563-36710721290396.jpg?v=169850889700&width=244',
-    'https://www.kushals.com/cdn/shop/files/temple-bangle-white-oxidised-gold-2-4-silver-temple-bangle-165556-36821343371420.jpg?v=170021384900&width=244',
-    'https://www.kushals.com/cdn/shop/files/antique-bangle-ruby-gold-2-4-antique-bangle-165536-36821333147804.jpg?v=170021422200&width=244',
-  ];
   @override
   Widget build(BuildContext context) {
+    final notifier = ref.read(searchNotifierProvider.notifier);
+    final state = ref.watch(searchNotifierProvider);
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'SEARCH',
@@ -43,6 +36,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextField(
+                    onChanged: notifier.search,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 10,
@@ -77,26 +71,28 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                     ),
                   ),
                   const Gap(5),
-                  Wrap(
-                    spacing: 7,
-                    children: List.generate(
-                      7,
-                      (index) => Chip(
-                        padding: EdgeInsets.zero,
-                        labelPadding:
-                            const EdgeInsets.symmetric(horizontal: 10),
-                        side: const BorderSide(
-                          width: 0.5,
-                        ),
-                        shape: const RoundedRectangleBorder(),
-                        backgroundColor: Colors.transparent,
-                        label: Text(
-                          'Bangles ${index + 1}',
-                          style: const TextStyle(fontSize: 10),
+                  state.unfold((suggestions) {
+                    return Wrap(
+                      spacing: 7,
+                      children: List.generate(
+                        suggestions.length,
+                        (index) => Chip(
+                          padding: EdgeInsets.zero,
+                          labelPadding:
+                              const EdgeInsets.symmetric(horizontal: 10),
+                          side: const BorderSide(
+                            width: 0.5,
+                          ),
+                          shape: const RoundedRectangleBorder(),
+                          backgroundColor: Colors.transparent,
+                          label: Text(
+                            suggestions[index].name ?? '',
+                            style: const TextStyle(fontSize: 10),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                 ],
               ),
             ),
