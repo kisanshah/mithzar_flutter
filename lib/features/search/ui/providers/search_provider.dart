@@ -7,11 +7,13 @@ part 'search_provider.g.dart';
 
 @riverpod
 class SearchNotifier extends _$SearchNotifier {
-  final searcher = HitsSearcher(
-    applicationID: '',
-    apiKey: '',
-    indexName: '',
-    debounce: Duration.zero,
+  final searcher = HitsSearcher.create(
+    applicationID: const String.fromEnvironment('alogliaApplicationID'),
+    apiKey: const String.fromEnvironment('alogliaApiKey'),
+    state: const SearchState(
+      indexName: 'product_index',
+      hitsPerPage: 5,
+    ),
   );
 
   @override
@@ -21,7 +23,9 @@ class SearchNotifier extends _$SearchNotifier {
   }
 
   void search(String? query) {
-    searcher.query(query ?? '');
+    if (query?.isNotEmpty ?? false) {
+      searcher.query(query ?? '');
+    }
   }
 
   void observer() {
