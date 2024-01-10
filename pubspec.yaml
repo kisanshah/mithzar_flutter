@@ -42,6 +42,7 @@ dependencies:
 
   #Search
   algolia_helper_flutter: 0.5.0
+  algolia_insights: ^0.2.2
   
 dependency_overrides:
   http: 1.0.0

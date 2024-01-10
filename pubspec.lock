@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "0.5.0"
   algolia_insights:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: algolia_insights
       sha256: e8e82b437ef3d4c881e133d3148e8d5d32fd5158acaaccbabad8356995e70310

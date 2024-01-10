@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/components/app_image.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 
@@ -22,7 +23,12 @@ class ProductItem extends ConsumerWidget {
       return const SizedBox();
     }
     return GestureDetector(
-      onTap: () => router.push(ProductDetailRoute(id: product!.id!)),
+      onTap: () {
+        ref
+            .read(algolioEventProvider.notifier)
+            .emit(ids: [product!.id.toString()]);
+        router.push(ProductDetailRoute(id: product!.id!));
+      },
       child: Container(
         decoration: BoxDecoration(
           color: AppColor.white,
