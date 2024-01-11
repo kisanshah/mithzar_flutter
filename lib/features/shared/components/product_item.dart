@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/components/app_image.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
-import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 
@@ -12,9 +11,11 @@ class ProductItem extends ConsumerWidget {
   const ProductItem({
     super.key,
     this.product,
+    this.onClick,
   });
 
   final Product? product;
+  final VoidCallback? onClick;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,9 +25,7 @@ class ProductItem extends ConsumerWidget {
     }
     return GestureDetector(
       onTap: () {
-        ref
-            .read(algolioEventProvider.notifier)
-            .emit(ids: [product!.id.toString()]);
+        onClick?.call();
         router.push(ProductDetailRoute(id: product!.id!));
       },
       child: Container(

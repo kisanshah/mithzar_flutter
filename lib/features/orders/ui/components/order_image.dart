@@ -16,7 +16,7 @@ class OrderImage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     if (products.length < 4) {
       return AppImage(
-        url: products.first.thumbnail!.url!,
+        url: products.first.thumbnail?.url ?? '',
       );
     }
     return GridView.builder(

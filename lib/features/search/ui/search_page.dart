@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
 import 'package:mithzar/features/search/ui/providers/search_provider.dart';
 import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/gen/assets.gen.dart';
@@ -24,6 +25,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   Widget build(BuildContext context) {
     final notifier = ref.read(searchNotifierProvider.notifier);
     final state = ref.watch(searchNotifierProvider);
+    final algolia = ref.read(algolioEventProvider.notifier);
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'SEARCH',
@@ -118,6 +120,12 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                     itemBuilder: (context, index) {
                       return ProductItem(
                         product: products[index],
+                        onClick: () {
+                          algolia.emit(
+                            ids: [products[index].id.toString()],
+                            type: AlgolioEventType.view,
+                          );
+                        },
                       );
                     },
                     itemCount: products.length,
