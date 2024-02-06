@@ -20,9 +20,4 @@ class ProductRepoImpl implements ProductRepo {
   Future<(Product?, AppError?)> getProductById(int id) {
     return source.getProductById(id: id).toRecord<Product>();
   }
-
-  @override
-  Future<(List<Product>?, AppError?)> getFilteredList(PaginationFilter filter) {
-    return source.getFiltered(filter: filter).toRecord();
-  }
 }

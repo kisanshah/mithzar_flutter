@@ -39,10 +39,10 @@ class HomeProductSection extends ConsumerWidget {
                     width: 175,
                     height: 250,
                     child: ProductItem(
-                      product: section.products![index],
+                      variant: section.variants![index],
                     ),
                   ),
-                  itemCount: section.products?.length,
+                  itemCount: section.variants?.length,
                 ),
               ),
             ),

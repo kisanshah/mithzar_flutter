@@ -10,23 +10,23 @@ import 'package:mithzar/features/theme/app_color.dart';
 class ProductItem extends ConsumerWidget {
   const ProductItem({
     super.key,
-    this.product,
+    this.variant,
     this.onClick,
   });
 
-  final Product? product;
+  final ProductVariant? variant;
   final VoidCallback? onClick;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    if (product == null) {
+    if (variant == null) {
       return const SizedBox();
     }
     return GestureDetector(
       onTap: () {
         onClick?.call();
-        router.push(ProductDetailRoute(id: product!.id!));
+        router.push(ProductDetailRoute(id: variant!.id!));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -40,7 +40,7 @@ class ProductItem extends ConsumerWidget {
               height: 150,
               child: ClipRRect(
                 child: AppImage(
-                  url: '${product?.thumbnail?.url}',
+                  url: '${variant?.thumbnail?.url}',
                   width: double.infinity,
                 ),
               ),
@@ -53,7 +53,7 @@ class ProductItem extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      product?.name ?? '',
+                      "${variant?.product?.name} ${variant?.name ?? ''}",
                       maxLines: 1,
                       style: const TextStyle(
                         overflow: TextOverflow.ellipsis,
@@ -61,7 +61,7 @@ class ProductItem extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      product?.price?.toRupee() ?? '',
+                      variant?.price?.toRupee() ?? '',
                       style: const TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontSize: 16,

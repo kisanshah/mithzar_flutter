@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:mithzar/core/extensions/log.dart';
 
 class ErrorInterceptor implements InterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
+    '${err.response?.data}'.logError();
     handler.next(err);
   }
 

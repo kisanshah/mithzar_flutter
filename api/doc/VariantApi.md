@@ -1,4 +1,4 @@
-# api.api.ProductApi
+# api.api.VariantApi
 
 ## Load the API package
 ```dart
@@ -9,26 +9,27 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getProductById**](ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
+[**getVariants**](VariantApi.md#getvariants) | **POST** /variants | Get variant list.
 
 
-# **getProductById**
-> Product getProductById(id)
+# **getVariants**
+> ProductVariant getVariants(page, size)
 
-Get product detail.
+Get variant list.
 
 ### Example
 ```dart
 import 'package:api/api.dart';
 
-final api = Api().getProductApi();
-final int id = 56; // int | 
+final api = Api().getVariantApi();
+final int page = 56; // int | 
+final int size = 56; // int | 
 
 try {
-    final response = api.getProductById(id);
+    final response = api.getVariants(page, size);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling ProductApi->getProductById: $e\n');
+    print('Exception when calling VariantApi->getVariants: $e\n');
 }
 ```
 
@@ -36,11 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+ **page** | **int**|  | 
+ **size** | **int**|  | 
 
 ### Return type
 
-[**Product**](Product.md)
+[**ProductVariant**](ProductVariant.md)
 
 ### Authorization
 

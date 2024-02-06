@@ -14,6 +14,7 @@ export 'package:api/src/api/order_api.dart';
 export 'package:api/src/api/product_api.dart';
 export 'package:api/src/api/profile_api.dart';
 export 'package:api/src/api/section_api.dart';
+export 'package:api/src/api/variant_api.dart';
 
 export 'package:api/src/model/add_cart_req.dart';
 export 'package:api/src/model/address.dart';
@@ -25,6 +26,8 @@ export 'package:api/src/model/order.dart';
 export 'package:api/src/model/pagination_filter.dart';
 export 'package:api/src/model/product.dart';
 export 'package:api/src/model/product_image.dart';
+export 'package:api/src/model/product_sku.dart';
+export 'package:api/src/model/product_variant.dart';
 export 'package:api/src/model/section.dart';
 export 'package:api/src/model/tokens.dart';
 export 'package:api/src/model/user.dart';

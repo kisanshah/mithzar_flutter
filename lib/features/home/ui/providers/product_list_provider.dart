@@ -1,5 +1,4 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/features/product/data/repository/product_repo_impl.dart';
 import 'package:mithzar/features/product/domain/repository/product_repo.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
@@ -12,7 +11,7 @@ class ProductList extends _$ProductList {
   late ProductRepo _repo;
 
   @override
-  PaginationState<List<Product>> build() {
+  PaginationState<List<ProductVariant>> build() {
     _repo = ref.watch(productRepoProvider);
     return PaginationLoading(
       filter: const PaginationFilter(
@@ -23,8 +22,8 @@ class ProductList extends _$ProductList {
   }
 
   Future<void> fetch() async {
-    final products = await _repo.getFilteredList(state.filter);
-    state = products.pagination(state);
+    // final products = await _repo.getFilteredList(state.filter);
+    // state = products.pagination(state);
   }
 
   void next(int index) {

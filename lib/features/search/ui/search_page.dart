@@ -119,7 +119,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                   sliver: SliverGrid.builder(
                     itemBuilder: (context, index) {
                       return ProductItem(
-                        product: products[index],
+                        // product: products[index],
                         onClick: () {
                           algolia.emit(
                             ids: [products[index].id.toString()],

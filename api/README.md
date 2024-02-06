@@ -82,10 +82,10 @@ Class | Method | HTTP request | Description
 [*OrderApi*](doc/OrderApi.md) | [**downloadInvoice**](doc/OrderApi.md#downloadinvoice) | **GET** /order/invoice | 
 [*OrderApi*](doc/OrderApi.md) | [**getOrderById**](doc/OrderApi.md#getorderbyid) | **GET** /order/{id} | 
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
-[*ProductApi*](doc/ProductApi.md) | [**getFiltered**](doc/ProductApi.md#getfiltered) | **GET** /product/filtered | Get filtered list.
 [*ProductApi*](doc/ProductApi.md) | [**getProductById**](doc/ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
 [*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
-[*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
+[*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /sections/app | Get section based on the device
+[*VariantApi*](doc/VariantApi.md) | [**getVariants**](doc/VariantApi.md#getvariants) | **POST** /variants | Get variant list.
 
 
 ## Documentation For Models
@@ -100,6 +100,8 @@ Class | Method | HTTP request | Description
  - [PaginationFilter](doc/PaginationFilter.md)
  - [Product](doc/Product.md)
  - [ProductImage](doc/ProductImage.md)
+ - [ProductSku](doc/ProductSku.md)
+ - [ProductVariant](doc/ProductVariant.md)
  - [Section](doc/Section.md)
  - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)

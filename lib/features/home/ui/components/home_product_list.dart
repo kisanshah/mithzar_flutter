@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/components/app_loader.dart';
 import 'package:mithzar/features/home/ui/components/home_product_list_filter.dart';
 import 'package:mithzar/features/home/ui/providers/product_list_provider.dart';
-import 'package:mithzar/features/shared/components/product_item.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/gen/assets.gen.dart';
@@ -60,7 +59,8 @@ class HomeProductList extends ConsumerWidget {
               itemCount: products.length,
               itemBuilder: (context, index) {
                 notifier.next(index);
-                return ProductItem(product: products[index]);
+                return null;
+                // return ProductItem(product: products[index]);
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

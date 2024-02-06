@@ -9,17 +9,19 @@ import 'dart:convert';
 // import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:api/src/model/section.dart';
+import 'package:api/src/model/product_variant.dart';
 
-class SectionApi {
+class VariantApi {
   final Dio _dio;
 
-  const SectionApi(this._dio);
+  const VariantApi(this._dio);
 
-  /// Get section based on the device
+  /// Get variant list.
   ///
   ///
   /// Parameters:
+  /// * [page]
+  /// * [size]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -27,9 +29,11 @@ class SectionApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<Section>] as data
+  /// Returns a [Future] containing a [Response] with a [ProductVariant] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Section>>> getSections({
+  Future<Response<ProductVariant>> getVariants({
+    required int page,
+    required int size,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -37,42 +41,38 @@ class SectionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/sections/app';
+    final _path = r'/variants';
     final _options = Options(
-      method: r'GET',
+      method: r'POST',
       headers: <String, dynamic>{
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'bearerAuth',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      r'page': page,
+      r'size': size,
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<Section>? _responseData;
+    ProductVariant? _responseData;
 
     try {
       final data = _response.data;
-      if (data is Iterable) {
-        _responseData = data
-            .map((e) => Section.fromJson(e as Map<String, Object?>))
-            .toList();
-      }
+      _responseData = ProductVariant.fromJson(data as Map<String, Object?>);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -83,7 +83,7 @@ class SectionApi {
       );
     }
 
-    return Response<List<Section>>(
+    return Response<ProductVariant>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

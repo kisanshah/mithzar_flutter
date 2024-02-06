@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:api/src/model/product.dart';
+import 'package:api/src/model/product_variant.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'section.freezed.dart';
@@ -17,7 +17,7 @@ class Section with _$Section {
     int? id,
     String? title,
     List<String>? platform,
-    List<Product>? products,
+    List<ProductVariant>? variants,
   }) = _Section;
 
   factory Section.fromJson(Map<String, Object?> json) =>

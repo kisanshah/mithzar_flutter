@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSections**](SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
+[**getSections**](SectionApi.md#getsections) | **GET** /sections/app | Get section based on the device
 
 
 # **getSections**
