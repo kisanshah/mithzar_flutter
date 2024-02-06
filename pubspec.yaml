@@ -39,6 +39,11 @@ dependencies:
   intl: 0.19.0
   path_provider: 2.1.1
   open_file_plus: ^3.4.1
+
+  #Search
+  algolia_helper_flutter: 0.5.0
+  algolia_insights: ^0.2.2
+  
 dependency_overrides:
   http: 1.0.0
 

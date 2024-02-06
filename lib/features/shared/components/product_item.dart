@@ -11,9 +11,11 @@ class ProductItem extends ConsumerWidget {
   const ProductItem({
     super.key,
     this.product,
+    this.onClick,
   });
 
   final Product? product;
+  final VoidCallback? onClick;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +24,10 @@ class ProductItem extends ConsumerWidget {
       return const SizedBox();
     }
     return GestureDetector(
-      onTap: () => router.push(ProductDetailRoute(id: product!.id!)),
+      onTap: () {
+        onClick?.call();
+        router.push(ProductDetailRoute(id: product!.id!));
+      },
       child: Container(
         decoration: BoxDecoration(
           color: AppColor.white,

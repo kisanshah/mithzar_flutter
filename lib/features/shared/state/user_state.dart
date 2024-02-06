@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:mithzar/core/extensions/log.dart';
 import 'package:mithzar/features/components/app_loader.dart';
 
 sealed class State<T> {
@@ -22,7 +21,6 @@ class ResultState<T> extends State<T> {
 
 extension StateExtension<T> on State<T> {
   Widget unfold(Widget Function(T data) child) {
-    logError();
     return switch (this) {
       LoadingState() => const AppLoader(),
       ErrorState(message: final message) => Text(message),

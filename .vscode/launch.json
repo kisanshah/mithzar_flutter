@@ -5,10 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "mithzar_flutter",
+      "name": "Dev Debug",
       "request": "launch",
       "program": "lib/main.dart",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "--dart-define-from-file",
+        "./env/dev.json"
+      ]
     },
     {
       "name": "mithzar_flutter (profile mode)",
