@@ -42,7 +42,7 @@ class AuthApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/auth/refreshToken';
+    final _path = r'/auth/refresh_token';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{

@@ -37,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | [**PaginationFilter**](.md)|  | [optional] 
+ **filter** | [**PaginationFilter**](.md)|  | 
 
 ### Return type
 

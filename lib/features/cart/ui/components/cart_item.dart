@@ -1,10 +1,10 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/num.dart';
-import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
-import 'package:e_commerce_front_end/features/components/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/num.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
+import 'package:mithzar/features/components/app_image.dart';
 
 class CartItem extends ConsumerWidget {
   const CartItem({
@@ -85,7 +85,7 @@ class CartItem extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          '${item.quantity}'.padLeft(2, '0'),
+                          '${item.quantity}',
                           style: const TextStyle(
                             fontSize: 14,
                           ),

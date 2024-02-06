@@ -19,7 +19,6 @@ doc/ProductImage.md
 doc/ProfileApi.md
 doc/Section.md
 doc/SectionApi.md
-doc/TempApi.md
 doc/Tokens.md
 doc/User.md
 doc/VerifyOtpReq.md
@@ -32,19 +31,16 @@ lib/src/api/order_api.dart
 lib/src/api/product_api.dart
 lib/src/api/profile_api.dart
 lib/src/api/section_api.dart
-lib/src/api/temp_api.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
 lib/src/auth/basic_auth.dart
 lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
-lib/src/date_serializer.dart
 lib/src/model/add_cart_req.dart
 lib/src/model/address.dart
 lib/src/model/api_res.dart
 lib/src/model/cart.dart
 lib/src/model/checkout_url.dart
-lib/src/model/date.dart
 lib/src/model/id_req.dart
 lib/src/model/order.dart
 lib/src/model/pagination_filter.dart

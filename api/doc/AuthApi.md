@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
+[**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [**sendOtp**](AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
 [**signIn**](AuthApi.md#signin) | **POST** /auth/signIn | Sign In
 [**verifyOtp**](AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **status** | **String** |  | [optional] 
 **total** | **num** |  | [optional] 
 **products** | [**List&lt;Product&gt;**](Product.md) |  | [optional] 
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

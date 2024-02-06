@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/orders/ui/components/order_item.dart';
-import 'package:e_commerce_front_end/features/orders/ui/providers/order_list_notifier.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/orders/ui/components/order_list.dart';
+import 'package:mithzar/features/orders/ui/providers/order_notifier.dart';
+import 'package:mithzar/features/orders/ui/providers/past_order_provider.dart';
+import 'package:mithzar/features/orders/ui/providers/recent_order_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
 class OrderPage extends ConsumerStatefulWidget {
@@ -21,94 +21,32 @@ class _OrderPageState extends ConsumerState<OrderPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      ref.read(orderListNotifierProvider.notifier).fetch();
+      ref.read(orderNotifierProvider.notifier).fetch();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(orderListNotifierProvider);
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: const HomeAppBar(
-          title: 'ORDERS',
+    final state = ref.watch(orderNotifierProvider);
+
+    return Scaffold(
+      appBar: const HomeAppBar(
+        title: 'ORDERS',
+      ),
+      body: state.unfold(
+        (data) => CustomScrollView(
+          slivers: [
+            OrderList(
+              title: 'Recent Orders 📦',
+              provider: recentOrderNotifierProvider,
+            ),
+            OrderList(
+              title: 'Past Orders 📦',
+              provider: pastOrderNotifierProvider,
+              viewAll: true,
+            ),
+          ],
         ),
-        body: state.unfold((orders) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            child: CustomScrollView(
-              slivers: [
-                const SliverGap(10),
-                SliverToBoxAdapter(
-                  child: TabBar(
-                    padding: EdgeInsets.zero,
-                    tabAlignment: TabAlignment.fill,
-                    labelPadding: EdgeInsets.zero,
-                    overlayColor:
-                        const MaterialStatePropertyAll(Colors.transparent),
-                    indicatorColor: Colors.black,
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.black,
-                    tabs: [
-                      Tab(
-                        child: Text(
-                          'Upcoming Orders',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Tab(
-                        child: Text(
-                          'Past Orders',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SliverFillRemaining(
-                  child: TabBarView(
-                    children: [
-                      if (orders.isEmpty)
-                        const Center(child: Text('Empty!!!'))
-                      else
-                        ListView.separated(
-                          padding: const EdgeInsets.only(top: 20),
-                          itemBuilder: (context, index) {
-                            return OrderItem(
-                              order: orders[index % orders.length],
-                            );
-                          },
-                          separatorBuilder: (context, index) => const Gap(15),
-                          itemCount: 10,
-                        ),
-                      if (orders.isEmpty)
-                        const Center(child: Text('Empty!!!'))
-                      else
-                        ListView.separated(
-                          padding: const EdgeInsets.only(top: 20),
-                          itemBuilder: (context, index) {
-                            return OrderItem(order: orders[index]);
-                          },
-                          separatorBuilder: (context, index) => const Gap(15),
-                          itemCount: orders.length,
-                        ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          );
-        }),
       ),
     );
   }

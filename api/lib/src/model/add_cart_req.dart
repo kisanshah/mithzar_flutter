@@ -10,10 +10,10 @@ part 'add_cart_req.g.dart';
 
 @freezed
 class AddCartReq with _$AddCartReq {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory AddCartReq({
     int? productId,
-
-    ///  this.productId,
   }) = _AddCartReq;
 
   factory AddCartReq.fromJson(Map<String, Object?> json) =>

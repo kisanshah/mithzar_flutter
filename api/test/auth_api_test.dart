@@ -13,10 +13,10 @@ void main() {
       // TODO
     });
 
-    // Register new user
+    // Register new user & send otp
     //
-    //Future<Tokens> register(User user) async
-    test('test register', () async {
+    //Future<ApiRes> sendOtp(User user) async
+    test('test sendOtp', () async {
       // TODO
     });
 
@@ -24,6 +24,13 @@ void main() {
     //
     //Future<Tokens> signIn(User user) async
     test('test signIn', () async {
+      // TODO
+    });
+
+    // Verify OTP
+    //
+    //Future<Tokens> verifyOtp(VerifyOtpReq verifyOtpReq) async
+    test('test verifyOtp', () async {
       // TODO
     });
   });

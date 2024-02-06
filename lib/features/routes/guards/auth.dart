@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/data/local/shar_pref.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/data/local/shar_pref.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/user_provider.dart';
 
 class AuthGuard extends AutoRouteGuard {
   AuthGuard(this._ref);

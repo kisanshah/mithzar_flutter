@@ -1,7 +1,7 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/shared/components/bottomsheet_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/features/shared/components/bottomsheet_wrapper.dart';
 
 class HomeProductListFilter extends StatelessWidget {
   const HomeProductListFilter({

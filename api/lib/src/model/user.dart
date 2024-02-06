@@ -10,22 +10,14 @@ part 'user.g.dart';
 
 @freezed
 class User with _$User {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory User({
     String? id,
-
-    ///  this.id,
     String? name,
-
-    ///  this.name,
     String? phone,
-
-    ///  this.phone,
     String? email,
-
-    ///  this.email,
     String? password,
-
-    ///  this.password,
   }) = _User;
 
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);

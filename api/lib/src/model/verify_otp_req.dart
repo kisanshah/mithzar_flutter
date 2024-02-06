@@ -10,13 +10,11 @@ part 'verify_otp_req.g.dart';
 
 @freezed
 class VerifyOtpReq with _$VerifyOtpReq {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory VerifyOtpReq({
     num? otp,
-
-    ///  this.otp,
     String? userId,
-
-    ///  this.userId,
   }) = _VerifyOtpReq;
 
   factory VerifyOtpReq.fromJson(Map<String, Object?> json) =>

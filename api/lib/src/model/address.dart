@@ -10,37 +10,19 @@ part 'address.g.dart';
 
 @freezed
 class Address with _$Address {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Address({
     num? id,
-
-    ///  this.id,
     String? streetAddress,
-
-    ///  this.streetAddress,
     String? city,
-
-    ///  this.city,
     String? state,
-
-    ///  this.state,
     String? postalCode,
-
-    ///  this.postalCode,
     String? country,
-
-    ///  this.country,
     num? lat,
-
-    ///  this.lat,
     num? lng,
-
-    ///  this.lng,
     bool? default_,
-
-    ///  this.default_,
-    int? userId,
-
-    ///  this.userId,
+    String? userId,
   }) = _Address;
 
   factory Address.fromJson(Map<String, Object?> json) =>

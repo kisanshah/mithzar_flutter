@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_product_list.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_product_section.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_promo_image.dart';
-import 'package:e_commerce_front_end/features/home/ui/providers/home_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/home/ui/components/home_product_list.dart';
+import 'package:mithzar/features/home/ui/components/home_product_section.dart';
+import 'package:mithzar/features/home/ui/components/home_promo_image.dart';
+import 'package:mithzar/features/home/ui/providers/home_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
 class HomePage extends ConsumerStatefulWidget {

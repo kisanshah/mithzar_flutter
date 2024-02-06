@@ -1,13 +1,13 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/features/cart/data/repository/cart_repo_impl.dart';
-import 'package:e_commerce_front_end/features/cart/domain/repository/cart_repository.dart';
-import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
-import 'package:e_commerce_front_end/features/orders/data/repository/order_repo_impl.dart';
-import 'package:e_commerce_front_end/features/orders/domain/repository/order_repository.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/features/cart/data/repository/cart_repo_impl.dart';
+import 'package:mithzar/features/cart/domain/repository/cart_repository.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
+import 'package:mithzar/features/orders/data/repository/order_repo_impl.dart';
+import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/router_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_list_provider.g.dart';

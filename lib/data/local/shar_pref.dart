@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/data/helper/pref_path.dart';
-import 'package:e_commerce_front_end/features/shared/providers/shar_pref_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/data/helper/pref_path.dart';
+import 'package:mithzar/features/shared/providers/shar_pref_provider.dart';
 import 'package:secure_shared_preferences/secure_shared_pref.dart';
 
 final sharPrefProvider = Provider<SharPref>((ref) {

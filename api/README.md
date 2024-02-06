@@ -51,10 +51,10 @@ final api = Api().getAddressApi();
 final int id = 56; // int | Numeric ID of the address to delete
 
 try {
-    final response = await api.addressIdDelete(id);
+    final response = await api.delete(id);
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling AddressApi->addressIdDelete: $e\n");
+    print("Exception when calling AddressApi->delete: $e\n");
 }
 
 ```
@@ -65,12 +65,12 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*AddressApi*](doc/AddressApi.md) | [**addressIdDelete**](doc/AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
+[*AddressApi*](doc/AddressApi.md) | [**delete**](doc/AddressApi.md#delete) | **DELETE** /address/{id} | Get all user addresses
 [*AddressApi*](doc/AddressApi.md) | [**getAddressList**](doc/AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
-[*AddressApi*](doc/AddressApi.md) | [**saveAddress**](doc/AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
+[*AddressApi*](doc/AddressApi.md) | [**save**](doc/AddressApi.md#save) | **POST** /address/save | save new address for the user and return new address object
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
-[*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
-[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refreshToken | Generate new access token
+[*AddressApi*](doc/AddressApi.md) | [**update**](doc/AddressApi.md#update) | **PUT** /address/update | update the address with the new address
+[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/signIn | Sign In
 [*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
@@ -79,12 +79,13 @@ Class | Method | HTTP request | Description
 [*CartApi*](doc/CartApi.md) | [**removeAllItem**](doc/CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
 [*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart/remove/{id} | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
+[*OrderApi*](doc/OrderApi.md) | [**downloadInvoice**](doc/OrderApi.md#downloadinvoice) | **GET** /order/invoice | 
+[*OrderApi*](doc/OrderApi.md) | [**getOrderById**](doc/OrderApi.md#getorderbyid) | **GET** /order/{id} | 
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
 [*ProductApi*](doc/ProductApi.md) | [**getFiltered**](doc/ProductApi.md#getfiltered) | **GET** /product/filtered | Get filtered list.
 [*ProductApi*](doc/ProductApi.md) | [**getProductById**](doc/ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail.
 [*ProfileApi*](doc/ProfileApi.md) | [**getUserByToken**](doc/ProfileApi.md#getuserbytoken) | **GET** /user | Get profile based on the token
 [*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /section/all | Get section based on the device
-[*TempApi*](doc/TempApi.md) | [**checkoutPaymentResult**](doc/TempApi.md#checkoutpaymentresult) | **POST** /order/payment_result | Returns a list of products.
 
 
 ## Documentation For Models

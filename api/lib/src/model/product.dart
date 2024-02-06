@@ -11,25 +11,16 @@ part 'product.g.dart';
 
 @freezed
 class Product with _$Product {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Product({
     int? id,
-
-    ///  this.id,
     String? name,
-
-    ///  this.name,
     String? description,
-
-    ///  this.description,
+    num? quantity,
     double? price,
-
-    ///  this.price,
     ProductImage? thumbnail,
-
-    ///  this.thumbnail,
     List<ProductImage>? images,
-
-    ///  this.images,
   }) = _Product;
 
   factory Product.fromJson(Map<String, Object?> json) =>

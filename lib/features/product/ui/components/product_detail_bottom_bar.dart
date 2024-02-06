@@ -1,9 +1,9 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/features/cart/ui/providers/cart_provider.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
+import 'package:mithzar/features/theme/app_color.dart';
 
 class ProductDetailBottomBar extends ConsumerWidget {
   const ProductDetailBottomBar({

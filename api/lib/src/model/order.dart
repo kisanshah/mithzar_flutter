@@ -11,19 +11,14 @@ part 'order.g.dart';
 
 @freezed
 class Order with _$Order {
+// ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Order({
     String? id,
-
-    ///  this.id,
     String? status,
-
-    ///  this.status,
     num? total,
-
-    ///  this.total,
     List<Product>? products,
-
-    ///  this.products,
+    DateTime? createdAt,
   }) = _Order;
 
   factory Order.fromJson(Map<String, Object?> json) => _$OrderFromJson(json);

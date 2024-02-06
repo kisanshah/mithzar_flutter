@@ -9,15 +9,15 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addressIdDelete**](AddressApi.md#addressiddelete) | **DELETE** /address/{id} | Get all user addresses
+[**delete**](AddressApi.md#delete) | **DELETE** /address/{id} | Get all user addresses
 [**getAddressList**](AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
-[**saveAddress**](AddressApi.md#saveaddress) | **POST** /address/save | save new address for the user and return new address object
+[**save**](AddressApi.md#save) | **POST** /address/save | save new address for the user and return new address object
 [**setDefaultAddress**](AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
-[**updateAddress**](AddressApi.md#updateaddress) | **PUT** /address/update | update the address with the new address
+[**update**](AddressApi.md#update) | **PUT** /address/update | update the address with the new address
 
 
-# **addressIdDelete**
-> ApiRes addressIdDelete(id)
+# **delete**
+> ApiRes delete(id)
 
 Get all user addresses
 
@@ -29,10 +29,10 @@ final api = Api().getAddressApi();
 final int id = 56; // int | Numeric ID of the address to delete
 
 try {
-    final response = api.addressIdDelete(id);
+    final response = api.delete(id);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->addressIdDelete: $e\n');
+    print('Exception when calling AddressApi->delete: $e\n');
 }
 ```
 
@@ -94,8 +94,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **saveAddress**
-> Address saveAddress(address)
+# **save**
+> Address save(address)
 
 save new address for the user and return new address object
 
@@ -107,10 +107,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.saveAddress(address);
+    final response = api.save(address);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->saveAddress: $e\n');
+    print('Exception when calling AddressApi->save: $e\n');
 }
 ```
 
@@ -176,8 +176,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateAddress**
-> Address updateAddress(address)
+# **update**
+> Address update(address)
 
 update the address with the new address
 
@@ -189,10 +189,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.updateAddress(address);
+    final response = api.update(address);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->updateAddress: $e\n');
+    print('Exception when calling AddressApi->update: $e\n');
 }
 ```
 

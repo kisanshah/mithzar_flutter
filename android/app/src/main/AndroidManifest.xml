@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.e_commerce_front_end">
    <application
-        android:label="e_commerce_front_end"
+        android:label="Mithzar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

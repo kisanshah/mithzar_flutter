@@ -8,7 +8,7 @@ void main() {
   group(SectionApi, () {
     // Get section based on the device
     //
-    //Future<Section> getSections() async
+    //Future<List<Section>> getSections() async
     test('test getSections', () async {
       // TODO
     });

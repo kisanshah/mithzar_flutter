@@ -1,8 +1,8 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/features/cart/data/repository/cart_repo_impl.dart';
-import 'package:e_commerce_front_end/features/cart/domain/repository/cart_repository.dart';
-import 'package:e_commerce_front_end/features/shared/state/user_state.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/features/cart/data/repository/cart_repo_impl.dart';
+import 'package:mithzar/features/cart/domain/repository/cart_repository.dart';
+import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_provider.g.dart';

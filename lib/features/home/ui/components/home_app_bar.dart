@@ -1,12 +1,12 @@
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/features/utils/app_const.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/router_provider.dart';
+import 'package:mithzar/features/theme/app_color.dart';
+import 'package:mithzar/features/utils/app_const.dart';
+import 'package:mithzar/gen/assets.gen.dart';
 
 class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const HomeAppBar({

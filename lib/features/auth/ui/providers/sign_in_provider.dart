@@ -1,9 +1,10 @@
 import 'package:api/api.dart';
-import 'package:e_commerce_front_end/core/extensions/future.dart';
-import 'package:e_commerce_front_end/data/helper/app_error.dart';
-import 'package:e_commerce_front_end/data/local/shar_pref.dart';
-import 'package:e_commerce_front_end/features/auth/data/repository/auth_repo_impl.dart';
-import 'package:e_commerce_front_end/features/auth/ui/providers/sign_in_state.dart';
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/core/instances/token_provider.dart';
+import 'package:mithzar/data/helper/app_error.dart';
+import 'package:mithzar/data/local/shar_pref.dart';
+import 'package:mithzar/features/auth/data/repository/auth_repo_impl.dart';
+import 'package:mithzar/features/auth/ui/providers/sign_in_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'sign_in_provider.g.dart';
@@ -31,6 +32,7 @@ class SignInNotifier extends _$SignInNotifier {
       success: token.refreshToken != '',
     );
     ref.read(sharPrefProvider).saveToken(token);
+    ref.read(tokenNotifierProvider.notifier).update(token);
   }
 
   Future<void> onError(AppError error) async {

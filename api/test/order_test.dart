@@ -7,34 +7,28 @@ void main() {
   // TODO add properties to the entity
 
   group(Order, () {
-    // int id
+    // String id
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // int petId
-    test('to test the property `petId`', () async {
-      // TODO
-    });
-
-    // int quantity
-    test('to test the property `quantity`', () async {
-      // TODO
-    });
-
-    // DateTime shipDate
-    test('to test the property `shipDate`', () async {
-      // TODO
-    });
-
-    // Order Status
     // String status
     test('to test the property `status`', () async {
       // TODO
     });
 
-    // bool complete
-    test('to test the property `complete`', () async {
+    // num total
+    test('to test the property `total`', () async {
+      // TODO
+    });
+
+    // List<Product> products
+    test('to test the property `products`', () async {
+      // TODO
+    });
+
+    // DateTime createdAt
+    test('to test the property `createdAt`', () async {
       // TODO
     });
   });

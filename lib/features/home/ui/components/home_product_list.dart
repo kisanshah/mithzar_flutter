@@ -1,14 +1,14 @@
-import 'package:e_commerce_front_end/features/components/app_loader.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_product_list_filter.dart';
-import 'package:e_commerce_front_end/features/home/ui/providers/product_list_provider.dart';
-import 'package:e_commerce_front_end/features/shared/components/product_item.dart';
-import 'package:e_commerce_front_end/features/shared/state/pagination_state.dart';
-import 'package:e_commerce_front_end/features/theme/app_color.dart';
-import 'package:e_commerce_front_end/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mithzar/features/components/app_loader.dart';
+import 'package:mithzar/features/home/ui/components/home_product_list_filter.dart';
+import 'package:mithzar/features/home/ui/providers/product_list_provider.dart';
+import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/state/pagination_state.dart';
+import 'package:mithzar/features/theme/app_color.dart';
+import 'package:mithzar/gen/assets.gen.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class HomeProductList extends ConsumerWidget {

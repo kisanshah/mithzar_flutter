@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:e_commerce_front_end/features/home/ui/components/home_app_bar.dart';
-import 'package:e_commerce_front_end/features/profile/provider/profile_provider.dart';
-import 'package:e_commerce_front_end/features/routes/router/app_router.gr.dart';
-import 'package:e_commerce_front_end/features/shared/providers/router_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/profile/provider/profile_provider.dart';
+import 'package:mithzar/features/routes/router/app_router.gr.dart';
+import 'package:mithzar/features/shared/providers/router_provider.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {

@@ -1,11 +1,11 @@
 import 'package:api/api.dart';
 import 'package:dio/dio.dart';
-import 'package:e_commerce_front_end/core/interceptors/auth_interceptor.dart';
-import 'package:e_commerce_front_end/core/interceptors/error_interceptor.dart';
-import 'package:e_commerce_front_end/core/interceptors/logging_interceptor.dart';
-import 'package:e_commerce_front_end/data/helper/api_path.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/core/interceptors/auth_interceptor.dart';
+import 'package:mithzar/core/interceptors/error_interceptor.dart';
+import 'package:mithzar/core/interceptors/logging_interceptor.dart';
+import 'package:mithzar/data/helper/api_path.dart';
 
 class DioInstance with DioMixin implements Dio {
   DioInstance(this._ref, this.token) {
