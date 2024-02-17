@@ -26,7 +26,7 @@ class SignInNotifier extends _$SignInNotifier {
     result.fold(onError, onResult);
   }
 
-  void onResult(Tokens token) {
+  void onResult(Token token) {
     state = state.copyWith(
       loading: false,
       success: token.refreshToken != '',

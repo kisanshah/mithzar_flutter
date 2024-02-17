@@ -6,11 +6,11 @@ sealed class PaginationState<T extends List> {
   PaginationState({
     this.items,
     this.more = false,
-    this.filter = const PaginationFilter(),
+    this.filter ,
   });
   final T? items;
   final bool more;
-  final PaginationFilter filter;
+  final PaginationFilter? filter;
 }
 
 class PaginationLoading<T extends List> extends PaginationState<T> {

@@ -26,24 +26,24 @@ class OrderRepoImpl implements OrderRepository {
   }) {
     return _source
         .getOrderList(
-          filter: filter ?? const PaginationFilter(),
+          filter: filter ?? PaginationFilter(),
           status: status ?? [],
         )
         .toRecord();
   }
 
   @override
-  Future<(CheckoutUrl?, AppError?)> checkout() async {
-    return _source.checkout().toRecord<CheckoutUrl>();
+  Future<(Checkout?, AppError?)> checkout() async {
+    return _source.checkout().toRecord<Checkout>();
   }
 
   @override
-  Future<(Order?, AppError?)> getOrderById(String id) {
+  Future<(Order?, AppError?)> getOrderById(int id) {
     return _source.getOrderById(id: id).toRecord();
   }
 
   @override
-  Future<(Uint8List?, AppError?)> downloadInvoice(String id) {
-    return _source.downloadInvoice().toRecord();
+  Future<(Uint8List?, AppError?)> downloadInvoice(int id) {
+    return _source.downloadInvoice(id: id).toRecord();
   }
 }

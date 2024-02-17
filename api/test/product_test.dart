@@ -22,18 +22,8 @@ void main() {
       // TODO
     });
 
-    // double price
-    test('to test the property `price`', () async {
-      // TODO
-    });
-
-    // ProductImage thumbnail
-    test('to test the property `thumbnail`', () async {
-      // TODO
-    });
-
-    // List<ProductImage> images
-    test('to test the property `images`', () async {
+    // List<ProductVariant> variants
+    test('to test the property `variants`', () async {
       // TODO
     });
   });

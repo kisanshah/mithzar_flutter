@@ -6,7 +6,7 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-// import 'package:api/src/deserialize.dart';
+import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/section.dart';
@@ -37,7 +37,7 @@ class SectionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/sections/app';
+    final _path = r'/section';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -67,12 +67,11 @@ class SectionApi {
     List<Section>? _responseData;
 
     try {
-      final data = _response.data;
-      if (data is Iterable) {
-        _responseData = data
-            .map((e) => Section.fromJson(e as Map<String, Object?>))
-            .toList();
-      }
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<List<Section>, Section>(rawData, 'List<Section>',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

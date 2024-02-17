@@ -21,12 +21,12 @@ class OrderDetailNotifier extends _$OrderDetailNotifier {
     return LoadingState();
   }
 
-  Future<void> fetch(String id) async {
+  Future<void> fetch(int id) async {
     final order = await _repo.getOrderById(id);
     state = order.state();
   }
 
-  Future<void> downloadInvoice(String id) async {
+  Future<void> downloadInvoice(int id) async {
     final invoice = await _repo.downloadInvoice(id);
     invoice.fold((error) => null, (data) async {
       final dir = await getTemporaryDirectory();

@@ -8,28 +8,28 @@ void main() {
   group(AuthApi, () {
     // Generate new access token
     //
-    //Future<Tokens> refreshToken(Tokens tokens) async
+    //Future<Token> refreshToken(Token token) async
     test('test refreshToken', () async {
       // TODO
     });
 
     // Register new user & send otp
     //
-    //Future<ApiRes> sendOtp(User user) async
+    //Future<User> sendOtp(User user) async
     test('test sendOtp', () async {
       // TODO
     });
 
     // Sign In
     //
-    //Future<Tokens> signIn(User user) async
+    //Future<Token> signIn(User user) async
     test('test signIn', () async {
       // TODO
     });
 
     // Verify OTP
     //
-    //Future<Tokens> verifyOtp(VerifyOtpReq verifyOtpReq) async
+    //Future<Token> verifyOtp(VerifyOtpRequest verifyOtpRequest) async
     test('test verifyOtp', () async {
       // TODO
     });

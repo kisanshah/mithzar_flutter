@@ -20,7 +20,7 @@ class PastOrderNotifier extends _$PastOrderNotifier {
   Future<void> fetch() async {
     final orders = await _repo.getOrderList(
       status: ['completed'],
-      filter: const PaginationFilter(size: 3),
+      filter: PaginationFilter(size: 3),
     );
     state = orders.state();
   }

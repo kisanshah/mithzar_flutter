@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for Tokens
+// tests for Token
 void main() {
-  final Tokens? instance = /* Tokens(...) */ null;
+  final Token? instance = /* Token(...) */ null;
   // TODO add properties to the entity
 
-  group(Tokens, () {
+  group(Token, () {
     // String refreshToken
     test('to test the property `refreshToken`', () async {
       // TODO

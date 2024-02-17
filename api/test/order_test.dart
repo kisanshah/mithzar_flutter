@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the entity
 
   group(Order, () {
-    // String id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });
@@ -17,18 +17,18 @@ void main() {
       // TODO
     });
 
-    // num total
+    // int total
     test('to test the property `total`', () async {
-      // TODO
-    });
-
-    // List<Product> products
-    test('to test the property `products`', () async {
       // TODO
     });
 
     // DateTime createdAt
     test('to test the property `createdAt`', () async {
+      // TODO
+    });
+
+    // List<OrderItem> items
+    test('to test the property `items`', () async {
       // TODO
     });
   });

@@ -9,8 +9,8 @@ abstract class OrderRepository {
     List<String>? status,
   });
 
-  Future<(Order?, AppError?)> getOrderById(String id);
-  Future<(CheckoutUrl?, AppError?)> checkout();
+  Future<(Order?, AppError?)> getOrderById(int id);
+  Future<(Checkout?, AppError?)> checkout();
 
-  Future<(Uint8List?, AppError?)> downloadInvoice(String id);
+  Future<(Uint8List?, AppError?)> downloadInvoice(int id);
 }

@@ -6,13 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-// import 'package:api/src/deserialize.dart';
+import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:api/src/model/api_res.dart';
-import 'package:api/src/model/tokens.dart';
+import 'package:api/src/model/token.dart';
 import 'package:api/src/model/user.dart';
-import 'package:api/src/model/verify_otp_req.dart';
+import 'package:api/src/model/verify_otp_request.dart';
 
 class AuthApi {
   final Dio _dio;
@@ -23,7 +22,7 @@ class AuthApi {
   ///
   ///
   /// Parameters:
-  /// * [tokens] - User credentials
+  /// * [token] - User credentials
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -31,10 +30,10 @@ class AuthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Tokens] as data
+  /// Returns a [Future] containing a [Response] with a [Token] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> refreshToken({
-    required Tokens tokens,
+  Future<Response<Token>> refreshToken({
+    required Token token,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,7 +58,7 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-      _bodyData = jsonEncode(tokens);
+      _bodyData = jsonEncode(token);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _options.compose(
@@ -81,11 +80,13 @@ class AuthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Tokens? _responseData;
+    Token? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Tokens.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Token, Token>(rawData, 'Token', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -96,7 +97,7 @@ class AuthApi {
       );
     }
 
-    return Response<Tokens>(
+    return Response<Token>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -120,9 +121,9 @@ class AuthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
+  /// Returns a [Future] containing a [Response] with a [User] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRes>> sendOtp({
+  Future<Response<User>> sendOtp({
     required User user,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -170,11 +171,13 @@ class AuthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApiRes? _responseData;
+    User? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<User, User>(rawData, 'User', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -185,7 +188,7 @@ class AuthApi {
       );
     }
 
-    return Response<ApiRes>(
+    return Response<User>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -209,9 +212,9 @@ class AuthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Tokens] as data
+  /// Returns a [Future] containing a [Response] with a [Token] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> signIn({
+  Future<Response<Token>> signIn({
     required User user,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -220,7 +223,7 @@ class AuthApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/auth/signIn';
+    final _path = r'/auth/sign_in';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -259,11 +262,13 @@ class AuthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Tokens? _responseData;
+    Token? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Tokens.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Token, Token>(rawData, 'Token', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -274,7 +279,7 @@ class AuthApi {
       );
     }
 
-    return Response<Tokens>(
+    return Response<Token>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -290,7 +295,7 @@ class AuthApi {
   ///
   ///
   /// Parameters:
-  /// * [verifyOtpReq]
+  /// * [verifyOtpRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -298,10 +303,10 @@ class AuthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Tokens] as data
+  /// Returns a [Future] containing a [Response] with a [Token] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Tokens>> verifyOtp({
-    required VerifyOtpReq verifyOtpReq,
+  Future<Response<Token>> verifyOtp({
+    required VerifyOtpRequest verifyOtpRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -326,7 +331,7 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-      _bodyData = jsonEncode(verifyOtpReq);
+      _bodyData = jsonEncode(verifyOtpRequest);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _options.compose(
@@ -348,11 +353,13 @@ class AuthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Tokens? _responseData;
+    Token? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Tokens.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Token, Token>(rawData, 'Token', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -363,7 +370,7 @@ class AuthApi {
       );
     }
 
-    return Response<Tokens>(
+    return Response<Token>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

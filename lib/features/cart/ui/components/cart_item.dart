@@ -28,7 +28,7 @@ class CartItem extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    item.product?.name ?? '',
+                    item.variant?.name ?? '',
                     style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
@@ -46,7 +46,7 @@ class CartItem extends ConsumerWidget {
                   ),
                   const Gap(5),
                   Text(
-                    item.product?.price?.toRupee() ?? '',
+                    item.variant?.price?.toRupee() ?? '',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -61,9 +61,9 @@ class CartItem extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if (item.product?.thumbnail?.url != null)
+                  if (item.variant?.thumbnail?.url != null)
                     AppImage(
-                      url: item.product?.thumbnail?.url ?? '',
+                      url: item.variant?.thumbnail?.url ?? '',
                     ),
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -96,7 +96,10 @@ class CartItem extends ConsumerWidget {
                             minimumSize: const Size(25, 25),
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
-                          onPressed: () => notifier.add(item.product!.id!),
+                          onPressed: () {
+                            // FIXME(Kisan): add skuid as param after statemanagement
+                            // notifier.add(item.variant!.id!, item.variant!.id!);
+                          },
                           child: const Text(
                             '+',
                             style: TextStyle(

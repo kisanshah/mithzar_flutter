@@ -45,7 +45,7 @@ class SignUpNotifier extends _$SignUpNotifier {
     final result = await repo.sendOtp(user);
     state = result.fold(
       (l) => state.copyWith(loading: false, error: l.message),
-      (r) => state.copyWith(loading: false, otpSent: r.success ?? false),
+      (r) => state.copyWith(loading: false, otpSent: true),
     );
   }
 
@@ -54,7 +54,7 @@ class SignUpNotifier extends _$SignUpNotifier {
     // repo.verifyOtp(body);
   }
 
-  void onResult(Tokens token) {
+  void onResult(Token token) {
     state = state.copyWith(
       loading: false,
     );

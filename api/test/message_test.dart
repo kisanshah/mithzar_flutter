@@ -1,19 +1,14 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for ApiRes
+// tests for Message
 void main() {
-  final ApiRes? instance = /* ApiRes(...) */ null;
+  final Message? instance = /* Message(...) */ null;
   // TODO add properties to the entity
 
-  group(ApiRes, () {
+  group(Message, () {
     // String message
     test('to test the property `message`', () async {
-      // TODO
-    });
-
-    // bool success
-    test('to test the property `success`', () async {
       // TODO
     });
   });

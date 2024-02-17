@@ -9,26 +9,25 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToCart**](CartApi.md#addtocart) | **POST** /cart/add | add product to user&#39;s cart
-[**getCartItems**](CartApi.md#getcartitems) | **GET** /cart/list | returns list of cart items
-[**removeAllItem**](CartApi.md#removeallitem) | **DELETE** /cart/removeAll | removes the specified cart item
-[**removeItem**](CartApi.md#removeitem) | **DELETE** /cart/remove/{id} | removes the specified cart item
+[**addToCart**](CartApi.md#addtocart) | **POST** /cart | add product to user cart
+[**getCartItems**](CartApi.md#getcartitems) | **GET** /cart | returns list of cart items
+[**removeItem**](CartApi.md#removeitem) | **DELETE** /cart | removes the specified cart item
 
 
 # **addToCart**
-> Cart addToCart(addCartReq)
+> Cart addToCart(addToCartRequest)
 
-add product to user's cart
+add product to user cart
 
 ### Example
 ```dart
 import 'package:api/api.dart';
 
 final api = Api().getCartApi();
-final AddCartReq addCartReq = ; // AddCartReq | 
+final AddToCartRequest addToCartRequest = ; // AddToCartRequest | 
 
 try {
-    final response = api.addToCart(addCartReq);
+    final response = api.addToCart(addToCartRequest);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling CartApi->addToCart: $e\n');
@@ -39,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addCartReq** | [**AddCartReq**](AddCartReq.md)|  | [optional] 
+ **addToCartRequest** | [**AddToCartRequest**](AddToCartRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -81,47 +80,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Cart&gt;**](Cart.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **removeAllItem**
-> ApiRes removeAllItem(ids)
-
-removes the specified cart item
-
-### Example
-```dart
-import 'package:api/api.dart';
-
-final api = Api().getCartApi();
-final List<int> ids = ; // List<int> | 
-
-try {
-    final response = api.removeAllItem(ids);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling CartApi->removeAllItem: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;int&gt;**](int.md)|  | [optional] 
-
-### Return type
-
-[**ApiRes**](ApiRes.md)
 
 ### Authorization
 

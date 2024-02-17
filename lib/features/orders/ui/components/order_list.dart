@@ -1,4 +1,4 @@
-import 'package:api/api.dart';
+import 'package:api/api.dart' hide OrderItem;
 import 'package:flutter/material.dart' hide State;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';

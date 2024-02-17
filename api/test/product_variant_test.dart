@@ -7,32 +7,38 @@ void main() {
   // TODO add properties to the entity
 
   group(ProductVariant, () {
-    // The ID of the product variant
     // int id
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // The ID of the product
-    // int productId
-    test('to test the property `productId`', () async {
-      // TODO
-    });
-
-    // The name of the product variant
     // String name
     test('to test the property `name`', () async {
       // TODO
     });
 
-    // The color of the product variant
     // String color
     test('to test the property `color`', () async {
       // TODO
     });
 
+    // num price
+    test('to test the property `price`', () async {
+      // TODO
+    });
+
     // List<ProductImage> images
     test('to test the property `images`', () async {
+      // TODO
+    });
+
+    // ProductImage thumbnail
+    test('to test the property `thumbnail`', () async {
+      // TODO
+    });
+
+    // Product product
+    test('to test the property `product`', () async {
       // TODO
     });
 

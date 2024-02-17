@@ -3,22 +3,65 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'user.freezed.dart';
 part 'user.g.dart';
 
-@freezed
-class User with _$User {
-// ignore: invalid_annotation_target
-  @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory User({
-    String? id,
-    String? name,
-    String? phone,
-    String? email,
-    String? password,
-  }) = _User;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class User {
+  /// Returns a new [User] instance.
+  User({
+    this.id,
+    this.name,
+    this.phone,
+    this.email,
+    this.password,
+  });
 
-  factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
+  @JsonKey(name: r'id', required: false, includeIfNull: false)
+  final String? id;
+
+  @JsonKey(name: r'name', required: false, includeIfNull: false)
+  final String? name;
+
+  @JsonKey(name: r'phone', required: false, includeIfNull: false)
+  final String? phone;
+
+  @JsonKey(name: r'email', required: false, includeIfNull: false)
+  final String? email;
+
+  @JsonKey(name: r'password', required: false, includeIfNull: false)
+  final String? password;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is User &&
+          other.id == id &&
+          other.name == name &&
+          other.phone == phone &&
+          other.email == email &&
+          other.password == password;
+
+  @override
+  int get hashCode =>
+      id.hashCode +
+      name.hashCode +
+      phone.hashCode +
+      email.hashCode +
+      password.hashCode;
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
 }

@@ -9,17 +9,17 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete**](AddressApi.md#delete) | **DELETE** /address/{id} | Get all user addresses
-[**getAddressList**](AddressApi.md#getaddresslist) | **GET** /address/all | Get all user addresses
-[**save**](AddressApi.md#save) | **POST** /address/save | save new address for the user and return new address object
-[**setDefaultAddress**](AddressApi.md#setdefaultaddress) | **PATCH** /address/default/{id} | Mark the address as default
-[**update**](AddressApi.md#update) | **PUT** /address/update | update the address with the new address
+[**delete**](AddressApi.md#delete) | **DELETE** /address | delete user address by id
+[**getAddresses**](AddressApi.md#getaddresses) | **GET** /address | Get all user addresses
+[**save**](AddressApi.md#save) | **POST** /address | save new address for the user and return new address object
+[**setDefaultAddress**](AddressApi.md#setdefaultaddress) | **PATCH** /address | Mark the address as default
+[**updateAddress**](AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
 
 
 # **delete**
-> ApiRes delete(id)
+> Message delete(id)
 
-Get all user addresses
+delete user address by id
 
 ### Example
 ```dart
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiRes**](ApiRes.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -57,8 +57,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getAddressList**
-> List<Address> getAddressList()
+# **getAddresses**
+> List<Address> getAddresses()
 
 Get all user addresses
 
@@ -69,10 +69,10 @@ import 'package:api/api.dart';
 final api = Api().getAddressApi();
 
 try {
-    final response = api.getAddressList();
+    final response = api.getAddresses();
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->getAddressList: $e\n');
+    print('Exception when calling AddressApi->getAddresses: $e\n');
 }
 ```
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setDefaultAddress**
-> ApiRes setDefaultAddress(id)
+> Address setDefaultAddress(id)
 
 Mark the address as default
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiRes**](ApiRes.md)
+[**Address**](Address.md)
 
 ### Authorization
 
@@ -176,8 +176,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update**
-> Address update(address)
+# **updateAddress**
+> Address updateAddress(address)
 
 update the address with the new address
 
@@ -189,10 +189,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.update(address);
+    final response = api.updateAddress(address);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->update: $e\n');
+    print('Exception when calling AddressApi->updateAddress: $e\n');
 }
 ```
 

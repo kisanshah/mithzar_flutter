@@ -7,28 +7,23 @@ void main() {
   // TODO add properties to the entity
 
   group(PaginationFilter, () {
-    // String search
-    test('to test the property `search`', () async {
-      // TODO
-    });
-
-    // String orderBy
-    test('to test the property `orderBy`', () async {
-      // TODO
-    });
-
-    // String order
-    test('to test the property `order`', () async {
-      // TODO
-    });
-
-    // int page
+    // num page (default value: 0)
     test('to test the property `page`', () async {
       // TODO
     });
 
-    // int size
+    // num size (default value: 10)
     test('to test the property `size`', () async {
+      // TODO
+    });
+
+    // String mode
+    test('to test the property `mode`', () async {
+      // TODO
+    });
+
+    // List<PaginationFilterFiltersInner> filters
+    test('to test the property `filters`', () async {
       // TODO
     });
   });

@@ -6,30 +6,30 @@ void main() {
   final instance = Api().getAddressApi();
 
   group(AddressApi, () {
-    // Get all user addresses
+    // delete user address by id
     //
-    //Future<ApiRes> addressIdDelete(int id) async
-    test('test addressIdDelete', () async {
+    //Future<Message> delete(int id) async
+    test('test delete', () async {
       // TODO
     });
 
     // Get all user addresses
     //
-    //Future<List<Address>> getAddressList() async
-    test('test getAddressList', () async {
+    //Future<List<Address>> getAddresses() async
+    test('test getAddresses', () async {
       // TODO
     });
 
     // save new address for the user and return new address object
     //
-    //Future<Address> saveAddress({ Address address }) async
-    test('test saveAddress', () async {
+    //Future<Address> save({ Address address }) async
+    test('test save', () async {
       // TODO
     });
 
     // Mark the address as default
     //
-    //Future<ApiRes> setDefaultAddress(int id) async
+    //Future<Address> setDefaultAddress(int id) async
     test('test setDefaultAddress', () async {
       // TODO
     });

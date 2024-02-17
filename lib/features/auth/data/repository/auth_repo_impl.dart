@@ -18,24 +18,24 @@ class AuthRepoImpl extends AuthRepo {
   final AuthApi source;
 
   @override
-  Future<(Tokens?, AppError?)> signIn(User user) async {
+  Future<(Token?, AppError?)> signIn(User user) async {
     return source.signIn(user: user).toRecord();
   }
 
   @override
-  Future<(Tokens?, AppError?)> generateAccessToken(String? refreshToken) {
+  Future<(Token?, AppError?)> generateAccessToken(String? refreshToken) {
     return source
-        .refreshToken(tokens: Tokens(refreshToken: refreshToken))
+        .refreshToken(token: Token(refreshToken: refreshToken))
         .toRecord();
   }
 
   @override
-  Future<(ApiRes?, AppError?)> sendOtp(User user) {
+  Future<(User?, AppError?)> sendOtp(User user) {
     return source.sendOtp(user: user).toRecord();
   }
 
   @override
-  Future<(Tokens?, AppError?)> verifyOtp(VerifyOtpReq body) {
-    return source.verifyOtp(verifyOtpReq: body).toRecord();
+  Future<(Token?, AppError?)> verifyOtp(VerifyOtpRequest body) {
+    return source.verifyOtp(verifyOtpRequest: body).toRecord();
   }
 }

@@ -21,7 +21,7 @@ class DioInstance with DioMixin implements Dio {
   }
 
   final Ref _ref;
-  final Tokens token;
+  final Token token;
 
   Future<void> _setUpInterceptor() async {
     interceptors.addAll([

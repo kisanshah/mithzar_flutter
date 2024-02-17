@@ -23,7 +23,8 @@ class ProductDetailBottomBar extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ElevatedButton(
               onPressed: () {
-                ref.read(cartItemNotifierProvider.notifier).add(product.id!);
+                // FIXME(Kisan): add skuid as param after statemanagement
+                // ref.read(cartItemNotifierProvider.notifier).add(product.id!);
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(

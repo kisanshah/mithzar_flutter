@@ -1,18 +1,18 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for VerifyOtpReq
+// tests for VerifyOtpRequest
 void main() {
-  final VerifyOtpReq? instance = /* VerifyOtpReq(...) */ null;
+  final VerifyOtpRequest? instance = /* VerifyOtpRequest(...) */ null;
   // TODO add properties to the entity
 
-  group(VerifyOtpReq, () {
+  group(VerifyOtpRequest, () {
     // num otp
     test('to test the property `otp`', () async {
       // TODO
     });
 
-    // String userId
+    // int userId
     test('to test the property `userId`', () async {
       // TODO
     });

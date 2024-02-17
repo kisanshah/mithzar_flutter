@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/extensions/datetime.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/core/extensions/product.dart';
-import 'package:mithzar/features/orders/ui/components/order_image.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
@@ -38,7 +37,7 @@ class OrderItem extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    order.products.nameAndCount(),
+                    order.items.nameAndCount(),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: GoogleFonts.poppins(
@@ -104,7 +103,7 @@ class OrderItem extends ConsumerWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Text('${order.products?.length ?? 0}'),
+                            Text('${order.items?.length ?? 0}'),
                           ],
                         ),
                       ),
@@ -114,9 +113,10 @@ class OrderItem extends ConsumerWidget {
               ),
             ),
           ),
-          Expanded(
-            child: OrderImage(products: order.products ?? []),
-          ),
+          // FIXME(Kisan): variant after statemanagement
+          // Expanded(
+          //   child: OrderImage(products: order.items ?? []),
+          // ),
         ],
       ),
     );

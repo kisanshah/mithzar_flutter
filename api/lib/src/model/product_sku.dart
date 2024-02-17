@@ -3,22 +3,51 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'product_sku.freezed.dart';
 part 'product_sku.g.dart';
 
-@freezed
-class ProductSku with _$ProductSku {
-// ignore: invalid_annotation_target
-  @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory ProductSku({
-    int? id,
-    String? size,
-    num? stock,
-    num? price,
-  }) = _ProductSku;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class ProductSku {
+  /// Returns a new [ProductSku] instance.
+  ProductSku({
+    this.id,
+    this.size,
+    this.stock,
+  });
 
-  factory ProductSku.fromJson(Map<String, Object?> json) =>
+  @JsonKey(name: r'id', required: false, includeIfNull: false)
+  final int? id;
+
+  @JsonKey(name: r'size', required: false, includeIfNull: false)
+  final String? size;
+
+  @JsonKey(name: r'stock', required: false, includeIfNull: false)
+  final int? stock;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductSku &&
+          other.id == id &&
+          other.size == size &&
+          other.stock == stock;
+
+  @override
+  int get hashCode => id.hashCode + size.hashCode + stock.hashCode;
+
+  factory ProductSku.fromJson(Map<String, dynamic> json) =>
       _$ProductSkuFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductSkuToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
 }

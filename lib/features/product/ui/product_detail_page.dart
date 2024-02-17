@@ -2,11 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
 import 'package:mithzar/features/product/ui/components/product_detail_bottom_bar.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
-import 'package:mithzar/features/shared/components/image_carousel.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
@@ -41,9 +39,10 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ImageCarousel(
-                urls: product.images?.map((e) => e.url ?? '') ?? [],
-              ),
+              // FIXME(Kisan): variant after statemanagement
+              // ImageCarousel(
+              //   urls: product.images?.map((e) => e.url ?? '') ?? [],
+              // ),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -61,13 +60,14 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                             ),
                           ),
                         ),
-                        Text(
-                          product.price.toRupee(),
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        // FIXME(Kisan): variant after statemanagement
+                        // Text(
+                        //   product.price.toRupee(),
+                        //   style: const TextStyle(
+                        //     fontSize: 20,
+                        //     fontWeight: FontWeight.bold,
+                        //   ),
+                        // ),
                       ],
                     ),
                     const Gap(10),

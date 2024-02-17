@@ -2,7 +2,6 @@ import 'package:api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mithzar/features/components/app_image.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 
 class OrderImage extends ConsumerWidget {
@@ -14,11 +13,12 @@ class OrderImage extends ConsumerWidget {
   final List<Product> products;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (products.length < 4) {
-      return AppImage(
-        url: products.first.thumbnail?.url ?? '',
-      );
-    }
+    // FIXME(Kisan): add variant state management
+    // if (products.length < 4) {
+    //   return AppImage(
+    //     url: products.first.thumbnail?.url ?? '',
+    //   );
+    // }
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -30,9 +30,10 @@ class OrderImage extends ConsumerWidget {
         return Stack(
           fit: StackFit.expand,
           children: [
-            AppImage(
-              url: products[index].thumbnail?.url ?? '',
-            ),
+            // FIXME(Kisan): add variant state management
+            // AppImage(
+            //   url: products[index].thumbnail?.url ?? '',
+            // ),
             if (index == 3)
               Container(
                 alignment: Alignment.center,

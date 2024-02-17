@@ -9,16 +9,16 @@ part 'profile_repo_impl.g.dart';
 
 @riverpod
 ProfileRepository profileRepo(ProfileRepoRef ref) {
-  return ProfileRepoImpl(ref.watch(apiClientProvider).getProfileApi());
+  return ProfileRepoImpl(ref.watch(apiClientProvider).getUserApi());
 }
 
 class ProfileRepoImpl implements ProfileRepository {
   ProfileRepoImpl(this.source);
 
-  final ProfileApi source;
+  final UserApi source;
 
   @override
   Future<(User?, AppError?)> getUser() {
-    return source.getUserByToken().toRecord();
+    return source.getUser().toRecord();
   }
 }

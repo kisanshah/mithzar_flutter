@@ -6,11 +6,11 @@ import 'package:mithzar/features/shared/components/bottomsheet_wrapper.dart';
 class HomeProductListFilter extends StatelessWidget {
   const HomeProductListFilter({
     super.key,
-    required this.filter,
+     this.filter,
     required this.result,
   });
 
-  final PaginationFilter filter;
+  final PaginationFilter? filter;
   final Function(PaginationFilter filter) result;
 
   @override
@@ -37,7 +37,7 @@ class HomeProductListFilter extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    result(const PaginationFilter());
+                    result(PaginationFilter());
                   },
                   child: const Text(
                     'Apply',

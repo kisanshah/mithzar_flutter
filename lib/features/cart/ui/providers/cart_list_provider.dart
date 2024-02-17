@@ -45,7 +45,9 @@ class CartListNotifier extends _$CartListNotifier {
         final items = [...?state.data];
         final index =
             items.indexWhere((element) => element.id == next.data?.id);
-        final elem = items[index].copyWith(quantity: next.data!.quantity);
+        // FIXME(Kisan): fix copyWith
+        final elem = items[index];
+        // .copyWith(quantity: next.data!.quantity);
 
         items.removeAt(index);
         if ((elem.quantity ?? 0) > 0) {

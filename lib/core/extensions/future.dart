@@ -38,19 +38,21 @@ extension RecordListExt<T> on (List<T>?, AppError?) {
     final (data, error) = this;
     if (data != null) {
       return PaginationResult(
-        items: [...?state.items, ...data],
-        more: data.length == state.filter.size,
-        filter: state.filter.copyWith(
-          page: (state.filter.page ?? 0) + 1,
-        ),
-      );
+          items: [...?state.items, ...data],
+          more: data.length == state.filter?.size,
+          // FIXME(Kisan): fix copyWith
+          filter: state.filter,
+          // filter: state.filter.copyWith(
+          //   page: (state.filter.page ?? 0) + 1,
+          // ),
+          );
     }
     if (error != null) {
       return PaginationError(message: '');
     }
     return PaginationResult(
       items: [...?state.items, ...?data],
-      more: data?.length == state.filter.size,
+      more: data?.length == state.filter?.size,
       filter: state.filter,
     );
   }

@@ -6,18 +6,18 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-// import 'package:api/src/deserialize.dart';
+import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/address.dart';
-import 'package:api/src/model/api_res.dart';
+import 'package:api/src/model/message.dart';
 
 class AddressApi {
   final Dio _dio;
 
   const AddressApi(this._dio);
 
-  /// Get all user addresses
+  /// delete user address by id
   ///
   ///
   /// Parameters:
@@ -29,9 +29,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
+  /// Returns a [Future] containing a [Response] with a [Message] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRes>> delete({
+  Future<Response<Message>> delete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -40,7 +40,7 @@ class AddressApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/address/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/address';
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -59,19 +59,26 @@ class AddressApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      r'id': id,
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApiRes? _responseData;
+    Message? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Message, Message>(rawData, 'Message', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -82,7 +89,7 @@ class AddressApi {
       );
     }
 
-    return Response<ApiRes>(
+    return Response<Message>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -107,7 +114,7 @@ class AddressApi {
   ///
   /// Returns a [Future] containing a [Response] with a [List<Address>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Address>>> getAddressList({
+  Future<Response<List<Address>>> getAddresses({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -115,7 +122,7 @@ class AddressApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/address/all';
+    final _path = r'/address';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -145,12 +152,11 @@ class AddressApi {
     List<Address>? _responseData;
 
     try {
-      final data = _response.data;
-      if (data is Iterable) {
-        _responseData = data
-            .map((e) => Address.fromJson(e as Map<String, Object?>))
-            .toList();
-      }
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<List<Address>, Address>(rawData, 'List<Address>',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -196,7 +202,7 @@ class AddressApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/address/save';
+    final _path = r'/address';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -244,8 +250,10 @@ class AddressApi {
     Address? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Address.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Address, Address>(rawData, 'Address', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -280,9 +288,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApiRes] as data
+  /// Returns a [Future] containing a [Response] with a [Address] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRes>> setDefaultAddress({
+  Future<Response<Address>> setDefaultAddress({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -291,8 +299,7 @@ class AddressApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path =
-        r'/address/default/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/address';
     final _options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -311,19 +318,26 @@ class AddressApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      r'id': id,
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApiRes? _responseData;
+    Address? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = ApiRes.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Address, Address>(rawData, 'Address', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -334,7 +348,7 @@ class AddressApi {
       );
     }
 
-    return Response<ApiRes>(
+    return Response<Address>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -360,7 +374,7 @@ class AddressApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Address>> update({
+  Future<Response<Address>> updateAddress({
     Address? address,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -369,7 +383,7 @@ class AddressApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/address/update';
+    final _path = r'/address';
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -417,8 +431,10 @@ class AddressApi {
     Address? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Address.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Address, Address>(rawData, 'Address', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

@@ -47,13 +47,8 @@ void main() {
       // TODO
     });
 
-    // bool default_
-    test('to test the property `default_`', () async {
-      // TODO
-    });
-
-    // int userId
-    test('to test the property `userId`', () async {
+    // bool primary
+    test('to test the property `primary`', () async {
       // TODO
     });
   });

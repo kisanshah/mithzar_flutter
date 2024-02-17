@@ -11,16 +11,16 @@ class TokenNotifier extends _$TokenNotifier {
   late SharPref prefs;
 
   @override
-  Tokens build() {
+  Token build() {
     prefs = ref.watch(sharPrefProvider);
-    return const Tokens();
+    return Token();
   }
 
   Future<void> init() async {
     state = await prefs.getToken() ?? state;
   }
 
-  void update(Tokens? tokens) {
+  void update(Token? tokens) {
     state = tokens ?? state;
   }
 
@@ -30,7 +30,8 @@ class TokenNotifier extends _$TokenNotifier {
         .read(authRepoProvider)
         .generateAccessToken(token?.refreshToken);
     return result.fold((l) => '', (res) async {
-      state = state.copyWith(accessToken: res.accessToken);
+      // FIXME(Kisan): fix copyWith
+      // state = state.copyWith(accessToken: res.accessToken);
       await prefs.saveToken(res);
       return res.accessToken;
     });

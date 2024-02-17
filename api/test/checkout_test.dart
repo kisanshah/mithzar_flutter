@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for CheckoutUrl
+// tests for Checkout
 void main() {
-  final CheckoutUrl? instance = /* CheckoutUrl(...) */ null;
+  final Checkout? instance = /* Checkout(...) */ null;
   // TODO add properties to the entity
 
-  group(CheckoutUrl, () {
+  group(Checkout, () {
     // String url
     test('to test the property `url`', () async {
       // TODO

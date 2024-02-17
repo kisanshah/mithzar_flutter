@@ -6,16 +6,28 @@ void main() {
   final instance = Api().getOrderApi();
 
   group(OrderApi, () {
-    // Returns a list of products.
+    // Returns a list of products
     //
-    //Future<CheckoutUrl> checkout() async
+    //Future<Checkout> checkout() async
     test('test checkout', () async {
       // TODO
     });
 
-    // Returns a list of orders.
+    //Future<MultipartFile> downloadInvoice(num id) async
+    test('test downloadInvoice', () async {
+      // TODO
+    });
+
+    // Get user order by id
     //
-    //Future<List<Order>> getOrderList() async
+    //Future<Order> getOrderById(num id) async
+    test('test getOrderById', () async {
+      // TODO
+    });
+
+    // Returns a list of orders
+    //
+    //Future<List<Order>> getOrderList(PaginationFilter filter, List<String> status) async
     test('test getOrderList', () async {
       // TODO
     });

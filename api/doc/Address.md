@@ -16,8 +16,7 @@ Name | Type | Description | Notes
 **country** | **String** |  | [optional] 
 **lat** | **num** |  | [optional] 
 **lng** | **num** |  | [optional] 
-**default_** | **bool** |  | [optional] 
-**userId** | **int** |  | [optional] 
+**primary** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,9 +6,9 @@ void main() {
   final instance = Api().getCartApi();
 
   group(CartApi, () {
-    // add product to user's cart
+    // add product to user cart
     //
-    //Future<Cart> addToCart({ AddCartReq addCartReq }) async
+    //Future<Cart> addToCart({ AddToCartRequest addToCartRequest }) async
     test('test addToCart', () async {
       // TODO
     });
@@ -17,13 +17,6 @@ void main() {
     //
     //Future<List<Cart>> getCartItems() async
     test('test getCartItems', () async {
-      // TODO
-    });
-
-    // removes the specified cart item
-    //
-    //Future<ApiRes> removeAllItem({ List<int> ids }) async
-    test('test removeAllItem', () async {
       // TODO
     });
 

@@ -11,7 +11,7 @@ class UserNotifier extends _$UserNotifier {
 
   @override
   User build() {
-    return const User();
+    return User();
   }
 
   Future<void> fetch() async {

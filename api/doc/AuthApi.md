@@ -11,12 +11,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [**sendOtp**](AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
-[**signIn**](AuthApi.md#signin) | **POST** /auth/signIn | Sign In
+[**signIn**](AuthApi.md#signin) | **POST** /auth/sign_in | Sign In
 [**verifyOtp**](AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 
 
 # **refreshToken**
-> Tokens refreshToken(tokens)
+> Token refreshToken(token)
 
 Generate new access token
 
@@ -25,10 +25,10 @@ Generate new access token
 import 'package:api/api.dart';
 
 final api = Api().getAuthApi();
-final Tokens tokens = ; // Tokens | User credentials
+final Token token = ; // Token | User credentials
 
 try {
-    final response = api.refreshToken(tokens);
+    final response = api.refreshToken(token);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AuthApi->refreshToken: $e\n');
@@ -39,11 +39,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tokens** | [**Tokens**](Tokens.md)| User credentials | 
+ **token** | [**Token**](Token.md)| User credentials | 
 
 ### Return type
 
-[**Tokens**](Tokens.md)
+[**Token**](Token.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendOtp**
-> ApiRes sendOtp(user)
+> User sendOtp(user)
 
 Register new user & send otp
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiRes**](ApiRes.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **signIn**
-> Tokens signIn(user)
+> Token signIn(user)
 
 Sign In
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tokens**](Tokens.md)
+[**Token**](Token.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verifyOtp**
-> Tokens verifyOtp(verifyOtpReq)
+> Token verifyOtp(verifyOtpRequest)
 
 Verify OTP
 
@@ -148,10 +148,10 @@ Verify OTP
 import 'package:api/api.dart';
 
 final api = Api().getAuthApi();
-final VerifyOtpReq verifyOtpReq = ; // VerifyOtpReq | 
+final VerifyOtpRequest verifyOtpRequest = ; // VerifyOtpRequest | 
 
 try {
-    final response = api.verifyOtp(verifyOtpReq);
+    final response = api.verifyOtp(verifyOtpRequest);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AuthApi->verifyOtp: $e\n');
@@ -162,11 +162,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **verifyOtpReq** | [**VerifyOtpReq**](VerifyOtpReq.md)|  | 
+ **verifyOtpRequest** | [**VerifyOtpRequest**](VerifyOtpRequest.md)|  | 
 
 ### Return type
 
-[**Tokens**](Tokens.md)
+[**Token**](Token.md)
 
 ### Authorization
 

@@ -13,12 +13,12 @@ class CartItemNotifier extends _$CartItemNotifier {
   @override
   State<Cart> build() {
     _repo = ref.watch(cartRepoProvider);
-    return ResultState(data: const Cart());
+    return ResultState(data: Cart());
   }
 
-  Future<void> add(int id) async {
+  Future<void> add(int variantId, int skuId) async {
     state = LoadingState();
-    final result = await _repo.add(id);
+    final result = await _repo.add(variantId, skuId);
     state = result.state();
   }
 

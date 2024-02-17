@@ -21,5 +21,15 @@ void main() {
     test('to test the property `product`', () async {
       // TODO
     });
+
+    // ProductVariant variant
+    test('to test the property `variant`', () async {
+      // TODO
+    });
+
+    // ProductSku sku
+    test('to test the property `sku`', () async {
+      // TODO
+    });
   });
 }

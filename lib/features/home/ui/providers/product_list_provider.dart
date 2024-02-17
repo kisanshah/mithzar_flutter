@@ -14,14 +14,12 @@ class ProductList extends _$ProductList {
   PaginationState<List<ProductVariant>> build() {
     _repo = ref.watch(productRepoProvider);
     return PaginationLoading(
-      filter: const PaginationFilter(
-        page: 0,
-        size: 10,
-      ),
+      filter: PaginationFilter(),
     );
   }
 
   Future<void> fetch() async {
+    // FIXME(Kisan): fix api call
     // final products = await _repo.getFilteredList(state.filter);
     // state = products.pagination(state);
   }
@@ -36,10 +34,12 @@ class ProductList extends _$ProductList {
 
   void applyFilter(PaginationFilter filter) {
     state = PaginationLoading(
-      filter: filter.copyWith(
-        page: 0,
-        size: 10,
-      ),
+      // FIXME(Kisan): fix copyWith
+      filter: filter,
+      // .copyWith(
+      //   page: 0,
+      //   size: 10,
+      // ),
     );
     fetch();
   }

@@ -9,16 +9,16 @@ All URIs are relative to *http://localhost:3000/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkout**](OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products.
-[**downloadInvoice**](OrderApi.md#downloadinvoice) | **GET** /order/invoice | 
+[**checkout**](OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products
+[**downloadInvoice**](OrderApi.md#downloadinvoice) | **GET** /order/{id}/invoice | 
 [**getOrderById**](OrderApi.md#getorderbyid) | **GET** /order/{id} | 
-[**getOrderList**](OrderApi.md#getorderlist) | **GET** /order/list | Returns a list of orders.
+[**getOrderList**](OrderApi.md#getorderlist) | **GET** /order | Returns a list of orders
 
 
 # **checkout**
-> CheckoutUrl checkout()
+> Checkout checkout()
 
-Returns a list of products.
+Returns a list of products
 
 ### Example
 ```dart
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CheckoutUrl**](CheckoutUrl.md)
+[**Checkout**](Checkout.md)
 
 ### Authorization
 
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **downloadInvoice**
-> Uint8List downloadInvoice()
+> MultipartFile downloadInvoice(id)
 
 
 
@@ -62,9 +62,10 @@ This endpoint does not need any parameter.
 import 'package:api/api.dart';
 
 final api = Api().getOrderApi();
+final num id = 8.14; // num | 
 
 try {
-    final response = api.downloadInvoice();
+    final response = api.downloadInvoice(id);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling OrderApi->downloadInvoice: $e\n');
@@ -72,11 +73,14 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **num**|  | 
 
 ### Return type
 
-[**Uint8List**](Uint8List.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -94,12 +98,14 @@ This endpoint does not need any parameter.
 
 
 
+Get user order by id
+
 ### Example
 ```dart
 import 'package:api/api.dart';
 
 final api = Api().getOrderApi();
-final String id = id_example; // String | 
+final num id = 8.14; // num | 
 
 try {
     final response = api.getOrderById(id);
@@ -113,7 +119,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **num**|  | 
 
 ### Return type
 
@@ -133,7 +139,7 @@ Name | Type | Description  | Notes
 # **getOrderList**
 > List<Order> getOrderList(filter, status)
 
-Returns a list of orders.
+Returns a list of orders
 
 ### Example
 ```dart

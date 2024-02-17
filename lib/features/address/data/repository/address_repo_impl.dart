@@ -19,7 +19,7 @@ class AddressRepoImpl extends AddressRepo {
 
   @override
   Future<(List<Address>?, AppError?)> getAddressList() {
-    return _source.getAddressList().toRecord();
+    return _source.getAddresses().toRecord();
   }
 
   @override
@@ -34,7 +34,7 @@ class AddressRepoImpl extends AddressRepo {
 
   @override
   Future<(Address?, AppError?)> updateAddress(Address address) {
-    return _source.update(address: address).toRecord();
+    return _source.updateAddress(address: address).toRecord();
   }
 
   @override

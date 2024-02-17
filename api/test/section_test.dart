@@ -17,13 +17,8 @@ void main() {
       // TODO
     });
 
-    // List<String> platform
-    test('to test the property `platform`', () async {
-      // TODO
-    });
-
-    // List<Product> products
-    test('to test the property `products`', () async {
+    // List<ProductVariant> variants
+    test('to test the property `variants`', () async {
       // TODO
     });
   });

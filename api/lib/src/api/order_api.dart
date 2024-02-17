@@ -3,22 +3,22 @@
 //
 
 import 'dart:async';
+
 // ignore: unused_import
 import 'dart:convert';
-import 'dart:typed_data';
+import 'package:api/src/deserialize.dart';
+import 'package:dio/dio.dart';
 
-import 'package:api/src/model/checkout_url.dart';
+import 'package:api/src/model/checkout.dart';
 import 'package:api/src/model/order.dart';
 import 'package:api/src/model/pagination_filter.dart';
-// import 'package:api/src/deserialize.dart';
-import 'package:dio/dio.dart';
 
 class OrderApi {
   final Dio _dio;
 
   const OrderApi(this._dio);
 
-  /// Returns a list of products.
+  /// Returns a list of products
   ///
   ///
   /// Parameters:
@@ -29,9 +29,9 @@ class OrderApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [CheckoutUrl] as data
+  /// Returns a [Future] containing a [Response] with a [Checkout] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CheckoutUrl>> checkout({
+  Future<Response<Checkout>> checkout({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -66,11 +66,14 @@ class OrderApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CheckoutUrl? _responseData;
+    Checkout? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = CheckoutUrl.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Checkout, Checkout>(rawData, 'Checkout',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -81,7 +84,7 @@ class OrderApi {
       );
     }
 
-    return Response<CheckoutUrl>(
+    return Response<Checkout>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -97,6 +100,7 @@ class OrderApi {
   ///
   ///
   /// Parameters:
+  /// * [id]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -104,9 +108,10 @@ class OrderApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Uint8List] as data
+  /// Returns a [Future] containing a [Response] with a [MultipartFile] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Uint8List>> downloadInvoice({
+  Future<Response<MultipartFile>> downloadInvoice({
+    required num id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -114,7 +119,8 @@ class OrderApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/order/invoice';
+    final _path =
+        r'/order/{id}/invoice'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -142,11 +148,14 @@ class OrderApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List? _responseData;
+    MultipartFile? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = data as Uint8List;
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<MultipartFile, MultipartFile>(rawData, 'MultipartFile',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -157,7 +166,7 @@ class OrderApi {
       );
     }
 
-    return Response<Uint8List>(
+    return Response<MultipartFile>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -170,7 +179,7 @@ class OrderApi {
   }
 
   /// getOrderById
-  ///
+  /// Get user order by id
   ///
   /// Parameters:
   /// * [id]
@@ -184,7 +193,7 @@ class OrderApi {
   /// Returns a [Future] containing a [Response] with a [Order] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<Order>> getOrderById({
-    required String id,
+    required num id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -222,8 +231,10 @@ class OrderApi {
     Order? _responseData;
 
     try {
-      final data = _response.data;
-      _responseData = Order.fromJson(data as Map<String, Object?>);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<Order, Order>(rawData, 'Order', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -246,7 +257,7 @@ class OrderApi {
     );
   }
 
-  /// Returns a list of orders.
+  /// Returns a list of orders
   ///
   ///
   /// Parameters:
@@ -271,7 +282,7 @@ class OrderApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/order/list';
+    final _path = r'/order';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -291,7 +302,7 @@ class OrderApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'filter': jsonEncode(filter.toJson()),
+      r'filter': filter,
       r'status': status,
     };
 
@@ -307,11 +318,11 @@ class OrderApi {
     List<Order>? _responseData;
 
     try {
-      final data = _response.data;
-      if (data is Iterable) {
-        _responseData =
-            data.map((e) => Order.fromJson(e as Map<String, Object?>)).toList();
-      }
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<List<Order>, Order>(rawData, 'List<Order>',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

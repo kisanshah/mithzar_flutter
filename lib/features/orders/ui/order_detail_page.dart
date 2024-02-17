@@ -19,7 +19,7 @@ class OrderDetailPage extends ConsumerStatefulWidget {
     super.key,
     required this.id,
   });
-  final String id;
+  final int id;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -75,9 +75,9 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
             const Gap(15),
             ...{
               'Placed': order.createdAt.format(),
-              'Products': '${order.products?.length}',
+              'Products': '${order.items?.length}',
               'Quantity':
-                  '${order.products?.fold(0, (value, Product elem) => value + (elem.quantity?.toInt() ?? 0))}',
+                  '${order.items?.fold(0, (value, OrderItem elem) => value + (elem.quantity ?? 0))}',
               'Total': order.total.toRupee(),
             }.entries.map(
                   (e) => OrderDetailItem(item: e),
@@ -95,7 +95,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
               height: 220,
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: order.products?.length,
+                itemCount: order.items?.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
@@ -103,7 +103,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                     width: 175,
                     height: 250,
                     child: const ProductItem(
-                        // product: order.products?[index],
+                        // product: order.items?[index],
                         ),
                   );
                 },
