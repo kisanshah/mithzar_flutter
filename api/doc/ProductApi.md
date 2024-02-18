@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getProductById**](ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail
 [**getVariantById**](ProductApi.md#getvariantbyid) | **GET** /product/variant/{id} | Get variant detail
+[**getVariants**](ProductApi.md#getvariants) | **POST** /product/variant | Get variant list paginated
 
 
 # **getProductById**
@@ -91,6 +92,47 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getVariants**
+> List<ProductVariant> getVariants(paginationFilter)
+
+Get variant list paginated
+
+### Example
+```dart
+import 'package:api/api.dart';
+
+final api = Api().getProductApi();
+final PaginationFilter paginationFilter = ; // PaginationFilter | 
+
+try {
+    final response = api.getVariants(paginationFilter);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling ProductApi->getVariants: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paginationFilter** | [**PaginationFilter**](PaginationFilter.md)|  | 
+
+### Return type
+
+[**List&lt;ProductVariant&gt;**](ProductVariant.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

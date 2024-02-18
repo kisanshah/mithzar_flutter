@@ -20,4 +20,13 @@ class ProductRepoImpl implements ProductRepo {
   Future<(Product?, AppError?)> getProductById(int id) {
     return source.getProductById(id: id).toRecord<Product>();
   }
+
+  @override
+  Future<(List<ProductVariant>?, AppError?)> getVariants(
+    PaginationFilter? filter,
+  ) {
+    return source
+        .getVariants(paginationFilter: filter ?? PaginationFilter())
+        .toRecord();
+  }
 }

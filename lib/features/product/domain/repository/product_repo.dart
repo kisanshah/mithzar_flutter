@@ -3,4 +3,5 @@ import 'package:mithzar/data/helper/app_error.dart';
 
 abstract class ProductRepo {
   Future<(Product?, AppError?)> getProductById(int id);
+  Future<(List<ProductVariant>?, AppError?)> getVariants(PaginationFilter? filter);
 }

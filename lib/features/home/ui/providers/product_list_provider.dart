@@ -1,4 +1,5 @@
 import 'package:api/api.dart';
+import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/features/product/data/repository/product_repo_impl.dart';
 import 'package:mithzar/features/product/domain/repository/product_repo.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
@@ -19,9 +20,8 @@ class ProductList extends _$ProductList {
   }
 
   Future<void> fetch() async {
-    // FIXME(Kisan): fix api call
-    // final products = await _repo.getFilteredList(state.filter);
-    // state = products.pagination(state);
+    final products = await _repo.getVariants(state.filter);
+    state = products.pagination(state);
   }
 
   void next(int index) {

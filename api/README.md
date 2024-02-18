@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 [*OrderApi*](doc/OrderApi.md) | [**getOrderList**](doc/OrderApi.md#getorderlist) | **GET** /order | Returns a list of orders
 [*ProductApi*](doc/ProductApi.md) | [**getProductById**](doc/ProductApi.md#getproductbyid) | **GET** /product/{id} | Get product detail
 [*ProductApi*](doc/ProductApi.md) | [**getVariantById**](doc/ProductApi.md#getvariantbyid) | **GET** /product/variant/{id} | Get variant detail
+[*ProductApi*](doc/ProductApi.md) | [**getVariants**](doc/ProductApi.md#getvariants) | **POST** /product/variant | Get variant list paginated
 [*SectionApi*](doc/SectionApi.md) | [**getSections**](doc/SectionApi.md#getsections) | **GET** /section | Get section based on the device
 [*UserApi*](doc/UserApi.md) | [**getUser**](doc/UserApi.md#getuser) | **GET** /user | Get user based on the token
 [*UserApi*](doc/UserApi.md) | [**updateUser**](doc/UserApi.md#updateuser) | **PUT** /user | Update user
