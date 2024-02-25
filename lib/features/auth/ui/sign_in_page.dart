@@ -19,7 +19,7 @@ class SignInPage extends ConsumerStatefulWidget {
 
 class _SignInPageState extends ConsumerState<SignInPage> {
   final emailCtrl =
-      TextEditingController(text: 'shahkisan21@gmail.com'.ifDebug);
+      TextEditingController(text: 'test@yopmail.com'.ifDebug);
   final passwordCtrl = TextEditingController(text: 'Hello@1234'.ifDebug);
 
   @override

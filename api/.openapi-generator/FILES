@@ -9,6 +9,7 @@ doc/AuthApi.md
 doc/Cart.md
 doc/CartApi.md
 doc/Checkout.md
+doc/ErrorResponse.md
 doc/Message.md
 doc/Order.md
 doc/OrderApi.md
@@ -45,6 +46,7 @@ lib/src/model/add_to_cart_request.dart
 lib/src/model/address.dart
 lib/src/model/cart.dart
 lib/src/model/checkout.dart
+lib/src/model/error_response.dart
 lib/src/model/message.dart
 lib/src/model/order.dart
 lib/src/model/order_item.dart

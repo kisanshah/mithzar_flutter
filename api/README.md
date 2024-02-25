@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
  - [Address](doc/Address.md)
  - [Cart](doc/Cart.md)
  - [Checkout](doc/Checkout.md)
+ - [ErrorResponse](doc/ErrorResponse.md)
  - [Message](doc/Message.md)
  - [Order](doc/Order.md)
  - [OrderItem](doc/OrderItem.md)
