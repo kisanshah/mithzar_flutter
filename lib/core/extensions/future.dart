@@ -20,8 +20,8 @@ extension FutureExtension on Future {
       var error =
           AppError(type: ErrorType.other, message: 'Something went wrong!');
       if (e is DioException) {
-        if (e.error is TypeError) {
-          error = AppError(type: ErrorType.other, message: e.error.toString());
+        if (e.error is AppError) {
+          error = e.error! as AppError;
         }
       }
       return (null, error);
