@@ -10,7 +10,7 @@ class HomePromoImage extends ConsumerWidget {
     return const SliverToBoxAdapter(
       child: AppImage(
         url:
-            'https://img.freepik.com/premium-psd/horizontal-website-banne_451189-109.jpg',
+            'https://www.shutterstock.com/image-photo/indian-design-gold-bangles-decorative-600nw-2175114437.jpg',
       ),
     );
   }

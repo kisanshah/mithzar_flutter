@@ -36,15 +36,16 @@ class ProductItem extends ConsumerWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: 150,
-              child: ClipRRect(
-                child: AppImage(
-                  url: '${variant?.thumbnail?.url}',
-                  width: double.infinity,
+            if (variant?.images?.first.url != null)
+              SizedBox(
+                height: 150,
+                child: ClipRRect(
+                  child: AppImage(
+                    url: '${variant?.images?.first.url}',
+                    width: double.infinity,
+                  ),
                 ),
               ),
-            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(10),
