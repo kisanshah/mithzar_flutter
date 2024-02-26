@@ -17,8 +17,8 @@ class ProductRepoImpl implements ProductRepo {
 
   final ProductApi source;
   @override
-  Future<(Product?, AppError?)> getProductById(int id) {
-    return source.getProductById(id: id).toRecord<Product>();
+  Future<Product> getProductById(int id) {
+    return source.getProductById(id: id).guard();
   }
 
   @override
@@ -28,5 +28,10 @@ class ProductRepoImpl implements ProductRepo {
     return source
         .getVariants(paginationFilter: filter ?? PaginationFilter())
         .toRecord();
+  }
+
+  @override
+  Future<ProductVariant> getVariantByid(int id) async {
+    return source.getVariantById(id: id).guard();
   }
 }

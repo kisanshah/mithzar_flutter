@@ -26,7 +26,7 @@ class ProductItem extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         onClick?.call();
-        router.push(ProductDetailRoute(id: variant!.id!));
+        router.push(ProductDetailRoute(id: variant!.product!.id!));
       },
       child: Container(
         decoration: BoxDecoration(

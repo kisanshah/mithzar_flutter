@@ -1,24 +1,38 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/features/product/data/repository/product_repo_impl.dart';
-import 'package:mithzar/features/product/domain/repository/product_repo.dart';
-import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'product_detail_provider.g.dart';
 
 @riverpod
-class ProductDetailNotifier extends _$ProductDetailNotifier {
-  late ProductRepo _repo;
+Future<Product> product(ProductRef ref, int id) {
+  return ref.watch(productRepoProvider).getProductById(id);
+}
 
+@Riverpod(keepAlive: true)
+class VarinatId extends _$VarinatId {
   @override
-  State<Product> build(int id) {
-    _repo = ref.watch(productRepoProvider);
-    return LoadingState();
+  int? build() {
+    return null;
   }
 
-  Future<void> fetch() async {
-    final result = await _repo.getProductById(id);
-    state = result.state();
+  void update(int? id) {
+    state = id;
   }
+}
+
+@riverpod
+Future<ProductVariant> variant(VariantRef ref, int id) {
+  return ref.watch(productRepoProvider).getVariantByid(id);
+}
+
+@Riverpod()
+Future<({Product product, ProductVariant variant})> productDetail(
+  ProductDetailRef ref,
+  int productId,
+) async {
+  final product = await ref.watch(productProvider(productId).future);
+  final variantId = ref.watch(varinatIdProvider) ?? product.variants!.first.id!;
+  final variant = await ref.watch(variantProvider(variantId).future);
+  return (product: product, variant: variant);
 }
