@@ -18,8 +18,8 @@ class CartItemNotifier extends _$CartItemNotifier {
 
   Future<void> add(int variantId, int skuId) async {
     state = LoadingState();
-    final result = await _repo.add(variantId, skuId);
-    state = result.state();
+    // final result = await _repo.add(variantId, skuId);
+    // state = result.state();
   }
 
   Future<void> remove(int id) async {
@@ -27,4 +27,9 @@ class CartItemNotifier extends _$CartItemNotifier {
     final result = await _repo.remove(id);
     state = result.state();
   }
+}
+
+@riverpod
+FutureOr<Cart> addToCart(AddToCartRef ref, int variantId, int skuId) async {
+  return ref.read(cartRepoProvider).add(variantId, skuId);
 }

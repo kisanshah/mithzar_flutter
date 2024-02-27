@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/core/extensions/string.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
 import 'package:mithzar/features/shared/components/image_carousel.dart';
@@ -37,9 +38,6 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
       final product = result.product;
       final variant = result.variant;
       return Scaffold(
-        // bottomNavigationBar: ProductDetailBottomBar(
-        //   product: product,
-        // ),
         appBar: const CustomAppBar(title: ''),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -61,7 +59,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                           child: Text(
                             product.name ?? '',
                             style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -69,17 +67,17 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                         Text(
                           variant.price.toRupee(),
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
-                    const Gap(10),
+                    const Gap(5),
                     Text(
                       product.description ?? '',
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
                       ),
@@ -88,8 +86,8 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                     Text(
                       'Color',
                       style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
                       ),
                     ),
                     const Gap(10),
@@ -103,8 +101,8 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                                     .read(varinatIdProvider.notifier)
                                     .update(ele.id),
                                 child: Container(
-                                  height: 30,
-                                  width: 30,
+                                  height: 25,
+                                  width: 25,
                                   padding:
                                       selected ? const EdgeInsets.all(3) : null,
                                   decoration: BoxDecoration(
@@ -140,11 +138,11 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                     Text(
                       'Select Size',
                       style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
                       ),
                     ),
-                    const Gap(10),
+                    const Gap(5),
                     Wrap(
                       children:
                           List.generate(variant.skus?.length ?? 0, (index) {
@@ -168,19 +166,83 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                     Text(
                       'Features',
                       style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
                       ),
                     ),
                     const Gap(10),
-                    Text(product.features?.join() ?? 'Instructions'),
-                    // ListView.builder(
-                    //   itemCount: product.instructions?.length,
-                    //   itemBuilder: (context, index) {
-                    //     return Text(product.instructions![index]);
-                    //   },
-                    //   shrinkWrap: true,
-                    // ),
+                    GridView.builder(
+                      padding: EdgeInsets.zero,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 1 / .4,
+                      ),
+                      itemCount: product.features?.length,
+                      itemBuilder: (context, index) {
+                        final feat = product.features![index];
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              feat.key!,
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                              ),
+                            ),
+                            Text(
+                              feat.value!,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                 fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    Text(
+                      'Instructions',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Gap(10),
+                    ...List.generate(
+                      product.instructions?.length ?? 0,
+                      (index) {
+                        final instruction = product.instructions![index];
+                        return Text(
+                          '\u2022 $instruction',
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                          ),
+                        );
+                      },
+                    ),
+                    const Gap(30),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(55),
+                      ),
+                      onPressed: () {
+                        ref.read(
+                          addToCartProvider(
+                            variant.id!,
+                            variant.skus!.first.id!,
+                          ),
+                        );
+                      },
+                      child: const Text('Add To Cart'),
+                    ),
+                    const Gap(20),
                   ],
                 ),
               ),
