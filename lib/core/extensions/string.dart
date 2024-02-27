@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 extension ValidationExtensions on String? {
   bool get isEmail {
     final pattern = RegExp(
@@ -21,4 +23,12 @@ extension ValidationExtensions on String? {
 
   bool get isNullOrEmpty => this == null || this!.isEmpty;
   bool get isNotNullOrEmpty => !isNullOrEmpty;
+
+  Color? hexToColor() {
+    if (this == null) {
+      return null;
+    }
+    return Color(
+        int.parse(this!, radix: 16) + 0xFF000000,);
+  }
 }
