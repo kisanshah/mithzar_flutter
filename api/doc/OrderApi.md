@@ -23,16 +23,13 @@ Returns a list of products
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 
 try {
     final response = api.checkout();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->checkout: $e\n');
 }
 ```
@@ -63,9 +60,6 @@ This endpoint does not need any parameter.
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 final num id = 8.14; // num | 
@@ -73,7 +67,7 @@ final num id = 8.14; // num |
 try {
     final response = api.downloadInvoice(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->downloadInvoice: $e\n');
 }
 ```
@@ -109,9 +103,6 @@ Get user order by id
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 final num id = 8.14; // num | 
@@ -119,7 +110,7 @@ final num id = 8.14; // num |
 try {
     final response = api.getOrderById(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->getOrderById: $e\n');
 }
 ```
@@ -153,9 +144,6 @@ Returns a list of orders
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getOrderApi();
 final PaginationFilter filter = ; // PaginationFilter | 
@@ -164,7 +152,7 @@ final List<String> status = ; // List<String> |
 try {
     final response = api.getOrderList(filter, status);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling OrderApi->getOrderList: $e\n');
 }
 ```

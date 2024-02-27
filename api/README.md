@@ -54,7 +54,7 @@ final int id = 56; // int | Numeric ID of the address to delete
 try {
     final response = await api.delete(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print("Exception when calling AddressApi->delete: $e\n");
 }
 
@@ -119,7 +119,7 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### bearerAuth
 
-- **Type**: HTTP basic authentication
+- **Type**: HTTP Bearer Token authentication (JWT)
 
 
 ## Author

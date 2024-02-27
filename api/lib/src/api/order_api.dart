@@ -30,7 +30,7 @@ class OrderApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Checkout] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Checkout>> checkout({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -75,10 +75,10 @@ class OrderApi {
           : deserialize<Checkout, Checkout>(rawData, 'Checkout',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -109,7 +109,7 @@ class OrderApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MultipartFile] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<MultipartFile>> downloadInvoice({
     required num id,
     CancelToken? cancelToken,
@@ -157,10 +157,10 @@ class OrderApi {
           : deserialize<MultipartFile, MultipartFile>(rawData, 'MultipartFile',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -191,7 +191,7 @@ class OrderApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Order] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<Order>> getOrderById({
     required num id,
     CancelToken? cancelToken,
@@ -236,10 +236,10 @@ class OrderApi {
           ? null
           : deserialize<Order, Order>(rawData, 'Order', growable: true);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -271,7 +271,7 @@ class OrderApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [List<Order>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<List<Order>>> getOrderList({
     required PaginationFilter filter,
     required List<String> status,
@@ -324,10 +324,10 @@ class OrderApi {
           : deserialize<List<Order>, Order>(rawData, 'List<Order>',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

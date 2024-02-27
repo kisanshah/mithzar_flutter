@@ -19,5 +19,12 @@ void main() {
     test('test getVariantById', () async {
       // TODO
     });
+
+    // Get variant list paginated
+    //
+    //Future<List<ProductVariant>> getVariants(PaginationFilter paginationFilter) async
+    test('test getVariants', () async {
+      // TODO
+    });
   });
 }

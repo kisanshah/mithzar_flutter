@@ -24,9 +24,6 @@ delete user address by id
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getAddressApi();
 final int id = 56; // int | Numeric ID of the address to delete
@@ -34,7 +31,7 @@ final int id = 56; // int | Numeric ID of the address to delete
 try {
     final response = api.delete(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AddressApi->delete: $e\n');
 }
 ```
@@ -68,16 +65,13 @@ Get all user addresses
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getAddressApi();
 
 try {
     final response = api.getAddresses();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AddressApi->getAddresses: $e\n');
 }
 ```
@@ -108,9 +102,6 @@ save new address for the user and return new address object
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getAddressApi();
 final Address address = ; // Address | 
@@ -118,7 +109,7 @@ final Address address = ; // Address |
 try {
     final response = api.save(address);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AddressApi->save: $e\n');
 }
 ```
@@ -152,9 +143,6 @@ Mark the address as default
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getAddressApi();
 final int id = 56; // int | Numeric ID of the address to set default
@@ -162,7 +150,7 @@ final int id = 56; // int | Numeric ID of the address to set default
 try {
     final response = api.setDefaultAddress(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AddressApi->setDefaultAddress: $e\n');
 }
 ```
@@ -196,9 +184,6 @@ update the address with the new address
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getAddressApi();
 final Address address = ; // Address | 
@@ -206,7 +191,7 @@ final Address address = ; // Address |
 try {
     final response = api.updateAddress(address);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AddressApi->updateAddress: $e\n');
 }
 ```

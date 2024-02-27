@@ -21,16 +21,13 @@ Get user based on the token
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getUserApi();
 
 try {
     final response = api.getUser();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUser: $e\n');
 }
 ```
@@ -61,9 +58,6 @@ Update user
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getUserApi();
 final User user = ; // User | 
@@ -71,7 +65,7 @@ final User user = ; // User |
 try {
     final response = api.updateUser(user);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUser: $e\n');
 }
 ```

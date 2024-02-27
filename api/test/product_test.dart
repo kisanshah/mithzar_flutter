@@ -22,6 +22,16 @@ void main() {
       // TODO
     });
 
+    // List<String> instructions
+    test('to test the property `instructions`', () async {
+      // TODO
+    });
+
+    // List<ProductFeature> features
+    test('to test the property `features`', () async {
+      // TODO
+    });
+
     // List<ProductVariant> variants
     test('to test the property `variants`', () async {
       // TODO

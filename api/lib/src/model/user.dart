@@ -24,7 +24,7 @@ class User {
   });
 
   @JsonKey(name: r'id', required: false, includeIfNull: false)
-  final String? id;
+  final num? id;
 
   @JsonKey(name: r'name', required: false, includeIfNull: false)
   final String? name;

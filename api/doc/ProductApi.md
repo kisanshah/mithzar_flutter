@@ -22,9 +22,6 @@ Get product detail
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getProductApi();
 final int id = 56; // int | 
@@ -32,7 +29,7 @@ final int id = 56; // int |
 try {
     final response = api.getProductById(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ProductApi->getProductById: $e\n');
 }
 ```
@@ -66,9 +63,6 @@ Get variant detail
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getProductApi();
 final int id = 56; // int | 
@@ -76,7 +70,7 @@ final int id = 56; // int |
 try {
     final response = api.getVariantById(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ProductApi->getVariantById: $e\n');
 }
 ```
@@ -110,9 +104,6 @@ Get variant list paginated
 ### Example
 ```dart
 import 'package:api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getProductApi();
 final PaginationFilter paginationFilter = ; // PaginationFilter | 
@@ -120,7 +111,7 @@ final PaginationFilter paginationFilter = ; // PaginationFilter |
 try {
     final response = api.getVariants(paginationFilter);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ProductApi->getVariants: $e\n');
 }
 ```

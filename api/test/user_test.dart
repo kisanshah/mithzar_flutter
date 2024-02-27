@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the entity
 
   group(User, () {
-    // String id
+    // num id
     test('to test the property `id`', () async {
       // TODO
     });
