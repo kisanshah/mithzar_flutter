@@ -31,7 +31,7 @@ class ProductApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Product] as data
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<Product>> getProductById({
     required int id,
     CancelToken? cancelToken,
@@ -76,10 +76,10 @@ class ProductApi {
           ? null
           : deserialize<Product, Product>(rawData, 'Product', growable: true);
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -110,7 +110,7 @@ class ProductApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ProductVariant] as data
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<ProductVariant>> getVariantById({
     required int id,
     CancelToken? cancelToken,
@@ -158,10 +158,10 @@ class ProductApi {
               rawData, 'ProductVariant',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -192,7 +192,7 @@ class ProductApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [List<ProductVariant>] as data
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<List<ProductVariant>>> getVariants({
     required PaginationFilter paginationFilter,
     CancelToken? cancelToken,
@@ -227,12 +227,12 @@ class ProductApi {
     try {
       _bodyData = jsonEncode(paginationFilter);
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -257,10 +257,10 @@ class ProductApi {
               rawData, 'List<ProductVariant>',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

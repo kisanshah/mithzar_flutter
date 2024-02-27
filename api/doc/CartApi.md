@@ -22,6 +22,9 @@ add product to user cart
 ### Example
 ```dart
 import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 final AddToCartRequest addToCartRequest = ; // AddToCartRequest | 
@@ -29,7 +32,7 @@ final AddToCartRequest addToCartRequest = ; // AddToCartRequest |
 try {
     final response = api.addToCart(addToCartRequest);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling CartApi->addToCart: $e\n');
 }
 ```
@@ -63,13 +66,16 @@ returns list of cart items
 ### Example
 ```dart
 import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 
 try {
     final response = api.getCartItems();
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling CartApi->getCartItems: $e\n');
 }
 ```
@@ -100,6 +106,9 @@ removes the specified cart item
 ### Example
 ```dart
 import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getCartApi();
 final num id = 8.14; // num | 
@@ -107,7 +116,7 @@ final num id = 8.14; // num |
 try {
     final response = api.removeItem(id);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling CartApi->removeItem: $e\n');
 }
 ```

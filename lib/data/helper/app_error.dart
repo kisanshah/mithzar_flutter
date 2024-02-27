@@ -12,4 +12,9 @@ class AppError implements Exception {
   final ErrorType type;
   final String message;
   final StackTrace? trace;
+
+  @override
+  String toString() {
+    return 'AppError (type: $type, message: $message, trace = $trace)'; 
+  }
 }

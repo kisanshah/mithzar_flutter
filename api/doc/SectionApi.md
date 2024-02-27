@@ -20,13 +20,16 @@ Get section based on the device
 ### Example
 ```dart
 import 'package:api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = Api().getSectionApi();
 
 try {
     final response = api.getSections();
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling SectionApi->getSections: $e\n');
 }
 ```

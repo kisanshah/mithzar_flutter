@@ -54,7 +54,7 @@ final int id = 56; // int | Numeric ID of the address to delete
 try {
     final response = await api.delete(id);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print("Exception when calling AddressApi->delete: $e\n");
 }
 
@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
  - [PaginationFilter](doc/PaginationFilter.md)
  - [PaginationFilterFiltersInner](doc/PaginationFilterFiltersInner.md)
  - [Product](doc/Product.md)
+ - [ProductFeature](doc/ProductFeature.md)
  - [ProductImage](doc/ProductImage.md)
  - [ProductSku](doc/ProductSku.md)
  - [ProductVariant](doc/ProductVariant.md)
@@ -118,7 +119,7 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### bearerAuth
 
-- **Type**: HTTP Bearer Token authentication (JWT)
+- **Type**: HTTP basic authentication
 
 
 ## Author

@@ -18,6 +18,7 @@ doc/PaginationFilter.md
 doc/PaginationFilterFiltersInner.md
 doc/Product.md
 doc/ProductApi.md
+doc/ProductFeature.md
 doc/ProductImage.md
 doc/ProductSku.md
 doc/ProductVariant.md
@@ -53,6 +54,7 @@ lib/src/model/order_item.dart
 lib/src/model/pagination_filter.dart
 lib/src/model/pagination_filter_filters_inner.dart
 lib/src/model/product.dart
+lib/src/model/product_feature.dart
 lib/src/model/product_image.dart
 lib/src/model/product_sku.dart
 lib/src/model/product_variant.dart

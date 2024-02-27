@@ -28,7 +28,7 @@ class SectionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [List<Section>] as data
-  /// Throws [DioException] if API call or serialization fails
+  /// Throws [DioError] if API call or serialization fails
   Future<Response<List<Section>>> getSections({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -73,10 +73,10 @@ class SectionApi {
           : deserialize<List<Section>, Section>(rawData, 'List<Section>',
               growable: true);
     } catch (error, stackTrace) {
-      throw DioException(
+      throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioExceptionType.unknown,
+        type: DioErrorType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

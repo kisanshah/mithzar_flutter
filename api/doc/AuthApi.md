@@ -30,7 +30,7 @@ final Token token = ; // Token | User credentials
 try {
     final response = api.refreshToken(token);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling AuthApi->refreshToken: $e\n');
 }
 ```
@@ -71,7 +71,7 @@ final User user = ; // User |
 try {
     final response = api.sendOtp(user);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling AuthApi->sendOtp: $e\n');
 }
 ```
@@ -112,7 +112,7 @@ final User user = ; // User | User credentials
 try {
     final response = api.signIn(user);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling AuthApi->signIn: $e\n');
 }
 ```
@@ -153,7 +153,7 @@ final VerifyOtpRequest verifyOtpRequest = ; // VerifyOtpRequest |
 try {
     final response = api.verifyOtp(verifyOtpRequest);
     print(response);
-} catch on DioException (e) {
+} catch on DioError (e) {
     print('Exception when calling AuthApi->verifyOtp: $e\n');
 }
 ```

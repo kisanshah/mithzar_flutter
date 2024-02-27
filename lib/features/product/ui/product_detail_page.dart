@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
+import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
@@ -65,16 +66,16 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                             ),
                           ),
                         ),
-                        // FIXME(Kisan): variant after statemanagement
-                        // Text(
-                        //   product.price.toRupee(),
-                        //   style: const TextStyle(
-                        //     fontSize: 20,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
+                        Text(
+                          variant.price.toRupee(),
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ],
                     ),
+                    const Gap(10),
                     Text(
                       product.description ?? '',
                       style: const TextStyle(
@@ -163,6 +164,23 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                         );
                       }),
                     ),
+                    const Gap(20),
+                    Text(
+                      'Features',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const Gap(10),
+                    Text(product.features?.join() ?? 'Instructions'),
+                    // ListView.builder(
+                    //   itemCount: product.instructions?.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Text(product.instructions![index]);
+                    //   },
+                    //   shrinkWrap: true,
+                    // ),
                   ],
                 ),
               ),

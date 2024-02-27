@@ -9,6 +9,7 @@ import 'package:api/src/model/order_item.dart';
 import 'package:api/src/model/pagination_filter.dart';
 import 'package:api/src/model/pagination_filter_filters_inner.dart';
 import 'package:api/src/model/product.dart';
+import 'package:api/src/model/product_feature.dart';
 import 'package:api/src/model/product_image.dart';
 import 'package:api/src/model/product_sku.dart';
 import 'package:api/src/model/product_variant.dart';
@@ -62,6 +63,9 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
           value as Map<String, dynamic>) as ReturnType;
     case 'Product':
       return Product.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'ProductFeature':
+      return ProductFeature.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'ProductImage':
       return ProductImage.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'ProductSku':
