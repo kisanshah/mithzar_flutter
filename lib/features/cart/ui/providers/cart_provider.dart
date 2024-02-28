@@ -30,6 +30,15 @@ class CartItemNotifier extends _$CartItemNotifier {
 }
 
 @riverpod
-FutureOr<Cart> addToCart(AddToCartRef ref, int variantId, int skuId) async {
-  return ref.read(cartRepoProvider).add(variantId, skuId);
+class AddToCart extends _$AddToCart {
+  @override
+  FutureOr<void> build() {
+    return null;
+  }
+
+  Future<void> add(int variantId, int skuId) async {
+    state = await AsyncValue.guard(() {
+      return ref.read(cartRepoProvider).add(variantId, skuId);
+    });
+  }
 }

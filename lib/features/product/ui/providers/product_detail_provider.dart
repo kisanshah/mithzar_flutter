@@ -21,6 +21,18 @@ class VarinatId extends _$VarinatId {
   }
 }
 
+@Riverpod(keepAlive: true)
+class SkuId extends _$SkuId {
+  @override
+  int? build() {
+    return null;
+  }
+
+  void update(int? id) {
+    state = id;
+  }
+}
+
 @riverpod
 Future<ProductVariant> variant(VariantRef ref, int id) {
   return ref.watch(productRepoProvider).getVariantByid(id);
