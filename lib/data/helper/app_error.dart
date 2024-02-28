@@ -15,6 +15,6 @@ class AppError implements Exception {
 
   @override
   String toString() {
-    return 'AppError (type: $type, message: $message, trace = $trace)'; 
+    return 'AppError (type: $type, message: $message, trace = $trace)';
   }
 }

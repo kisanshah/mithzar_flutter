@@ -29,6 +29,7 @@ extension ValidationExtensions on String? {
       return null;
     }
     return Color(
-        int.parse(this!, radix: 16) + 0xFF000000,);
+      int.parse(this!, radix: 16) + 0xFF000000,
+    );
   }
 }

@@ -6,7 +6,7 @@ sealed class PaginationState<T extends List> {
   PaginationState({
     this.items,
     this.more = false,
-    this.filter ,
+    this.filter,
   });
   final T? items;
   final bool more;

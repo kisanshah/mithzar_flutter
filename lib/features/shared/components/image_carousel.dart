@@ -19,7 +19,7 @@ class ImageCarousel extends ConsumerWidget {
       height: boxheight,
       child: PageView.builder(
         padEnds: false,
-        physics:  const ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         itemCount: urls.length,
         itemBuilder: (context, index) {
           return AppImage(

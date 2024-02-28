@@ -6,7 +6,7 @@ import 'package:mithzar/features/shared/components/bottomsheet_wrapper.dart';
 class HomeProductListFilter extends StatelessWidget {
   const HomeProductListFilter({
     super.key,
-     this.filter,
+    this.filter,
     required this.result,
   });
 

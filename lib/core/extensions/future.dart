@@ -31,7 +31,7 @@ extension FutureExtension on Future {
   Future<T> guard<T>() async {
     try {
       final res = await this;
-      
+
       if (res is Response<BuiltList>) {
         return res.data?.asList() as T;
       }
