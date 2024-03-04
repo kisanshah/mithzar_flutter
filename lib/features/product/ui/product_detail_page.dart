@@ -80,6 +80,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
             SliverHorizontalPadded(
               child: ProductInstruction(product: product),
             ),
+            const SliverGap(20),
           ],
         ),
       );

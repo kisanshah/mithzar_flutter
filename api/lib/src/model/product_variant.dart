@@ -45,7 +45,7 @@ class ProductVariant {
   final List<ProductImage>? images;
 
   @JsonKey(name: r'thumbnail', required: false, includeIfNull: false)
-  final ProductImage? thumbnail;
+  final String? thumbnail;
 
   @JsonKey(name: r'product', required: false, includeIfNull: false)
   final Product? product;

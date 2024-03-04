@@ -36,12 +36,12 @@ class ProductItem extends ConsumerWidget {
         ),
         child: Column(
           children: [
-            if (variant?.images?.first.url != null)
+            if (variant?.thumbnail != null)
               SizedBox(
                 height: 150,
                 child: ClipRRect(
                   child: AppImage(
-                    url: '${variant?.images?.first.url}',
+                    url: '${variant?.thumbnail}',
                     width: double.infinity,
                   ),
                 ),

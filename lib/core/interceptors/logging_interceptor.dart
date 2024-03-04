@@ -40,10 +40,10 @@ class LoggingInterceptor implements InterceptorsWrapper {
     ErrorInterceptorHandler handler,
   ) async {
     'x------------------------------'.logError();
+    'Error : ${err.requestOptions.uri.path}'.logError();
     'Error : ${err.message}'.logError();
     'Response : ${err.response?.statusCode} - ${err.response?.statusMessage} \n${err.response?.data}'
         .logError();
-
     await Future.delayed(const Duration(milliseconds: 20));
     '------------------------------x'.logError();
     handler.next(err);

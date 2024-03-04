@@ -61,9 +61,9 @@ class CartItem extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if (item.variant?.thumbnail?.url != null)
+                  if (item.variant?.thumbnail != null)
                     AppImage(
-                      url: item.variant?.thumbnail?.url ?? '',
+                      url: item.variant?.thumbnail ?? '',
                     ),
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),

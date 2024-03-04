@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **color** | **String** |  | [optional] 
 **price** | **num** |  | [optional] 
 **images** | [**List&lt;ProductImage&gt;**](ProductImage.md) |  | [optional] 
-**thumbnail** | [**ProductImage**](ProductImage.md) |  | [optional] 
+**thumbnail** | **String** |  | [optional] 
 **product** | [**Product**](Product.md) |  | [optional] 
 **skus** | [**List&lt;ProductSku&gt;**](ProductSku.md) |  | [optional] 
 
