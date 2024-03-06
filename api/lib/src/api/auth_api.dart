@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
+import 'package:api/src/model/message.dart';
 import 'package:api/src/model/token.dart';
 import 'package:api/src/model/user.dart';
 import 'package:api/src/model/verify_otp_request.dart';
@@ -109,7 +110,7 @@ class AuthApi {
     );
   }
 
-  /// Register new user &amp; send otp
+  /// Send otp to new user
   ///
   ///
   /// Parameters:
@@ -121,9 +122,9 @@ class AuthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [User] as data
+  /// Returns a [Future] containing a [Response] with a [Message] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<User>> sendOtp({
+  Future<Response<Message>> sendOtp({
     required User user,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -171,13 +172,13 @@ class AuthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    User? _responseData;
+    Message? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<User, User>(rawData, 'User', growable: true);
+          : deserialize<Message, Message>(rawData, 'Message', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -188,7 +189,7 @@ class AuthApi {
       );
     }
 
-    return Response<User>(
+    return Response<Message>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

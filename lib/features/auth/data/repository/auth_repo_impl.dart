@@ -1,7 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/core/instances/api_client_provider.dart';
-import 'package:mithzar/data/helper/app_error.dart';
 import 'package:mithzar/features/auth/domain/repository/auth_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -18,24 +17,24 @@ class AuthRepoImpl extends AuthRepo {
   final AuthApi source;
 
   @override
-  Future<(Token?, AppError?)> signIn(User user) async {
-    return source.signIn(user: user).toRecord();
+  Future<Token> signIn(User user) async {
+    return source.signIn(user: user).guard();
   }
 
   @override
-  Future<(Token?, AppError?)> generateAccessToken(String? refreshToken) {
+  Future<Token> generateAccessToken(String? refreshToken) {
     return source
         .refreshToken(token: Token(refreshToken: refreshToken))
-        .toRecord();
+        .guard();
   }
 
   @override
-  Future<(User?, AppError?)> sendOtp(User user) {
-    return source.sendOtp(user: user).toRecord();
+  Future<Message> sendOtp(User user) {
+    return source.sendOtp(user: user).guard();
   }
 
   @override
-  Future<(Token?, AppError?)> verifyOtp(VerifyOtpRequest body) {
-    return source.verifyOtp(verifyOtpRequest: body).toRecord();
+  Future<Token> verifyOtp(VerifyOtpRequest body) {
+    return source.verifyOtp(verifyOtpRequest: body).guard();
   }
 }

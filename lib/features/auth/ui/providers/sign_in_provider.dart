@@ -1,5 +1,4 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/data/helper/app_error.dart';
 import 'package:mithzar/data/local/shar_pref.dart';
@@ -23,7 +22,7 @@ class SignInNotifier extends _$SignInNotifier {
       password: password,
     );
     final result = await ref.read(authRepoProvider).signIn(body);
-    result.fold(onError, onResult);
+    // result.fold(onError, onResult);
   }
 
   void onResult(Token token) {

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class OtpBox extends StatelessWidget {
-  const OtpBox({super.key, required this.node});
+  const OtpBox({super.key, required this.node, required this.controller});
 
   final FocusNode node;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class OtpBox extends StatelessWidget {
           }
         },
         child: TextFormField(
+          controller: controller,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           textInputAction: TextInputAction.next,
           textAlign: TextAlign.center,

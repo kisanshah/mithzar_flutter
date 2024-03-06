@@ -7,7 +7,5 @@ class SignUpState with _$SignUpState {
   factory SignUpState({
     @Default(false) bool otpSent,
     @Default(false) bool otpVerified,
-    @Default(false) bool loading,
-    @Default('') String error,
   }) = _RegisterState;
 }

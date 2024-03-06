@@ -42,7 +42,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
             const Text("Don't have an account yet?"),
             const Gap(5),
             GestureDetector(
-              onTap: () => router.push(const SignUpRoute()),
+              onTap: () => router.push(SignUpRoute()),
               child: const Text(
                 'Sign Up',
                 style: TextStyle(

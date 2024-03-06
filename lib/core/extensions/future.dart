@@ -13,6 +13,9 @@ extension FutureExtension on Future {
         return (res.data?.asList() as T, null);
       }
       if (res is Response<T>) {
+        if(res.data is! T){
+          throw AppError(type: ErrorType.parsing, message: 'Invalid Casting');
+        }
         return (res.data as T, null);
       }
       return (res as T, null);

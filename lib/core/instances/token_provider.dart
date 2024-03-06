@@ -1,5 +1,4 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/data/local/shar_pref.dart';
 import 'package:mithzar/features/auth/data/repository/auth_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -29,11 +28,6 @@ class TokenNotifier extends _$TokenNotifier {
     final result = await ref
         .read(authRepoProvider)
         .generateAccessToken(token?.refreshToken);
-    return result.fold((l) => '', (res) async {
-      // FIXME(Kisan): fix copyWith
-      // state = state.copyWith(accessToken: res.accessToken);
-      await prefs.saveToken(res);
-      return res.accessToken;
-    });
+    return result.accessToken;
   }
 }

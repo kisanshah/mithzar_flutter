@@ -25,7 +25,7 @@ class AlgolioEvent extends _$AlgolioEvent {
       applicationID: const String.fromEnvironment('alogliaApplicationID'),
       apiKey: const String.fromEnvironment('alogliaApiKey'),
     );
-    insights.userToken = ref.watch(userNotifierProvider).id.toString() ?? '';
+    insights.userToken = ref.watch(userNotifierProvider).id.toString();
     insights.logError();
     return switch (type) {
       AlgolioEventType.view => insights.viewedObjects(

@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost:3000/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
-[**sendOtp**](AuthApi.md#sendotp) | **POST** /auth/send_otp | Register new user &amp; send otp
+[**sendOtp**](AuthApi.md#sendotp) | **POST** /auth/send_otp | Send otp to new user
 [**signIn**](AuthApi.md#signin) | **POST** /auth/sign_in | Sign In
 [**verifyOtp**](AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 
@@ -57,9 +57,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendOtp**
-> User sendOtp(user)
+> Message sendOtp(user)
 
-Register new user & send otp
+Send otp to new user
 
 ### Example
 ```dart
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**Message**](Message.md)
 
 ### Authorization
 

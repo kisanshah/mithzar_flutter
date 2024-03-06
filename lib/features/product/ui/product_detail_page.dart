@@ -47,7 +47,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(productDetailProvider(widget.id));
-    return state.unfold((result) {
+    return state.unfoldInitial((result) {
       final product = result.product;
       final variant = result.variant;
       return Scaffold(
