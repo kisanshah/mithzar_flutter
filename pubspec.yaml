@@ -12,7 +12,7 @@ dependencies:
   # UI
   cupertino_icons: ^1.0.6
   flutter_gen: ^5.3.2
-  flutter_svg: 2.0.9
+  flutter_svg: 2.0.10+1
   gap: 3.0.1
   google_fonts: ^6.1.0
   sliver_tools: ^0.2.12

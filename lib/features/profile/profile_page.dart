@@ -44,7 +44,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 ),
               ),
               ListTile(
-                onTap: () => router.push(const AddressListRoute()),
+                onTap: () => router.push(const AddressRoute()),
                 minLeadingWidth: 0,
                 title: const Text(
                   'Address',

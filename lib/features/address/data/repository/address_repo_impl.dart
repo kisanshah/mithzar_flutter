@@ -18,8 +18,8 @@ class AddressRepoImpl extends AddressRepo {
   final AddressApi _source;
 
   @override
-  Future<(List<Address>?, AppError?)> getAddressList() {
-    return _source.getAddresses().toRecord();
+  Future<List<Address>> getAddressList() {
+    return _source.getAddresses().guard();
   }
 
   @override

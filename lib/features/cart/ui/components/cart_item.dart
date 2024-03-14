@@ -26,11 +26,12 @@ class CartItem extends ConsumerWidget {
             Expanded(
               flex: 8,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Gap(10),
                   Text(
-                    item.variant?.name ?? '',
+                    '${item.product?.name ?? ''} - ${item.variant?.name ?? ''}, ${item.sku?.size ?? ''}',
                     style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
@@ -92,15 +93,14 @@ class CartItem extends ConsumerWidget {
                             fontSize: 14,
                           ),
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
+                        OutlinedButton(
+                          style: OutlinedButton.styleFrom(
                             padding: EdgeInsets.zero,
                             minimumSize: const Size(25, 25),
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
                           onPressed: () {
-                            // FIXME(Kisan): add skuid as param after statemanagement
-                            // notifier.add(item.variant!.id!, item.variant!.id!);
+                            notifier.add(item.variant!.id!, item.sku!.id!);
                           },
                           child: const Text(
                             '+',
