@@ -2,6 +2,7 @@ import 'package:api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/log.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
 import 'package:mithzar/features/components/app_image.dart';
@@ -16,6 +17,7 @@ class CartItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.read(cartItemNotifierProvider.notifier);
+    item.logError();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: IntrinsicHeight(

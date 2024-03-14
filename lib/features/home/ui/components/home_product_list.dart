@@ -4,7 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/components/app_loader.dart';
 import 'package:mithzar/features/home/ui/components/home_product_list_filter.dart';
-import 'package:mithzar/features/home/ui/providers/product_list_provider.dart';
+import 'package:mithzar/features/home/ui/providers/variant_list_provider.dart';
+import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/gen/assets.gen.dart';
@@ -15,10 +16,10 @@ class HomeProductList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(productListProvider);
-    final notifier = ref.read(productListProvider.notifier);
+    final state = ref.watch(variantListProvider);
+    final notifier = ref.read(variantListProvider.notifier);
     return state.unfoldSliver(
-      (products) => MultiSliver(
+      (variants) => MultiSliver(
         children: [
           SliverAppBar(
             pinned: true,
@@ -56,11 +57,10 @@ class HomeProductList extends ConsumerWidget {
           SliverPadding(
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.builder(
-              itemCount: products.length,
+              itemCount: variants.length,
               itemBuilder: (context, index) {
                 notifier.next(index);
-                return null;
-                // return ProductItem(product: products[index]);
+                return VariantItem(variant: variants[index]);
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

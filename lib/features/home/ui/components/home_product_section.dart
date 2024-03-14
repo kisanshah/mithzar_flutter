@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/providers/section_provider.dart';
-import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -38,7 +38,7 @@ class HomeProductSection extends ConsumerWidget {
                     margin: const EdgeInsets.only(right: 10),
                     width: 175,
                     height: 250,
-                    child: ProductItem(
+                    child: VariantItem(
                       variant: section.variants![index],
                     ),
                   ),

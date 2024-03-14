@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
 import 'package:mithzar/features/search/ui/providers/search_provider.dart';
-import 'package:mithzar/features/shared/components/product_item.dart';
+import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
@@ -118,7 +118,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                   padding: const EdgeInsets.all(20),
                   sliver: SliverGrid.builder(
                     itemBuilder: (context, index) {
-                      return ProductItem(
+                      return VariantItem(
                         // product: products[index],
                         onClick: () {
                           algolia.emit(

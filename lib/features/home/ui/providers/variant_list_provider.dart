@@ -5,10 +5,10 @@ import 'package:mithzar/features/product/domain/repository/product_repo.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'product_list_provider.g.dart';
+part 'variant_list_provider.g.dart';
 
 @Riverpod(dependencies: [productRepo], keepAlive: true)
-class ProductList extends _$ProductList {
+class VariantList extends _$VariantList {
   late ProductRepo _repo;
 
   @override

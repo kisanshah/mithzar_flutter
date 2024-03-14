@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mithzar/features/cart/ui/components/cart_item.dart';
 import 'package:mithzar/features/cart/ui/providers/cart_list_provider.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
+import 'package:mithzar/features/shared/providers/user_provider.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 
 @RoutePage()
@@ -26,6 +27,7 @@ class _CartPageState extends ConsumerState<CartPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(cartListNotifierProvider);
+    final user = ref.watch(userNotifierProvider);
     final notifier = ref.watch(cartListNotifierProvider.notifier);
     return Scaffold(
       appBar: const CustomAppBar(

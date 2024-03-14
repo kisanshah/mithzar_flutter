@@ -1,5 +1,5 @@
-import 'package:mithzar/features/home/ui/providers/product_list_provider.dart';
 import 'package:mithzar/features/home/ui/providers/section_provider.dart';
+import 'package:mithzar/features/home/ui/providers/variant_list_provider.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -15,7 +15,7 @@ class HomeNotifier extends _$HomeNotifier {
   Future<void> fetch() async {
     await Future.wait([
       ref.read(sectionNotifierProvider.notifier).fetch(),
-      ref.read(productListProvider.notifier).fetch(),
+      ref.read(variantListProvider.notifier).fetch(),
     ]);
     state = ResultState();
   }

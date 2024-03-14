@@ -22,6 +22,7 @@ class SignInNotifier extends _$SignInNotifier {
       password: password,
     );
     final result = await ref.read(authRepoProvider).signIn(body);
+    onResult(result);
     // result.fold(onError, onResult);
   }
 

@@ -7,8 +7,8 @@ import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 
-class ProductItem extends ConsumerWidget {
-  const ProductItem({
+class VariantItem extends ConsumerWidget {
+  const VariantItem({
     super.key,
     this.variant,
     this.onClick,

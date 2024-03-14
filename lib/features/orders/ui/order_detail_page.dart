@@ -8,7 +8,6 @@ import 'package:mithzar/core/extensions/datetime.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
 import 'package:mithzar/features/orders/ui/providers/order_detail_provider.dart';
-import 'package:mithzar/features/shared/components/product_item.dart';
 import 'package:mithzar/features/shared/providers/user_provider.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
@@ -102,9 +101,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                     margin: const EdgeInsets.only(right: 10),
                     width: 175,
                     height: 250,
-                    child: const ProductItem(
-                        // product: order.items?[index],
-                        ),
+                    //TODO(Kisan): Add variant
                   );
                 },
               ),
