@@ -24,7 +24,7 @@ class Checkout {
   final String? url;
 
   @JsonKey(name: r'orderId', required: false, includeIfNull: false)
-  final String? orderId;
+  final num? orderId;
 
   @override
   bool operator ==(Object other) =>

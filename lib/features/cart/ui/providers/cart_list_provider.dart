@@ -32,11 +32,9 @@ class CartListNotifier extends _$CartListNotifier {
 
   Future<void> checkout() async {
     final result = await orderRepo.checkout();
-    result.fold((l) => null, (res) {
-      if (res.url != null) {
-        ref.read(routerProvider).push(PaymentRoute(url: res.url!));
-      }
-    });
+    if (result.url != null) {
+      ref.read(routerProvider).push(PaymentRoute(url: result.url!));
+    }
   }
 
   void observe() {

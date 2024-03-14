@@ -33,8 +33,8 @@ class OrderRepoImpl implements OrderRepository {
   }
 
   @override
-  Future<(Checkout?, AppError?)> checkout() async {
-    return _source.checkout().toRecord<Checkout>();
+  Future<Checkout> checkout() async {
+    return _source.checkout().guard();
   }
 
   @override

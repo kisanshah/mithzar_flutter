@@ -10,7 +10,7 @@ abstract class OrderRepository {
   });
 
   Future<(Order?, AppError?)> getOrderById(int id);
-  Future<(Checkout?, AppError?)> checkout();
+  Future<Checkout> checkout();
 
   Future<(Uint8List?, AppError?)> downloadInvoice(int id);
 }

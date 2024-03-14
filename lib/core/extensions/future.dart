@@ -1,6 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
+import 'package:mithzar/core/extensions/log.dart';
 import 'package:mithzar/data/helper/app_error.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
@@ -13,7 +14,7 @@ extension FutureExtension on Future {
         return (res.data?.asList() as T, null);
       }
       if (res is Response<T>) {
-        if(res.data is! T){
+        if (res.data is! T) {
           throw AppError(type: ErrorType.parsing, message: 'Invalid Casting');
         }
         return (res.data as T, null);
@@ -43,6 +44,7 @@ extension FutureExtension on Future {
       }
       return res as T;
     } on Exception catch (e) {
+      e.logError();
       var error =
           AppError(type: ErrorType.other, message: 'Something went wrong!');
       if (e is DioException) {
