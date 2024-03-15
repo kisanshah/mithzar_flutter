@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 [*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/sign_in | Sign In
 [*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart | add product to user cart
+[*CartApi*](doc/CartApi.md) | [**amountBreakdown**](doc/CartApi.md#amountbreakdown) | **GET** /cart/amount_breakdown | returns amount breakdown of cart
 [*CartApi*](doc/CartApi.md) | [**getCartItems**](doc/CartApi.md#getcartitems) | **GET** /cart | returns list of cart items
 [*CartApi*](doc/CartApi.md) | [**removeItem**](doc/CartApi.md#removeitem) | **DELETE** /cart | removes the specified cart item
 [*OrderApi*](doc/OrderApi.md) | [**checkout**](doc/OrderApi.md#checkout) | **GET** /order/checkout | Returns a list of products
@@ -95,6 +96,7 @@ Class | Method | HTTP request | Description
  - [AddToCartRequest](doc/AddToCartRequest.md)
  - [Address](doc/Address.md)
  - [Cart](doc/Cart.md)
+ - [CartAmountBreakdown](doc/CartAmountBreakdown.md)
  - [Checkout](doc/Checkout.md)
  - [ErrorResponse](doc/ErrorResponse.md)
  - [Message](doc/Message.md)

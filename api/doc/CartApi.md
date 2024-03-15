@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost:3000/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addToCart**](CartApi.md#addtocart) | **POST** /cart | add product to user cart
+[**amountBreakdown**](CartApi.md#amountbreakdown) | **GET** /cart/amount_breakdown | returns amount breakdown of cart
 [**getCartItems**](CartApi.md#getcartitems) | **GET** /cart | returns list of cart items
 [**removeItem**](CartApi.md#removeitem) | **DELETE** /cart | removes the specified cart item
 
@@ -51,6 +52,43 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **amountBreakdown**
+> CartAmountBreakdown amountBreakdown()
+
+returns amount breakdown of cart
+
+### Example
+```dart
+import 'package:api/api.dart';
+
+final api = Api().getCartApi();
+
+try {
+    final response = api.amountBreakdown();
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling CartApi->amountBreakdown: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CartAmountBreakdown**](CartAmountBreakdown.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

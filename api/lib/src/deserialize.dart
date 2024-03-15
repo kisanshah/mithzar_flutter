@@ -1,6 +1,7 @@
 import 'package:api/src/model/add_to_cart_request.dart';
 import 'package:api/src/model/address.dart';
 import 'package:api/src/model/cart.dart';
+import 'package:api/src/model/cart_amount_breakdown.dart';
 import 'package:api/src/model/checkout.dart';
 import 'package:api/src/model/error_response.dart';
 import 'package:api/src/model/message.dart';
@@ -44,6 +45,9 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
       return Address.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'Cart':
       return Cart.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'CartAmountBreakdown':
+      return CartAmountBreakdown.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'Checkout':
       return Checkout.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'ErrorResponse':

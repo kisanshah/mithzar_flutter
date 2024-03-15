@@ -7,6 +7,7 @@ doc/Address.md
 doc/AddressApi.md
 doc/AuthApi.md
 doc/Cart.md
+doc/CartAmountBreakdown.md
 doc/CartApi.md
 doc/Checkout.md
 doc/ErrorResponse.md
@@ -46,6 +47,7 @@ lib/src/deserialize.dart
 lib/src/model/add_to_cart_request.dart
 lib/src/model/address.dart
 lib/src/model/cart.dart
+lib/src/model/cart_amount_breakdown.dart
 lib/src/model/checkout.dart
 lib/src/model/error_response.dart
 lib/src/model/message.dart
@@ -63,3 +65,4 @@ lib/src/model/token.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_request.dart
 pubspec.yaml
+test/cart_amount_breakdown_test.dart

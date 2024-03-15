@@ -18,6 +18,7 @@ export 'package:api/src/api/user_api.dart';
 export 'package:api/src/model/add_to_cart_request.dart';
 export 'package:api/src/model/address.dart';
 export 'package:api/src/model/cart.dart';
+export 'package:api/src/model/cart_amount_breakdown.dart';
 export 'package:api/src/model/checkout.dart';
 export 'package:api/src/model/error_response.dart';
 export 'package:api/src/model/message.dart';
