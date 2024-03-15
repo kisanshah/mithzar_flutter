@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
 import 'package:mithzar/data/helper/app_error.dart';
-import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_list_provider.dart';
 import 'package:mithzar/features/components/custom_app_bar.dart';
 import 'package:mithzar/features/product/ui/components/product_color.dart';
 import 'package:mithzar/features/product/ui/components/product_feature.dart';
@@ -31,7 +31,7 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      ref.listenManual(addToCartProvider, (previous, next) {
+      ref.listenManual(cartListProvider, (previous, next) {
         if (next.hasError) {
           final error = switch (next.error) {
             AppError(:final String message) => message,

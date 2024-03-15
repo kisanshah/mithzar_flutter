@@ -1,33 +1,49 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/features/cart/data/repository/cart_repo_impl.dart';
 import 'package:mithzar/features/cart/domain/repository/cart_repository.dart';
-import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
-import 'package:mithzar/features/orders/data/repository/order_repo_impl.dart';
 import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
-import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_list_provider.g.dart';
 
 @riverpod
-class CartListNotifier extends _$CartListNotifier {
+class CartList extends _$CartList {
   late CartRepository repo;
   late OrderRepository orderRepo;
 
   @override
-  State<List<Cart>> build() {
+  Future<List<Cart>> build() {
     repo = ref.watch(cartRepoProvider);
-    orderRepo = ref.watch(orderRepoProvider);
-    observe();
-    return LoadingState();
+    return repo.getCartItems();
   }
 
-  Future<void> fetch() async {
-    final result = await repo.getCartItems();
-    state = result.state();
+  Future<void> add(int variantId, int skuId) async {
+    final item = await repo.add(variantId, skuId);
+    _update(item);
+  }
+
+  Future<void> remove(int id) async {
+    final item = await repo.remove(id);
+    _update(item);
+  }
+
+  void _update(Cart item) {
+    if (!state.hasValue) {
+      return;
+    }
+    final items = state.value ?? [];
+    final modified = items.indexWhere(
+      (element) =>
+          element.variant?.id == item.variant?.id &&
+          element.sku?.id == item.sku?.id,
+    );
+    if (modified == -1) {
+      return;
+    }
+    items[modified] = item;
+    state = AsyncData(items);
   }
 
   Future<void> checkout() async {
@@ -35,26 +51,5 @@ class CartListNotifier extends _$CartListNotifier {
     if (result.url != null) {
       ref.read(routerProvider).push(PaymentRoute(url: result.url!));
     }
-  }
-
-  void observe() {
-    ref.listen(cartItemNotifierProvider, (previous, next) {
-      if (next is ResultState && next.data != null) {
-        final items = [...?state.data];
-        final index =
-            items.indexWhere((element) => element.id == next.data?.id);
-        // FIXME(Kisan): fix copyWith
-        final elem = items[index];
-        // .copyWith(quantity: next.data!.quantity);
-
-        items.removeAt(index);
-        if ((elem.quantity ?? 0) > 0) {
-          items.insert(index, elem);
-        }
-        state = ResultState(
-          data: items,
-        );
-      }
-    });
   }
 }

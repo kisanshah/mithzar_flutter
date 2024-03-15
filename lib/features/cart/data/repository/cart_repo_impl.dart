@@ -1,7 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/core/instances/api_client_provider.dart';
-import 'package:mithzar/data/helper/app_error.dart';
 import 'package:mithzar/features/cart/domain/repository/cart_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -28,12 +27,12 @@ class CartRepoImpl implements CartRepository {
   }
 
   @override
-  Future<(List<Cart>?, AppError?)> getCartItems() {
-    return _source.getCartItems().toRecord();
+  Future<List<Cart>> getCartItems() {
+    return _source.getCartItems().guard();
   }
 
   @override
-  Future<(Cart?, AppError?)> remove(int id) {
-    return _source.removeItem(id: id).toRecord();
+  Future<Cart> remove(int id) {
+    return _source.removeItem(id: id).guard();
   }
 }

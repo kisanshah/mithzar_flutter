@@ -2,7 +2,7 @@ import 'package:api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
+import 'package:mithzar/features/cart/ui/providers/cart_list_provider.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
 
 class ProductNavBar extends ConsumerWidget {
@@ -29,7 +29,7 @@ class ProductNavBar extends ConsumerWidget {
                   minimumSize: const Size.fromHeight(45),
                 ),
                 onPressed: () {
-                  ref.read(addToCartProvider.notifier).add(variant.id!, skuId!);
+                  ref.read(cartListProvider.notifier).add(variant.id!, skuId!);
                 },
                 child: const Text('Add To Cart'),
               ),

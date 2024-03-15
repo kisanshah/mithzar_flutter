@@ -5,7 +5,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
-import 'package:mithzar/core/extensions/log.dart';
 import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/features/auth/ui/components/otp_box.dart';
 import 'package:mithzar/features/auth/ui/providers/signup_provider.dart';
@@ -178,7 +177,6 @@ class SignUpPage extends HookConsumerWidget {
                     final notifier =
                         ref.watch(signUpNotifierProvider.notifier);
                     final state = ref.watch(signUpNotifierProvider);
-                    state.logError();
                     return state.unfold((result) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
