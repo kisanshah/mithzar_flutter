@@ -26,9 +26,9 @@ class _MainPageState extends ConsumerState<MainPage> {
           child: Container(),
         ),
         routes: const [
+          OrderRoute(),
           HomeRoute(),
           SearchRoute(),
-          OrderRoute(),
           ProfileRoute(),
         ],
         bottomNavigationBuilder: (_, tabsRouter) {

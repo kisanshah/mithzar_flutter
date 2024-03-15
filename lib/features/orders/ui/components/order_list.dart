@@ -4,25 +4,23 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/orders/ui/components/order_item.dart';
-import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class OrderList extends ConsumerWidget {
   const OrderList({
     super.key,
-    required this.provider,
     required this.title,
+    required this.orders,
     this.viewAll = false,
   });
 
-  final ProviderListenable<State<List<Order>>> provider;
+  final List<Order> orders;
   final bool viewAll;
   final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(provider);
     return MultiSliver(
       children: [
         SliverToBoxAdapter(
@@ -52,17 +50,15 @@ class OrderList extends ConsumerWidget {
             ),
           ),
         ),
-        state.unfoldSliver(
-          (orders) => SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            sliver: SliverList.separated(
-              itemCount: orders.length,
-              itemBuilder: (context, index) {
-                return OrderItem(order: orders[index]);
-              },
-              separatorBuilder: (context, index) => const Divider(
-                height: 30,
-              ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          sliver: SliverList.separated(
+            itemCount: orders.length,
+            itemBuilder: (context, index) {
+              return OrderItem(order: orders[index]);
+            },
+            separatorBuilder: (context, index) => const Divider(
+              height: 30,
             ),
           ),
         ),

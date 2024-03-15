@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:api/api.dart';
-import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/features/orders/data/repository/order_repo_impl.dart';
 import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
@@ -23,17 +22,15 @@ class OrderDetailNotifier extends _$OrderDetailNotifier {
 
   Future<void> fetch(int id) async {
     final order = await _repo.getOrderById(id);
-    state = order.state();
+    // state = order;
   }
 
   Future<void> downloadInvoice(int id) async {
     final invoice = await _repo.downloadInvoice(id);
-    invoice.fold((error) => null, (data) async {
-      final dir = await getTemporaryDirectory();
-      final file = File('${dir.path}/invoice.pdf');
-      file.createSync();
-      file.writeAsBytesSync(data);
-      await OpenFile.open(file.path);
-    });
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/invoice.pdf');
+    file.createSync();
+    file.writeAsBytesSync(invoice);
+    await OpenFile.open(file.path);
   }
 }

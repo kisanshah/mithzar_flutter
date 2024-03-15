@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getOrderList**
-> List<Order> getOrderList(filter, status)
+> List<Order> getOrderList(status, page, size)
 
 Returns a list of orders
 
@@ -146,11 +146,12 @@ Returns a list of orders
 import 'package:api/api.dart';
 
 final api = Api().getOrderApi();
-final PaginationFilter filter = ; // PaginationFilter | 
 final List<String> status = ; // List<String> | 
+final num page = 8.14; // num | 
+final num size = 8.14; // num | 
 
 try {
-    final response = api.getOrderList(filter, status);
+    final response = api.getOrderList(status, page, size);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling OrderApi->getOrderList: $e\n');
@@ -161,8 +162,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | [**PaginationFilter**](.md)|  | 
  **status** | [**List&lt;String&gt;**](String.md)|  | 
+ **page** | **num**|  | [optional] 
+ **size** | **num**|  | [optional] 
 
 ### Return type
 

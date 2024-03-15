@@ -65,4 +65,3 @@ lib/src/model/token.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_request.dart
 pubspec.yaml
-test/cart_amount_breakdown_test.dart
