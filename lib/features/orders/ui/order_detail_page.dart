@@ -101,7 +101,7 @@ class _OrderDetailPageState extends ConsumerState<OrderDetailPage> {
                     margin: const EdgeInsets.only(right: 10),
                     width: 175,
                     height: 250,
-                    //TODO(Kisan): Add variant
+                    // TODO(Kisan): Add variant
                   );
                 },
               ),

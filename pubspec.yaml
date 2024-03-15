@@ -59,8 +59,8 @@ dev_dependencies:
   riverpod_generator: ^2.3.9
   json_serializable: 6.7.1
   freezed: 2.4.6
-  custom_lint: 0.5.7
-  riverpod_lint: 2.3.7
+  custom_lint: 0.6.2
+  riverpod_lint: 2.3.10
 
 flutter_gen:
   output: lib/gen/

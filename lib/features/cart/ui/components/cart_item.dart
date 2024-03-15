@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:mithzar/core/extensions/log.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/cart/ui/providers/cart_list_provider.dart';
 import 'package:mithzar/features/components/app_image.dart';
@@ -20,7 +19,6 @@ class CartItem extends ConsumerWidget {
     if (item == null || item.quantity == 0) {
       return const SizedBox();
     }
-    'Build $index'.logError();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: IntrinsicHeight(

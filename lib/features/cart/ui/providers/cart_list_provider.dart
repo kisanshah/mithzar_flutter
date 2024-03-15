@@ -2,8 +2,6 @@ import 'package:api/api.dart';
 import 'package:mithzar/features/cart/data/repository/cart_repo_impl.dart';
 import 'package:mithzar/features/cart/domain/repository/cart_repository.dart';
 import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
-import 'package:mithzar/features/routes/router/app_router.gr.dart';
-import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_list_provider.g.dart';
@@ -20,18 +18,23 @@ class CartList extends _$CartList {
   }
 
   Future<void> add(int variantId, int skuId) async {
-    final item = await repo.add(variantId, skuId);
-    _update(item);
+    state = await AsyncValue.guard(() async {
+      final item = await repo.add(variantId, skuId);
+      return _update(item).value ?? [];
+    });
   }
 
   Future<void> remove(int id) async {
-    final item = await repo.remove(id);
-    _update(item);
+    state = await AsyncValue.guard(() async {
+      final item = await repo.remove(id);
+      return _update(item).value ?? [];
+    });
   }
 
-  void _update(Cart item) {
+  AsyncValue<List<Cart>> _update(Cart item) {
+    state = const AsyncLoading();
     if (!state.hasValue) {
-      return;
+      return state;
     }
     final items = state.value ?? [];
     final modified = items.indexWhere(
@@ -40,16 +43,10 @@ class CartList extends _$CartList {
           element.sku?.id == item.sku?.id,
     );
     if (modified == -1) {
-      return;
+      return state;
     }
     items[modified] = item;
-    state = AsyncData(items);
+    return AsyncData(items);
   }
 
-  Future<void> checkout() async {
-    final result = await orderRepo.checkout();
-    if (result.url != null) {
-      ref.read(routerProvider).push(PaymentRoute(url: result.url!));
-    }
-  }
 }
