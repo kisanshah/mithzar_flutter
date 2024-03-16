@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
  - [OrderItem](doc/OrderItem.md)
  - [PaginationFilter](doc/PaginationFilter.md)
  - [PaginationFilterFiltersInner](doc/PaginationFilterFiltersInner.md)
+ - [Payment](doc/Payment.md)
  - [Product](doc/Product.md)
  - [ProductFeature](doc/ProductFeature.md)
  - [ProductImage](doc/ProductImage.md)

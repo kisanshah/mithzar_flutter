@@ -17,6 +17,7 @@ doc/OrderApi.md
 doc/OrderItem.md
 doc/PaginationFilter.md
 doc/PaginationFilterFiltersInner.md
+doc/Payment.md
 doc/Product.md
 doc/ProductApi.md
 doc/ProductFeature.md
@@ -55,6 +56,7 @@ lib/src/model/order.dart
 lib/src/model/order_item.dart
 lib/src/model/pagination_filter.dart
 lib/src/model/pagination_filter_filters_inner.dart
+lib/src/model/payment.dart
 lib/src/model/product.dart
 lib/src/model/product_feature.dart
 lib/src/model/product_image.dart

@@ -26,6 +26,7 @@ export 'package:api/src/model/order.dart';
 export 'package:api/src/model/order_item.dart';
 export 'package:api/src/model/pagination_filter.dart';
 export 'package:api/src/model/pagination_filter_filters_inner.dart';
+export 'package:api/src/model/payment.dart';
 export 'package:api/src/model/product.dart';
 export 'package:api/src/model/product_feature.dart';
 export 'package:api/src/model/product_image.dart';

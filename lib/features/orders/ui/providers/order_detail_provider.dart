@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:api/api.dart';
 import 'package:mithzar/features/orders/data/repository/order_repo_impl.dart';
 import 'package:mithzar/features/orders/domain/repository/order_repository.dart';
-import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -11,21 +10,16 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'order_detail_provider.g.dart';
 
 @Riverpod(dependencies: [orderRepo])
-class OrderDetailNotifier extends _$OrderDetailNotifier {
+class OrderDetail extends _$OrderDetail{
   late OrderRepository _repo;
 
   @override
-  State<Order> build() {
+  FutureOr<Order> build(int id) {
     _repo = ref.watch(orderRepoProvider);
-    return LoadingState();
+    return _repo.getOrderById(id);
   }
 
-  Future<void> fetch(int id) async {
-    final order = await _repo.getOrderById(id);
-    // state = order;
-  }
-
-  Future<void> downloadInvoice(int id) async {
+  Future<void> downloadInvoice() async {
     final invoice = await _repo.downloadInvoice(id);
     final dir = await getTemporaryDirectory();
     final file = File('${dir.path}/invoice.pdf');
