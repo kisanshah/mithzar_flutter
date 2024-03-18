@@ -26,7 +26,7 @@ class TrackingItem extends StatelessWidget {
             child: Center(
               child: Container(
                 height: 90,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: i == 2 ? AppColor.accentColor : AppColor.black,
                   shape: BoxShape.circle,
@@ -44,7 +44,7 @@ class TrackingItem extends StatelessWidget {
               ),
             ),
           ),
-          const Gap(20),
+          const Gap(15),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,11 +54,14 @@ class TrackingItem extends StatelessWidget {
                   'Order Placed',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
-                const Text(
+                Text(
                   'We have received your order on 20-Dec-2019',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                  ),
                 ),
                 // Gap(30),
               ],

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
 import 'package:mithzar/core/extensions/num.dart';
+import 'package:mithzar/features/orders/ui/components/tracking_item.dart';
 import 'package:mithzar/features/orders/ui/providers/order_detail_provider.dart';
 import 'package:mithzar/features/shared/providers/user_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
@@ -191,21 +192,20 @@ class OrderDetailPage extends HookConsumerWidget {
                 ),
               ),
             ),
-            const Gap(15),
-
-            // Text(
-            //   'Tracking 🚚 - WIP',
-            //   style: GoogleFonts.poppins(
-            //     fontWeight: FontWeight.w500,
-            //     fontSize: 20,
-            //   ),
-            // ),
-            // Column(
-            //   children: [
-            //     for (int i = 0; i < 4; i++) TrackingItem(i: i),
-            //   ],
-            // ),
-            // const Gap(10),
+            const Divider(height: 40),
+            Text(
+              'Tracking 🚚',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+            ),
+            Column(
+              children: [
+                for (int i = 0; i < 4; i++) TrackingItem(i: i),
+              ],
+            ),
+            const Gap(10),
 
             const Gap(20),
           ],
