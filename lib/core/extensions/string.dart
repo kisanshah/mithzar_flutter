@@ -32,4 +32,15 @@ extension ValidationExtensions on String? {
       int.parse(this!, radix: 16) + 0xFF000000,
     );
   }
+
+  //title case
+  String toTitleCase() {
+    if (this == null) {
+      return '';
+    }
+    if (isNotNullOrEmpty) {
+      return this![0].toUpperCase() + this!.substring(1).toLowerCase();
+    }
+    return '';
+  }
 }
