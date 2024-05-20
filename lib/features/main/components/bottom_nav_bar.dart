@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/features/theme/app_color.dart';
-import 'package:mithzar/gen/assets.gen.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class NavData {
   NavData({
     required this.title,
-    required this.svg,
+    required this.icon,
   });
 
   final String title;
-  final String svg;
+  final IconData icon;
 }
 
 final navItemProvider = Provider<List<NavData>>((ref) {
   return [
     NavData(
       title: 'Home',
-      svg: Assets.svg.home.path,
+      icon: PhosphorIconsRegular.house,
     ),
     NavData(
       title: 'Search',
-      svg: Assets.svg.search.path,
+      icon: PhosphorIconsRegular.magnifyingGlass,
     ),
     NavData(
       title: 'Order',
-      svg: Assets.svg.order.path,
+      icon: PhosphorIconsRegular.package,
     ),
     NavData(
       title: 'Profile',
-      svg: Assets.svg.user.path,
+      icon: PhosphorIconsRegular.user,
     ),
   ];
 });
@@ -57,12 +56,9 @@ class NavItem extends StatelessWidget {
         child: Column(
           children: [
             const Gap(10),
-            SvgPicture.asset(
-              nav.svg,
-              colorFilter: ColorFilter.mode(
-                selected ? AppColor.accentColor : Colors.grey,
-                BlendMode.srcIn,
-              ),
+            Icon(
+              nav.icon,
+              color: selected ? AppColor.accentColor : Colors.grey,
             ),
             const Gap(5),
             Text(

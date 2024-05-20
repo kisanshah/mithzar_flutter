@@ -6,7 +6,7 @@ import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
 import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/features/utils/app_const.dart';
-import 'package:mithzar/gen/assets.gen.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const HomeAppBar({
@@ -20,7 +20,9 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: Colors.transparent,
       leading: GestureDetector(
-        child: Assets.svg.menu.svg(fit: BoxFit.scaleDown),
+        child: const Icon(
+          PhosphorIconsBold.list,
+        ),
         onTap: () {
           scaffoldKey.currentState?.openDrawer();
         },
@@ -39,7 +41,9 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
       actions: [
         GestureDetector(
           onTap: () => ref.read(routerProvider).push(const CartRoute()),
-          child: Assets.svg.cart.svg(),
+          child: const Icon(
+            PhosphorIconsBold.shoppingBag,
+          ),
         ),
         const Gap(20),
       ],

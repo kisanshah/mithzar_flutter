@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mithzar/gen/assets.gen.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class BottomSheetWrapper extends StatelessWidget {
   const BottomSheetWrapper({
@@ -35,10 +35,10 @@ class BottomSheetWrapper extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Assets.svg.cancel.svg(),
+                      child: Icon(PhosphorIconsRegular.x),
                     ),
                   ),
                 ],

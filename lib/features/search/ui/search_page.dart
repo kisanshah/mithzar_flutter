@@ -9,7 +9,7 @@ import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 import 'package:mithzar/features/theme/app_color.dart';
-import 'package:mithzar/gen/assets.gen.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 @RoutePage()
@@ -40,35 +40,33 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 children: [
                   TextField(
                     onChanged: notifier.search,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 10,
                       ),
                       isDense: true,
                       hintText: 'Bangles...',
-                      focusedBorder: const OutlineInputBorder(
+                      focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                         borderSide: BorderSide(
                           color: AppColor.black,
                           width: 0.7,
                         ),
                       ),
-                      border: const OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                         borderSide: BorderSide(
                           color: AppColor.black,
                           width: 0.7,
                         ),
                       ),
-                      suffixIconConstraints: const BoxConstraints(),
+                      suffixIconConstraints: BoxConstraints(),
                       suffixIcon: Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Assets.svg.search.svg(
-                          colorFilter: const ColorFilter.mode(
-                            AppColor.black,
-                            BlendMode.srcIn,
-                          ),
+                        padding: EdgeInsets.only(right: 15),
+                        child: Icon(
+                          PhosphorIconsRegular.magnifyingGlass,
+                          size: 22,
                         ),
                       ),
                     ),

@@ -6,6 +6,7 @@ import 'package:mithzar/features/theme/app_color.dart';
 // ignore: avoid_classes_with_only_static_members
 class AppTheme {
   static final lightTheme = ThemeData(
+    useMaterial3: false,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(

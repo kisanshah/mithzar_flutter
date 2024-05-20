@@ -7,8 +7,7 @@ import 'package:mithzar/features/home/ui/components/home_product_list_filter.dar
 import 'package:mithzar/features/home/ui/providers/variant_list_provider.dart';
 import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/state/pagination_state.dart';
-import 'package:mithzar/features/theme/app_color.dart';
-import 'package:mithzar/gen/assets.gen.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class HomeProductList extends ConsumerWidget {
@@ -43,11 +42,8 @@ class HomeProductList extends ConsumerWidget {
                     },
                   );
                 },
-                child: Assets.svg.filter.svg(
-                  colorFilter: const ColorFilter.mode(
-                    AppColor.black,
-                    BlendMode.srcIn,
-                  ),
+                child: const Icon(
+                  PhosphorIconsBold.fadersHorizontal,
                 ),
               ),
               const Gap(20),
