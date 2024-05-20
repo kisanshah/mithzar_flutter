@@ -23,7 +23,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
       mediaPlaybackRequiresUserGesture: false,
     ),
     android: AndroidInAppWebViewOptions(
-      useHybridComposition: true,
+      
     ),
     ios: IOSInAppWebViewOptions(
       allowsInlineMediaPlayback: true,
@@ -51,7 +51,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
             if (loading) const AppLoader(),
             InAppWebView(
               initialOptions: options,
-              initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+              // initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
               onLoadStart: (controller, url) {
                 //Check for success page
                 if (url?.queryParameters['razorpay_payment_link_status'] ==
@@ -66,9 +66,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
                 });
               },
               onWebViewCreated: (controller) {
-                controller.loadUrl(
-                  urlRequest: URLRequest(url: Uri.parse(widget.url)),
-                );
+                // controller.loadUrl(
+                  // urlRequest: URLRequest(url: Uri.parse(widget.url)),
+                // );
               },
             ),
           ],
