@@ -30,11 +30,11 @@ class OrderDetailPage extends HookConsumerWidget {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: GestureDetector(
+            onTap: context.maybePop,
             child: const Icon(
               Icons.arrow_back,
               color: AppColor.black,
             ),
-            onTap: () => context.popRoute(),
           ),
           actions: [
             PopupMenuButton(

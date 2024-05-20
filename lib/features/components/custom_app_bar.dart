@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Icons.arrow_back,
           color: AppColor.black,
         ),
-        onTap: () => context.popRoute(),
+        onTap: () => context.maybePop(),
       ),
       centerTitle: true,
       title: Text(

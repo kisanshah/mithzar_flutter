@@ -33,7 +33,7 @@ class SignUpPage extends HookConsumerWidget {
             const Text('Already have an account?'),
             const Gap(5),
             GestureDetector(
-              onTap: router.pop,
+              onTap: router.maybePop,
               child: const Text(
                 'Sign In',
                 style: TextStyle(

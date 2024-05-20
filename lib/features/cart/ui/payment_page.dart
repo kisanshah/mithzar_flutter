@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -17,30 +15,7 @@ class PaymentPage extends ConsumerStatefulWidget {
 
 class _PaymentPageState extends ConsumerState<PaymentPage> {
   bool loading = true;
-  final options = InAppWebViewGroupOptions(
-    crossPlatform: InAppWebViewOptions(
-      useShouldOverrideUrlLoading: true,
-      mediaPlaybackRequiresUserGesture: false,
-    ),
-    android: AndroidInAppWebViewOptions(
-      
-    ),
-    ios: IOSInAppWebViewOptions(
-      allowsInlineMediaPlayback: true,
-    ),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      if (Platform.isAndroid) {
-        await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(
-          true,
-        );
-      }
-    });
-  }
+  final settings = InAppWebViewSettings();
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +25,9 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
           children: [
             if (loading) const AppLoader(),
             InAppWebView(
-              initialOptions: options,
-              // initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+              initialSettings: settings,
+              initialUrlRequest:
+                  URLRequest(url: WebUri.uri(Uri.parse(widget.url))),
               onLoadStart: (controller, url) {
                 //Check for success page
                 if (url?.queryParameters['razorpay_payment_link_status'] ==
@@ -67,7 +43,7 @@ class _PaymentPageState extends ConsumerState<PaymentPage> {
               },
               onWebViewCreated: (controller) {
                 // controller.loadUrl(
-                  // urlRequest: URLRequest(url: Uri.parse(widget.url)),
+                // urlRequest: URLRequest(url: Uri.parse(widget.url)),
                 // );
               },
             ),
