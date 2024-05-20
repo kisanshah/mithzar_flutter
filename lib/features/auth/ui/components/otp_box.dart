@@ -13,11 +13,10 @@ class OtpBox extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: 50,
-      child: RawKeyboardListener(
+      child: KeyboardListener(
         focusNode: FocusNode(canRequestFocus: false),
-        onKey: (value) {
-          const space = LogicalKeyboardKey.backspace;
-          if (value.isKeyPressed(space)) {
+        onKeyEvent: (value) {
+          if (value.character == ' ') {
             if (count > 0) {
               FocusScope.of(context).previousFocus();
               count = 0;

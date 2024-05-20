@@ -5,7 +5,7 @@ extension DatetimeExt on DateTime? {
     if (this == null) {
       return '';
     }
-    final pattern = DateFormat('DD MMM y | hh:mm a');
+    final pattern = DateFormat('d MMM y | hh:mm a');
     return pattern.format(this!);
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: use_setters_to_change_properties
+
 import 'package:api/api.dart';
 import 'package:mithzar/features/product/data/repository/product_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
