@@ -11,26 +11,26 @@ class NavData {
   });
 
   final String title;
-  final IconData icon;
+  final PhosphorIconData Function([PhosphorIconsStyle]) icon;
 }
 
 final navItemProvider = Provider<List<NavData>>((ref) {
   return [
     NavData(
       title: 'Home',
-      icon: PhosphorIconsRegular.house,
+      icon: PhosphorIcons.house,
     ),
     NavData(
       title: 'Search',
-      icon: PhosphorIconsRegular.magnifyingGlass,
+      icon: PhosphorIcons.magnifyingGlass,
     ),
     NavData(
       title: 'Order',
-      icon: PhosphorIconsRegular.package,
+      icon: PhosphorIcons.package,
     ),
     NavData(
       title: 'Profile',
-      icon: PhosphorIconsRegular.user,
+      icon: PhosphorIcons.user,
     ),
   ];
 });
@@ -57,7 +57,9 @@ class NavItem extends StatelessWidget {
           children: [
             const Gap(10),
             Icon(
-              nav.icon,
+              nav.icon(selected
+                  ? PhosphorIconsStyle.bold
+                  : PhosphorIconsStyle.regular,),
               color: selected ? AppColor.accentColor : Colors.grey,
             ),
             const Gap(5),
