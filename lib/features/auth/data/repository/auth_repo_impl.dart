@@ -1,4 +1,5 @@
 import 'package:api/api.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/core/instances/api_client_provider.dart';
 import 'package:mithzar/features/auth/domain/repository/auth_repo.dart';
@@ -15,11 +16,7 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl({required this.source});
 
   final AuthApi source;
-
-  @override
-  Future<Token> signIn(User user) async {
-    return source.signIn(user: user).guard();
-  }
+  final _auth = FirebaseAuth.instance;
 
   @override
   Future<Token> generateAccessToken(String? refreshToken) {
@@ -29,12 +26,28 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Message> sendOtp(User user) {
-    return source.sendOtp(user: user).guard();
+  Future<void> sendOtp(
+    String phone, {
+    required PhoneCodeSent codeSent,
+  }) async {
+    _auth.verifyPhoneNumber(
+      phoneNumber: phone,
+      verificationCompleted: (phoneAuthCredential) {},
+      verificationFailed: (FirebaseAuthException error) {
+        throw error;
+      },
+      codeSent: codeSent,
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
   }
 
   @override
-  Future<Token> verifyOtp(VerifyOtpRequest body) {
-    return source.verifyOtp(verifyOtpRequest: body).guard();
+  Future<UserCredential> verifyOtp(AuthCredential credentials) {
+    return _auth.signInWithCredential(credentials);
+  }
+  
+  @override
+  Future<Token> singInWihPhone(SignInWithPhoneRequest body) {
+    return source.signInWithPhone(signInWithPhoneRequest: body).guard<Token>();
   }
 }

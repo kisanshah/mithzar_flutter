@@ -33,6 +33,7 @@ export 'package:api/src/model/product_image.dart';
 export 'package:api/src/model/product_sku.dart';
 export 'package:api/src/model/product_variant.dart';
 export 'package:api/src/model/section.dart';
+export 'package:api/src/model/sign_in_with_phone_request.dart';
 export 'package:api/src/model/token.dart';
 export 'package:api/src/model/user.dart';
 export 'package:api/src/model/verify_otp_request.dart';

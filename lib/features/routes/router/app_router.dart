@@ -12,7 +12,7 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: SignInRoute.page),
-        AutoRoute(page: SignUpRoute.page),
+        AutoRoute(page: OtpRoute.page),
         AutoRoute(
           page: GuardedRouteWrapper.page,
           guards: [AuthGuard(_ref)],

@@ -26,6 +26,7 @@ doc/ProductSku.md
 doc/ProductVariant.md
 doc/Section.md
 doc/SectionApi.md
+doc/SignInWithPhoneRequest.md
 doc/Token.md
 doc/User.md
 doc/UserApi.md
@@ -63,7 +64,9 @@ lib/src/model/product_image.dart
 lib/src/model/product_sku.dart
 lib/src/model/product_variant.dart
 lib/src/model/section.dart
+lib/src/model/sign_in_with_phone_request.dart
 lib/src/model/token.dart
 lib/src/model/user.dart
 lib/src/model/verify_otp_request.dart
 pubspec.yaml
+test/sign_in_with_phone_request_test.dart

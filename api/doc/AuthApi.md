@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**refreshToken**](AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [**sendOtp**](AuthApi.md#sendotp) | **POST** /auth/send_otp | Send otp to new user
-[**signIn**](AuthApi.md#signin) | **POST** /auth/sign_in | Sign In
+[**signInWithPhone**](AuthApi.md#signinwithphone) | **POST** /auth/sign_in_with_phone | Sign In
 [**verifyOtp**](AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 
 
@@ -97,8 +97,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **signIn**
-> Token signIn(user)
+# **signInWithPhone**
+> Token signInWithPhone(signInWithPhoneRequest)
 
 Sign In
 
@@ -107,13 +107,13 @@ Sign In
 import 'package:api/api.dart';
 
 final api = Api().getAuthApi();
-final User user = ; // User | User credentials
+final SignInWithPhoneRequest signInWithPhoneRequest = ; // SignInWithPhoneRequest | User credentials
 
 try {
-    final response = api.signIn(user);
+    final response = api.signInWithPhone(signInWithPhoneRequest);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AuthApi->signIn: $e\n');
+    print('Exception when calling AuthApi->signInWithPhone: $e\n');
 }
 ```
 
@@ -121,7 +121,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User credentials | 
+ **signInWithPhoneRequest** | [**SignInWithPhoneRequest**](SignInWithPhoneRequest.md)| User credentials | 
 
 ### Return type
 

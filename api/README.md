@@ -73,7 +73,7 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
 [*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Send otp to new user
-[*AuthApi*](doc/AuthApi.md) | [**signIn**](doc/AuthApi.md#signin) | **POST** /auth/sign_in | Sign In
+[*AuthApi*](doc/AuthApi.md) | [**signInWithPhone**](doc/AuthApi.md#signinwithphone) | **POST** /auth/sign_in_with_phone | Sign In
 [*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart | add product to user cart
 [*CartApi*](doc/CartApi.md) | [**amountBreakdown**](doc/CartApi.md#amountbreakdown) | **GET** /cart/amount_breakdown | returns amount breakdown of cart
@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
  - [ProductSku](doc/ProductSku.md)
  - [ProductVariant](doc/ProductVariant.md)
  - [Section](doc/Section.md)
+ - [SignInWithPhoneRequest](doc/SignInWithPhoneRequest.md)
  - [Token](doc/Token.md)
  - [User](doc/User.md)
  - [VerifyOtpRequest](doc/VerifyOtpRequest.md)

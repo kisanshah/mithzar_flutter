@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687014622622",
+    "project_id": "mithzar-angular",
+    "storage_bucket": "mithzar-angular.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687014622622:android:d62dffce9a06ad077c128f",
+        "android_client_info": {
+          "package_name": "com.app.mithzar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr7-5Kcy5cQaeMpEHV4Mo7Pj05Pe4rGZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

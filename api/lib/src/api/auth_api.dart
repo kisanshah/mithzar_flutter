@@ -10,6 +10,7 @@ import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/message.dart';
+import 'package:api/src/model/sign_in_with_phone_request.dart';
 import 'package:api/src/model/token.dart';
 import 'package:api/src/model/user.dart';
 import 'package:api/src/model/verify_otp_request.dart';
@@ -205,7 +206,7 @@ class AuthApi {
   ///
   ///
   /// Parameters:
-  /// * [user] - User credentials
+  /// * [signInWithPhoneRequest] - User credentials
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -215,8 +216,8 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Token] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Token>> signIn({
-    required User user,
+  Future<Response<Token>> signInWithPhone({
+    required SignInWithPhoneRequest signInWithPhoneRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -224,7 +225,7 @@ class AuthApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/auth/sign_in';
+    final _path = r'/auth/sign_in_with_phone';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -241,7 +242,7 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-      _bodyData = jsonEncode(user);
+      _bodyData = jsonEncode(signInWithPhoneRequest);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _options.compose(

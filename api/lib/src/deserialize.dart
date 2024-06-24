@@ -16,6 +16,7 @@ import 'package:api/src/model/product_image.dart';
 import 'package:api/src/model/product_sku.dart';
 import 'package:api/src/model/product_variant.dart';
 import 'package:api/src/model/section.dart';
+import 'package:api/src/model/sign_in_with_phone_request.dart';
 import 'package:api/src/model/token.dart';
 import 'package:api/src/model/user.dart';
 import 'package:api/src/model/verify_otp_request.dart';
@@ -82,6 +83,9 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
           as ReturnType;
     case 'Section':
       return Section.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'SignInWithPhoneRequest':
+      return SignInWithPhoneRequest.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'Token':
       return Token.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'User':

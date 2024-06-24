@@ -14,11 +14,8 @@ class App extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
-      builder: (context, child) => Material(
-        child: SafeArea(
-          top: false,
-          child: child!,
-        ),
+      builder: (context, child) => SafeArea(
+        child: child!,
       ),
       debugShowCheckedModeBanner: false,
       routerDelegate: router.delegate(),
