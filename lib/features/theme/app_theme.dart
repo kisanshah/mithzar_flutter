@@ -13,8 +13,9 @@ class AppTheme {
   ThemeData get dark => _base(AppDarkColor());
 
   ThemeData _base(BaseColorExtension colors) {
+    final textTheme = AppTextThemeExtension(context: context);
     return ThemeData(
-      extensions: [colors, AppTextThemeExtension()],
+      extensions: [colors, textTheme],
       useMaterial3: false,
       textTheme: GoogleFonts.poppinsTextTheme(),
       appBarTheme: AppBarTheme(
@@ -26,6 +27,7 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           elevation: 0,
+          textStyle: textTheme.button,
           padding: const EdgeInsets.all(10),
           foregroundColor: colors.primary,
           side: BorderSide(color: colors.primary),
@@ -34,6 +36,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,
+          textStyle: textTheme.button,
           padding: const EdgeInsets.all(10),
           backgroundColor: colors.primary,
         ),
@@ -51,7 +54,7 @@ class AppTheme {
         visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: colors.background,
       radioTheme: RadioThemeData(
         fillColor: WidgetStatePropertyAll(colors.primary),
         visualDensity: const VisualDensity(horizontal: -4),
@@ -59,16 +62,21 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
+        fillColor: colors.inputBackground,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: colors.border),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(color: colors.border),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: colors.border),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red.shade900),
+          borderSide: BorderSide(color: Colors.red.shade900, width: 0.75),
         ),
         contentPadding: const EdgeInsets.all(12),
         isDense: true,

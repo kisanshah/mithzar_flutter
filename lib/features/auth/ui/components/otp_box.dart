@@ -41,7 +41,7 @@ class OtpBox extends StatelessWidget {
           maxLength: 1,
           decoration: const InputDecoration(
             counterText: '',
-            contentPadding: EdgeInsets.zero,
+            contentPadding: EdgeInsets.all(15),
             hintText: '-',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/core/extensions/debug.dart';
 import 'package:mithzar/features/auth/ui/providers/phone_auth_provider.dart';
 import 'package:mithzar/features/components/app_loader.dart';
@@ -47,24 +48,21 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 ),
               ),
               const Gap(40),
-              const Text(
+              Text(
                 'Welcome Back!',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: context.text.title,
               ),
               const Gap(5),
-              const Text(
+              Text(
                 'Please sign in to your account to continue',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                ),
+                style: context.text.subTitle,
               ),
               const Gap(40),
-              const Text('Phone'),
+              Text(
+                'Phone',
+                style: context.text.label,
+              ),
+              const Gap(5),
               TextFormField(
                 controller: phoneCtrl,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -82,7 +80,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 ),
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               ),
-              const Gap(20),
+              const Gap(15),
               Consumer(
                 builder: (context, ref, child) {
                   final state = ref.watch(phoneAuthProvider);
@@ -97,14 +95,25 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                       }
                       notifier.sendOtp(phoneCtrl.text);
                     },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size.fromHeight(45),
-                    ),
                     child: const Text('Continue'),
                   );
                 },
               ),
               const Gap(20),
+              const Text(
+                'Or',
+                textAlign: TextAlign.center,
+              ),
+              const Gap(20),
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Sign in with Google'),
+              ),
+              const Gap(5),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Sign in with Apple'),
+              ),
             ],
           ),
         ),

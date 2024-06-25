@@ -9,6 +9,9 @@ class BaseColorExtension extends ThemeExtension<BaseColorExtension> {
     required this.yellow,
     required this.green,
     required this.red,
+    required this.background,
+    required this.inputBackground,
+    required this.border,
   });
 
   final Color primary;
@@ -18,6 +21,9 @@ class BaseColorExtension extends ThemeExtension<BaseColorExtension> {
   final Color yellow;
   final Color green;
   final Color red;
+  final Color border;
+  final Color background;
+  final Color inputBackground;
 
   @override
   ThemeExtension<BaseColorExtension> copyWith() => this;
@@ -33,13 +39,16 @@ class BaseColorExtension extends ThemeExtension<BaseColorExtension> {
 class AppLightColor extends BaseColorExtension {
   AppLightColor()
       : super(
-          primary: const Color(0xFF3544cf),
+          primary: const Color(0xFF1e272e),
           secondary: const Color(0xFF6774eb),
-          primaryText: const Color(0xFF49494a),
-          secondaryText: const Color(0xFFaeb0b7),
+          primaryText: const Color(0xFF0C1421),
+          secondaryText: const Color(0xFF313957),
           yellow: const Color(0xFFfbc470),
           green: const Color(0xFF35cfb5),
           red: const Color(0xFFcf434e),
+          background: Colors.white,
+          inputBackground: const Color(0xFFF3F7FB),
+          border: const Color(0xFFD4D7E3),
         );
 }
 
@@ -53,5 +62,8 @@ class AppDarkColor extends BaseColorExtension {
           yellow: const Color(0xFFfbc470),
           green: const Color(0xFF35cfb5),
           red: const Color(0xFFcf434e),
+          background: Colors.white,
+          inputBackground: const Color(0xFFF3F7FB),
+          border: const Color(0xFFD4D7E3),
         );
 }
