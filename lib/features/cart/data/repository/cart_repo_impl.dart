@@ -35,7 +35,7 @@ class CartRepoImpl implements CartRepository {
   Future<Cart> remove(int id) {
     return _source.removeItem(id: id).guard();
   }
-  
+
   @override
   Future<CartAmountBreakdown> amountBreakdown() {
     return _source.amountBreakdown().guard();

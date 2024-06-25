@@ -45,7 +45,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<UserCredential> verifyOtp(AuthCredential credentials) {
     return _auth.signInWithCredential(credentials);
   }
-  
+
   @override
   Future<Token> singInWihPhone(SignInWithPhoneRequest body) {
     return source.signInWithPhone(signInWithPhoneRequest: body).guard<Token>();

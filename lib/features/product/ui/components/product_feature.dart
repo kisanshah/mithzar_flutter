@@ -1,7 +1,6 @@
 import 'package:api/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProductFeature extends StatelessWidget {
   const ProductFeature({
@@ -16,12 +15,8 @@ class ProductFeature extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Features',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
         const Gap(10),
         GridView.builder(
@@ -40,19 +35,11 @@ class ProductFeature extends StatelessWidget {
               children: [
                 Text(
                   feat.key!,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12,
-                  ),
                 ),
                 Text(
                   feat.value!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
                 ),
               ],
             );

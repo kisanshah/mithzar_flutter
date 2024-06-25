@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
@@ -24,16 +23,11 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text(
           'MITHZAR',
           textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w700,
-            letterSpacing: 5,
-            fontSize: 20,
-          ),
         ),
       ),
     );

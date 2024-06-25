@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/cart/ui/providers/cart_provider.dart';
@@ -20,70 +19,42 @@ class AmoutBreakdown extends HookConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Bill Summary',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                    ),
                   ),
                   const Gap(15),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Item Total',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                       const Spacer(),
                       Text(
                         breakdown.subtotal.toRupee(),
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                     ],
                   ),
                   const Gap(10),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'GST',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                       const Spacer(),
                       Text(
                         breakdown.tax.toRupee(),
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                     ],
                   ),
                   const Gap(10),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Delivery',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                       const Spacer(),
                       Text(
                         breakdown.delivery.toRupee(),
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                     ],
                   ),
@@ -94,20 +65,12 @@ class AmoutBreakdown extends HookConsumerWidget {
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Grand Total',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                       const Spacer(),
                       Text(
                         breakdown.total.toRupee(),
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
                       ),
                     ],
                   ),

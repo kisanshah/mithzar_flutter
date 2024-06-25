@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/components/app_loader.dart';
 import 'package:mithzar/features/home/ui/components/home_product_list_filter.dart';
 import 'package:mithzar/features/home/ui/providers/variant_list_provider.dart';
@@ -22,12 +21,9 @@ class HomeProductList extends ConsumerWidget {
         children: [
           SliverAppBar(
             pinned: true,
-            title: Text(
+            title: const Text(
               'Recently Added',
               textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-              ),
             ),
             actions: [
               InkWell(

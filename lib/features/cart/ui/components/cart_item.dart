@@ -14,7 +14,8 @@ class CartItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final item = ref.watch(cartListProvider.select((value) => value.value?[index]));
+    final item =
+        ref.watch(cartListProvider.select((value) => value.value?[index]));
     final notifier = ref.read(cartListProvider.notifier);
     if (item == null || item.quantity == 0) {
       return const SizedBox();

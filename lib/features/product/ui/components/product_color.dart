@@ -2,10 +2,8 @@ import 'package:api/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class ProductColor extends ConsumerWidget {
   const ProductColor({
@@ -22,12 +20,8 @@ class ProductColor extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Color',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
         const Gap(10),
         Wrap(
@@ -48,10 +42,8 @@ class ProductColor extends ConsumerWidget {
                           if (selected)
                             const BoxShadow(
                               spreadRadius: 1,
-                              color: AppColor.black,
                             ),
                         ],
-                        color: AppColor.white,
                       ),
                       child: DecoratedBox(
                         decoration: BoxDecoration(
@@ -59,7 +51,6 @@ class ProductColor extends ConsumerWidget {
                           boxShadow: const [
                             BoxShadow(
                               spreadRadius: 0.5,
-                              color: AppColor.black,
                             ),
                           ],
                           color: ele.color.hexToColor(),

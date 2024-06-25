@@ -2,14 +2,12 @@ import 'package:api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/core/extensions/datetime.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/core/extensions/product.dart';
 import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class OrderItem extends ConsumerWidget {
   const OrderItem({
@@ -35,18 +33,10 @@ class OrderItem extends ConsumerWidget {
             order.items.nameAndCount(),
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: GoogleFonts.poppins(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
           ),
           const Gap(2),
           Text(
             order.createdAt.format(),
-            style: GoogleFonts.poppins(
-              color: AppColor.black,
-              fontSize: 13,
-            ),
           ),
           const Gap(10),
           Row(
@@ -55,19 +45,11 @@ class OrderItem extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Status',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                     Text(
                       order.status.toTitleCase(),
-                      style: GoogleFonts.poppins(
-                        color: AppColor.red,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                   ],
                 ),
@@ -76,19 +58,11 @@ class OrderItem extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Products',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                     Text(
                       '${order.items?.length ?? 0}',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                   ],
                 ),
@@ -97,19 +71,11 @@ class OrderItem extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Price',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                     Text(
                       order.total.toRupee(),
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
                     ),
                   ],
                 ),

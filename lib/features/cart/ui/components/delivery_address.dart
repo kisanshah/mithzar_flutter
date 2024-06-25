@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/features/address/ui/providers/address_list_provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -21,12 +20,8 @@ class DeliveryAddress extends HookConsumerWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Deliver At',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                        ),
                       ),
                       const Spacer(),
                       TextButton(

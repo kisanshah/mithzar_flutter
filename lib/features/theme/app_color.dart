@@ -1,32 +1,57 @@
 import 'package:flutter/material.dart';
 
-class AppColor {
-  static const Color grey = Color(0xFFe1e1e1);
-  static const Color green = Color(0xFF20bf6b);
-  static const Color red = Color(0xFFe74c3c);
-  static const Color lightBlue = Color(0xFFe3f2fb);
-  static const Color lightPink = Color(0xFFfee1e6);
+class BaseColorExtension extends ThemeExtension<BaseColorExtension> {
+  BaseColorExtension({
+    required this.primary,
+    required this.secondary,
+    required this.primaryText,
+    required this.secondaryText,
+    required this.yellow,
+    required this.green,
+    required this.red,
+  });
 
-  //accent color to material color
-  // #6c5ce7
-  static const Color accentColor = Color(0xFF6c5ce7);
-  //accent color map
-  static const Map<int, Color> accentColorMap = {
-    50: Color.fromRGBO(108, 92, 231, .1),
-    100: Color.fromRGBO(108, 92, 231, .2),
-    200: Color.fromRGBO(108, 92, 231, .3),
-    300: Color.fromRGBO(108, 92, 231, .4),
-    400: Color.fromRGBO(108, 92, 231, .5),
-    500: Color.fromRGBO(108, 92, 231, .6),
-    600: Color.fromRGBO(108, 92, 231, .7),
-    700: Color.fromRGBO(108, 92, 231, .8),
-    800: Color.fromRGBO(108, 92, 231, .9),
-    900: Color.fromRGBO(108, 92, 231, 1),
-  };
+  final Color primary;
+  final Color secondary;
+  final Color primaryText;
+  final Color secondaryText;
+  final Color yellow;
+  final Color green;
+  final Color red;
 
-  static const MaterialColor accentMaterialColor =
-      MaterialColor(0xFF6c5ce7, accentColorMap);
+  @override
+  ThemeExtension<BaseColorExtension> copyWith() => this;
 
-  static const black = Color(0xFF2d3436);
-  static const white = Color(0xFFffffff);
+  @override
+  ThemeExtension<BaseColorExtension> lerp(
+    covariant ThemeExtension<BaseColorExtension>? other,
+    double t,
+  ) =>
+      this;
+}
+
+class AppLightColor extends BaseColorExtension {
+  AppLightColor()
+      : super(
+          primary: const Color(0xFF3544cf),
+          secondary: const Color(0xFF6774eb),
+          primaryText: const Color(0xFF49494a),
+          secondaryText: const Color(0xFFaeb0b7),
+          yellow: const Color(0xFFfbc470),
+          green: const Color(0xFF35cfb5),
+          red: const Color(0xFFcf434e),
+        );
+}
+
+class AppDarkColor extends BaseColorExtension {
+  AppDarkColor()
+      : super(
+          primary: const Color(0xFF3544cf),
+          secondary: const Color(0xFF6774eb),
+          primaryText: const Color(0xFF49494a),
+          secondaryText: const Color(0xFFaeb0b7),
+          yellow: const Color(0xFFfbc470),
+          green: const Color(0xFF35cfb5),
+          red: const Color(0xFFcf434e),
+        );
 }

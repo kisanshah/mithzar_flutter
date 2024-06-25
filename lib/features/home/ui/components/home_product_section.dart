@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/providers/section_provider.dart';
 import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class HomeProductSection extends ConsumerWidget {
@@ -22,9 +20,6 @@ class HomeProductSection extends ConsumerWidget {
               child: Text(
                 '${section.title}',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                ),
               ),
             ),
             SliverToBoxAdapter(
@@ -53,9 +48,7 @@ class HomeProductSection extends ConsumerWidget {
                   onPressed: () {},
                   child: const Text(
                     'View All  →',
-                    style: TextStyle(
-                      color: AppColor.black,
-                    ),
+                    style: TextStyle(),
                   ),
                 ),
               ),

@@ -2,7 +2,6 @@ import 'package:api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/product/ui/providers/product_detail_provider.dart';
 
 class ProductSize extends ConsumerWidget {
@@ -18,12 +17,8 @@ class ProductSize extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Select Size',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
         const Gap(5),
         Wrap(

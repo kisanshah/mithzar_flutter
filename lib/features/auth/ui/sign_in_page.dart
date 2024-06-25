@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,6 +29,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -35,8 +37,18 @@ class _SignInPageState extends ConsumerState<SignInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://worldartcommunity.com/images/item-images/item_image_0a29c3abd319ba64747a16432bf5559a.jpg',
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const Gap(40),
               const Text(
-                'Sign In',
+                'Welcome Back!',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w600,
@@ -44,16 +56,12 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               ),
               const Gap(5),
               const Text(
-                'Sign in to your account to continue',
+                'Please sign in to your account to continue',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Colors.grey,
                 ),
-              ),
-              const Gap(20),
-              const Placeholder(
-                fallbackHeight: 200,
               ),
               const Gap(40),
               const Text('Phone'),
@@ -79,7 +87,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 builder: (context, ref, child) {
                   final state = ref.watch(phoneAuthProvider);
                   final notifier = ref.read(phoneAuthProvider.notifier);
-                  if(state is AsyncLoading){
+                  if (state is AsyncLoading) {
                     return const AppLoader();
                   }
                   return ElevatedButton(

@@ -2,13 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
 import 'package:mithzar/features/search/ui/providers/search_provider.dart';
 import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/providers/algolio_event.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -50,14 +48,12 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                         borderSide: BorderSide(
-                          color: AppColor.black,
                           width: 0.7,
                         ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                         borderSide: BorderSide(
-                          color: AppColor.black,
                           width: 0.7,
                         ),
                       ),
@@ -101,14 +97,11 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           state.unfoldSliver((products) {
             return MultiSliver(
               children: [
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       'Search Result ⚡',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                      ),
                     ),
                   ),
                 ),
@@ -140,15 +133,6 @@ class _SearchPageState extends ConsumerState<SearchPage> {
             );
           }),
           // SliverToBoxAdapter(
-          //   child: Text(
-          //     'Trending Products\n⚡',
-          //     textAlign: TextAlign.center,
-          //     style: GoogleFonts.poppins(
-          //       fontSize: 20,
-          //     ),
-          //   ),
-          // ),
-          // SliverToBoxAdapter(
           //   child: SizedBox(
           //     height: 250,
           //     child: ListView.builder(
@@ -173,7 +157,6 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           //       child: const Text(
           //         'View All  →',
           //         style: TextStyle(
-          //           color: AppColor.black,
           //         ),
           //       ),
           //     ),

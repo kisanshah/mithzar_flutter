@@ -5,7 +5,6 @@ import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/components/app_image.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class VariantItem extends ConsumerWidget {
   const VariantItem({
@@ -30,7 +29,6 @@ class VariantItem extends ConsumerWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: AppColor.white,
           border: Border.all(color: const Color(0xFFdfe6e9)),
           borderRadius: BorderRadius.circular(0),
         ),

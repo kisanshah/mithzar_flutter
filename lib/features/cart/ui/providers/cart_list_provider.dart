@@ -48,5 +48,4 @@ class CartList extends _$CartList {
     items[modified] = item;
     return AsyncData(items);
   }
-
 }

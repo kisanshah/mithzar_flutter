@@ -11,12 +11,11 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
+    final theme = AppTheme(context);
     return MaterialApp.router(
       title: 'Flutter Demo',
-      theme: AppTheme.lightTheme,
-      builder: (context, child) => SafeArea(
-        child: child!,
-      ),
+      theme: theme.light,
+      darkTheme: theme.dark,
       debugShowCheckedModeBanner: false,
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),

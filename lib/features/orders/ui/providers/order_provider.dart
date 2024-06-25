@@ -11,7 +11,9 @@ FutureOr<(List<Order>, List<Order>)> orderList(
   final repo = ref.watch(orderRepoProvider);
   return (
     repo.getOrderList(
-        status: ['pending', 'processing'], filter: PaginationFilter(size: 3),),
+      status: ['pending', 'processing'],
+      filter: PaginationFilter(size: 3),
+    ),
     repo.getOrderList(status: ['completed'], filter: PaginationFilter(size: 3)),
   ).wait;
 }

@@ -1,14 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
 import 'package:mithzar/core/extensions/num.dart';
 import 'package:mithzar/features/orders/ui/components/tracking_item.dart';
 import 'package:mithzar/features/orders/ui/providers/order_detail_provider.dart';
 import 'package:mithzar/features/shared/providers/user_provider.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 @RoutePage()
 class OrderDetailPage extends HookConsumerWidget {
@@ -33,7 +31,6 @@ class OrderDetailPage extends HookConsumerWidget {
             onTap: context.maybePop,
             child: const Icon(
               Icons.arrow_back,
-              color: AppColor.black,
             ),
           ),
           actions: [
@@ -48,7 +45,6 @@ class OrderDetailPage extends HookConsumerWidget {
                   const PopupMenuItem(
                     child: Text(
                       'Cancel',
-                      style: TextStyle(color: AppColor.red),
                     ),
                   ),
                 ];
@@ -57,15 +53,9 @@ class OrderDetailPage extends HookConsumerWidget {
             const Gap(10),
           ],
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'ORDER',
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-              color: AppColor.black,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 5,
-              fontSize: 20,
-            ),
           ),
         ),
         bottomNavigationBar: Padding(
@@ -101,34 +91,19 @@ class OrderDetailPage extends HookConsumerWidget {
           children: [
             Text(
               'Hey, $name!',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-              ),
             ),
             const Gap(5),
-            Text(
+            const Text(
               "Thank you for your order! We'll keep you updated on its arrival.",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-              ),
             ),
             const Gap(30),
-            Text(
+            const Text(
               'Payment Method',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
             ),
             Text(order.payment?.method ?? ''),
             const Divider(height: 40),
-            Text(
+            const Text(
               'Order Detail 📦',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
             ),
             const Gap(10),
             ...?order.items?.map(
@@ -138,30 +113,18 @@ class OrderDetailPage extends HookConsumerWidget {
                   children: [
                     Text(
                       '${e.name} ${e.variantName} - ${e.skuName} x ${e.quantity}',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
                     ),
                     const Spacer(),
                     Text(
                       e.price.toRupee(),
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
                     ),
                   ],
                 ),
               ),
             ),
             const Divider(height: 40),
-            Text(
+            const Text(
               'Bill Summary',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
             ),
             const Gap(10),
             ...[
@@ -175,30 +138,18 @@ class OrderDetailPage extends HookConsumerWidget {
                   children: [
                     Text(
                       e,
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
                     ),
                     const Spacer(),
                     Text(
                       1000.toRupee(),
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
                     ),
                   ],
                 ),
               ),
             ),
             const Divider(height: 40),
-            Text(
+            const Text(
               'Tracking 🚚',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
             ),
             Column(
               children: [
@@ -206,7 +157,6 @@ class OrderDetailPage extends HookConsumerWidget {
               ],
             ),
             const Gap(10),
-
             const Gap(20),
           ],
         ),

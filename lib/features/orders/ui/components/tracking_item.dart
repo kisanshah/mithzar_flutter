@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/orders/ui/components/tracker_line_painter.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class TrackingItem extends StatelessWidget {
   const TrackingItem({
@@ -27,8 +25,7 @@ class TrackingItem extends StatelessWidget {
               child: Container(
                 height: 90,
                 padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: i == 2 ? AppColor.accentColor : AppColor.black,
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -45,23 +42,16 @@ class TrackingItem extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Order Placed',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                  ),
                 ),
                 Text(
                   'We have received your order on 20-Dec-2019',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                  ),
                 ),
                 // Gap(30),
               ],

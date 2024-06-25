@@ -10,7 +10,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'order_detail_provider.g.dart';
 
 @Riverpod(dependencies: [orderRepo])
-class OrderDetail extends _$OrderDetail{
+class OrderDetail extends _$OrderDetail {
   late OrderRepository _repo;
 
   @override

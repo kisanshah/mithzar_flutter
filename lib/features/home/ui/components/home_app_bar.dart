@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/shared/providers/router_provider.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 import 'package:mithzar/features/utils/app_const.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -31,12 +29,6 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
       title: Text(
         title,
         textAlign: TextAlign.center,
-        style: GoogleFonts.poppins(
-          color: AppColor.black,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 5,
-          fontSize: 20,
-        ),
       ),
       actions: [
         GestureDetector(

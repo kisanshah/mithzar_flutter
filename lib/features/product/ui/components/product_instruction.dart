@@ -2,7 +2,6 @@ import 'package:api/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProductInstruction extends ConsumerWidget {
   const ProductInstruction({
@@ -17,12 +16,8 @@ class ProductInstruction extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Instructions',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
         const Gap(10),
         ...List.generate(
@@ -32,9 +27,6 @@ class ProductInstruction extends ConsumerWidget {
             return Text(
               '\u2022 $instruction',
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.poppins(
-                fontSize: 12,
-              ),
             );
           },
         ),

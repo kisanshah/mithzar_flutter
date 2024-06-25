@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class TrackerLinePainter extends CustomPainter {
   TrackerLinePainter({this.top = true, this.bottom = true});
@@ -8,7 +7,7 @@ class TrackerLinePainter extends CustomPainter {
   final bool bottom;
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = AppColor.black;
+    final paint = Paint();
     final h = size.height;
     final w = size.width;
     final center = Offset(w / 2, h / 2);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mithzar/features/theme/app_color.dart';
 
 class HeaderWithAction extends StatelessWidget {
   const HeaderWithAction({
@@ -20,7 +19,6 @@ class HeaderWithAction extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              color: AppColor.black,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
