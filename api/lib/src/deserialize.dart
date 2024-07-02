@@ -1,5 +1,6 @@
 import 'package:api/src/model/add_to_cart_request.dart';
 import 'package:api/src/model/address.dart';
+import 'package:api/src/model/banner.dart';
 import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/cart_amount_breakdown.dart';
 import 'package:api/src/model/checkout.dart';
@@ -19,7 +20,6 @@ import 'package:api/src/model/section.dart';
 import 'package:api/src/model/sign_in_with_phone_request.dart';
 import 'package:api/src/model/token.dart';
 import 'package:api/src/model/user.dart';
-import 'package:api/src/model/verify_otp_request.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
@@ -45,6 +45,8 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
           as ReturnType;
     case 'Address':
       return Address.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'Banner':
+      return Banner.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'Cart':
       return Cart.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'CartAmountBreakdown':
@@ -90,9 +92,6 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
       return Token.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'User':
       return User.fromJson(value as Map<String, dynamic>) as ReturnType;
-    case 'VerifyOtpRequest':
-      return VerifyOtpRequest.fromJson(value as Map<String, dynamic>)
-          as ReturnType;
     default:
       RegExpMatch? match;
 

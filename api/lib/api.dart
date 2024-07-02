@@ -9,6 +9,7 @@ export 'package:api/src/auth/oauth.dart';
 
 export 'package:api/src/api/address_api.dart';
 export 'package:api/src/api/auth_api.dart';
+export 'package:api/src/api/banner_api.dart';
 export 'package:api/src/api/cart_api.dart';
 export 'package:api/src/api/order_api.dart';
 export 'package:api/src/api/product_api.dart';
@@ -17,6 +18,7 @@ export 'package:api/src/api/user_api.dart';
 
 export 'package:api/src/model/add_to_cart_request.dart';
 export 'package:api/src/model/address.dart';
+export 'package:api/src/model/banner.dart';
 export 'package:api/src/model/cart.dart';
 export 'package:api/src/model/cart_amount_breakdown.dart';
 export 'package:api/src/model/checkout.dart';
@@ -36,4 +38,3 @@ export 'package:api/src/model/section.dart';
 export 'package:api/src/model/sign_in_with_phone_request.dart';
 export 'package:api/src/model/token.dart';
 export 'package:api/src/model/user.dart';
-export 'package:api/src/model/verify_otp_request.dart';

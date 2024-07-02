@@ -72,9 +72,8 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address | Mark the address as default
 [*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
-[*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Send otp to new user
 [*AuthApi*](doc/AuthApi.md) | [**signInWithPhone**](doc/AuthApi.md#signinwithphone) | **POST** /auth/sign_in_with_phone | Sign In
-[*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify OTP
+[*BannerApi*](doc/BannerApi.md) | [**getActiveBanners**](doc/BannerApi.md#getactivebanners) | **GET** /banner | Get active banners
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart | add product to user cart
 [*CartApi*](doc/CartApi.md) | [**amountBreakdown**](doc/CartApi.md#amountbreakdown) | **GET** /cart/amount_breakdown | returns amount breakdown of cart
 [*CartApi*](doc/CartApi.md) | [**getCartItems**](doc/CartApi.md#getcartitems) | **GET** /cart | returns list of cart items
@@ -95,6 +94,7 @@ Class | Method | HTTP request | Description
 
  - [AddToCartRequest](doc/AddToCartRequest.md)
  - [Address](doc/Address.md)
+ - [Banner](doc/Banner.md)
  - [Cart](doc/Cart.md)
  - [CartAmountBreakdown](doc/CartAmountBreakdown.md)
  - [Checkout](doc/Checkout.md)
@@ -114,7 +114,6 @@ Class | Method | HTTP request | Description
  - [SignInWithPhoneRequest](doc/SignInWithPhoneRequest.md)
  - [Token](doc/Token.md)
  - [User](doc/User.md)
- - [VerifyOtpRequest](doc/VerifyOtpRequest.md)
 
 
 ## Documentation For Authorization

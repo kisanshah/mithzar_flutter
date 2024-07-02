@@ -6,6 +6,8 @@ doc/AddToCartRequest.md
 doc/Address.md
 doc/AddressApi.md
 doc/AuthApi.md
+doc/Banner.md
+doc/BannerApi.md
 doc/Cart.md
 doc/CartAmountBreakdown.md
 doc/CartApi.md
@@ -30,11 +32,11 @@ doc/SignInWithPhoneRequest.md
 doc/Token.md
 doc/User.md
 doc/UserApi.md
-doc/VerifyOtpRequest.md
 lib/api.dart
 lib/src/api.dart
 lib/src/api/address_api.dart
 lib/src/api/auth_api.dart
+lib/src/api/banner_api.dart
 lib/src/api/cart_api.dart
 lib/src/api/order_api.dart
 lib/src/api/product_api.dart
@@ -48,6 +50,7 @@ lib/src/auth/oauth.dart
 lib/src/deserialize.dart
 lib/src/model/add_to_cart_request.dart
 lib/src/model/address.dart
+lib/src/model/banner.dart
 lib/src/model/cart.dart
 lib/src/model/cart_amount_breakdown.dart
 lib/src/model/checkout.dart
@@ -67,6 +70,6 @@ lib/src/model/section.dart
 lib/src/model/sign_in_with_phone_request.dart
 lib/src/model/token.dart
 lib/src/model/user.dart
-lib/src/model/verify_otp_request.dart
 pubspec.yaml
-test/sign_in_with_phone_request_test.dart
+test/banner_api_test.dart
+test/banner_test.dart
