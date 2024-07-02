@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
 import 'package:mithzar/features/main/components/bottom_nav_bar.dart';
 import 'package:mithzar/features/routes/router/app_router.gr.dart';
 import 'package:mithzar/features/utils/app_const.dart';
@@ -21,10 +22,7 @@ class _MainPageState extends ConsumerState<MainPage> {
       top: false,
       child: AutoTabsScaffold(
         scaffoldKey: scaffoldKey,
-        drawer: Drawer(
-          elevation: 0,
-          child: Container(),
-        ),
+        appBarBuilder: (context, tabsRouter) => const HomeAppBar(title: 'MITHZAR',),
         routes: const [
           HomeRoute(),
           SearchRoute(),

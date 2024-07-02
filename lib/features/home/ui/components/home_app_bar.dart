@@ -16,7 +16,6 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       elevation: 0,
-      backgroundColor: Colors.transparent,
       leading: GestureDetector(
         child: const Icon(
           PhosphorIconsBold.list,

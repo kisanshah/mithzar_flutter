@@ -1,11 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
-import 'package:mithzar/features/home/ui/components/home_app_bar.dart';
+import 'package:mithzar/features/home/ui/components/banner_carousel.dart';
 import 'package:mithzar/features/home/ui/components/home_product_list.dart';
 import 'package:mithzar/features/home/ui/components/home_product_section.dart';
-import 'package:mithzar/features/home/ui/components/home_promo_image.dart';
 import 'package:mithzar/features/home/ui/providers/home_provider.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
 
@@ -30,16 +28,12 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     final state = ref.watch(homeNotifierProvider);
     return Scaffold(
-      appBar: const HomeAppBar(
-        title: 'MITHZAR',
-      ),
       backgroundColor: Colors.white,
       body: state.unfold(
         (sections) => const CustomScrollView(
           physics: ClampingScrollPhysics(),
           slivers: [
-            HomePromoImage(),
-            SliverGap(20),
+            SliverToBoxAdapter(child: BannerCarousel()),
             HomeProductSection(),
             HomeProductList(),
           ],
