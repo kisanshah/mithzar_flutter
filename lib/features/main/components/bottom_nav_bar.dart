@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/context.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class NavData {
@@ -57,16 +58,14 @@ class NavItem extends StatelessWidget {
             const Gap(10),
             Icon(
               nav.icon(
-                selected ? PhosphorIconsStyle.bold : PhosphorIconsStyle.regular,
+                selected ? PhosphorIconsStyle.fill : PhosphorIconsStyle.regular,
               ),
+              size: 25,
             ),
             const Gap(5),
             Text(
               nav.title,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
+              style: context.text.regular12,
             ),
           ],
         ),

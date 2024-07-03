@@ -43,12 +43,12 @@ class OtpPage extends HookConsumerWidget {
             const Gap(40),
             Text(
               'Verification!',
-              style: context.text.title,
+              style: context.text.semibold24,
             ),
             const Gap(5),
             Text(
               'Please verify otp to continue',
-              style: context.text.subTitle,
+              style: context.text.regular16,
             ),
             const Gap(30),
             Row(

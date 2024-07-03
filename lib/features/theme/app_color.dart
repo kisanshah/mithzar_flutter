@@ -46,7 +46,7 @@ class AppLightColor extends BaseColorExtension {
           yellow: const Color(0xFFfbc470),
           green: const Color(0xFF35cfb5),
           red: const Color(0xFFcf434e),
-          background: Colors.white,
+          background: const Color(0xFFfdfdfd),
           inputBackground: const Color(0xFFF3F7FB),
           border: const Color(0xFFD4D7E3),
         );

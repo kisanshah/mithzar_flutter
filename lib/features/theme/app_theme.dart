@@ -27,7 +27,7 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           elevation: 0,
-          textStyle: textTheme.button,
+          textStyle: textTheme.semibold14,
           padding: const EdgeInsets.all(10),
           foregroundColor: colors.primary,
           side: BorderSide(color: colors.primary),
@@ -36,7 +36,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          textStyle: textTheme.button,
+          textStyle: textTheme.semibold14,
           padding: const EdgeInsets.all(10),
           backgroundColor: colors.primary,
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/features/home/ui/providers/section_provider.dart';
 import 'package:mithzar/features/shared/components/variant_item.dart';
 import 'package:mithzar/features/shared/state/user_state.dart';
@@ -11,7 +12,6 @@ class HomeProductSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(sectionNotifierProvider);
-
     return state.unfoldSliver(
       (sections) => MultiSliver(
         children: [
@@ -19,12 +19,13 @@ class HomeProductSection extends ConsumerWidget {
             SliverToBoxAdapter(
               child: Text(
                 '${section.title}',
+                style: context.text.regular18,
                 textAlign: TextAlign.center,
               ),
             ),
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: 250,
+              child: AspectRatio(
+                aspectRatio: 6 / 4,
                 child: ListView.builder(
                   padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
                   scrollDirection: Axis.horizontal,
@@ -37,7 +38,7 @@ class HomeProductSection extends ConsumerWidget {
                       variant: section.variants![index],
                     ),
                   ),
-                  itemCount: section.variants?.length,
+                  itemCount: section.variants?.length ?? 0,
                 ),
               ),
             ),

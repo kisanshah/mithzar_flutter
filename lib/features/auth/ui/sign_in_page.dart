@@ -50,17 +50,17 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               const Gap(40),
               Text(
                 'Welcome Back!',
-                style: context.text.title,
+                style: context.text.semibold24,
               ),
               const Gap(5),
               Text(
                 'Please sign in to your account to continue',
-                style: context.text.subTitle,
+                style: context.text.regular16,
               ),
               const Gap(40),
               Text(
                 'Phone',
-                style: context.text.label,
+                style: context.text.regular14,
               ),
               const Gap(5),
               TextFormField(

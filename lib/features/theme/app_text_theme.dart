@@ -4,31 +4,48 @@ import 'package:mithzar/core/extensions/context.dart';
 
 class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
   AppTextThemeExtension({required this.context}) {
-    title = GoogleFonts.poppins(
+    semibold24 = GoogleFonts.poppins(
       color: context.colors.primaryText,
       fontSize: 24,
       fontWeight: FontWeight.w600,
     );
-    subTitle = GoogleFonts.poppins(
-      color: context.colors.secondaryText,
+    regular12 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    );
+    regular14 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
+      fontSize: 14,
+    );
+    regular16 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
       fontSize: 16,
     );
-    label = GoogleFonts.poppins(
+    regular18 = GoogleFonts.poppins(
       color: context.colors.primaryText,
-      fontSize: 14,
+      fontSize: 18,
     );
-    button = GoogleFonts.poppins(
+    semibold14 = GoogleFonts.poppins(
       color: context.colors.primaryText,
       fontSize: 14,
-     fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w500,
+    );
+    semibold16 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
     );
   }
 
   final BuildContext context;
-  late TextStyle title;
-  late TextStyle subTitle;
-  late TextStyle label;
-  late TextStyle button;
+  late TextStyle semibold24;
+  late TextStyle regular12;
+  late TextStyle regular14;
+  late TextStyle regular16;
+  late TextStyle regular18;
+  late TextStyle semibold14;
+  late TextStyle semibold16;
 
   @override
   ThemeExtension<AppTextThemeExtension> copyWith() => this;

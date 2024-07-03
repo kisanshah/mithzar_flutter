@@ -27,17 +27,14 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(homeNotifierProvider);
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: state.unfold(
-        (sections) => const CustomScrollView(
-          physics: ClampingScrollPhysics(),
-          slivers: [
-            SliverToBoxAdapter(child: BannerCarousel()),
-            HomeProductSection(),
-            HomeProductList(),
-          ],
-        ),
+    return state.unfold(
+      (sections) => const CustomScrollView(
+        physics: ClampingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(child: BannerCarousel()),
+          HomeProductSection(),
+          HomeProductList(),
+        ],
       ),
     );
   }
