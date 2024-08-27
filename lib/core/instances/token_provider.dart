@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
-import 'package:mithzar/data/local/shar_pref.dart';
-import 'package:mithzar/features/auth/data/repository/auth_repo_impl.dart';
+import 'package:mithzar/core/instances/shar_pref.dart';
+import 'package:mithzar/src/auth/data/repository/auth_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'token_provider.g.dart';

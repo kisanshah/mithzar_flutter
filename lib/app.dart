@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mithzar/features/shared/providers/router_provider.dart';
-import 'package:mithzar/features/theme/app_theme.dart';
+import 'package:mithzar/src/shared/providers/router_provider.dart';
+import 'package:mithzar/src/theme/app_theme.dart';
 
 class App extends ConsumerWidget {
   const App({

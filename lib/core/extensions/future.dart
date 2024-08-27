@@ -2,36 +2,10 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
 import 'package:mithzar/core/extensions/log.dart';
-import 'package:mithzar/data/helper/app_error.dart';
-import 'package:mithzar/features/shared/state/pagination_state.dart';
-import 'package:mithzar/features/shared/state/user_state.dart';
+import 'package:mithzar/core/helper/app_error.dart';
+import 'package:mithzar/src/shared/state/pagination_state.dart';
 
 extension FutureExtension on Future {
-  Future<(T?, AppError?)> toRecord<T>() async {
-    try {
-      final res = await this;
-      if (res is Response<BuiltList>) {
-        return (res.data?.asList() as T, null);
-      }
-      if (res is Response<T>) {
-        if (res.data is! T) {
-          throw AppError(type: ErrorType.parsing, message: 'Invalid Casting');
-        }
-        return (res.data as T, null);
-      }
-      return (res as T, null);
-    } on Exception catch (e) {
-      var error =
-          AppError(type: ErrorType.other, message: 'Something went wrong!');
-      if (e is DioException) {
-        if (e.error is AppError) {
-          error = e.error! as AppError;
-        }
-      }
-      return (null, error);
-    }
-  }
-
   Future<T> guard<T>() async {
     try {
       final res = await this;
@@ -87,17 +61,6 @@ extension RecordListExt<T> on (List<T>?, AppError?) {
 }
 
 extension RecordExt<T> on (T?, AppError?) {
-  State<T> state() {
-    final (data, error) = this;
-    if (data != null) {
-      return ResultState(data: data);
-    }
-    if (error != null) {
-      return ErrorState(message: '', trace: StackTrace.current);
-    }
-    return ResultState(data: data as T);
-  }
-
   B fold<B>(B Function(AppError error) error, B Function(T data) result) {
     final (data, err) = this;
     if (err != null) {

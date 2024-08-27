@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mithzar/core/extensions/log.dart';
-import 'package:mithzar/data/helper/app_error.dart';
+import 'package:mithzar/core/helper/app_error.dart';
 
 class ErrorInterceptor implements InterceptorsWrapper {
   @override

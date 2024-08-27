@@ -1,11 +1,11 @@
+import 'package:api/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/core/interceptors/error_interceptor.dart';
 import 'package:mithzar/core/interceptors/logging_interceptor.dart';
-import 'package:mithzar/data/model/api_res.dart';
-import 'package:mithzar/features/profile/provider/profile_provider.dart';
+import 'package:mithzar/src/profile/provider/profile_provider.dart';
 
 class AuthInterceptor implements InterceptorsWrapper {
   AuthInterceptor(this._ref);
@@ -18,7 +18,7 @@ class AuthInterceptor implements InterceptorsWrapper {
       return;
     }
     //Check Authentication Errors
-    final res = ApiRes.fromJson(err.response?.data);
+    final res = Message.fromJson(err.response?.data);
     if (res.message == 'TOKEN_EXPIRED') {
       // Generate new token
       final token = await _ref.read(tokenNotifierProvider.notifier).refresh();

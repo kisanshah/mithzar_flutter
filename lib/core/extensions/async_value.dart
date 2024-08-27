@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mithzar/data/helper/app_error.dart';
-import 'package:mithzar/features/components/app_loader.dart';
+import 'package:mithzar/core/helper/app_error.dart';
+import 'package:mithzar/src/shared/components/app_loader.dart';
 
 extension AsyncValueExt<T> on AsyncValue<T> {
   Widget unfoldInitial(Widget Function(T result) child) {
