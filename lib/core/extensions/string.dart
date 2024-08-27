@@ -1,4 +1,6 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:mithzar/src/shared/components/app_snack_bar.dart';
+import 'package:mithzar/src/shared/keys/keys.dart';
 
 extension ValidationExtensions on String? {
   bool get isEmail {
@@ -42,5 +44,24 @@ extension ValidationExtensions on String? {
       return this![0].toUpperCase() + this!.substring(1).toLowerCase();
     }
     return '';
+  }
+
+  void toToast({SnackBarType? type, Duration? duration}) {
+    if (this == null) {
+      return;
+    }
+    scaffoldMessengerKey.currentState?.clearSnackBars();
+    scaffoldMessengerKey.currentState?.showSnackBar(
+      SnackBar(
+        elevation: 0,
+        duration: duration ?? const Duration(milliseconds: 4000),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        backgroundColor: Colors.transparent,
+        content: AppSnackbar(
+          text: this!,
+          type: type ?? SnackBarType.success,
+        ),
+      ),
+    );
   }
 }
