@@ -71,5 +71,3 @@ lib/src/model/sign_in_with_phone_request.dart
 lib/src/model/token.dart
 lib/src/model/user.dart
 pubspec.yaml
-test/banner_api_test.dart
-test/banner_test.dart

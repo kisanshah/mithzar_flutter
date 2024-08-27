@@ -27,17 +27,17 @@ class ProductFeature extends StatelessWidget {
             crossAxisCount: 2,
             childAspectRatio: 1 / .4,
           ),
-          itemCount: product.features?.length,
+          itemCount: product.features?.length ?? 0,
           itemBuilder: (context, index) {
-            final feat = product.features![index];
+            final feat = product.features?[index];
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  feat.key!,
+                  feat?.key ?? '',
                 ),
                 Text(
-                  feat.value!,
+                  feat?.value ?? '',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

@@ -22,7 +22,9 @@ class _MainPageState extends ConsumerState<MainPage> {
       top: false,
       child: AutoTabsScaffold(
         scaffoldKey: scaffoldKey,
-        appBarBuilder: (context, tabsRouter) => const HomeAppBar(title: 'MITHZAR',),
+        appBarBuilder: (context, tabsRouter) => const HomeAppBar(
+          title: 'MITHZAR',
+        ),
         routes: const [
           HomeRoute(),
           SearchRoute(),
@@ -30,7 +32,18 @@ class _MainPageState extends ConsumerState<MainPage> {
           ProfileRoute(),
         ],
         bottomNavigationBuilder: (_, tabsRouter) {
-          return SizedBox(
+          return Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  offset: Offset(0, -1),
+                  blurStyle: BlurStyle.outer,
+                  blurRadius: 1,
+                ),
+              ],
+            ),
             height: 65,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

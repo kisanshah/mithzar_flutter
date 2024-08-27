@@ -39,7 +39,7 @@ class VariantItem extends ConsumerWidget {
                 height: 150,
                 child: ClipRRect(
                   child: AppImage(
-                    url: '${variant?.thumbnail}',
+                    url: '${variant?.images?.first.url}',
                     width: double.infinity,
                   ),
                 ),
@@ -53,7 +53,7 @@ class VariantItem extends ConsumerWidget {
                   children: [
                     Text(
                       "${variant?.product?.name} ${variant?.name ?? ''}",
-                      maxLines: 1,
+                      maxLines: 2,
                       style: const TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontSize: 14,

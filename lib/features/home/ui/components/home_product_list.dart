@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/features/components/app_loader.dart';
 import 'package:mithzar/features/home/ui/components/home_product_list_filter.dart';
 import 'package:mithzar/features/home/ui/providers/variant_list_provider.dart';
@@ -16,14 +17,18 @@ class HomeProductList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(variantListProvider);
     final notifier = ref.read(variantListProvider.notifier);
+    final text = context.text;
     return state.unfoldSliver(
       (variants) => MultiSliver(
         children: [
           SliverAppBar(
             pinned: true,
-            title: const Text(
+            backgroundColor: Colors.transparent,
+            foregroundColor: Colors.black,
+            title: Text(
               'Recently Added',
               textAlign: TextAlign.center,
+              style: text.regular18,
             ),
             actions: [
               InkWell(
@@ -40,6 +45,7 @@ class HomeProductList extends ConsumerWidget {
                 },
                 child: const Icon(
                   PhosphorIconsBold.fadersHorizontal,
+                  size: 22,
                 ),
               ),
               const Gap(20),
