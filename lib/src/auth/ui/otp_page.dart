@@ -69,9 +69,16 @@ class OtpPage extends HookConsumerWidget {
                 final state = ref.watch(phoneAuthProvider);
                 final notifier = ref.read(phoneAuthProvider.notifier);
                 if (state is AsyncLoading) {
-                  return const AppLoader();
+                  return const SizedBox(
+                    height: 40,
+                    child: AppLoader(),
+                  );
                 }
                 return ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    fixedSize: const Size.fromHeight(40),
+                  ),
                   onPressed: () {
                     final otp = otps.map((e) => e.ctrl.text).join();
                     if (otp.length != 6) {

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:api/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mithzar/core/instances/shar_pref.dart';
+import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/src/auth/data/repository/auth_repo_impl.dart';
 import 'package:mithzar/src/auth/domain/repository/auth_repo.dart';
 import 'package:mithzar/src/routes/router/app_router.dart';
@@ -24,8 +24,9 @@ class PhoneAuth extends _$PhoneAuth {
   }
 
   Future<void> sendOtp(String phone) async {
+    state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      _repo.sendOtp(
+      await _repo.sendOtp(
         '+91$phone',
         codeSent: (String verificationId, int? forceResendingToken) {
           _router.push(OtpRoute(verificationId: verificationId));
@@ -38,6 +39,7 @@ class PhoneAuth extends _$PhoneAuth {
     required String otp,
     required String verificationId,
   }) async {
+    state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       final credential = PhoneAuthProvider.credential(
         verificationId: verificationId,
@@ -54,7 +56,7 @@ class PhoneAuth extends _$PhoneAuth {
           token: firebaseToken,
         ),
       );
-      await ref.read(sharPrefProvider).saveToken(token);
+      ref.read(tokenProvider.notifier).update(token);
       _router.replaceAll([const MainRoute()]);
     });
   }

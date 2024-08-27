@@ -4,6 +4,6 @@ import 'package:mithzar/core/instances/dio_instance.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
 
 final dioProvider = Provider<Dio>((ref) {
-  final token = ref.watch(tokenNotifierProvider);
+  final token = ref.watch(tokenProvider);
   return DioInstance(ref, token);
 });

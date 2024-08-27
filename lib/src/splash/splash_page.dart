@@ -38,7 +38,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   Future<void> navigate() async {
     await Future.delayed(const Duration(seconds: 2));
-    ref.read(tokenNotifierProvider.notifier).init();
+    ref.read(tokenProvider.notifier).init();
     final router = ref.watch(routerProvider);
     router.replace(const MainRoute());
   }

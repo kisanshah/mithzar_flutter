@@ -1,4 +1,4 @@
-import 'package:api/api.dart';
+import 'package:api/api.dart' as api;
 import 'package:mithzar/core/instances/shar_pref.dart';
 import 'package:mithzar/src/auth/data/repository/auth_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,21 +6,25 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'token_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-class TokenNotifier extends _$TokenNotifier {
+class Token extends _$Token {
   late SharPref prefs;
 
   @override
-  Token build() {
+  api.Token build() {
     prefs = ref.watch(sharPrefProvider);
-    return Token();
+    return api.Token();
   }
 
   Future<void> init() async {
     state = await prefs.getToken() ?? state;
   }
 
-  void update(Token? tokens) {
-    state = tokens ?? state;
+  void update(api.Token? tokens) {
+    if (tokens == null) {
+      return;
+    }
+    state = tokens;
+    prefs.saveToken(tokens);
   }
 
   Future<String?> refresh() async {

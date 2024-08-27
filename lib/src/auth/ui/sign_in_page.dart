@@ -87,9 +87,16 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   final state = ref.watch(phoneAuthProvider);
                   final notifier = ref.read(phoneAuthProvider.notifier);
                   if (state is AsyncLoading) {
-                    return const AppLoader();
+                    return const SizedBox(
+                      height: 40,
+                      child: AppLoader(),
+                    );
                   }
                   return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size.fromHeight(40),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     onPressed: () {
                       if (form.currentState?.validate() != true) {
                         return;
