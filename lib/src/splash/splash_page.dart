@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
 import 'package:mithzar/src/routes/router/app_router.gr.dart';
 import 'package:mithzar/src/shared/providers/router_provider.dart';
@@ -23,11 +24,13 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(toolbarHeight: 0),
       body: Center(
         child: Text(
           'MITHZAR',
           textAlign: TextAlign.center,
+          style: context.text.regular18,
         ),
       ),
     );
