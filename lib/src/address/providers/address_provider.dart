@@ -3,7 +3,7 @@ import 'package:mithzar/core/extensions/future.dart';
 import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'address_list_provider.g.dart';
+part 'address_provider.g.dart';
 
 @riverpod
 class Address extends _$Address {

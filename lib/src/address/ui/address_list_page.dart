@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
-import 'package:mithzar/src/address/providers/address_list_provider.dart';
+import 'package:mithzar/src/address/providers/address_provider.dart';
 import 'package:mithzar/src/address/ui/components/address_item.dart';
 import 'package:mithzar/src/shared/components/custom_app_bar.dart';
 
