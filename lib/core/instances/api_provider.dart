@@ -1,11 +1,11 @@
-import 'package:api/api.dart';
+import 'package:api/api.dart' as swagger;
 import 'package:mithzar/src/shared/providers/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'api_client_provider.g.dart';
+part 'api_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-Api apiClient(ApiClientRef ref) {
+swagger.Api api(ApiRef ref) {
   final dio = ref.watch(dioProvider);
-  return Api(dio: dio);
+  return swagger.Api(dio: dio);
 }

@@ -5,20 +5,24 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mithzar/core/extensions/context.dart';
+import 'package:mithzar/src/auth/providers/auth_provider.dart';
 import 'package:mithzar/src/auth/ui/components/otp_box.dart';
-import 'package:mithzar/src/auth/ui/providers/phone_auth_provider.dart';
 import 'package:mithzar/src/shared/components/app_loader.dart';
 
 @RoutePage()
 class OtpPage extends HookConsumerWidget {
-  
-  const OtpPage({super.key});
+  const OtpPage({super.key, required this.phone});
+
+  final String phone;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final otps = List.generate(
-      6,
-      (index) => (node: useFocusNode(), ctrl: useTextEditingController()),
+      4,
+      (index) => (
+        node: useFocusNode(),
+        ctrl: useTextEditingController(text: '${index + 1}')
+      ),
     );
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0),
@@ -62,8 +66,8 @@ class OtpPage extends HookConsumerWidget {
             const Gap(30),
             Consumer(
               builder: (context, ref, child) {
-                final state = ref.watch(phoneAuthProvider);
-                final notifier = ref.read(phoneAuthProvider.notifier);
+                final state = ref.watch(authProvider);
+                final notifier = ref.read(authProvider.notifier);
                 if (state is AsyncLoading) {
                   return const SizedBox(
                     height: 40,
@@ -77,10 +81,10 @@ class OtpPage extends HookConsumerWidget {
                   ),
                   onPressed: () {
                     final otp = otps.map((e) => e.ctrl.text).join();
-                    if (otp.length != 6) {
+                    if (otp.length != 4) {
                       return;
                     }
-                    notifier.verify(otp);
+                    notifier.verify(phone: phone, otp: otp);
                   },
                   child: const Text('Continue'),
                 );

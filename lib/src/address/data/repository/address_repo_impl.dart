@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
-import 'package:mithzar/core/instances/api_client_provider.dart';
+import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:mithzar/src/address/domain/repository/address_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,7 +8,7 @@ part 'address_repo_impl.g.dart';
 
 @riverpod
 AddressRepo addressRepo(AddressRepoRef ref) {
-  return AddressRepoImpl(ref.watch(apiClientProvider).getAddressApi());
+  return AddressRepoImpl(ref.watch(apiProvider).getAddressApi());
 }
 
 class AddressRepoImpl extends AddressRepo {

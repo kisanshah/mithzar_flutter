@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
-import 'package:mithzar/core/instances/api_client_provider.dart';
+import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:mithzar/src/product/domain/repository/product_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,7 +8,7 @@ part 'product_repo_impl.g.dart';
 
 @Riverpod(keepAlive: true)
 ProductRepo productRepo(ProductRepoRef ref) {
-  return ProductRepoImpl(source: ref.read(apiClientProvider).getProductApi());
+  return ProductRepoImpl(source: ref.read(apiProvider).getProductApi());
 }
 
 class ProductRepoImpl implements ProductRepo {

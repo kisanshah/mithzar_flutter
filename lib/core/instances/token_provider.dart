@@ -1,6 +1,7 @@
 import 'package:api/api.dart' as api;
+import 'package:mithzar/core/extensions/future.dart';
+import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:mithzar/core/instances/shar_pref.dart';
-import 'package:mithzar/src/auth/data/repository/auth_repo_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'token_provider.g.dart';
@@ -30,8 +31,14 @@ class Token extends _$Token {
   Future<String?> refresh() async {
     final token = await prefs.getToken();
     final result = await ref
-        .read(authRepoProvider)
-        .generateAccessToken(token?.refreshToken);
+        .read(apiProvider)
+        .getAuthApi()
+        .refreshToken(
+          refreshTokenRequest:
+              api.RefreshTokenRequest(refreshToken: token?.refreshToken),
+        )
+        .guard<api.Tokens>();
+    update(result);
     return result.accessToken;
   }
 }

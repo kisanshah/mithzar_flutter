@@ -3,8 +3,6 @@ import 'package:mithzar/src/address/ui/providers/address_list_provider.dart';
 import 'package:mithzar/src/cart/data/repository/cart_repo_impl.dart';
 import 'package:mithzar/src/cart/ui/providers/cart_list_provider.dart';
 import 'package:mithzar/src/orders/data/repository/order_repo_impl.dart';
-import 'package:mithzar/src/routes/router/app_router.gr.dart';
-import 'package:mithzar/src/shared/providers/router_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_provider.g.dart';
@@ -32,5 +30,5 @@ FutureOr<void> checkout(CheckoutRef ref) async {
   if (checkout.url == null) {
     return;
   }
-  ref.read(routerProvider).push(PaymentRoute(url: checkout.url!));
+  // ref.read(routerProvider).push(PaymentRoute(url: checkout.url!));
 }

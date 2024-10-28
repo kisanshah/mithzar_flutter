@@ -1,6 +1,6 @@
 import 'package:api/api.dart';
 import 'package:mithzar/core/extensions/future.dart';
-import 'package:mithzar/core/instances/api_client_provider.dart';
+import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:mithzar/src/cart/domain/repository/cart_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,7 +8,7 @@ part 'cart_repo_impl.g.dart';
 
 @riverpod
 CartRepository cartRepo(CartRepoRef ref) {
-  return CartRepoImpl(ref.watch(apiClientProvider).getCartApi());
+  return CartRepoImpl(ref.watch(apiProvider).getCartApi());
 }
 
 class CartRepoImpl implements CartRepository {

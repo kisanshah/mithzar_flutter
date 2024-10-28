@@ -1,5 +1,5 @@
 import 'package:api/api.dart';
-import 'package:mithzar/core/instances/api_client_provider.dart';
+import 'package:mithzar/core/instances/api_provider.dart';
 import 'package:mithzar/src/variant/domain/repository/variant_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -7,7 +7,7 @@ part 'variant_repo_impl.g.dart';
 
 @Riverpod(keepAlive: true)
 VariantRepo variantRepo(VariantRepoRef ref) {
-  return VariantRepoImpl(source: ref.read(apiClientProvider).getProductApi());
+  return VariantRepoImpl(source: ref.read(apiProvider).getProductApi());
 }
 
 class VariantRepoImpl extends VariantRepo {

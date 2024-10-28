@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/core/extensions/debug.dart';
-import 'package:mithzar/src/auth/ui/providers/phone_auth_provider.dart';
+import 'package:mithzar/src/auth/providers/auth_provider.dart';
 import 'package:mithzar/src/shared/components/app_loader.dart';
 
 @RoutePage()
@@ -84,8 +84,8 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               const Gap(15),
               Consumer(
                 builder: (context, ref, child) {
-                  final state = ref.watch(phoneAuthProvider);
-                  final notifier = ref.read(phoneAuthProvider.notifier);
+                  final state = ref.watch(authProvider);
+                  final notifier = ref.read(authProvider.notifier);
                   if (state is AsyncLoading) {
                     return const SizedBox(
                       height: 40,
@@ -107,21 +107,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   );
                 },
               ),
-              const Gap(20),
-              const Text(
-                'Or',
-                textAlign: TextAlign.center,
-              ),
-              const Gap(20),
-              OutlinedButton(
-                onPressed: () {},
-                child: const Text('Sign in with Google'),
-              ),
-              const Gap(5),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Sign in with Apple'),
-              ),
+             
             ],
           ),
         ),
