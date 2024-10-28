@@ -15,19 +15,19 @@ class SharPref {
 
   final SecureSharedPref pref;
 
-  Future<void> saveToken(Token token) async {
+  Future<void> saveToken(Tokens token) async {
     await pref.putString(
       PrefPath.token,
       jsonEncode(token.toJson()),
     );
   }
 
-  Future<Token?> getToken() async {
+  Future<Tokens?> getToken() async {
     final encoded = await pref.getString(PrefPath.token) ?? '';
     if (encoded.isEmpty) {
       return null;
     }
-    return Token.fromJson(jsonDecode(encoded));
+    return Tokens.fromJson(jsonDecode(encoded));
   }
 
   void clearAll() {

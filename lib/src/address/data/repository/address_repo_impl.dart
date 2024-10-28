@@ -22,8 +22,8 @@ class AddressRepoImpl extends AddressRepo {
   }
 
   @override
-  Future<Message> deleteAddress(int id) {
-    return _source.delete(id: id).guard<Message>();
+  Future<SuccessResponse> deleteAddress(int id) {
+    return _source.delete(id: id).guard<SuccessResponse>();
   }
 
   @override

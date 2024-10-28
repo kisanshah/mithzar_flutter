@@ -11,12 +11,8 @@ import 'package:mithzar/src/shared/components/app_loader.dart';
 
 @RoutePage()
 class OtpPage extends HookConsumerWidget {
-  const OtpPage({
-    super.key,
-    required this.verificationId,
-  });
-
-  final String verificationId;
+  
+  const OtpPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -84,7 +80,7 @@ class OtpPage extends HookConsumerWidget {
                     if (otp.length != 6) {
                       return;
                     }
-                    notifier.verify(otp: otp, verificationId: verificationId);
+                    notifier.verify(otp);
                   },
                   child: const Text('Continue'),
                 );

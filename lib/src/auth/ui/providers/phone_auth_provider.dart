@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:api/api.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/core/helper/app_error.dart';
 import 'package:mithzar/core/instances/token_provider.dart';
@@ -30,37 +27,17 @@ class PhoneAuth extends _$PhoneAuth {
   Future<void> sendOtp(String phone) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _repo.sendOtp(
-        '+91$phone',
-        codeSent: (String verificationId, int? forceResendingToken) {
-          _router.push(OtpRoute(verificationId: verificationId));
-        },
-      );
+      await _repo.sendOtp(SendOtpRequest(phone: phone));
     });
   }
 
-  Future<void> verify({
-    required String otp,
-    required String verificationId,
-  }) async {
+  Future<void> verify(String otp) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      final credential = PhoneAuthProvider.credential(
-        verificationId: verificationId,
-        smsCode: otp,
-      );
-      await _repo.verifyOtp(credential);
-      final firebaseToken =
-          await FirebaseAuth.instance.currentUser?.getIdToken();
-      final token = await _repo.singInWihPhone(
-        SignInWithPhoneRequest(
-          platform: Platform.isAndroid
-              ? SignInWithPhoneRequestPlatformEnum.ANDROID
-              : SignInWithPhoneRequestPlatformEnum.IOS,
-          token: firebaseToken,
-        ),
-      );
-      ref.read(tokenProvider.notifier).update(token);
+      final tokens =
+          await _repo.verifyOtp(VerifyOtpRequest(otp: otp, phone: ''));
+
+      ref.read(tokenProvider.notifier).update(tokens);
       _router.replaceAll([const MainRoute()]);
     });
   }

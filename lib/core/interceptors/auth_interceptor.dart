@@ -18,7 +18,7 @@ class AuthInterceptor implements InterceptorsWrapper {
       return;
     }
     //Check Authentication Errors
-    final res = Message.fromJson(err.response?.data);
+    final res = ErrorResponse.fromJson(err.response?.data);
     if (res.message == 'TOKEN_EXPIRED') {
       // Generate new token
       final token = await _ref.read(tokenProvider.notifier).refresh();

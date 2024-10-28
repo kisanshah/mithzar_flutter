@@ -10,16 +10,16 @@ class Token extends _$Token {
   late SharPref prefs;
 
   @override
-  api.Token build() {
+  api.Tokens build() {
     prefs = ref.watch(sharPrefProvider);
-    return api.Token();
+    return api.Tokens();
   }
 
   Future<void> init() async {
     state = await prefs.getToken() ?? state;
   }
 
-  void update(api.Token? tokens) {
+  void update(api.Tokens? tokens) {
     if (tokens == null) {
       return;
     }
