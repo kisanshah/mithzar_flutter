@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:json_annotation/json_annotation.dart';
 
-part 'token.g.dart';
+part 'refresh_token_request.g.dart';
 
 @JsonSerializable(
   checked: true,
@@ -13,32 +13,27 @@ part 'token.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class Token {
-  /// Returns a new [Token] instance.
-  Token({
+class RefreshTokenRequest {
+  /// Returns a new [RefreshTokenRequest] instance.
+  RefreshTokenRequest({
     this.refreshToken,
-    this.accessToken,
   });
 
   @JsonKey(name: r'refresh_token', required: false, includeIfNull: false)
   final String? refreshToken;
 
-  @JsonKey(name: r'access_token', required: false, includeIfNull: false)
-  final String? accessToken;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Token &&
-          other.refreshToken == refreshToken &&
-          other.accessToken == accessToken;
+      other is RefreshTokenRequest && other.refreshToken == refreshToken;
 
   @override
-  int get hashCode => refreshToken.hashCode + accessToken.hashCode;
+  int get hashCode => refreshToken.hashCode;
 
-  factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
+  factory RefreshTokenRequest.fromJson(Map<String, dynamic> json) =>
+      _$RefreshTokenRequestFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TokenToJson(this);
+  Map<String, dynamic> toJson() => _$RefreshTokenRequestToJson(this);
 
   @override
   String toString() {

@@ -13,6 +13,13 @@ void main() {
       // TODO
     });
 
+    // returns amount breakdown of cart
+    //
+    //Future<CartAmountBreakdown> amountBreakdown() async
+    test('test amountBreakdown', () async {
+      // TODO
+    });
+
     // returns list of cart items
     //
     //Future<List<Cart>> getCartItems() async

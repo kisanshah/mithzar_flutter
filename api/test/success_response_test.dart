@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:api/api.dart';
 
-// tests for Message
+// tests for SuccessResponse
 void main() {
-  final Message? instance = /* Message(...) */ null;
+  final SuccessResponse? instance = /* SuccessResponse(...) */ null;
   // TODO add properties to the entity
 
-  group(Message, () {
+  group(SuccessResponse, () {
     // String message
     test('to test the property `message`', () async {
       // TODO

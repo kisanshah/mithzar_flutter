@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:api/src/model/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'verify_otp_request.g.dart';
@@ -17,23 +16,23 @@ part 'verify_otp_request.g.dart';
 class VerifyOtpRequest {
   /// Returns a new [VerifyOtpRequest] instance.
   VerifyOtpRequest({
+    this.phone,
     this.otp,
-    this.user,
   });
+
+  @JsonKey(name: r'phone', required: false, includeIfNull: false)
+  final String? phone;
 
   @JsonKey(name: r'otp', required: false, includeIfNull: false)
   final String? otp;
 
-  @JsonKey(name: r'user', required: false, includeIfNull: false)
-  final User? user;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is VerifyOtpRequest && other.otp == otp && other.user == user;
+      other is VerifyOtpRequest && other.phone == phone && other.otp == otp;
 
   @override
-  int get hashCode => otp.hashCode + user.hashCode;
+  int get hashCode => phone.hashCode + otp.hashCode;
 
   factory VerifyOtpRequest.fromJson(Map<String, dynamic> json) =>
       _$VerifyOtpRequestFromJson(json);

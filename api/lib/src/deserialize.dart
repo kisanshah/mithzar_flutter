@@ -5,7 +5,6 @@ import 'package:api/src/model/cart.dart';
 import 'package:api/src/model/cart_amount_breakdown.dart';
 import 'package:api/src/model/checkout.dart';
 import 'package:api/src/model/error_response.dart';
-import 'package:api/src/model/message.dart';
 import 'package:api/src/model/order.dart';
 import 'package:api/src/model/order_item.dart';
 import 'package:api/src/model/pagination_filter.dart';
@@ -16,10 +15,13 @@ import 'package:api/src/model/product_feature.dart';
 import 'package:api/src/model/product_image.dart';
 import 'package:api/src/model/product_sku.dart';
 import 'package:api/src/model/product_variant.dart';
+import 'package:api/src/model/refresh_token_request.dart';
 import 'package:api/src/model/section.dart';
-import 'package:api/src/model/sign_in_with_phone_request.dart';
-import 'package:api/src/model/token.dart';
+import 'package:api/src/model/send_otp_request.dart';
+import 'package:api/src/model/success_response.dart';
+import 'package:api/src/model/tokens.dart';
 import 'package:api/src/model/user.dart';
+import 'package:api/src/model/verify_otp_request.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
@@ -57,8 +59,6 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
     case 'ErrorResponse':
       return ErrorResponse.fromJson(value as Map<String, dynamic>)
           as ReturnType;
-    case 'Message':
-      return Message.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'Order':
       return Order.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'OrderItem':
@@ -83,15 +83,24 @@ ReturnType deserialize<ReturnType, BaseType>(dynamic value, String targetType,
     case 'ProductVariant':
       return ProductVariant.fromJson(value as Map<String, dynamic>)
           as ReturnType;
+    case 'RefreshTokenRequest':
+      return RefreshTokenRequest.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     case 'Section':
       return Section.fromJson(value as Map<String, dynamic>) as ReturnType;
-    case 'SignInWithPhoneRequest':
-      return SignInWithPhoneRequest.fromJson(value as Map<String, dynamic>)
+    case 'SendOtpRequest':
+      return SendOtpRequest.fromJson(value as Map<String, dynamic>)
           as ReturnType;
-    case 'Token':
-      return Token.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'SuccessResponse':
+      return SuccessResponse.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
+    case 'Tokens':
+      return Tokens.fromJson(value as Map<String, dynamic>) as ReturnType;
     case 'User':
       return User.fromJson(value as Map<String, dynamic>) as ReturnType;
+    case 'VerifyOtpRequest':
+      return VerifyOtpRequest.fromJson(value as Map<String, dynamic>)
+          as ReturnType;
     default:
       RegExpMatch? match;
 

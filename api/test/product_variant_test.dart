@@ -32,7 +32,7 @@ void main() {
       // TODO
     });
 
-    // ProductImage thumbnail
+    // String thumbnail
     test('to test the property `thumbnail`', () async {
       // TODO
     });

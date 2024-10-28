@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **delete**
-> Message delete(id)
+> SuccessResponse delete(id)
 
 delete user address by id
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Message**](Message.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 

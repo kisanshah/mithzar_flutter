@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:json_annotation/json_annotation.dart';
 
-part 'message.g.dart';
+part 'success_response.g.dart';
 
 @JsonSerializable(
   checked: true,
@@ -13,9 +13,9 @@ part 'message.g.dart';
   disallowUnrecognizedKeys: false,
   explicitToJson: true,
 )
-class Message {
-  /// Returns a new [Message] instance.
-  Message({
+class SuccessResponse {
+  /// Returns a new [SuccessResponse] instance.
+  SuccessResponse({
     this.message,
   });
 
@@ -24,15 +24,16 @@ class Message {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is Message && other.message == message;
+      identical(this, other) ||
+      other is SuccessResponse && other.message == message;
 
   @override
   int get hashCode => message.hashCode;
 
-  factory Message.fromJson(Map<String, dynamic> json) =>
-      _$MessageFromJson(json);
+  factory SuccessResponse.fromJson(Map<String, dynamic> json) =>
+      _$SuccessResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MessageToJson(this);
+  Map<String, dynamic> toJson() => _$SuccessResponseToJson(this);
 
   @override
   String toString() {

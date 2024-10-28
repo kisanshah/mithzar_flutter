@@ -6,30 +6,23 @@ void main() {
   final instance = Api().getAuthApi();
 
   group(AuthApi, () {
-    // Generate new access token
+    // Generate new access token using refresh token
     //
-    //Future<Token> refreshToken(Token token) async
+    //Future<Tokens> refreshToken(RefreshTokenRequest refreshTokenRequest) async
     test('test refreshToken', () async {
       // TODO
     });
 
-    // Register new user & send otp
+    // Send Otp
     //
-    //Future<User> sendOtp(User user) async
+    //Future<SuccessResponse> sendOtp(SendOtpRequest sendOtpRequest) async
     test('test sendOtp', () async {
       // TODO
     });
 
-    // Sign In
+    // Verify Otp
     //
-    //Future<Token> signIn(User user) async
-    test('test signIn', () async {
-      // TODO
-    });
-
-    // Verify OTP
-    //
-    //Future<Token> verifyOtp(VerifyOtpRequest verifyOtpRequest) async
+    //Future<Tokens> verifyOtp(VerifyOtpRequest verifyOtpRequest) async
     test('test verifyOtp', () async {
       // TODO
     });

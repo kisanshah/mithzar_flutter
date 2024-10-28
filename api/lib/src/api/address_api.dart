@@ -10,7 +10,7 @@ import 'package:api/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:api/src/model/address.dart';
-import 'package:api/src/model/message.dart';
+import 'package:api/src/model/success_response.dart';
 
 class AddressApi {
   final Dio _dio;
@@ -29,9 +29,9 @@ class AddressApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Message] as data
+  /// Returns a [Future] containing a [Response] with a [SuccessResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Message>> delete({
+  Future<Response<SuccessResponse>> delete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -72,13 +72,15 @@ class AddressApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Message? _responseData;
+    SuccessResponse? _responseData;
 
     try {
       final rawData = _response.data;
       _responseData = rawData == null
           ? null
-          : deserialize<Message, Message>(rawData, 'Message', growable: true);
+          : deserialize<SuccessResponse, SuccessResponse>(
+              rawData, 'SuccessResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -89,7 +91,7 @@ class AddressApi {
       );
     }
 
-    return Response<Message>(
+    return Response<SuccessResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

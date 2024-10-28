@@ -27,7 +27,7 @@ void main() {
 
     // Returns a list of orders
     //
-    //Future<List<Order>> getOrderList(PaginationFilter filter, List<String> status) async
+    //Future<List<Order>> getOrderList(List<String> status, { num page, num size }) async
     test('test getOrderList', () async {
       // TODO
     });

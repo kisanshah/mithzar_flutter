@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // String orderId
+    // num orderId
     test('to test the property `orderId`', () async {
       // TODO
     });

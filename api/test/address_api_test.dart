@@ -8,7 +8,7 @@ void main() {
   group(AddressApi, () {
     // delete user address by id
     //
-    //Future<Message> delete(int id) async
+    //Future<SuccessResponse> delete(int id) async
     test('test delete', () async {
       // TODO
     });

@@ -71,8 +71,9 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**save**](doc/AddressApi.md#save) | **POST** /address | save new address for the user and return new address object
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address | Mark the address as default
 [*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
-[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token
-[*AuthApi*](doc/AuthApi.md) | [**signInWithPhone**](doc/AuthApi.md#signinwithphone) | **POST** /auth/sign_in_with_phone | Sign In
+[*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token using refresh token
+[*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Send Otp
+[*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify Otp
 [*BannerApi*](doc/BannerApi.md) | [**getActiveBanners**](doc/BannerApi.md#getactivebanners) | **GET** /banner | Get active banners
 [*CartApi*](doc/CartApi.md) | [**addToCart**](doc/CartApi.md#addtocart) | **POST** /cart | add product to user cart
 [*CartApi*](doc/CartApi.md) | [**amountBreakdown**](doc/CartApi.md#amountbreakdown) | **GET** /cart/amount_breakdown | returns amount breakdown of cart
@@ -99,7 +100,6 @@ Class | Method | HTTP request | Description
  - [CartAmountBreakdown](doc/CartAmountBreakdown.md)
  - [Checkout](doc/Checkout.md)
  - [ErrorResponse](doc/ErrorResponse.md)
- - [Message](doc/Message.md)
  - [Order](doc/Order.md)
  - [OrderItem](doc/OrderItem.md)
  - [PaginationFilter](doc/PaginationFilter.md)
@@ -110,10 +110,13 @@ Class | Method | HTTP request | Description
  - [ProductImage](doc/ProductImage.md)
  - [ProductSku](doc/ProductSku.md)
  - [ProductVariant](doc/ProductVariant.md)
+ - [RefreshTokenRequest](doc/RefreshTokenRequest.md)
  - [Section](doc/Section.md)
- - [SignInWithPhoneRequest](doc/SignInWithPhoneRequest.md)
- - [Token](doc/Token.md)
+ - [SendOtpRequest](doc/SendOtpRequest.md)
+ - [SuccessResponse](doc/SuccessResponse.md)
+ - [Tokens](doc/Tokens.md)
  - [User](doc/User.md)
+ - [VerifyOtpRequest](doc/VerifyOtpRequest.md)
 
 
 ## Documentation For Authorization

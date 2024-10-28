@@ -7,13 +7,13 @@ void main() {
   // TODO add properties to the entity
 
   group(VerifyOtpRequest, () {
-    // num otp
-    test('to test the property `otp`', () async {
+    // String phone
+    test('to test the property `phone`', () async {
       // TODO
     });
 
-    // int userId
-    test('to test the property `userId`', () async {
+    // String otp
+    test('to test the property `otp`', () async {
       // TODO
     });
   });
