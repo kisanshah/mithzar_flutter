@@ -6,7 +6,7 @@ part 'user_provider.g.dart';
 
 @Riverpod(keepAlive: true, dependencies: [profileRepo])
 class UserNotifier extends _$UserNotifier {
-  late final _repo = ref.read(profileRepoProvider);
+  // late final _repo = ref.read(profileRepoProvider);
 
   @override
   User build() {
@@ -14,6 +14,6 @@ class UserNotifier extends _$UserNotifier {
   }
 
   Future<void> fetch() async {
-    final result = await _repo.getUser();
+    // final result = await _repo.getUser();
   }
 }

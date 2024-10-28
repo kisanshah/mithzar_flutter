@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/src/home/ui/components/home_app_bar.dart';
 import 'package:mithzar/src/search/ui/providers/search_provider.dart';
-import 'package:mithzar/src/shared/providers/algolio_event.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 @RoutePage()
@@ -19,8 +18,8 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   @override
   Widget build(BuildContext context) {
     final notifier = ref.read(searchNotifierProvider.notifier);
-    final state = ref.watch(searchNotifierProvider);
-    final algolia = ref.read(algolioEventProvider.notifier);
+    // final state = ref.watch(searchNotifierProvider);
+    // final algolia = ref.read(algolioEventProvider.notifier);
     return Scaffold(
       appBar: const HomeAppBar(
         title: 'SEARCH',
