@@ -26,6 +26,7 @@ class _MainPageState extends ConsumerState<MainPage> {
           title: 'MITHZAR',
         ),
         routes: const [
+          AddressRoute(),
           HomeRoute(),
           SearchRoute(),
           OrderRoute(),

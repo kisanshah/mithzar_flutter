@@ -28,7 +28,7 @@ class _CartPageState extends ConsumerState<CartPage> {
       ),
       body: state.unfoldInitial(
         (result) {
-          final (_, items, _) = result;
+          final (items, _) = result;
           return CustomScrollView(
             slivers: [
               CartList(items: items),
