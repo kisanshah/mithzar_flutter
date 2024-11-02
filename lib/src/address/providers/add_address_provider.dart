@@ -37,3 +37,13 @@ class PrimaryAddressToggle extends _$PrimaryAddressToggle {
 
   void toggle() => state = !state;
 }
+
+@riverpod
+class AddressType extends _$AddressType {
+  @override
+  api.AddressTypeEnum? build() {
+    return null;
+  }
+
+  void update(api.AddressTypeEnum? type) => state = type;
+}

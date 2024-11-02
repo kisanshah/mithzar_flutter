@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/context.dart';
 import 'package:mithzar/core/extensions/debug.dart';
+import 'package:mithzar/core/extensions/string.dart';
 import 'package:mithzar/src/address/providers/add_address_provider.dart';
 import 'package:mithzar/src/shared/components/app_loader.dart';
 import 'package:mithzar/src/shared/utils/validation_mixin.dart';
@@ -217,6 +218,39 @@ class _AddAddressBottomSheetState extends ConsumerState<AddAddressBottomSheet>
             const Gap(20),
             Consumer(
               builder: (context, ref, child) {
+                final state = ref.watch(addressTypeProvider);
+                final notifier = ref.read(addressTypeProvider.notifier);
+                return Wrap(
+                  spacing: 10,
+                  children: List.generate(
+                    AddressTypeEnum.values.length,
+                    (index) {
+                      final type = AddressTypeEnum.values[index];
+                      final selected = state == type;
+                      return ChoiceChip(
+                        selected: selected,
+                        side: const BorderSide(),
+                        selectedColor: context.colors.primary,
+                        onSelected: (value) {
+                          notifier.update(type);
+                        },
+                        label: Text(
+                          type.name.toTitleCase(),
+                          style: context.text.regular14.copyWith(
+                            color: selected
+                                ? context.colors.inputBackground
+                                : null,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+            const Gap(20),
+            Consumer(
+              builder: (context, ref, child) {
                 final state = ref.watch(primaryAddressToggleProvider);
                 final notifier =
                     ref.read(primaryAddressToggleProvider.notifier);
@@ -253,18 +287,20 @@ class _AddAddressBottomSheetState extends ConsumerState<AddAddressBottomSheet>
                     return;
                   }
                   final primary = ref.read(primaryAddressToggleProvider);
-                  ref.read(saveAddressProvider.notifier).save(
-                        Address(
-                          addressLine1: addressLine1Ctrl.text,
-                          addressLine2: addressLine2Ctrl.text,
-                          city: cityCtrl.text,
-                          country: 'India',
-                          landmark: landmarkCtrl.text,
-                          postalCode: pincodeCtrl.text,
-                          state: stateCtrl.text,
-                          primary: primary,
-                        ),
-                      );
+                  final type = ref.read(addressTypeProvider);
+                  final notifier = ref.read(saveAddressProvider.notifier);
+                  final address = Address(
+                    addressLine1: addressLine1Ctrl.text,
+                    addressLine2: addressLine2Ctrl.text,
+                    city: cityCtrl.text,
+                    country: 'India',
+                    landmark: landmarkCtrl.text,
+                    postalCode: pincodeCtrl.text,
+                    state: stateCtrl.text,
+                    primary: primary,
+                    type: type,
+                  );
+                  notifier.save(address);
                 },
                 child: const Text('Save'),
               ),

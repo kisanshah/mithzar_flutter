@@ -65,6 +65,4 @@ enum PaginationFilterFiltersInnerModeEnum {
   equals,
   @JsonValue(r'notEquals')
   notEquals,
-  @JsonValue(r'unknown_default_open_api')
-  unknownDefaultOpenApi,
 }

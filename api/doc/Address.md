@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **addressLine1** | **String** |  | [optional] 
 **addressLine2** | **String** |  | [optional] 
 **landmark** | **String** |  | [optional] 
+**type** | **String** |  | [optional] 
 **city** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **postalCode** | **String** |  | [optional] 

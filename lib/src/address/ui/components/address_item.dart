@@ -38,13 +38,20 @@ class AddressItem extends ConsumerWidget {
                   ),
                 ],
               ),
-            if (address.primary == false)
+            if (address.primary == false) ...[
+              TextButton(
+                onPressed: () {
+                  notifier.delete(address);
+                },
+                child: const Text('Delete'),
+              ),
               TextButton(
                 onPressed: () {
                   notifier.setDefault(address);
                 },
                 child: const Text('Make Default'),
               ),
+            ],
             const Gap(5),
             Text(address.formatted),
           ],

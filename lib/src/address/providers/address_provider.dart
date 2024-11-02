@@ -12,11 +12,26 @@ class Address extends _$Address {
   @override
   Future<List<api.Address>> build() {
     _api = ref.read(apiProvider).getAddressApi();
-    return _api.getAddresses().guard();
+    return fetch();
   }
 
+  Future<List<api.Address>> fetch() => _api.getAddresses().guard();
+
   Future<void> setDefault(api.Address address) async {
-    await _api.setDefaultAddress(id: address.id!.toInt());
-    ref.invalidateSelf();
+    state = await AsyncValue.guard(
+      () async {
+        await _api.setDefaultAddress(id: address.id!.toInt());
+        return fetch();
+      },
+    );
+  }
+
+  Future<void> delete(api.Address address) async {
+    state = await AsyncValue.guard(
+      () async {
+        await _api.delete(id: address.id!.toInt());
+        return fetch();
+      },
+    );
   }
 }

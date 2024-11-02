@@ -66,6 +66,4 @@ enum PaginationFilterModeEnum {
   AND,
   @JsonValue(r'OR')
   OR,
-  @JsonValue(r'unknown_default_open_api')
-  unknownDefaultOpenApi,
 }

@@ -20,6 +20,7 @@ class Address {
     this.addressLine1,
     this.addressLine2,
     this.landmark,
+    this.type,
     this.city,
     this.state,
     this.postalCode,
@@ -40,6 +41,9 @@ class Address {
 
   @JsonKey(name: r'landmark', required: false, includeIfNull: false)
   final String? landmark;
+
+  @JsonKey(name: r'type', required: false, includeIfNull: false)
+  final AddressTypeEnum? type;
 
   @JsonKey(name: r'city', required: false, includeIfNull: false)
   final String? city;
@@ -70,6 +74,7 @@ class Address {
           other.addressLine1 == addressLine1 &&
           other.addressLine2 == addressLine2 &&
           other.landmark == landmark &&
+          other.type == type &&
           other.city == city &&
           other.state == state &&
           other.postalCode == postalCode &&
@@ -84,6 +89,7 @@ class Address {
       addressLine1.hashCode +
       addressLine2.hashCode +
       landmark.hashCode +
+      type.hashCode +
       city.hashCode +
       state.hashCode +
       postalCode.hashCode +
@@ -101,4 +107,13 @@ class Address {
   String toString() {
     return toJson().toString();
   }
+}
+
+enum AddressTypeEnum {
+  @JsonValue(r'Home')
+  home,
+  @JsonValue(r'Work')
+  work,
+  @JsonValue(r'Other')
+  other,
 }
