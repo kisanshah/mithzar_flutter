@@ -14,4 +14,9 @@ class Address extends _$Address {
     _api = ref.read(apiProvider).getAddressApi();
     return _api.getAddresses().guard();
   }
+
+  Future<void> setDefault(api.Address address) async {
+    await _api.setDefaultAddress(id: address.id!.toInt());
+    ref.invalidateSelf();
+  }
 }

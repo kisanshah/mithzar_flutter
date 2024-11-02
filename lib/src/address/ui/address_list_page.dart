@@ -31,6 +31,7 @@ class AddressPage extends HookConsumerWidget {
         onPressed: () {
           showModalBottomSheet(
             context: context,
+            isScrollControlled: true,
             builder: (context) {
               return const AddAddressBottomSheet();
             },

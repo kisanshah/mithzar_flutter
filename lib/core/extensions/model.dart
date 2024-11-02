@@ -2,7 +2,8 @@ import 'package:api/api.dart';
 
 extension AddressExt on Address {
   String get formatted => [
-        streetAddress,
+        addressLine1,
+        addressLine2,
         state,
         city,
         postalCode,

@@ -17,7 +17,9 @@ class Address {
   /// Returns a new [Address] instance.
   Address({
     this.id,
-    this.streetAddress,
+    this.addressLine1,
+    this.addressLine2,
+    this.landmark,
     this.city,
     this.state,
     this.postalCode,
@@ -30,8 +32,14 @@ class Address {
   @JsonKey(name: r'id', required: false, includeIfNull: false)
   final num? id;
 
-  @JsonKey(name: r'streetAddress', required: false, includeIfNull: false)
-  final String? streetAddress;
+  @JsonKey(name: r'addressLine1', required: false, includeIfNull: false)
+  final String? addressLine1;
+
+  @JsonKey(name: r'addressLine2', required: false, includeIfNull: false)
+  final String? addressLine2;
+
+  @JsonKey(name: r'landmark', required: false, includeIfNull: false)
+  final String? landmark;
 
   @JsonKey(name: r'city', required: false, includeIfNull: false)
   final String? city;
@@ -59,7 +67,9 @@ class Address {
       identical(this, other) ||
       other is Address &&
           other.id == id &&
-          other.streetAddress == streetAddress &&
+          other.addressLine1 == addressLine1 &&
+          other.addressLine2 == addressLine2 &&
+          other.landmark == landmark &&
           other.city == city &&
           other.state == state &&
           other.postalCode == postalCode &&
@@ -71,7 +81,9 @@ class Address {
   @override
   int get hashCode =>
       id.hashCode +
-      streetAddress.hashCode +
+      addressLine1.hashCode +
+      addressLine2.hashCode +
+      landmark.hashCode +
       city.hashCode +
       state.hashCode +
       postalCode.hashCode +

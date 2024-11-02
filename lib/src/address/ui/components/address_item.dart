@@ -1,24 +1,24 @@
-import 'package:api/api.dart';
+import 'package:api/api.dart' as api;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/model.dart';
+import 'package:mithzar/src/address/providers/address_provider.dart';
 
 class AddressItem extends ConsumerWidget {
   const AddressItem({
     super.key,
     required this.address,
   });
-  final Address address;
+  final api.Address address;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.read(addressProvider.notifier);
     return Card(
       elevation: 0.1,
       child: Container(
-        decoration: const BoxDecoration(
-            // border: Border.all(),
-            ),
+        decoration: BoxDecoration(border: Border.all()),
         padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,6 +37,13 @@ class AddressItem extends ConsumerWidget {
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ],
+              ),
+            if (address.primary == false)
+              TextButton(
+                onPressed: () {
+                  notifier.setDefault(address);
+                },
+                child: const Text('Make Default'),
               ),
             const Gap(5),
             Text(address.formatted),

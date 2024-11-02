@@ -9,7 +9,9 @@ import 'package:api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **num** |  | [optional] 
-**streetAddress** | **String** |  | [optional] 
+**addressLine1** | **String** |  | [optional] 
+**addressLine2** | **String** |  | [optional] 
+**landmark** | **String** |  | [optional] 
 **city** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **postalCode** | **String** |  | [optional] 
