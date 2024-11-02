@@ -17,13 +17,15 @@ class Address {
   /// Returns a new [Address] instance.
   Address({
     this.id,
+    this.name,
+    this.phone,
     this.addressLine1,
     this.addressLine2,
     this.landmark,
     this.type,
     this.city,
     this.state,
-    this.postalCode,
+    this.pincode,
     this.country,
     this.lat,
     this.lng,
@@ -32,6 +34,12 @@ class Address {
 
   @JsonKey(name: r'id', required: false, includeIfNull: false)
   final num? id;
+
+  @JsonKey(name: r'name', required: false, includeIfNull: false)
+  final String? name;
+
+  @JsonKey(name: r'phone', required: false, includeIfNull: false)
+  final String? phone;
 
   @JsonKey(name: r'addressLine1', required: false, includeIfNull: false)
   final String? addressLine1;
@@ -51,8 +59,8 @@ class Address {
   @JsonKey(name: r'state', required: false, includeIfNull: false)
   final String? state;
 
-  @JsonKey(name: r'postalCode', required: false, includeIfNull: false)
-  final String? postalCode;
+  @JsonKey(name: r'pincode', required: false, includeIfNull: false)
+  final String? pincode;
 
   @JsonKey(name: r'country', required: false, includeIfNull: false)
   final String? country;
@@ -71,13 +79,15 @@ class Address {
       identical(this, other) ||
       other is Address &&
           other.id == id &&
+          other.name == name &&
+          other.phone == phone &&
           other.addressLine1 == addressLine1 &&
           other.addressLine2 == addressLine2 &&
           other.landmark == landmark &&
           other.type == type &&
           other.city == city &&
           other.state == state &&
-          other.postalCode == postalCode &&
+          other.pincode == pincode &&
           other.country == country &&
           other.lat == lat &&
           other.lng == lng &&
@@ -86,13 +96,15 @@ class Address {
   @override
   int get hashCode =>
       id.hashCode +
+      name.hashCode +
+      phone.hashCode +
       addressLine1.hashCode +
       addressLine2.hashCode +
       landmark.hashCode +
       type.hashCode +
       city.hashCode +
       state.hashCode +
-      postalCode.hashCode +
+      pincode.hashCode +
       country.hashCode +
       lat.hashCode +
       lng.hashCode +

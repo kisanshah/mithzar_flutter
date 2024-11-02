@@ -376,7 +376,7 @@ class AddressApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Address] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Address>> updateAddress({
+  Future<Response<Address>> update({
     Address? address,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,

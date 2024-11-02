@@ -6,6 +6,6 @@ extension AddressExt on Address {
         addressLine2,
         state,
         city,
-        postalCode,
+        pincode,
       ].join(', ');
 }

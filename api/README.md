@@ -70,7 +70,7 @@ Class | Method | HTTP request | Description
 [*AddressApi*](doc/AddressApi.md) | [**getAddresses**](doc/AddressApi.md#getaddresses) | **GET** /address | Get all user addresses
 [*AddressApi*](doc/AddressApi.md) | [**save**](doc/AddressApi.md#save) | **POST** /address | save new address for the user and return new address object
 [*AddressApi*](doc/AddressApi.md) | [**setDefaultAddress**](doc/AddressApi.md#setdefaultaddress) | **PATCH** /address | Mark the address as default
-[*AddressApi*](doc/AddressApi.md) | [**updateAddress**](doc/AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
+[*AddressApi*](doc/AddressApi.md) | [**update**](doc/AddressApi.md#update) | **PUT** /address | update the address with the new address
 [*AuthApi*](doc/AuthApi.md) | [**refreshToken**](doc/AuthApi.md#refreshtoken) | **POST** /auth/refresh_token | Generate new access token using refresh token
 [*AuthApi*](doc/AuthApi.md) | [**sendOtp**](doc/AuthApi.md#sendotp) | **POST** /auth/send_otp | Send Otp
 [*AuthApi*](doc/AuthApi.md) | [**verifyOtp**](doc/AuthApi.md#verifyotp) | **POST** /auth/verify_otp | Verify Otp

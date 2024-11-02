@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getAddresses**](AddressApi.md#getaddresses) | **GET** /address | Get all user addresses
 [**save**](AddressApi.md#save) | **POST** /address | save new address for the user and return new address object
 [**setDefaultAddress**](AddressApi.md#setdefaultaddress) | **PATCH** /address | Mark the address as default
-[**updateAddress**](AddressApi.md#updateaddress) | **PUT** /address | update the address with the new address
+[**update**](AddressApi.md#update) | **PUT** /address | update the address with the new address
 
 
 # **delete**
@@ -176,8 +176,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateAddress**
-> Address updateAddress(address)
+# **update**
+> Address update(address)
 
 update the address with the new address
 
@@ -189,10 +189,10 @@ final api = Api().getAddressApi();
 final Address address = ; // Address | 
 
 try {
-    final response = api.updateAddress(address);
+    final response = api.update(address);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling AddressApi->updateAddress: $e\n');
+    print('Exception when calling AddressApi->update: $e\n');
 }
 ```
 

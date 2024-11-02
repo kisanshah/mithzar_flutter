@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/model.dart';
 import 'package:mithzar/src/address/providers/address_provider.dart';
+import 'package:mithzar/src/address/ui/bottomsheets/add_address_bottomsheet.dart';
 
 class AddressItem extends ConsumerWidget {
   const AddressItem({
@@ -38,6 +39,18 @@ class AddressItem extends ConsumerWidget {
                   ),
                 ],
               ),
+            TextButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) {
+                    return  AddAddressBottomSheet(address: address);
+                  },
+                );
+              },
+              child: const Text('Edit'),
+            ),
             if (address.primary == false) ...[
               TextButton(
                 onPressed: () {

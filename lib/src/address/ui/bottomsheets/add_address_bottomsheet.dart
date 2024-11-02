@@ -11,7 +11,9 @@ import 'package:mithzar/src/shared/components/app_loader.dart';
 import 'package:mithzar/src/shared/utils/validation_mixin.dart';
 
 class AddAddressBottomSheet extends ConsumerStatefulWidget {
-  const AddAddressBottomSheet({super.key});
+  const AddAddressBottomSheet({super.key, this.address});
+
+  final Address? address;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -65,6 +67,30 @@ class _AddAddressBottomSheetState extends ConsumerState<AddAddressBottomSheet>
     'Uttarakhand',
     'West Bengal',
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        final address = widget.address;
+        if (address != null) {
+          nameCtrl.text = address.name ?? '';
+          phoneCtrl.text = address.phone ?? '';
+          pincodeCtrl.text = address.phone ?? '';
+          cityCtrl.text = address.pincode ?? '';
+          stateCtrl.text = address.state ?? '';
+          addressLine1Ctrl.text = address.addressLine1 ?? '';
+          addressLine2Ctrl.text = address.addressLine2 ?? '';
+          landmarkCtrl.text = address.landmark ?? '';
+          ref.read(addressTypeProvider.notifier).update(address.type);
+          ref
+              .read(primaryAddressToggleProvider.notifier)
+              .update(address.primary);
+        }
+      },
+    );
+  }
 
   @override
   void dispose() {
@@ -249,30 +275,32 @@ class _AddAddressBottomSheetState extends ConsumerState<AddAddressBottomSheet>
               },
             ),
             const Gap(20),
-            Consumer(
-              builder: (context, ref, child) {
-                final state = ref.watch(primaryAddressToggleProvider);
-                final notifier =
-                    ref.read(primaryAddressToggleProvider.notifier);
-                return GestureDetector(
-                  onTap: notifier.toggle,
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: state,
-                        onChanged: (value) => notifier.toggle(),
-                      ),
-                      const Gap(10),
-                      Text(
-                        'Make this my default address',
-                        style: context.text.regular14,
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-            const Gap(30),
+            if (widget.address == null || widget.address?.primary != true) ...[
+              Consumer(
+                builder: (context, ref, child) {
+                  final state = ref.watch(primaryAddressToggleProvider);
+                  final notifier =
+                      ref.read(primaryAddressToggleProvider.notifier);
+                  return GestureDetector(
+                    onTap: () => notifier.update(!state),
+                    child: Row(
+                      children: [
+                        Checkbox(
+                          value: state,
+                          onChanged: (value) => notifier.update(value),
+                        ),
+                        const Gap(10),
+                        Text(
+                          'Make this my default address',
+                          style: context.text.regular14,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              const Gap(30),
+            ],
             Consumer(
               builder: (context, ref, child) {
                 final state = ref.watch(saveAddressProvider);
@@ -290,12 +318,15 @@ class _AddAddressBottomSheetState extends ConsumerState<AddAddressBottomSheet>
                   final type = ref.read(addressTypeProvider);
                   final notifier = ref.read(saveAddressProvider.notifier);
                   final address = Address(
+                    id: widget.address?.id,
+                    name: nameCtrl.text,
+                    phone: phoneCtrl.text,
                     addressLine1: addressLine1Ctrl.text,
                     addressLine2: addressLine2Ctrl.text,
                     city: cityCtrl.text,
                     country: 'India',
                     landmark: landmarkCtrl.text,
-                    postalCode: pincodeCtrl.text,
+                    pincode: pincodeCtrl.text,
                     state: stateCtrl.text,
                     primary: primary,
                     type: type,
