@@ -3,16 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:mithzar/core/extensions/async_value.dart';
 import 'package:mithzar/core/extensions/context.dart';
-import 'package:mithzar/src/home/ui/providers/section_provider.dart';
+import 'package:mithzar/src/product/providers/section_provider.dart';
 import 'package:mithzar/src/shared/components/variant_item.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
-class HomeProductSection extends ConsumerWidget {
-  const HomeProductSection({super.key});
+class ProductSection extends ConsumerWidget {
+  const ProductSection({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(sectionNotifierProvider);
-    return state.unfold(
+    final state = ref.watch(sectionProvider);
+    return state.unfoldSliver(
       (sections) => MultiSliver(
         children: [
           for (final section in sections) ...[
@@ -25,31 +26,36 @@ class HomeProductSection extends ConsumerWidget {
             ),
             SliverToBoxAdapter(
               child: AspectRatio(
-                aspectRatio: 6 / 4,
-                child: ListView.builder(
+                aspectRatio: 1.55,
+                child: ListView.separated(
                   padding: const EdgeInsets.only(left: 20, top: 20, right: 10),
                   scrollDirection: Axis.horizontal,
-                  controller: PageController(),
-                  itemBuilder: (context, index) => Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    width: 175,
-                    height: 250,
+                  itemBuilder: (context, index) => SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.4,
                     child: VariantItem(
                       variant: section.variants![index],
                     ),
                   ),
                   itemCount: section.variants?.length ?? 0,
+                  separatorBuilder: (context, index) => const Gap(10),
                 ),
               ),
             ),
             const SliverGap(15),
             SliverToBoxAdapter(
               child: Center(
-                child: OutlinedButton(
+                child: OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(width: 0.5),
+                    shape: const RoundedRectangleBorder(),
+                    minimumSize: const Size(110, 25),
+                  ),
                   onPressed: () {},
-                  child: const Text(
-                    'View All  →',
-                    style: TextStyle(),
+                  iconAlignment: IconAlignment.end,
+                  icon: const Icon(PhosphorIconsLight.arrowRight, size: 18),
+                  label: Text(
+                    'View All',
+                    style: context.text.light12,
                   ),
                 ),
               ),

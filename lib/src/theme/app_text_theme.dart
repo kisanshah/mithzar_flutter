@@ -9,6 +9,11 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
       fontSize: 24,
       fontWeight: FontWeight.w600,
     );
+    light12 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    );
     regular12 = GoogleFonts.poppins(
       color: context.colors.primaryText,
       fontSize: 12,
@@ -26,6 +31,11 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
       color: context.colors.primaryText,
       fontSize: 18,
     );
+    semibold12 = GoogleFonts.poppins(
+      color: context.colors.primaryText,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    );
     semibold14 = GoogleFonts.poppins(
       color: context.colors.primaryText,
       fontSize: 14,
@@ -40,10 +50,12 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
 
   final BuildContext context;
   late TextStyle semibold24;
+  late TextStyle light12;
   late TextStyle regular12;
   late TextStyle regular14;
   late TextStyle regular16;
   late TextStyle regular18;
+  late TextStyle semibold12;
   late TextStyle semibold14;
   late TextStyle semibold16;
 

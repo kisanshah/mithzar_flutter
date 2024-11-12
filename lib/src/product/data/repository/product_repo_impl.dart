@@ -24,7 +24,9 @@ class ProductRepoImpl implements ProductRepo {
   Future<List<ProductVariant>> getVariants(
     PaginationFilter? filter,
   ) {
-    return source.getVariants(paginationFilter: filter ?? PaginationFilter()).guard<List<ProductVariant>>();
+    return source
+        .getVariants(paginationFilter: filter ?? PaginationFilter())
+        .guard<List<ProductVariant>>();
   }
 
   @override

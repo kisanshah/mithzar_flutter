@@ -1,4 +1,3 @@
-
 import 'package:mithzar/core/extensions/string.dart';
 
 mixin ValidationMixin {

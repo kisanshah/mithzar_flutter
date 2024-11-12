@@ -45,7 +45,7 @@ class AddressItem extends ConsumerWidget {
                   context: context,
                   isScrollControlled: true,
                   builder: (context) {
-                    return  AddAddressBottomSheet(address: address);
+                    return AddAddressBottomSheet(address: address);
                   },
                 );
               },
