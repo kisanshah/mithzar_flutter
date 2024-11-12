@@ -18,6 +18,15 @@ class App extends ConsumerWidget {
       title: 'Flutter Demo',
       theme: theme.light,
       darkTheme: theme.dark,
+      builder: (context, child) {
+        return Container(
+          color: Colors.white,
+          child: SafeArea(
+            top: false,
+            child: child!,
+          ),
+        );
+      },
       debugShowCheckedModeBanner: false,
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),

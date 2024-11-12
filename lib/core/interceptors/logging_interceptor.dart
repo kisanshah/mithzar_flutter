@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:mithzar/core/extensions/log.dart';
 
@@ -27,7 +29,7 @@ class LoggingInterceptor implements InterceptorsWrapper {
   ) async {
     'x------------------------------'.logSuccess();
     'Response : ${response.extra}'.logSuccess();
-    'Response : ${response.data}'.logSuccess();
+    'Response : ${jsonEncode(response.data)}'.logSuccess();
     'Status : ${response.statusCode} - ${response.statusMessage}'.logSuccess();
     await Future.delayed(const Duration(milliseconds: 20));
     '------------------------------x'.logSuccess();

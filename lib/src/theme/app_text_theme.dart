@@ -17,7 +17,6 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
     regular12 = GoogleFonts.poppins(
       color: context.colors.primaryText,
       fontSize: 12,
-      fontWeight: FontWeight.w500,
     );
     regular14 = GoogleFonts.poppins(
       color: context.colors.primaryText,

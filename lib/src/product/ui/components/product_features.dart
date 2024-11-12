@@ -1,9 +1,10 @@
 import 'package:api/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
+import 'package:mithzar/core/extensions/context.dart';
 
-class ProductFeature extends StatelessWidget {
-  const ProductFeature({
+class ProductFeatures extends StatelessWidget {
+  const ProductFeatures({
     super.key,
     required this.product,
   });
@@ -15,8 +16,9 @@ class ProductFeature extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Features',
+          style: context.text.semibold14,
         ),
         const Gap(10),
         GridView.builder(
@@ -25,7 +27,7 @@ class ProductFeature extends StatelessWidget {
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 1 / .4,
+            childAspectRatio: 1 / .25,
           ),
           itemCount: product.features?.length ?? 0,
           itemBuilder: (context, index) {
@@ -34,11 +36,15 @@ class ProductFeature extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  feat?.key ?? '',
+                  feat?.title ?? '',
+                  style: context.text.semibold12,
                 ),
                 Text(
-                  feat?.value ?? '',
+                  feat?.description ?? '',
                   maxLines: 2,
+                  style: context.text.semibold12.copyWith(
+                    color: const Color(0xFF656565),
+                  ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ],

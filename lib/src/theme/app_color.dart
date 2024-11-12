@@ -42,7 +42,7 @@ class AppLightColor extends BaseColorExtension {
           primary: const Color(0xFF1e272e),
           secondary: const Color(0xFF6774eb),
           primaryText: const Color(0xFF0C1421),
-          secondaryText: const Color(0xFF313957),
+          secondaryText: const Color(0xFF656565),
           yellow: const Color(0xFFfbc470),
           green: const Color(0xFF35cfb5),
           red: const Color(0xFFcf434e),

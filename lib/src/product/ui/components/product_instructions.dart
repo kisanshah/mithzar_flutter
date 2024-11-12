@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
-class ProductInstruction extends ConsumerWidget {
-  const ProductInstruction({
+class ProductInstructions extends ConsumerWidget {
+  const ProductInstructions({
     super.key,
     required this.product,
   });

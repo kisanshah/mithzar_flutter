@@ -16,23 +16,25 @@ part 'product_feature.g.dart';
 class ProductFeature {
   /// Returns a new [ProductFeature] instance.
   ProductFeature({
-    this.key,
-    this.value,
+    this.title,
+    this.description,
   });
 
-  @JsonKey(name: r'key', required: false, includeIfNull: false)
-  final String? key;
+  @JsonKey(name: r'title', required: false, includeIfNull: false)
+  final String? title;
 
-  @JsonKey(name: r'value', required: false, includeIfNull: false)
-  final String? value;
+  @JsonKey(name: r'description', required: false, includeIfNull: false)
+  final String? description;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ProductFeature && other.key == key && other.value == value;
+      other is ProductFeature &&
+          other.title == title &&
+          other.description == description;
 
   @override
-  int get hashCode => key.hashCode + value.hashCode;
+  int get hashCode => title.hashCode + description.hashCode;
 
   factory ProductFeature.fromJson(Map<String, dynamic> json) =>
       _$ProductFeatureFromJson(json);

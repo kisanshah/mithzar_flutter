@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:mithzar/src/shared/components/app_image.dart';
 
 class ImageCarousel extends ConsumerWidget {
@@ -14,18 +15,21 @@ class ImageCarousel extends ConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    final boxheight = height ?? MediaQuery.sizeOf(context).height * .45;
+    final boxheight = height ?? MediaQuery.sizeOf(context).height * .40;
     return SizedBox(
       height: boxheight,
-      child: PageView.builder(
-        padEnds: false,
+      child: ListView.separated(
+        // padEnds: false,
+        scrollDirection: Axis.horizontal,
         physics: const ClampingScrollPhysics(),
         itemCount: urls.length,
         itemBuilder: (context, index) {
           return AppImage(
             url: urls.elementAt(index),
+            fit: BoxFit.contain,
           );
         },
+        separatorBuilder: (context, index) => const Gap(10),
       ),
     );
   }
